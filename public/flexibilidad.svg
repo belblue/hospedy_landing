@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100.58925mm"
+   height="91.050171mm"
+   viewBox="0 0 100.58925 91.050171"
+   version="1.1"
+   id="svg215"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs212">
+    <linearGradient
+       id="linearGradient2483">
+      <stop
+         style="stop-color:#2667f7;stop-opacity:1;"
+         offset="0"
+         id="stop2479" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="1"
+         id="stop2481" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2473">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop2471" />
+      <stop
+         style="stop-color:#9ba0aa;stop-opacity:1;"
+         offset="1"
+         id="stop2469" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient2473"
+       id="linearGradient2475"
+       x1="59.616264"
+       y1="99.46048"
+       x2="144.78004"
+       y2="51.212368"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       xlink:href="#linearGradient2483"
+       id="linearGradient2485"
+       x1="54.280155"
+       y1="133.70128"
+       x2="140.11096"
+       y2="84.119118"
+       gradientUnits="userSpaceOnUse" />
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter4538"
+       x="-0.041834611"
+       y="-0.072566882"
+       width="1.1069107"
+       height="1.1451339">
+      <feFlood
+         flood-opacity="0.101961"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood4528" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite4530" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="1.5"
+         result="blur"
+         id="feGaussianBlur4532" />
+      <feOffset
+         dx="2"
+         dy="0"
+         result="offset"
+         id="feOffset4534" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite4536" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter5276"
+       x="-0.041834611"
+       y="-0.072566979"
+       width="1.1069107"
+       height="1.145134">
+      <feFlood
+         flood-opacity="0.101961"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood5266" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite5268" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="1.5"
+         result="blur"
+         id="feGaussianBlur5270" />
+      <feOffset
+         dx="2"
+         dy="0"
+         result="offset"
+         id="feOffset5272" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite5274" />
+    </filter>
+  </defs>
+  <g
+     id="layer1"
+     transform="translate(-50.235475,-47.042906)">
+    <path
+       style="fill:url(#linearGradient2475);fill-opacity:1;stroke-width:0.0927;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter4538)"
+       d="M 99.491085,50.642904 A 40.5,40.5 0 0 0 59.171582,87.494918 h 0.646989 l 10.022127,-11.325407 3.787883,11.325407 h 0.640787 A 25.515,25.515 0 0 1 99.491085,65.628035 25.515,25.515 0 0 1 124.39034,85.773059 l -6.09265,-0.001 13.45654,14.480251 13.4705,-14.475084 -5.62757,-0.001 A 40.5,40.5 0 0 0 99.491085,50.642904 Z"
+       id="path438" />
+    <path
+       id="path1704"
+       style="fill:url(#linearGradient2485);fill-opacity:1;stroke-width:0.0927;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter5276)"
+       d="m 67.305969,84.883708 -13.470495,14.474568 5.627563,10e-4 A 40.5,40.5 0 0 0 99.569116,134.49305 40.5,40.5 0 0 0 139.88862,97.641035 h -0.64699 L 129.2195,108.96648 125.43162,97.641069 h -0.64079 A 25.515,25.515 0 0 1 99.569116,119.50795 25.515,25.515 0 0 1 74.669861,99.36241 l 6.092651,0.001 z" />
+  </g>
+</svg>
