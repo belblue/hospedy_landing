@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ridid.me/sitemap.xml
+Sitemap: https://hospedy.us/sitemap.xml

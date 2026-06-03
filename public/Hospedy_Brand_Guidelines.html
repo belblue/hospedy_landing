@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospedy Brand Guidelines</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8fafc;
+            color: #1a1a2e;
+            line-height: 1.6;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        header h1 { font-size: 3rem; font-weight: 800; margin-bottom: 10px; }
+        header p { font-size: 1.2rem; opacity: 0.9; }
+        
+        /* Section */
+        section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        section h2 {
+            font-size: 1.5rem;
+            color: #0D9488;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        /* Logo Grid */
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .logo-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .logo-display {
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 180px;
+        }
+        .logo-display.light { background: #fafafa; }
+        .logo-display.dark { background: #1a1a2e; }
+        .logo-display.teal { background: #0D9488; }
+        .logo-label {
+            padding: 15px 20px;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        
+        /* Color Palette */
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .color-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .color-swatch {
+            height: 120px;
+            display: flex;
+            align-items: flex-end;
+            padding: 15px;
+        }
+        .color-info {
+            padding: 15px;
+            background: white;
+        }
+        .color-name { font-weight: 700; margin-bottom: 5px; }
+        .color-hex { font-family: monospace; color: #64748b; font-size: 0.9rem; }
+        
+        /* Typography */
+        .type-sample {
+            padding: 30px;
+            background: #f8fafc;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .type-sample h3 { font-size: 2.5rem; color: #0D9488; margin-bottom: 10px; }
+        .type-weights { display: flex; gap: 30px; flex-wrap: wrap; margin-top: 20px; }
+        .weight-item { text-align: center; }
+        .weight-sample { font-size: 2rem; color: #1a1a2e; }
+        .weight-label { font-size: 0.8rem; color: #64748b; margin-top: 5px; }
+        
+        /* Usage Guidelines */
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .usage-item {
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+        .usage-item.do { border-left: 4px solid #10b981; }
+        .usage-item.dont { border-left: 4px solid #ef4444; }
+        .usage-label {
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .usage-item.do .usage-label { color: #10b981; }
+        .usage-item.dont .usage-label { color: #ef4444; }
+        
+        /* File List */
+        .file-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .file-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 10px;
+        }
+        .file-icon {
+            width: 40px;
+            height: 40px;
+            background: #0D9488;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+        .file-name { font-weight: 600; }
+        .file-desc { font-size: 0.85rem; color: #64748b; }
+        
+        /* Inline SVG for logos */
+        .logo-svg { max-width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hospedy</h1>
+        <p>Brand Guidelines & Visual Identity</p>
+    </header>
+    
+    <div class="container">
+        
+        <!-- Primary Logo -->
+        <section>
+            <h2>Primary Logo</h2>
+            <div class="logo-grid">
+                <div class="logo-card">
+                    <div class="logo-display light">
+                        <svg width="140" height="155" viewBox="0 0 36.311279 40.402298" class="logo-svg">
+                            <g transform="translate(-45.053681,-99.309918)">
+                                <path style="fill:#0d9488" d="m 45.148833,121.47429 c 5.64e-4,-2.83541 0.07781,-5.22613 0.180269,-5.57893 0.360693,-1.24204 1.135154,-2.00215 5.113081,-5.01835 5.893415,-4.4686 10.41632,-7.55818 11.080034,-7.9014 0.747892,-0.38675 2.187605,-0.40916 3.151078,-0.14847 0.673851,0.18233 1.63612,0.82421 5.989411,3.99522 0.79077,0.57602 3.10609,2.25817 5.14516,3.73811 3.88641,2.82074 4.95286,3.81488 5.286,4.92757 0.2121,0.70842 0.35122,2.79804 0.19658,2.95268 -0.0499,0.05 -1.67388,0.45369 -3.60872,0.8972 -1.93485,0.44351 -4.32245,1.00131 -5.30578,1.23955 -2.43943,0.59102 -2.35726,0.60697 -2.35726,-0.45754 0,-1.37332 -0.68037,-2.37351 -1.889349,-2.77747 -0.596475,-0.1993 -2.116878,0.0154 -6.577321,0.9289 -1.11566,0.22848 -2.345972,0.46593 -2.734028,0.52766 -2.767535,0.44025 -4.321528,2.11474 -4.321528,4.65661 v 0.67531 0.16985 l -0.160051,0.0323 -1.647935,0.3328 c -0.994392,0.20082 -2.522361,0.54093 -3.395486,0.7558 -0.873125,0.21488 -2.162969,0.53097 -2.86632,0.70242 l -1.278819,0.31174 9.88e-4,-4.96158 z"/>
+                                <path style="fill:#0f766e" d="m 45.148831,130.87964 -9.84e-4,-3.80114 1.278819,-0.30707 c 3.51441,-0.84388 7.41812,-1.641 7.721677,-1.70385 0.122739,-0.0254 0.323083,-0.10914 0.324739,0.0607 0.0043,0.44413 -0.02832,1.50183 0.02338,6.64212 l 0.07237,7.19576 c -1.83558,0.12649 -5.417276,0.0966 -7.662009,0.0831 -0.672714,-0.0531 -1.125354,-0.67035 -1.395617,-1.16882 -0.736383,-2.13633 -0.362845,-4.82516 -0.362375,-7.0008 z m 25.046245,0.12765 v -8.02532 l 3.1309,-0.73844 c 1.72199,-0.40614 4.0834,-0.9685 5.24757,-1.24969 1.16416,-0.28119 2.45029,-0.43857 2.57156,-0.43888 0.17298,-3.5e-4 0.22277,1.4983 0.21973,7.34501 -0.004,6.83135 -0.26823,7.54516 -0.56303,8.19191 -0.47914,1.05108 -1.19686,1.81314 -2.20714,2.34352 -0.8841,0.46413 -0.98178,0.47538 -4.65133,0.53565 l -3.74826,0.0616 z"/>
+                                <g style="fill:#f59e0b">
+                                    <path d="m 78.960337,105.05075 c -0.15088,0.0251 -0.22423,0.43692 -0.28799,0.70383 -0.0782,0.32717 -0.3262,0.5858 -0.76125,0.79375 -0.88127,0.42125 -0.90271,0.66893 -0.0936,1.08169 0.49504,0.25255 0.73538,0.51499 0.85564,0.93431 0.23934,0.83451 0.68871,0.84488 1.07485,0.0248 0.21085,-0.44779 0.53694,-0.77593 0.977,-0.98314 0.82806,-0.3899 0.84192,-0.75017 0.0391,-1.01514 -0.44282,-0.14614 -0.72094,-0.40013 -0.96762,-0.88365 -0.40874,-0.80121 -0.46346,-0.71856 -0.83607,-0.65646 z m -4.83946,0.28365 c -0.15154,-0.17337 -0.36557,-0.59613 -0.47562,-0.93947 -0.19531,-0.60935 -0.95375,-1.10191 -1.47598,-1.22782 -0.27887,-0.0672 -0.86406,-0.60873 -0.74754,-0.91237 0.0544,-0.1418 0.49041,-0.42322 0.96887,-0.62536 0.77247,-0.32636 0.91951,-0.47963 1.31238,-1.36798 0.37183,-0.840769 0.50644,-0.991368 0.84337,-0.943554 0.28837,0.04092 0.52073,0.316532 0.82771,0.981774 0.38028,0.82407 0.52446,0.96125 1.32292,1.25869 0.51766,0.19284 0.92127,0.4596 0.95568,0.63165 0.0827,0.4136 -0.41841,0.91662 -1.03624,1.04019 -0.64095,0.12819 -1.05951,0.59316 -1.40973,1.56604 -0.29937,0.8316 -0.66914,1.01489 -1.08582,0.53821 z"/>
+                                    <path d="m 65.766821,139.59097 c -0.436561,-0.0328 -2.103436,-0.17778 -3.704165,-0.32227 -1.60073,-0.14449 -3.448447,-0.31054 -4.106037,-0.369 l -1.195622,-0.10629 -0.0405,-9.15289 -0.01638,-3.70262 c -0.0261,-5.25515 -0.839499,-4.40523 4.407607,-5.52553 2.573249,-0.56623 4.748327,-0.83765 5.749901,-0.68608 1.110927,0.21914 0.925883,1.73868 0.948195,2.35691 0.0504,1.44744 0.06989,4.00615 0.07106,8.2363 l 0.0026,9.39271 -0.661458,-0.0308 c -0.363802,-0.017 -1.018646,-0.0576 -1.455209,-0.0904 z m 0.399112,-8.18603 c 0.483388,-0.59148 0.561617,-1.18959 0.242986,-1.85776 -0.729033,-1.5288 -3.111541,-0.98307 -3.111541,0.71271 0,0.64295 0.403735,1.29431 0.944915,1.52446 0.575471,0.24474 1.574609,0.0477 1.92364,-0.37941 z"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="logo-label">Primary Icon — Light Background</div>
+                </div>
+                
+                <div class="logo-card">
+                    <div class="logo-display dark">
+                        <svg width="140" height="155" viewBox="0 0 36.311279 40.402298" class="logo-svg">
+                            <g transform="translate(-45.053681,-99.309918)">
+                                <path style="fill:#14b8a6" d="m 45.148833,121.47429 c 5.64e-4,-2.83541 0.07781,-5.22613 0.180269,-5.57893 0.360693,-1.24204 1.135154,-2.00215 5.113081,-5.01835 5.893415,-4.4686 10.41632,-7.55818 11.080034,-7.9014 0.747892,-0.38675 2.187605,-0.40916 3.151078,-0.14847 0.673851,0.18233 1.63612,0.82421 5.989411,3.99522 0.79077,0.57602 3.10609,2.25817 5.14516,3.73811 3.88641,2.82074 4.95286,3.81488 5.286,4.92757 0.2121,0.70842 0.35122,2.79804 0.19658,2.95268 -0.0499,0.05 -1.67388,0.45369 -3.60872,0.8972 -1.93485,0.44351 -4.32245,1.00131 -5.30578,1.23955 -2.43943,0.59102 -2.35726,0.60697 -2.35726,-0.45754 0,-1.37332 -0.68037,-2.37351 -1.889349,-2.77747 -0.596475,-0.1993 -2.116878,0.0154 -6.577321,0.9289 -1.11566,0.22848 -2.345972,0.46593 -2.734028,0.52766 -2.767535,0.44025 -4.321528,2.11474 -4.321528,4.65661 v 0.67531 0.16985 l -0.160051,0.0323 -1.647935,0.3328 c -0.994392,0.20082 -2.522361,0.54093 -3.395486,0.7558 -0.873125,0.21488 -2.162969,0.53097 -2.86632,0.70242 l -1.278819,0.31174 9.88e-4,-4.96158 z"/>
+                                <path style="fill:#0d9488" d="m 45.148831,130.87964 -9.84e-4,-3.80114 1.278819,-0.30707 c 3.51441,-0.84388 7.41812,-1.641 7.721677,-1.70385 0.122739,-0.0254 0.323083,-0.10914 0.324739,0.0607 0.0043,0.44413 -0.02832,1.50183 0.02338,6.64212 l 0.07237,7.19576 c -1.83558,0.12649 -5.417276,0.0966 -7.662009,0.0831 -0.672714,-0.0531 -1.125354,-0.67035 -1.395617,-1.16882 -0.736383,-2.13633 -0.362845,-4.82516 -0.362375,-7.0008 z m 25.046245,0.12765 v -8.02532 l 3.1309,-0.73844 c 1.72199,-0.40614 4.0834,-0.9685 5.24757,-1.24969 1.16416,-0.28119 2.45029,-0.43857 2.57156,-0.43888 0.17298,-3.5e-4 0.22277,1.4983 0.21973,7.34501 -0.004,6.83135 -0.26823,7.54516 -0.56303,8.19191 -0.47914,1.05108 -1.19686,1.81314 -2.20714,2.34352 -0.8841,0.46413 -0.98178,0.47538 -4.65133,0.53565 l -3.74826,0.0616 z"/>
+                                <g style="fill:#fbbf24">
+                                    <path d="m 78.960337,105.05075 c -0.15088,0.0251 -0.22423,0.43692 -0.28799,0.70383 -0.0782,0.32717 -0.3262,0.5858 -0.76125,0.79375 -0.88127,0.42125 -0.90271,0.66893 -0.0936,1.08169 0.49504,0.25255 0.73538,0.51499 0.85564,0.93431 0.23934,0.83451 0.68871,0.84488 1.07485,0.0248 0.21085,-0.44779 0.53694,-0.77593 0.977,-0.98314 0.82806,-0.3899 0.84192,-0.75017 0.0391,-1.01514 -0.44282,-0.14614 -0.72094,-0.40013 -0.96762,-0.88365 -0.40874,-0.80121 -0.46346,-0.71856 -0.83607,-0.65646 z m -4.83946,0.28365 c -0.15154,-0.17337 -0.36557,-0.59613 -0.47562,-0.93947 -0.19531,-0.60935 -0.95375,-1.10191 -1.47598,-1.22782 -0.27887,-0.0672 -0.86406,-0.60873 -0.74754,-0.91237 0.0544,-0.1418 0.49041,-0.42322 0.96887,-0.62536 0.77247,-0.32636 0.91951,-0.47963 1.31238,-1.36798 0.37183,-0.840769 0.50644,-0.991368 0.84337,-0.943554 0.28837,0.04092 0.52073,0.316532 0.82771,0.981774 0.38028,0.82407 0.52446,0.96125 1.32292,1.25869 0.51766,0.19284 0.92127,0.4596 0.95568,0.63165 0.0827,0.4136 -0.41841,0.91662 -1.03624,1.04019 -0.64095,0.12819 -1.05951,0.59316 -1.40973,1.56604 -0.29937,0.8316 -0.66914,1.01489 -1.08582,0.53821 z"/>
+                                    <path d="m 65.766821,139.59097 c -0.436561,-0.0328 -2.103436,-0.17778 -3.704165,-0.32227 -1.60073,-0.14449 -3.448447,-0.31054 -4.106037,-0.369 l -1.195622,-0.10629 -0.0405,-9.15289 -0.01638,-3.70262 c -0.0261,-5.25515 -0.839499,-4.40523 4.407607,-5.52553 2.573249,-0.56623 4.748327,-0.83765 5.749901,-0.68608 1.110927,0.21914 0.925883,1.73868 0.948195,2.35691 0.0504,1.44744 0.06989,4.00615 0.07106,8.2363 l 0.0026,9.39271 -0.661458,-0.0308 c -0.363802,-0.017 -1.018646,-0.0576 -1.455209,-0.0904 z m 0.399112,-8.18603 c 0.483388,-0.59148 0.561617,-1.18959 0.242986,-1.85776 -0.729033,-1.5288 -3.111541,-0.98307 -3.111541,0.71271 0,0.64295 0.403735,1.29431 0.944915,1.52446 0.575471,0.24474 1.574609,0.0477 1.92364,-0.37941 z"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="logo-label">Primary Icon — Dark Background</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Color Palette -->
+        <section>
+            <h2>Color Palette</h2>
+            <div class="color-palette">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #0D9488;">
+                        <span style="color: white; font-weight: 600;">Primary</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Deep Teal</div>
+                        <div class="color-hex">#0D9488 · RGB(13, 148, 136)</div>
+                    </div>
+                </div>
+                
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #0F766E;">
+                        <span style="color: white; font-weight: 600;">Secondary</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Dark Teal</div>
+                        <div class="color-hex">#0F766E · RGB(15, 118, 110)</div>
+                    </div>
+                </div>
+                
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #F59E0B;">
+                        <span style="color: white; font-weight: 600;">Accent</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Amber</div>
+                        <div class="color-hex">#F59E0B · RGB(245, 158, 11)</div>
+                    </div>
+                </div>
+                
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #14B8A6;">
+                        <span style="color: white; font-weight: 600;">Light Mode</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Bright Teal</div>
+                        <div class="color-hex">#14B8A6 · RGB(20, 184, 166)</div>
+                    </div>
+                </div>
+                
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #1a1a2e;">
+                        <span style="color: white; font-weight: 600;">Dark</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Navy Dark</div>
+                        <div class="color-hex">#1A1A2E · RGB(26, 26, 46)</div>
+                    </div>
+                </div>
+                
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #2667F7;">
+                        <span style="color: white; font-weight: 600;">Product UI</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Interface Blue</div>
+                        <div class="color-hex">#2667F7 · RGB(38, 103, 247)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Typography -->
+        <section>
+            <h2>Typography</h2>
+            <div class="type-sample">
+                <h3 style="font-family: 'Nunito', sans-serif;">Hospedy</h3>
+                <p style="color: #64748b;">Primary typeface: <strong>Nunito</strong> — A well-balanced sans serif with rounded terminals</p>
+                <div class="type-weights">
+                    <div class="weight-item">
+                        <div class="weight-sample" style="font-weight: 400;">Aa</div>
+                        <div class="weight-label">Regular 400</div>
+                    </div>
+                    <div class="weight-item">
+                        <div class="weight-sample" style="font-weight: 600;">Aa</div>
+                        <div class="weight-label">SemiBold 600</div>
+                    </div>
+                    <div class="weight-item">
+                        <div class="weight-sample" style="font-weight: 700;">Aa</div>
+                        <div class="weight-label">Bold 700</div>
+                    </div>
+                    <div class="weight-item">
+                        <div class="weight-sample" style="font-weight: 800;">Aa</div>
+                        <div class="weight-label">ExtraBold 800</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Logo Files -->
+        <section>
+            <h2>Logo Files Included</h2>
+            <div class="file-list">
+                <div class="file-item">
+                    <div class="file-icon">SVG</div>
+                    <div>
+                        <div class="file-name">hospedy-icon-color.svg</div>
+                        <div class="file-desc">Primary icon, full color</div>
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div class="file-icon">SVG</div>
+                    <div>
+                        <div class="file-name">hospedy-icon-mono-teal.svg</div>
+                        <div class="file-desc">Single color teal version</div>
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div class="file-icon">SVG</div>
+                    <div>
+                        <div class="file-name">hospedy-icon-mono-white.svg</div>
+                        <div class="file-desc">White version for dark backgrounds</div>
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div class="file-icon">SVG</div>
+                    <div>
+                        <div class="file-name">hospedy-icon-mono-dark.svg</div>
+                        <div class="file-desc">Dark version for light backgrounds</div>
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div class="file-icon">SVG</div>
+                    <div>
+                        <div class="file-name">hospedy-full-logo-light.svg</div>
+                        <div class="file-desc">Icon + wordmark for light backgrounds</div>
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div class="file-icon">SVG</div>
+                    <div>
+                        <div class="file-name">hospedy-full-logo-dark.svg</div>
+                        <div class="file-desc">Icon + wordmark for dark backgrounds</div>
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div class="file-icon">SVG</div>
+                    <div>
+                        <div class="file-name">hospedy-icon-512.svg</div>
+                        <div class="file-desc">App icon, 512×512 with rounded corners</div>
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div class="file-icon">SVG</div>
+                    <div>
+                        <div class="file-name">hospedy-favicon-32.svg</div>
+                        <div class="file-desc">Browser favicon, 32×32</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Usage Guidelines -->
+        <section>
+            <h2>Usage Guidelines</h2>
+            <div class="usage-grid">
+                <div class="usage-item do">
+                    <div class="usage-label">✓ Do</div>
+                    <p>Use the full color logo on light or white backgrounds</p>
+                </div>
+                <div class="usage-item do">
+                    <div class="usage-label">✓ Do</div>
+                    <p>Use the dark mode variant on dark backgrounds (#1a1a2e or darker)</p>
+                </div>
+                <div class="usage-item do">
+                    <div class="usage-label">✓ Do</div>
+                    <p>Maintain minimum clear space equal to the door width around the logo</p>
+                </div>
+                <div class="usage-item dont">
+                    <div class="usage-label">✗ Don't</div>
+                    <p>Stretch, rotate, or distort the logo proportions</p>
+                </div>
+                <div class="usage-item dont">
+                    <div class="usage-label">✗ Don't</div>
+                    <p>Change the logo colors outside of approved variants</p>
+                </div>
+                <div class="usage-item dont">
+                    <div class="usage-label">✗ Don't</div>
+                    <p>Place the logo on busy backgrounds without sufficient contrast</p>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+</body>
+</html>

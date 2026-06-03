@@ -1,0 +1,184 @@
+<svg width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Design 1B: "Cascading Tabs" - Staggered stack with year tabs and notification -->
+  <defs>
+    <linearGradient id="b-bg" x1="240" y1="0" x2="240" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f0fdfa"/>
+      <stop offset="50%" stop-color="#f5fffe"/>
+      <stop offset="100%" stop-color="#ecfdf5"/>
+    </linearGradient>
+    <linearGradient id="b-teal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0D9488"/>
+      <stop offset="100%" stop-color="#0F766E"/>
+    </linearGradient>
+    <linearGradient id="b-amber-g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+    <filter id="b-sh" x="-10%" y="-5%" width="128%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#0F766E" flood-opacity="0.11"/>
+    </filter>
+    <filter id="b-sh-sm" x="-15%" y="-10%" width="135%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0F766E" flood-opacity="0.1"/>
+    </filter>
+    <filter id="b-sh-xs" x="-20%" y="-20%" width="145%" height="145%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1a1a2e" flood-opacity="0.07"/>
+    </filter>
+  </defs>
+
+  <!-- Background (transparent) -->
+  <rect width="480" height="480" rx="32" fill="none"/>
+
+  <!-- Cross-hatch removed for transparent bg -->
+
+  <!-- ===== Card 3 (back) - 2023 ===== -->
+  <g filter="url(#b-sh)">
+    <rect x="130" y="60" width="235" height="305" rx="14" fill="white" stroke="#e2e8f0" stroke-width="0.8"/>
+    <!-- Year tab -->
+    <rect x="320" y="48" width="50" height="24" rx="8" fill="#14B8A6" opacity="0.6"/>
+    <text x="345" y="64" font-family="'Nunito', sans-serif" font-weight="700" font-size="10" fill="white" text-anchor="middle">2023</text>
+    <!-- Ghost lines -->
+    <rect x="152" y="82" width="65" height="6" rx="3" fill="#0D9488" opacity="0.08"/>
+    <rect x="152" y="100" width="190" height="3" rx="1.5" fill="#e2e8f0"/>
+    <rect x="152" y="112" width="160" height="3" rx="1.5" fill="#e2e8f0"/>
+    <rect x="152" y="124" width="140" height="3" rx="1.5" fill="#e2e8f0"/>
+  </g>
+
+  <!-- ===== Card 2 (middle) - 2024 ===== -->
+  <g filter="url(#b-sh)">
+    <rect x="118" y="82" width="235" height="305" rx="14" fill="white" stroke="#e2e8f0" stroke-width="0.8"/>
+    <!-- Year tab -->
+    <rect x="308" y="70" width="50" height="24" rx="8" fill="#0F766E" opacity="0.75"/>
+    <text x="333" y="86" font-family="'Nunito', sans-serif" font-weight="700" font-size="10" fill="white" text-anchor="middle">2024</text>
+    <!-- Ghost lines -->
+    <rect x="140" y="104" width="65" height="6" rx="3" fill="#0F766E" opacity="0.1"/>
+    <rect x="140" y="122" width="190" height="3" rx="1.5" fill="#e2e8f0"/>
+    <rect x="140" y="134" width="170" height="3" rx="1.5" fill="#e2e8f0"/>
+    <rect x="140" y="146" width="155" height="3" rx="1.5" fill="#e2e8f0"/>
+    <rect x="140" y="158" width="130" height="3" rx="1.5" fill="#e2e8f0"/>
+  </g>
+
+  <!-- ===== Card 1 (front, main) - 2025 ===== -->
+  <g filter="url(#b-sh)">
+    <rect x="106" y="104" width="235" height="305" rx="14" fill="white" stroke="#e2e8f0" stroke-width="0.8"/>
+
+    <!-- Year tab -->
+    <rect x="296" y="92" width="50" height="24" rx="8" fill="url(#b-teal)"/>
+    <text x="321" y="108" font-family="'Nunito', sans-serif" font-weight="700" font-size="10" fill="white" text-anchor="middle">2025</text>
+
+    <!-- Header -->
+    <rect x="106" y="104" width="235" height="52" rx="14" fill="url(#b-teal)"/>
+    <rect x="106" y="134" width="235" height="22" fill="url(#b-teal)"/>
+
+    <!-- Logo + title in header -->
+    <circle cx="134" cy="130" r="12" fill="white" opacity="0.18"/>
+    <text x="134" y="135" font-family="'Nunito', sans-serif" font-weight="800" font-size="12" fill="white" text-anchor="middle" opacity="0.65">H</text>
+    <rect x="154" y="122" width="52" height="6" rx="3" fill="white" opacity="0.7"/>
+    <rect x="154" y="134" width="35" height="4" rx="2" fill="white" opacity="0.35"/>
+    <!-- Invoice # -->
+    <rect x="272" y="122" width="54" height="5" rx="2.5" fill="white" opacity="0.4"/>
+    <rect x="282" y="133" width="44" height="4" rx="2" fill="white" opacity="0.25"/>
+
+    <!-- Client & date row -->
+    <rect x="126" y="174" width="26" height="4" rx="2" fill="#0D9488" opacity="0.35"/>
+    <rect x="126" y="184" width="80" height="5" rx="2.5" fill="#1a1a2e" opacity="0.5"/>
+    <rect x="126" y="195" width="60" height="3" rx="1.5" fill="#94a3b8" opacity="0.3"/>
+
+    <rect x="268" y="174" width="30" height="4" rx="2" fill="#0D9488" opacity="0.35"/>
+    <rect x="268" y="184" width="55" height="5" rx="2.5" fill="#1a1a2e" opacity="0.4"/>
+
+    <!-- Divider -->
+    <line x1="126" y1="212" x2="322" y2="212" stroke="#e2e8f0" stroke-width="1"/>
+
+    <!-- Table header row -->
+    <rect x="126" y="222" width="50" height="4" rx="2" fill="#0D9488" opacity="0.3"/>
+    <rect x="230" y="222" width="30" height="4" rx="2" fill="#0D9488" opacity="0.3"/>
+    <rect x="295" y="222" width="27" height="4" rx="2" fill="#0D9488" opacity="0.3"/>
+
+    <!-- Row 1 -->
+    <rect x="126" y="238" width="85" height="4" rx="2" fill="#64748b" opacity="0.35"/>
+    <rect x="230" y="238" width="22" height="4" rx="2" fill="#64748b" opacity="0.25"/>
+    <rect x="295" y="238" width="27" height="4" rx="2" fill="#64748b" opacity="0.3"/>
+    <!-- Row 2 -->
+    <rect x="126" y="254" width="70" height="4" rx="2" fill="#64748b" opacity="0.35"/>
+    <rect x="230" y="254" width="22" height="4" rx="2" fill="#64748b" opacity="0.25"/>
+    <rect x="295" y="254" width="27" height="4" rx="2" fill="#64748b" opacity="0.3"/>
+    <!-- Row 3 -->
+    <rect x="126" y="270" width="95" height="4" rx="2" fill="#64748b" opacity="0.35"/>
+    <rect x="230" y="270" width="22" height="4" rx="2" fill="#64748b" opacity="0.25"/>
+    <rect x="295" y="270" width="27" height="4" rx="2" fill="#64748b" opacity="0.3"/>
+    <!-- Row 4 -->
+    <rect x="126" y="286" width="55" height="4" rx="2" fill="#64748b" opacity="0.35"/>
+    <rect x="230" y="286" width="22" height="4" rx="2" fill="#64748b" opacity="0.25"/>
+    <rect x="295" y="286" width="27" height="4" rx="2" fill="#64748b" opacity="0.3"/>
+
+    <!-- Bottom divider -->
+    <line x1="126" y1="304" x2="322" y2="304" stroke="#e2e8f0" stroke-width="1"/>
+
+    <!-- Subtotal + Tax + Total -->
+    <rect x="220" y="314" width="40" height="4" rx="2" fill="#94a3b8" opacity="0.3"/>
+    <rect x="290" y="314" width="32" height="4" rx="2" fill="#94a3b8" opacity="0.35"/>
+    <rect x="220" y="326" width="45" height="4" rx="2" fill="#94a3b8" opacity="0.3"/>
+    <rect x="290" y="326" width="32" height="4" rx="2" fill="#94a3b8" opacity="0.35"/>
+
+    <!-- Total highlight bar -->
+    <rect x="210" y="340" width="115" height="30" rx="10" fill="url(#b-amber-g)" opacity="0.13"/>
+    <rect x="222" y="350" width="30" height="5" rx="2.5" fill="#F59E0B" opacity="0.6"/>
+    <text x="316" y="361" font-family="'Nunito', sans-serif" font-weight="800" font-size="15" fill="#D97706" text-anchor="end">€2,480</text>
+
+    <!-- Footer -->
+    <rect x="126" y="382" width="45" height="3" rx="1.5" fill="#0D9488" opacity="0.12"/>
+    <rect x="126" y="390" width="75" height="3" rx="1.5" fill="#e2e8f0"/>
+
+    <!-- PAGADO stamp -->
+    <g transform="translate(270, 378) rotate(-6)">
+      <rect x="0" y="0" width="56" height="24" rx="5" fill="#0D9488" opacity="0.07" stroke="#0D9488" stroke-width="1.8" stroke-dasharray="4 2.5"/>
+      <text x="28" y="16.5" font-family="'Nunito', sans-serif" font-weight="800" font-size="10" fill="#0D9488" text-anchor="middle">PAGADO</text>
+    </g>
+  </g>
+
+  <!-- ===== Floating notification bell (top-left) ===== -->
+  <g filter="url(#b-sh-sm)" transform="translate(60, 74)">
+    <rect x="0" y="0" width="48" height="48" rx="14" fill="white"/>
+    <!-- Bell shape -->
+    <path d="M 24 14 C 18 14 14 19 14 24 L 14 30 L 12 32 L 36 32 L 34 30 L 34 24 C 34 19 30 14 24 14 Z" fill="#0D9488" opacity="0.65"/>
+    <circle cx="24" cy="36" r="3" fill="#0D9488" opacity="0.65"/>
+    <line x1="24" y1="10" x2="24" y2="14" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" opacity="0.65"/>
+    <!-- Badge -->
+    <circle cx="40" cy="8" r="9" fill="#F59E0B"/>
+    <text x="40" y="12" font-family="'Nunito', sans-serif" font-weight="800" font-size="9" fill="white" text-anchor="middle">5</text>
+  </g>
+
+  <!-- ===== Floating mini calendar (bottom-left) ===== -->
+  <g filter="url(#b-sh-sm)" transform="translate(52, 370)">
+    <rect x="0" y="0" width="52" height="52" rx="14" fill="white"/>
+    <!-- Calendar top bar -->
+    <rect x="0" y="0" width="52" height="16" rx="14" fill="#0D9488"/>
+    <rect x="0" y="10" width="52" height="6" fill="#0D9488"/>
+    <text x="26" y="12" font-family="'Nunito', sans-serif" font-weight="700" font-size="7" fill="white" text-anchor="middle">FEB</text>
+    <!-- Day -->
+    <text x="26" y="42" font-family="'Nunito', sans-serif" font-weight="800" font-size="18" fill="#1a1a2e" text-anchor="middle">15</text>
+  </g>
+
+  <!-- ===== Floating checkmark (right side) ===== -->
+  <g filter="url(#b-sh-sm)" transform="translate(378, 260)">
+    <circle cx="0" cy="0" r="26" fill="#0D9488"/>
+    <circle cx="0" cy="0" r="20" fill="none" stroke="white" stroke-width="1.2" opacity="0.25"/>
+    <polyline points="-9,0 -3,7 11,-6" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- ===== Euro pill (bottom-right) ===== -->
+  <g filter="url(#b-sh-xs)" transform="translate(370, 400)">
+    <rect x="0" y="0" width="68" height="34" rx="17" fill="white"/>
+    <circle cx="20" cy="17" r="11" fill="#F59E0B" opacity="0.12"/>
+    <text x="20" y="22" font-family="'Nunito', sans-serif" font-weight="800" font-size="13" fill="#F59E0B" text-anchor="middle">€</text>
+    <text x="48" y="21" font-family="'Nunito', sans-serif" font-weight="700" font-size="9" fill="#1a1a2e" text-anchor="middle">24.8k</text>
+  </g>
+
+  <!-- Decorative dots -->
+  <circle cx="66" cy="170" r="3.5" fill="#14B8A6" opacity="0.15"/>
+  <circle cx="78" cy="155" r="2" fill="#0D9488" opacity="0.12"/>
+  <circle cx="438" cy="172" r="3" fill="#F59E0B" opacity="0.1"/>
+  <circle cx="420" cy="440" r="4" fill="#14B8A6" opacity="0.12"/>
+  <circle cx="438" cy="428" r="2.5" fill="#0D9488" opacity="0.1"/>
+  <circle cx="56" cy="440" r="2" fill="#F59E0B" opacity="0.15"/>
+</svg>

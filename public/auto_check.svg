@@ -8,7 +8,7 @@
    version="1.1"
    id="svg12377"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
-   sodipodi:docname="auto_chek_project.svg"
+   sodipodi:docname="auto_check.svg"
    inkscape:export-filename="auto_check4.svg"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
@@ -31,13 +31,13 @@
      inkscape:zoom="0.78127806"
      inkscape:rotation="90"
      inkscape:cx="456.94359"
-     inkscape:cy="627.81745"
+     inkscape:cy="192.63308"
      inkscape:window-width="1752"
      inkscape:window-height="956"
-     inkscape:window-x="2047"
-     inkscape:window-y="59"
+     inkscape:window-x="1896"
+     inkscape:window-y="31"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer3">
+     inkscape:current-layer="layer1">
     <inkscape:grid
        type="xygrid"
        id="grid14082"
@@ -54,7 +54,7 @@
          offset="0"
          id="stop11257" />
       <stop
-         style="stop-color:#20cb76;stop-opacity:1;"
+         style="stop-color:#f59e0b;stop-opacity:1;"
          offset="1"
          id="stop11259" />
     </linearGradient>
@@ -83,7 +83,7 @@
          offset="0"
          id="stop15220" />
       <stop
-         style="stop-color:#20cb76;stop-opacity:1;"
+         style="stop-color:#f59e0b;stop-opacity:1;"
          offset="1"
          id="stop15218" />
     </linearGradient>
@@ -126,8 +126,8 @@
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter3954"
-       x="-0.033372004"
-       y="-0.03811489"
+       x="-0.033372005"
+       y="-0.038114892"
        width="1.095372"
        height="1.0706481">
       <feFlood
@@ -162,8 +162,8 @@
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter3966"
-       x="-0.033372004"
-       y="-0.03811489"
+       x="-0.033372005"
+       y="-0.038114892"
        width="1.095372"
        height="1.0706481">
       <feFlood

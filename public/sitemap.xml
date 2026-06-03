@@ -1,24 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" >
-<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-  <loc>https://ridid.me/</loc>
-  <lastmod>2023-01-05T09:13:13+00:00</lastmod>
+  <loc>https://hospedy.us/</loc>
+  <lastmod>2025-02-10T00:00:00+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-<loc>https://ridid.me/privacidad</loc>
-<lastmod>2023-01-05T09:13:13+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://hospedy.us/precios</loc>
+  <lastmod>2025-02-10T00:00:00+00:00</lastmod>
+  <priority>0.90</priority>
 </url>
 <url>
-<loc>https://ridid.me/aviso_legal</loc>
-<lastmod>2023-01-05T09:13:13+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://hospedy.us/demo</loc>
+  <lastmod>2025-02-10T00:00:00+00:00</lastmod>
+  <priority>0.90</priority>
 </url>
 <url>
-<loc>https://ridid.me/cookies</loc>
-<lastmod>2023-01-05T09:13:13+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://hospedy.us/hoteles</loc>
+  <lastmod>2025-02-10T00:00:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hospedy.us/apartamentos</loc>
+  <lastmod>2025-02-10T00:00:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hospedy.us/casas-rurales</loc>
+  <lastmod>2025-02-10T00:00:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hospedy.us/comparar</loc>
+  <lastmod>2025-02-10T00:00:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hospedy.us/faq</loc>
+  <lastmod>2025-02-10T00:00:00+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://hospedy.us/programa-amigos</loc>
+  <lastmod>2025-02-10T00:00:00+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://hospedy.us/funciones/partes-viajeros</loc>
+  <lastmod>2025-02-10T00:00:00+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://hospedy.us/funciones/encuestas-ine</loc>
+  <lastmod>2025-02-10T00:00:00+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://hospedy.us/funciones/motor-reservas</loc>
+  <lastmod>2025-02-10T00:00:00+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://hospedy.us/funciones/channel-manager</loc>
+  <lastmod>2025-02-10T00:00:00+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://hospedy.us/blog</loc>
+  <lastmod>2025-02-10T00:00:00+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://hospedy.us/privacidad</loc>
+  <lastmod>2025-02-10T00:00:00+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://hospedy.us/aviso_legal</loc>
+  <lastmod>2025-02-10T00:00:00+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://hospedy.us/cookies</loc>
+  <lastmod>2025-02-10T00:00:00+00:00</lastmod>
+  <priority>0.30</priority>
 </url>
 </urlset>

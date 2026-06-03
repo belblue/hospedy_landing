@@ -1,21 +1,37 @@
-# Your Favicon Package
+# Hospedy Favicons
 
-This package was generated with [RealFaviconGenerator](https://realfavicongenerator.net/) [v0.16](https://realfavicongenerator.net/change_log#v0.16)
+Generated from `/public/icons/hospedy-favicon-32.svg` and `/public/icons/hospedy-icon-color.svg`.
 
-## Install instructions
+## Files included
 
-To install this package:
+| File | Size | Usage |
+|------|------|-------|
+| `favicon.ico` | 16x16 + 32x32 | Classic favicon for browsers |
+| `favicon-16x16.png` | 16x16 | Small browser tabs |
+| `favicon-32x32.png` | 32x32 | Standard browser tabs |
+| `apple-touch-icon.png` | 180x180 | iOS home screen |
+| `android-chrome-192x192.png` | 192x192 | Android home screen |
+| `android-chrome-512x512.png` | 512x512 | Android splash screen |
+| `mstile-150x150.png` | 150x150 | Windows tiles |
+| `safari-pinned-tab.svg` | Vector | Safari pinned tabs |
+| `site.webmanifest` | - | PWA manifest |
+| `browserconfig.xml` | - | Windows tile config |
 
-Extract this package in the root of your web site. If your site is <code>http://www.example.com</code>, you should be able to access a file named <code>http://www.example.com/favicon.ico</code>.
+## Brand colors
 
-Insert the following code in the `head` section of your pages:
+- Primary (Teal): `#0D9488`
+- Secondary (Amber): `#F59E0B`
+- Theme color: `#ffffff`
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2667f7">
-    <meta name="msapplication-TileColor" content="#2667f7">
-    <meta name="theme-color" content="#ffffff">
+## Regenerate favicons
 
-*Optional* - Check your favicon with the [favicon checker](https://realfavicongenerator.net/favicon_checker)
+```bash
+# From project root with ImageMagick installed:
+magick public/icons/hospedy-favicon-32.svg -resize 16x16 public/favicon/favicon-16x16.png
+magick public/icons/hospedy-favicon-32.svg -resize 32x32 public/favicon/favicon-32x32.png
+magick public/icons/hospedy-icon-color.svg -resize 180x180 -background none public/favicon/apple-touch-icon.png
+magick public/icons/hospedy-icon-color.svg -resize 192x192 -background none public/favicon/android-chrome-192x192.png
+magick public/icons/hospedy-icon-color.svg -resize 512x512 -background none public/favicon/android-chrome-512x512.png
+magick public/icons/hospedy-icon-color.svg -resize 150x150 -background none public/favicon/mstile-150x150.png
+magick public/favicon/favicon-16x16.png public/favicon/favicon-32x32.png public/favicon/favicon.ico
+```

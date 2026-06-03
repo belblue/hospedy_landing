@@ -6,8 +6,8 @@
         </div>
             <div class="m-10">
                 <p class="text-xl">Última actualización: 10-01-2023</p>
-                <p class="text-xl">Silatek, S.L.U. utiliza cookies en <a href="https://ridid.me/" class="text-primary">ridid.me</a> . Al usar Ridid, usted acepta el uso de cookies.</p>
-                <p class="text-xl">La Política de cookies explica qué son las cookies, cómo las utilizamos, cómo terceros con los que podemos asociarnos pueden utilizar cookies en ridid.me, sus opciones con respecto a las cookies y más información sobre las cookies.
+                <p class="text-xl">Silatek, S.L.U. utiliza cookies en <a href="https://hospedy.us/" class="text-primary">hospedy.us</a> . Al usar Hospedy, usted acepta el uso de cookies.</p>
+                <p class="text-xl">La Política de cookies explica qué son las cookies, cómo las utilizamos, cómo terceros con los que podemos asociarnos pueden utilizar cookies en hospedy.us, sus opciones con respecto a las cookies y más información sobre las cookies.
                 </p>
                 <div class="flex justify-center my-8">
                     <p class="text-2xl text-secondary">¿Qué son las cookies?</p>
@@ -17,17 +17,17 @@
                 <p class="text-xl">Las cookies pueden ser cookies "persistentes" o de "sesión".</p>
                 
                 <div class="flex justify-center my-8">
-                    <p class="text-2xl text-secondary">¿Cómo utiliza ridid.me las cookies?</p>
+                    <p class="text-2xl text-secondary">¿Cómo utiliza hospedy.us las cookies?</p>
                 </div>
 
-                <p class="text-xl">Cuando utiliza y accede a ridid.me, podemos colocar una serie de archivos de cookies en su navegador web.</p>
-                <p class="text-xl">Utilizamos cookies para los siguientes propósitos: para habilitar ciertas funciones de ridid.me, para proporcionar análisis y para almacenar sus preferencias.</p>
+                <p class="text-xl">Cuando utiliza y accede a hospedy.us, podemos colocar una serie de archivos de cookies en su navegador web.</p>
+                <p class="text-xl">Utilizamos cookies para los siguientes propósitos: para habilitar ciertas funciones de hospedy.us, para proporcionar análisis y para almacenar sus preferencias.</p>
                 <li class="text-xl list-disc">Cookies esenciales. Podemos utilizar cookies esenciales para autenticar a los usuarios y evitar el uso fraudulento de cuentas de usuario.</li>
                
                 <div class="flex justify-center my-8">
                     <p class="text-2xl text-secondary">Cookies de terceros</p>
                 </div>
-                <p class="text-xl">Además de nuestras propias cookies, también podemos usar varias cookies de terceros para informar estadísticas de uso de ridid.me, entregar anuncios de manera continua, y así sucesivamente.</p>
+                <p class="text-xl">Además de nuestras propias cookies, también podemos usar varias cookies de terceros para informar estadísticas de uso de hospedy.us, entregar anuncios de manera continua, y así sucesivamente.</p>
                     <li class="text-xl list-disc">Google Analytics (cookie propia): se utilizan para medir el tráfico global en nuestro sitio web y proporcionan datos totalmente anónimos y agregados sobre qué páginas se visitan, de dónde proviene el tráfico de nuestro sitio web y las tecnologías (como los sistemas operativos y el navegador versiones) utilizadas para acceder a nuestro sitio web. Hasta 2 años de duración. Si desea evitar que Google Analytics utilice sus datos, puede hacerlo descargando e instalando el complemento correspondiente para su navegador web desde <a href="https://tools.google.com/dlpage/gaoptout?%20hl%20=%20lo%20es.">en este enlace</a> </li>
                 <div class="flex justify-center my-8">
                     <p class="text-2xl text-secondary">¿Cuáles son sus opciones con respecto a las cookies?</p>

@@ -11,17 +11,16 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily:{
-        'quick':['Quicksand', 'sans-serif'],
+      fontFamily: {
+        nunito: ["Nunito", "sans-serif"],
       },
       colors: {
-        'primary': '#2667F7',
-        'secondary':'#13a18d',/*1cb569  13a18d*/
-        'tertiary':'#e5eefc'
+        primary: "#0D9488",
+        secondary: "#0F766E",
+        tertiary: "#CCFBF1",
+        gold: "#F59E0B",
       },
     },
   },
-  plugins: [
-    require('postcss-import'),
-  ],
-}
+  plugins: [require("postcss-import")],
+};
