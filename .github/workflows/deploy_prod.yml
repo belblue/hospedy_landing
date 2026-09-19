@@ -1,0 +1,71 @@
+name: Deploy Production
+
+on:
+  push:
+    branches: [main]
+
+env:
+  REGISTRY: registry.silatek.net
+  PROJECT: hospedy
+  IMAGE_NAME: hospedy_landing_prod
+  APP_PORT: "3000"
+
+jobs:
+  build-and-deploy:
+    runs-on: [self-hosted, linux, proxmox]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build imagen
+        run: |
+          IMAGE=${{ env.REGISTRY }}/${{ env.PROJECT }}/${{ env.IMAGE_NAME }}
+          docker build -t ${IMAGE}:latest -t ${IMAGE}:${{ github.sha }} .
+
+      - name: Verificar contenedor
+        run: |
+          IMAGE=${{ env.REGISTRY }}/${{ env.PROJECT }}/${{ env.IMAGE_NAME }}
+          CONTAINER="test-${GITHUB_SHA::8}"
+          docker run -d --name ${CONTAINER} -p 0:${{ env.APP_PORT }} ${IMAGE}:latest
+          sleep 8
+          PORT=$(docker port ${CONTAINER} ${{ env.APP_PORT }} | cut -d: -f2)
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:${PORT})
+          docker logs ${CONTAINER} | tail -20
+          docker rm -f ${CONTAINER}
+          if [ "$STATUS" != "200" ]; then echo "ERROR: HTTP $STATUS"; exit 1; fi
+          echo "OK: HTTP $STATUS"
+
+      - name: Push a Harbor
+        run: |
+          IMAGE=${{ env.REGISTRY }}/${{ env.PROJECT }}/${{ env.IMAGE_NAME }}
+          docker push ${IMAGE}:latest
+          docker push ${IMAGE}:${{ github.sha }}
+
+      - name: Sync compose a VM
+        env:
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+        run: |
+          USER=$(echo "$DEPLOY_USER" | tr -d '[:space:]')
+          HOST=$(echo "$DEPLOY_HOST" | tr -d '[:space:]')
+          scp -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ./docker-compose.prod.yml "${USER}@${HOST}:~/apps/hospedy_landing_prod/"
+
+      - name: Deploy via SSH
+        env:
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+        run: |
+          USER=$(echo "$DEPLOY_USER" | tr -d '[:space:]')
+          HOST=$(echo "$DEPLOY_HOST" | tr -d '[:space:]')
+          for attempt in 1 2 3; do
+            ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no "${USER}@${HOST}" \
+              "cd ~/apps/hospedy_landing_prod && docker compose -f docker-compose.prod.yml pull && docker compose -f docker-compose.prod.yml up -d --remove-orphans && docker image prune -f" \
+              && break
+            echo "Intento de deploy $attempt fallido, reintentando en 30s..."
+            sleep 30
+          done
+
+      - name: Limpiar runner
+        if: always()
+        run: docker image prune -f

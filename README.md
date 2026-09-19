@@ -1,42 +1,30 @@
-# Nuxt 3 Minimal Starter
+# Hospedy Landing
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Landing page de Hospedy. Nuxt 3 (SSR, preset `node-server`) + Tailwind CSS.
 
-## Setup
-
-Make sure to install the dependencies:
+## Desarrollo local
 
 ```bash
-# yarn
-yarn install
-
-# npm
 npm install
-
-# pnpm
-pnpm install --shamefully-hoist
+npm run dev          # http://localhost:3000
 ```
 
-## Development Server
+Con Docker: `docker compose up --build` (usa `Dockerfile.dev` y `.env.development`).
 
-Start the development server on http://localhost:3000
+## Ramas y despliegue
 
-```bash
-npm run dev
-```
+Pipeline CI/CD self-hosted: cada push buildea la imagen, comprueba que responde
+HTTP 200, la publica en Harbor y la despliega por SSH en la VM.
 
-## Production
+| Rama | Imagen | App / VM | Acceso |
+|---|---|---|---|
+| `develop` | `registry.silatek.net/hospedy/hospedy_landing_dev` | `hospedy_landing_dev` — Ridid_frontends (192.168.9.219:3015) | solo LAN |
+| `main` | `registry.silatek.net/hospedy/hospedy_landing_prod` | `hospedy_landing_prod` — Ridid_frontends (192.168.9.219:3014) | solo LAN |
 
-Build the application for production:
+Todavía **no hay dominio público**: ninguno de los dos entornos tiene ruta de
+Traefik ni DNS. Se trabaja en `develop`; a `main` se llega por PR.
 
-```bash
-npm run build
-```
+El `.env` de cada entorno vive en la VM (`~/apps/<app>/.env`) y se edita desde el
+CI/CD Manager, nunca en el repo. Plantilla de referencia: `.env.example`.
 
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Los workflows esperan los secrets `DEPLOY_HOST` y `DEPLOY_USER` del repo.

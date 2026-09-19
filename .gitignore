@@ -5,7 +5,8 @@ node_modules
 .cache
 .output
 .env
-.env.development
+.env.*
+!.env.example
 .vscode
 dist
 .DS_Store

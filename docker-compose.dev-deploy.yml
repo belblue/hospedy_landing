@@ -1,0 +1,8 @@
+services:
+  hospedy_landing_dev:
+    image: ${REGISTRY}/${PROJECT}/${IMAGE_NAME}:latest
+    container_name: hospedy_landing_dev
+    restart: unless-stopped
+    ports:
+      - "${DEPLOY_PORT}:3000"
+    env_file: .env

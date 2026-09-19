@@ -1,0 +1,12 @@
+services:
+  hospedy_landing:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: hospedy_landing_local
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    env_file: .env.development
