@@ -172,11 +172,10 @@
             <div
               class="flex items-center justify-center lg:justify-end order-1 lg:order-2 mr-2"
             >
-              <img
-                src="/laptop_and_phone.webp"
-                alt="Panel de control Hospedy en ordenador y móvil"
-                class="max-w-full max-h-[70vh] object-contain"
-              />
+              <!-- Maquetas en CSS del planning y del auto check-in: sustituyen a
+                   la captura /laptop_and_phone.webp, que ensenaba la version
+                   antigua del producto. Datos de ejemplo, sin API. -->
+              <MockDevices />
             </div>
           </div>
           <!-- Stats Row -->
