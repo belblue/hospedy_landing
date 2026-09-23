@@ -185,6 +185,7 @@ const {
   error: captchaError,
   render: renderCaptcha,
   reset: resetCaptcha,
+  remove: removeCaptcha,
 } = useTurnstile("contact");
 
 onMounted(() => {
@@ -227,6 +228,7 @@ async function enviar() {
       mensajeError = resp.mensaje || "";
       throw new Error("backend");
     }
+    removeCaptcha();
     message_sent.value = true;
     aviso("Mensaje enviado correctamente", TYPE.SUCCESS);
   } catch (e: unknown) {

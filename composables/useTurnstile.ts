@@ -79,12 +79,29 @@ export function useTurnstile(action: string) {
     }
   }
 
-  // El token es de un solo uso y caduca a los 300 s: reponerlo tras cada envío, salga bien o mal.
+  // El token es de un solo uso y caduca a los 300 s: reponerlo cuando un envío falla.
   function reset() {
     token.value = ''
     const w = window as any
     if (w.turnstile && widgetId !== null) w.turnstile.reset(widgetId)
   }
 
-  return { token, error, render, reset }
+  // Quitar el widget antes de que desaparezca su contenedor (formulario enviado o página
+  // abandonada); si no, Turnstile sigue intentando refrescarlo y avisa por consola.
+  function remove() {
+    token.value = ''
+    const w = window as any
+    if (w.turnstile && widgetId !== null) {
+      try {
+        w.turnstile.remove(widgetId)
+      } catch (e) {
+        // el widget ya no existe
+      }
+    }
+    widgetId = null
+  }
+
+  onBeforeUnmount(remove)
+
+  return { token, error, render, reset, remove }
 }

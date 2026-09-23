@@ -195,7 +195,7 @@ const quiereNovedades = ref(false)
 const sending = ref(false)
 const formSent = ref(false)
 const turnstileEl = ref<HTMLElement | null>(null)
-const { token: captchaToken, error: captchaError, render: renderCaptcha, reset: resetCaptcha } = useTurnstile('contact')
+const { token: captchaToken, error: captchaError, render: renderCaptcha, reset: resetCaptcha, remove: removeCaptcha } = useTurnstile('contact')
 
 onMounted(() => {
     if (turnstileEl.value) renderCaptcha(turnstileEl.value)
@@ -252,6 +252,7 @@ Mensaje: ${message.value || 'Sin mensaje adicional'}
             throw new Error('backend')
         }
 
+        removeCaptcha()
         formSent.value = true
         toast("Solicitud enviada correctamente", {
             position: POSITION.TOP_CENTER,
