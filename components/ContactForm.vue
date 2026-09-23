@@ -35,7 +35,7 @@
           />
         </a>
         <a
-          title="Envíanos un mesaje por whatsapp"
+          title="Envíanos un mensaje por whatsapp"
           target="_blank"
           href="https://wa.me/376619224"
           class="mx-4 p-2"
@@ -125,44 +125,40 @@
         class="form-input"
       ></textarea>
 
-      <input
-        v-model="terms_accepted"
-        type="checkbox"
-        class="checkbox mt-4"
-        id="privacy_checkbox"
-      />
-      <span class="text-lg mt-4 ml-2" for="privacy_checkbox"
-        >He leído la
-        <a href="/privacidad" class="text-primary"
-          >política de privacidad</a
+      <label class="flex items-start gap-2 mt-4 text-lg text-gray-600">
+        <input v-model="quiere_novedades" type="checkbox" class="checkbox mt-1" />
+        <span
+          >Quiero recibir por email novedades de Hospedy (puedo darme de baja
+          cuando quiera).</span
         >
-        y acepto el tratamiento de mis datos para la resolución de dudas o
-        consultas que realice.</span
-      >
+      </label>
       <div class="text-center my-6" v-if="message_sent == false">
-        <VueRecaptcha
-          sitekey="6LfhO_YUAAAAAButNYQA5eCAUwXdL9LzhGmg4Px8"
-          :loadRecaptchaScript="true"
-          @verify="verifyRecaptcha"
+        <div ref="turnstileEl" class="flex justify-center mb-4"></div>
+        <p v-if="captchaError" class="text-red-600 mb-4">
+          No se ha podido cargar la verificación antispam. Recarga la página e
+          inténtalo de nuevo.
+        </p>
+        <button v-if="sending_form == true" class="btn btn-grad disabled">
+          Enviando...
+        </button>
+        <button
+          v-else
+          class="btn bg-gradient-to-r from-secondary to-primary text-white font-bold"
+          @click="enviar"
         >
-          <button v-if="sending_form == true" class="btn btn-grad disabled">
-            Enviando...
-          </button>
-          <button
-            v-else
-            class="btn bg-gradient-to-r from-secondary to-primary text-white font-bold"
-          >
-            Enviar
-          </button>
-          <!---->
-        </VueRecaptcha>
+          Enviar
+        </button>
         <p class="mt-4 text-left">
-          Responsable del tratamiento: Silatek, S.L.U.; Finalidad: resolución
-          de dudas o consultas planteadas a través del formulario; Legitimación:
-          Consentimiento, No se cederán los datos; Tiene derecho a ejercer el
-          acceso, rectificación, supresión, portabilidad, limitación, oposición
-          o retirada del consentimiento; para más información diríjase a nuestra
-          política de privacidad.
+          Responsable: Silatek, S.L.U. (Hospedy). Finalidad: responder a tu
+          consulta. Legitimación: tu solicitud y nuestro interés legítimo en
+          atenderla. Destinatarios: los proveedores de red, seguridad y correo
+          que los tratan por nuestra cuenta; no cedemos tus datos salvo
+          obligación legal. Derechos: acceso,
+          rectificación, supresión, oposición, limitación y portabilidad en
+          hola@hospedy.app; puedes reclamar ante la APDA o la AEPD. Más
+          información en la
+          <a href="/privacidad" class="text-primary">política de privacidad</a>.
+          Este formulario usa Cloudflare Turnstile contra el spam.
         </p>
       </div>
       <div v-else>Mensaje enviado</div>
@@ -178,54 +174,60 @@ const name = ref("");
 const email = ref("");
 const message = ref("");
 const sending_form = ref(false);
-const terms_accepted = ref(false);
+const quiere_novedades = ref(false);
 const message_sent = ref(false);
 const showEmail = ref(false);
 const toast = useToast();
 
-async function verifyRecaptcha(response: String) {
-  console.log("miau?");
-  if (terms_accepted.value == false) {
-    console.log("Terms not accepted");
-    toast("Términos y condiciones no aceptados", {
-      position: POSITION.TOP_CENTER,
-      type: TYPE.ERROR,
-      timeout: 3000,
-    });
+const turnstileEl = ref<HTMLElement | null>(null);
+const {
+  token: captchaToken,
+  error: captchaError,
+  render: renderCaptcha,
+  reset: resetCaptcha,
+} = useTurnstile("contact");
 
-    return "Error";
+onMounted(() => {
+  if (turnstileEl.value) renderCaptcha(turnstileEl.value);
+});
+
+function aviso(texto: string, tipo: TYPE) {
+  toast(texto, { position: POSITION.TOP_CENTER, type: tipo, timeout: 3000 });
+}
+
+async function enviar() {
+  if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
+    aviso("Rellena nombre, email y mensaje", TYPE.ERROR);
+    return;
+  }
+  if (!captchaToken.value) {
+    aviso(
+      "Espera a que termine la comprobación antispam e inténtalo de nuevo",
+      TYPE.ERROR
+    );
+    return;
   }
   sending_form.value = true;
-  console.log("response onverify", response);
+  const texto = quiere_novedades.value
+    ? `${message.value}\n\nQuiere recibir novedades de Hospedy por email: sí`
+    : message.value;
   try {
-    const server_response = await $fetch(
-      `${baseURL}/api/contact/send_message`,
-      {
-        method: "post",
-        body: {
-          contact_email: email.value,
-          name: name.value,
-          message: message.value,
-          response_recaptcha: response,
-        },
-      }
-    );
-    console.log(server_response);
-    sending_form.value = false;
+    await $fetch(`${baseURL}/api/contact/send_message`, {
+      method: "post",
+      body: {
+        contact_email: email.value,
+        name: name.value,
+        message: texto,
+        captcha_token: captchaToken.value,
+      },
+    });
     message_sent.value = true;
-    toast("Mensaje enviado correctamente", {
-      position: POSITION.TOP_CENTER,
-      type: TYPE.SUCCESS,
-      timeout: 3000,
-    });
+    aviso("Mensaje enviado correctamente", TYPE.SUCCESS);
   } catch (e: unknown) {
-    console.log("Error al enviar", e);
+    aviso("No se ha podido enviar el mensaje. Inténtalo de nuevo.", TYPE.ERROR);
+  } finally {
     sending_form.value = false;
-    toast("Términos y condiciones no aceptados", {
-      position: POSITION.TOP_CENTER,
-      type: TYPE.ERROR,
-      timeout: 3000,
-    });
+    resetCaptcha();
   }
 }
 </script>

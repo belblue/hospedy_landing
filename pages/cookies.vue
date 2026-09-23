@@ -2,46 +2,55 @@
     <div id="cookies">
         <EmptyNavbar/>
         <div class="text-center mt-20">
-            <p class="text-4xl text-primary ">POLITICA DE COOKIES</p>
+            <p class="text-4xl text-primary">POLÍTICA DE COOKIES</p>
         </div>
-            <div class="m-10">
-                <p class="text-xl">Última actualización: 10-01-2023</p>
-                <p class="text-xl">Silatek, S.L.U. utiliza cookies en <a href="https://gethospedy.com/" class="text-primary">gethospedy.com</a> . Al usar Hospedy, usted acepta el uso de cookies.</p>
-                <p class="text-xl">La Política de cookies explica qué son las cookies, cómo las utilizamos, cómo terceros con los que podemos asociarnos pueden utilizar cookies en gethospedy.com, sus opciones con respecto a las cookies y más información sobre las cookies.
-                </p>
-                <div class="flex justify-center my-8">
-                    <p class="text-2xl text-secondary">¿Qué son las cookies?</p>
-                </div>
-       
-                <p class="text-xl">Las cookies son pequeños fragmentos de texto enviados por su navegador web por un sitio web que visita. Un archivo de cookies se almacena en su navegador web y permite que el Servicio o un tercero lo reconozca y haga que su próxima visita sea más fácil y el Servicio sea más útil para usted.</p>
-                <p class="text-xl">Las cookies pueden ser cookies "persistentes" o de "sesión".</p>
-                
-                <div class="flex justify-center my-8">
-                    <p class="text-2xl text-secondary">¿Cómo utiliza gethospedy.com las cookies?</p>
-                </div>
+        <div class="m-10">
+            <p class="text-xl">Última actualización: 23 de septiembre de 2026.</p>
+            <p class="text-xl mt-4">Esta web (gethospedy.com), de <span class="blue font-semibold">Silatek, S.L.U.</span>, no utiliza cookies propias ni de terceros, ni otras tecnologías similares, con fines analíticos, publicitarios o de elaboración de perfiles. Por eso no te pedimos consentimiento.</p>
+            <p class="text-xl mt-4">Solo utiliza los elementos técnicos que se describen a continuación, necesarios para que la web funcione de forma segura y exentos de consentimiento.</p>
 
-                <p class="text-xl">Cuando utiliza y accede a gethospedy.com, podemos colocar una serie de archivos de cookies en su navegador web.</p>
-                <p class="text-xl">Utilizamos cookies para los siguientes propósitos: para habilitar ciertas funciones de gethospedy.com, para proporcionar análisis y para almacenar sus preferencias.</p>
-                <li class="text-xl list-disc">Cookies esenciales. Podemos utilizar cookies esenciales para autenticar a los usuarios y evitar el uso fraudulento de cuentas de usuario.</li>
-               
-                <div class="flex justify-center my-8">
-                    <p class="text-2xl text-secondary">Cookies de terceros</p>
-                </div>
-                <p class="text-xl">Además de nuestras propias cookies, también podemos usar varias cookies de terceros para informar estadísticas de uso de gethospedy.com, entregar anuncios de manera continua, y así sucesivamente.</p>
-                    <li class="text-xl list-disc">Google Analytics (cookie propia): se utilizan para medir el tráfico global en nuestro sitio web y proporcionan datos totalmente anónimos y agregados sobre qué páginas se visitan, de dónde proviene el tráfico de nuestro sitio web y las tecnologías (como los sistemas operativos y el navegador versiones) utilizadas para acceder a nuestro sitio web. Hasta 2 años de duración. Si desea evitar que Google Analytics utilice sus datos, puede hacerlo descargando e instalando el complemento correspondiente para su navegador web desde <a href="https://tools.google.com/dlpage/gaoptout?%20hl%20=%20lo%20es.">en este enlace</a> </li>
-                <div class="flex justify-center my-8">
-                    <p class="text-2xl text-secondary">¿Cuáles son sus opciones con respecto a las cookies?</p>
-                </div>
-                <p class="text-xl">Si desea eliminar las cookies o indicar a su navegador web que elimine o rechace las cookies, visite las páginas de ayuda de su navegador web.</p>
-                <p class="text-xl">Sin embargo, tenga en cuenta que si elimina las cookies o se niega a aceptarlas, es posible que no pueda usar todas las funciones que ofrecemos, es posible que no pueda almacenar sus preferencias y que algunas de nuestras páginas no se muestren correctamente.</p>
-                <div class="flex justify-center my-8">
-                    <p class="text-2xl text-secondary">¿Dónde puede encontrar más información sobre las cookies?</p>
-                </div>
-                <p class="text-xl">Puede obtener más información sobre las cookies y los siguientes sitios web de terceros:</p>
-                    <li class="text-xl list-disc">All About Cookies: <a href="http://www.allaboutcookies.org/" class="text-primary">Más información</a></li>
-                    <li class="text-xl list-disc">Network Advertising Initiative: <a href="http://www.networkadvertising.org/"  class="text-primary">Más información</a> </li>
+            <div class="flex justify-center my-8">
+                <p class="text-2xl text-secondary">¿Qué son las cookies?</p>
+            </div>
+            <p class="text-xl">Las cookies son pequeños archivos que una web guarda en tu navegador para recordar información sobre tu visita. Hay otras tecnologías similares, como el almacenamiento local del navegador o los scripts que leen datos de tu dispositivo, a las que se aplican las mismas reglas.</p>
+
+            <div class="flex justify-center my-8">
+                <p class="text-2xl text-secondary">¿Qué utiliza esta web?</p>
+            </div>
+            <p class="text-xl"><strong>Cloudflare Turnstile en los formularios.</strong> Los formularios de contacto y de solicitud de demo usan Cloudflare Turnstile para distinguir a las personas de los programas automáticos (bots) y frenar el spam. Turnstile no instala cookies: hace unas comprobaciones técnicas en tu navegador y, para ello, Cloudflare recibe tu dirección IP y datos técnicos de tu navegador y de la conexión. Cloudflare trata esos datos por nuestra cuenta, como encargado del tratamiento, y, según su <a href="https://www.cloudflare.com/turnstile-privacy-policy/" class="text-primary" target="_blank" rel="noopener">anexo de privacidad de Turnstile</a>, también los usa por su cuenta para mejorar ese servicio.</p>
+            <p class="text-xl mt-4"><strong>Posibles cookies técnicas de seguridad de Cloudflare.</strong> La web se sirve a través de la red de Cloudflare. Si están activas sus protecciones contra bots o contra el exceso de peticiones, Cloudflare puede instalar estas cookies:</p>
+            <ul class="mt-2">
+                <li class="text-xl list-disc"><code>__cf_bm</code>: ayuda a distinguir las visitas de personas de las de bots. Caduca tras 30 minutos de inactividad y no sirve para identificarte ni para seguirte de una web a otra.</li>
+                <li class="text-xl list-disc"><code>_cfuvid</code>: permite aplicar límites de peticiones distinguiendo a los visitantes que comparten una misma dirección IP.</li>
+            </ul>
+            <p class="text-xl mt-4">Son estrictamente necesarias para la seguridad de la web y, por eso, están exentas de consentimiento.</p>
+            <p class="text-xl mt-4"><strong>Tipografías.</strong> Las fuentes de la web se sirven desde nuestros propios servidores: tu navegador no se conecta a servicios externos de tipografías para cargarlas.</p>
+            <p class="text-xl mt-4"><strong>Enlaces a redes sociales y WhatsApp.</strong> Son enlaces normales: no cargan nada de esas plataformas hasta que haces clic en ellos. A partir de ahí, se aplican sus propias políticas de cookies y de privacidad.</p>
+
+            <div class="flex justify-center my-8">
+                <p class="text-2xl text-secondary">Panel de clientes</p>
+            </div>
+            <p class="text-xl">El panel de clientes, en hospedy.app, usa sus propias cookies técnicas de sesión, que se explican allí.</p>
+
+            <div class="flex justify-center my-8">
+                <p class="text-2xl text-secondary">¿Cómo puedes gestionar las cookies?</p>
+            </div>
+            <p class="text-xl">Puedes ver, bloquear o borrar las cookies desde la configuración de tu navegador; en su ayuda encontrarás cómo hacerlo.</p>
+
+            <div class="flex justify-center my-8">
+                <p class="text-2xl text-secondary">Cambios y contacto</p>
+            </div>
+            <p class="text-xl">Si en el futuro usamos otras cookies o tecnologías similares, actualizaremos esta política y, cuando la ley lo exija, te pediremos antes tu consentimiento.</p>
+            <p class="text-xl mt-4">Para cualquier duda, escríbenos a <a href="mailto:hola@hospedy.app" class="text-primary">hola@hospedy.app</a>. Cómo tratamos los datos personales se explica en la <NuxtLink to="/privacidad" class="text-primary">Política de privacidad</NuxtLink>.</p>
         </div>
         <Footer />
     </div>
 
 </template>
+
+<script setup lang="ts">
+useHead({
+    title: 'Política de cookies',
+    meta: [{ name: 'description', content: 'Esta web no utiliza cookies analíticas ni publicitarias; solo los elementos técnicos necesarios.' }],
+})
+</script>

@@ -56,20 +56,20 @@
               Antes de irte...
             </h2>
             <p class="text-gray-600 mb-6">
-              ¿Sabias que puedes probar Hospedy
+              ¿Sabías que puedes probar Hospedy
               <span class="font-semibold text-primary">30 días gratis</span> y ver
-              como automatiza los partes de viajeros?
+              cómo automatiza los partes de viajeros?
             </p>
 
             <!-- Features reminder -->
             <div class="bg-gray-50 rounded-lg p-4 mb-6 text-left">
               <p class="text-lg font-semibold text-gray-700 mb-2">
-                Con Hospedy tendras:
+                Con Hospedy tendrás:
               </p>
               <ul class="space-y-1 text-lg text-gray-600">
                 <li class="flex items-center gap-2">
                   <span class="text-green-500">✓</span> Partes de viajeros
-                  automaticos
+                  automáticos
                 </li>
                 <li class="flex items-center gap-2">
                   <span class="text-green-500">✓</span> Encuestas INE sin
@@ -100,7 +100,7 @@
             </div>
 
             <p class="text-xs text-gray-400 mt-4">
-              Sin tarjeta de credito. Sin compromiso.
+              Sin tarjeta de crédito. Sin compromiso.
             </p>
           </div>
         </div>
@@ -111,14 +111,11 @@
 
 <script setup lang="ts">
 const showPopup = ref(false);
-const hasShownPopup = ref(false);
+const hasShownPopup = useState("exitPopupShown", () => false);
 
 onMounted(() => {
-  // Check if popup was already shown in this session
-  if (sessionStorage.getItem("exitPopupShown")) {
-    hasShownPopup.value = true;
-    return;
-  }
+  // Ya se ha mostrado en esta visita: estado en memoria, sin escribir nada en el navegador.
+  if (hasShownPopup.value) return;
 
   // Only show on desktop (exit intent doesn't work well on mobile)
   if (window.innerWidth < 1024) return;
@@ -129,7 +126,6 @@ onMounted(() => {
     if (e.clientY <= 0 && !hasShownPopup.value) {
       showPopup.value = true;
       hasShownPopup.value = true;
-      sessionStorage.setItem("exitPopupShown", "true");
       document.removeEventListener("mouseleave", handleMouseLeave);
     }
   };

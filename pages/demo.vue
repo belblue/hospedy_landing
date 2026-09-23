@@ -114,46 +114,50 @@
                             </div>
 
                             <div>
-                                <label class="block text-lg font-medium text-gray-700 mb-1">Numero de unidades de alojamiento</label>
+                                <label class="block text-lg font-medium text-gray-700 mb-1">Número de unidades de alojamiento</label>
                                 <select v-model="propertyCount" class="form-input">
                                     <option value="">Selecciona...</option>
                                     <option value="1-5">1-5 habitaciones/apartamentos</option>
                                     <option value="6-10">6-10 habitaciones/apartamentos</option>
                                     <option value="11-20">11-20 habitaciones/apartamentos</option>
                                     <option value="21-50">21-50 habitaciones/apartamentos</option>
-                                    <option value="50+">Mas de 50</option>
+                                    <option value="50+">Más de 50</option>
                                 </select>
                             </div>
 
                             <div>
-                                <label class="block text-lg font-medium text-gray-700 mb-1">Telefono (opcional)</label>
+                                <label class="block text-lg font-medium text-gray-700 mb-1">Teléfono (opcional)</label>
                                 <input type="tel" v-model="phone" class="form-input" placeholder="+34 600 000 000">
                             </div>
 
                             <div>
                                 <label class="block text-lg font-medium text-gray-700 mb-1">Mensaje (opcional)</label>
-                                <textarea v-model="message" rows="3" class="form-input" placeholder="Cuentanos que te gustaria ver en la demo..."></textarea>
+                                <textarea v-model="message" rows="3" class="form-input" placeholder="Cuéntanos qué te gustaría ver en la demo..."></textarea>
                             </div>
 
                             <div class="flex items-start gap-2">
-                                <input type="checkbox" v-model="termsAccepted" class="checkbox mt-1" id="terms">
-                                <label for="terms" class="text-lg text-gray-600">
-                                    He leido la <NuxtLink to="/privacidad" class="text-primary hover:underline">politica de privacidad</NuxtLink> y acepto el tratamiento de mis datos.
+                                <input type="checkbox" v-model="quiereNovedades" class="checkbox mt-1" id="novedades">
+                                <label for="novedades" class="text-lg text-gray-600">
+                                    Quiero recibir por email novedades de Hospedy (puedo darme de baja cuando quiera).
                                 </label>
                             </div>
 
-                            <VueRecaptcha
-                                sitekey="6LfhO_YUAAAAAButNYQA5eCAUwXdL9LzhGmg4Px8"
-                                :loadRecaptchaScript="true"
-                                @verify="submitForm"
+                            <div ref="turnstileEl" class="flex justify-center"></div>
+                            <p v-if="captchaError" class="text-red-600">
+                                No se ha podido cargar la verificación antispam. Recarga la página e inténtalo de nuevo.
+                            </p>
+
+                            <button
+                                :disabled="sending"
+                                class="w-full btn btn-grad py-3 text-lg"
+                                @click="submitForm"
                             >
-                                <button
-                                    :disabled="sending"
-                                    class="w-full btn btn-grad py-3 text-lg"
-                                >
-                                    {{ sending ? 'Enviando...' : 'Solicitar demo gratuita' }}
-                                </button>
-                            </VueRecaptcha>
+                                {{ sending ? 'Enviando...' : 'Solicitar demo gratuita' }}
+                            </button>
+
+                            <p class="text-sm text-gray-500">
+                                Responsable: Silatek, S.L.U. (Hospedy). Finalidad: organizar la demostración que solicitas y contactarte para ello. Legitimación: medidas precontractuales a petición tuya. Destinatarios: los proveedores de red, seguridad y correo que los tratan por nuestra cuenta; no cedemos tus datos salvo obligación legal. Derechos: acceso, rectificación, supresión, oposición, limitación y portabilidad en hola@hospedy.app; puedes reclamar ante la APDA o la AEPD. Más información en la <NuxtLink to="/privacidad" class="text-primary hover:underline">política de privacidad</NuxtLink>. Este formulario usa Cloudflare Turnstile contra el spam.
+                            </p>
                         </div>
 
                         <!-- Success Message -->
@@ -187,13 +191,19 @@ const propertyName = ref('')
 const propertyCount = ref('')
 const phone = ref('')
 const message = ref('')
-const termsAccepted = ref(false)
+const quiereNovedades = ref(false)
 const sending = ref(false)
 const formSent = ref(false)
+const turnstileEl = ref<HTMLElement | null>(null)
+const { token: captchaToken, error: captchaError, render: renderCaptcha, reset: resetCaptcha } = useTurnstile('contact')
 
-async function submitForm(recaptchaResponse: string) {
-    if (!termsAccepted.value) {
-        toast("Debes aceptar la politica de privacidad", {
+onMounted(() => {
+    if (turnstileEl.value) renderCaptcha(turnstileEl.value)
+})
+
+async function submitForm() {
+    if (!captchaToken.value) {
+        toast("Espera a que termine la comprobación antispam e inténtalo de nuevo", {
             position: POSITION.TOP_CENTER,
             type: TYPE.ERROR,
             timeout: 3000
@@ -220,7 +230,8 @@ Nombre: ${name.value}
 Email: ${email.value}
 Alojamiento: ${propertyName.value}
 Unidades: ${propertyCount.value || 'No especificado'}
-Telefono: ${phone.value || 'No especificado'}
+Teléfono: ${phone.value || 'No especificado'}
+Quiere recibir novedades por email: ${quiereNovedades.value ? 'sí' : 'no'}
 
 Mensaje: ${message.value || 'Sin mensaje adicional'}
         `.trim()
@@ -231,7 +242,7 @@ Mensaje: ${message.value || 'Sin mensaje adicional'}
                 contact_email: email.value,
                 name: name.value,
                 message: demoMessage,
-                response_recaptcha: recaptchaResponse
+                captcha_token: captchaToken.value
             }
         })
 
@@ -243,13 +254,14 @@ Mensaje: ${message.value || 'Sin mensaje adicional'}
         })
     } catch (e) {
         console.error('Error sending demo request:', e)
-        toast("Error al enviar la solicitud. Intentalo de nuevo.", {
+        toast("Error al enviar la solicitud. Inténtalo de nuevo.", {
             position: POSITION.TOP_CENTER,
             type: TYPE.ERROR,
             timeout: 3000
         })
     } finally {
         sending.value = false
+        resetCaptcha()
     }
 }
 </script>

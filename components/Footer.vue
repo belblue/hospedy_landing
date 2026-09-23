@@ -88,9 +88,9 @@
             <div>
                 <h4 class="text-black font-semibold mb-4">Legal</h4>
                 <ul class="space-y-2">
-                    <li><NuxtLink class="text-white hover:text-white transition-colors" to="/privacidad">Politica de privacidad</NuxtLink></li>
+                    <li><NuxtLink class="text-white hover:text-white transition-colors" to="/privacidad">Política de privacidad</NuxtLink></li>
                     <li><NuxtLink class="text-white hover:text-white transition-colors" to="/aviso_legal">Aviso legal</NuxtLink></li>
-                    <li><NuxtLink class="text-white hover:text-white transition-colors" to="/cookies">Politica de cookies</NuxtLink></li>
+                    <li><NuxtLink class="text-white hover:text-white transition-colors" to="/cookies">Política de cookies</NuxtLink></li>
                 </ul>
             </div>
         </div>

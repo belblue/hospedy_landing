@@ -85,6 +85,7 @@ export default defineNuxtConfig({
       }
     },
     css: [
+      '@fontsource-variable/nunito',
       '~/assets/css/main.css',
       '@fortawesome/fontawesome-svg-core/styles.css',
       'vue-toastification/dist/index.css'
@@ -99,7 +100,6 @@ export default defineNuxtConfig({
       public: {
         // API del backend (formularios). Se sobrescribe por entorno con NUXT_PUBLIC_BASE_URL.
         baseURL: "https://api.hospedy.app",
-        clarityId: process.env.NUXT_PUBLIC_CLARITY_ID || '',
       },
     },
     nitro: {

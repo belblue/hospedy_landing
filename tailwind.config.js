@@ -12,7 +12,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        nunito: ["Nunito", "sans-serif"],
+        nunito: ['"Nunito Variable"', "Nunito", "sans-serif"],
       },
       colors: {
         primary: "#0D9488",

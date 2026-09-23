@@ -8,7 +8,7 @@
         </NuxtLink>
 
         <div class="ml-auto flex">
-            <a class="lg:mx-4 p-2" title="Envíanos un mesaje por whatsapp" target="_blank" href="https://wa.me/376619224" >
+            <a class="lg:mx-4 p-2" title="Envíanos un mensaje por whatsapp" target="_blank" href="https://wa.me/376619224" >
                     <img class="w-10"  src="/whatsapp.svg" alt="cuenta de whatsapp de Hospedy">
             </a>
             <div class="mt-3">
