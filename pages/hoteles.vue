@@ -14,7 +14,7 @@
                         Gestiona tu hotel sin complicaciones
                     </h1>
                     <p class="text-xl text-gray-600 mb-6">
-                        Desde la recepcion hasta el cumplimiento normativo. Check-in en 30 segundos, partes de viajeros automaticos y todo sincronizado con tus OTAs.
+                        Desde la recepción hasta el cumplimiento normativo. Check-in en 30 segundos, partes de viajeros automáticos y todo sincronizado con tus OTAs.
                     </p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="100">
@@ -27,19 +27,19 @@
                             <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Envio automatico a SES Hospedajes</span>
+                            <span>Envío automático a SES Hospedajes</span>
                         </li>
                         <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="200">
                             <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Encuestas INE de ocupacion hotelera</span>
+                            <span>Encuestas INE de ocupación hotelera</span>
                         </li>
                         <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="250">
                             <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Planning visual para multiples habitaciones</span>
+                            <span>Planning visual para múltiples habitaciones</span>
                         </li>
                     </ul>
                     <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="300">
@@ -62,12 +62,12 @@
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="0">
                             <div class="text-3xl mb-4">😤</div>
                             <h3 class="font-semibold text-lg mb-2">"El check-in es eterno"</h3>
-                            <p class="text-gray-600">Teclear datos de 10 huespedes a mano lleva media hora. Con Hospedy, escaneas y listo.</p>
+                            <p class="text-gray-600">Teclear datos de 10 huéspedes a mano lleva media hora. Con Hospedy, escaneas y listo.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="100">
                             <div class="text-3xl mb-4">😰</div>
-                            <h3 class="font-semibold text-lg mb-2">"Se me olvido enviar el parte"</h3>
-                            <p class="text-gray-600">Las multas por no comunicar viajeros son de hasta 600€. Con Hospedy, se envian solos.</p>
+                            <h3 class="font-semibold text-lg mb-2">"Se me olvidó enviar el parte"</h3>
+                            <p class="text-gray-600">Las multas por no comunicar viajeros son de hasta 600€. Con Hospedy, se envían solos.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="200">
                             <div class="text-3xl mb-4">🤯</div>
@@ -89,7 +89,7 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-semibold text-xl mb-2">Gestion de multiples habitaciones</h3>
+                            <h3 class="font-semibold text-xl mb-2">Gestión de múltiples habitaciones</h3>
                             <p class="text-gray-600">Planning visual donde ves todas tus habitaciones de un vistazo. Arrastra reservas, cambia asignaciones, todo con un clic.</p>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-semibold text-xl mb-2">Encuesta de Ocupacion Hotelera</h3>
+                            <h3 class="font-semibold text-xl mb-2">Encuesta de Ocupación Hotelera</h3>
                             <p class="text-gray-600">Hospedy rellena la Encuesta de Ocupación Hotelera con los datos que ya tienes y la envía al INE con un clic, sin entrar en ARCE.</p>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-semibold text-xl mb-2">Facturacion profesional</h3>
+                            <h3 class="font-semibold text-xl mb-2">Facturación profesional</h3>
                             <p class="text-gray-600">Facturas automáticas con todos los conceptos: habitación, extras, tasa turística. Y Zenfisk, el programa de facturación y gastos con Verifactu, incluido en tu suscripción.</p>
                         </div>
                     </div>
@@ -125,10 +125,10 @@
                 <div class="max-w-3xl mx-auto px-6 text-center" data-aos="fade-up">
                     <div class="text-5xl mb-6 text-secondary">"</div>
                     <p class="text-2xl text-gray-700 mb-6">
-                        Tenemos 18 habitaciones y antes el check-in era un caos. Ahora escaneamos el DNI y en 30 segundos esta todo hecho. Los partes se envian solos y yo me olvido.
+                        Tenemos 18 habitaciones y antes el check-in era un caos. Ahora escaneamos el DNI y en 30 segundos está todo hecho. Los partes se envían solos y yo me olvido.
                     </p>
-                    <p class="font-semibold text-lg">Maria Garcia</p>
-                    <p class="text-gray-500">Hotel Rural El Rincon, Teruel</p>
+                    <p class="font-semibold text-lg">María García</p>
+                    <p class="text-gray-500">Hotel Rural El Rincón, Teruel</p>
                 </div>
             </div>
 
@@ -136,8 +136,8 @@
             <div class="max-w-4xl mx-auto px-6 mt-20 text-center" data-aos="fade-up">
                 <h2 class="text-3xl font-bold mb-4">Precios para hoteles</h2>
                 <p class="text-xl text-gray-600 mb-8">
-                    Desde <span class="text-primary font-bold">35€/mes</span> para hoteles pequenos.
-                    Precio segun numero de habitaciones, sin comisiones por reserva.
+                    Desde <span class="text-primary font-bold">35€/mes</span> para hoteles pequeños.
+                    Precio según número de habitaciones, sin comisiones por reserva.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <NuxtLink class="btn btn-grad btn-shimmer" to="/#precios">Ver precios</NuxtLink>
@@ -160,9 +160,9 @@
 
 <script setup lang="ts">
 useHead({
-    title: 'PMS para Hoteles - Software de gestion hotelera - Hospedy',
+    title: 'PMS para Hoteles - Software de gestión hotelera - Hospedy',
     meta: [
-        { name: 'description', content: 'Software PMS para hoteles con partes de viajeros automaticos, check-in rapido y encuestas INE. Gestiona tu hotel sin complicaciones.' }
+        { name: 'description', content: 'Software PMS para hoteles con partes de viajeros automáticos, check-in rápido y encuestas INE. Gestiona tu hotel sin complicaciones.' }
     ]
 })
 </script>

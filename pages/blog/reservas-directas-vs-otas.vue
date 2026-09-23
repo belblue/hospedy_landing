@@ -31,15 +31,15 @@
       <!-- Content -->
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
         <p class="lead">
-          Booking, Airbnb, Expedia... las OTAs te dan visibilidad, pero tambien
+          Booking, Airbnb, Expedia... las OTAs te dan visibilidad, pero también
           se llevan un buen mordisco de cada reserva. ¿Merece la pena depender
-          de ellas? ¿Cuanto podrias ahorrar con reservas directas? Vamos a hacer
-          numeros.
+          de ellas? ¿Cuánto podrías ahorrar con reservas directas? Vamos a hacer
+          números.
         </p>
 
-        <h2>¿Cuanto cobran las OTAs?</h2>
+        <h2>¿Cuánto cobran las OTAs?</h2>
         <p>
-          Las comisiones varian segun la plataforma y el tipo de propiedad, pero
+          Las comisiones varían según la plataforma y el tipo de propiedad, pero
           estos son los rangos habituales:
         </p>
 
@@ -51,7 +51,7 @@
                   Plataforma
                 </th>
                 <th class="text-center p-4 border-b border-gray-200">
-                  Comision
+                  Comisión
                 </th>
                 <th class="text-center p-4 border-b border-gray-200">
                   En reserva de 500€
@@ -115,7 +115,7 @@
             </tbody>
           </table>
           <p class="text-lg text-gray-500 mt-2">
-            *Airbnb cobra al huesped, lo que puede reducir tu precio neto
+            *Airbnb cobra al huésped, lo que puede reducir tu precio neto
             indirectamente.
           </p>
         </div>
@@ -123,7 +123,7 @@
         <h2>El impacto real en tu negocio</h2>
         <p>
           Veamos un ejemplo concreto. Imagina que gestionas un apartamento con
-          estas caracteristicas:
+          estas características:
         </p>
         <ul>
           <li>Precio medio por noche: 100€</li>
@@ -133,11 +133,11 @@
 
         <div class="bg-gray-50 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4">
-            Escenario A: 100% reservas via Booking (15% comision)
+            Escenario A: 100% reservas vía Booking (15% comisión)
           </h3>
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <p class="text-gray-600">Facturacion bruta mensual</p>
+              <p class="text-gray-600">Facturación bruta mensual</p>
               <p class="text-2xl font-bold">6.000€</p>
             </div>
             <div>
@@ -161,7 +161,7 @@
           </h3>
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <p class="text-gray-600">Facturacion bruta mensual</p>
+              <p class="text-gray-600">Facturación bruta mensual</p>
               <p class="text-2xl font-bold">6.000€</p>
             </div>
             <div>
@@ -181,11 +181,11 @@
 
         <p>
           <strong
-            >Pasar del 100% OTAs al 50% reservas directas supone 5.400€ mas al
+            >Pasar del 100% OTAs al 50% reservas directas supone 5.400€ más al
             año en tu bolsillo.</strong
           >
           Y eso sin contar que puedes ofrecer un precio ligeramente mejor al
-          cliente directo y aun asi ganar mas.
+          cliente directo y aun así ganar más.
         </p>
 
         <h2>Ventajas de las reservas directas</h2>
@@ -197,20 +197,20 @@
           directos.
         </p>
 
-        <h3>2. Relacion directa con el cliente</h3>
+        <h3>2. Relación directa con el cliente</h3>
         <p>
           Cuando un cliente reserva por Booking, sus datos pertenecen a Booking.
           Si reserva directamente contigo, puedes:
         </p>
         <ul>
           <li>Enviarle ofertas para futuras estancias</li>
-          <li>Pedirle una resena en Google</li>
-          <li>Fidelizarlo con descuentos de repeticion</li>
+          <li>Pedirle una reseña en Google</li>
+          <li>Fidelizarlo con descuentos de repetición</li>
         </ul>
 
-        <h3>3. Flexibilidad en politicas</h3>
+        <h3>3. Flexibilidad en políticas</h3>
         <p>
-          Puedes establecer tus propias politicas de cancelacion, depositos y
+          Puedes establecer tus propias políticas de cancelación, depósitos y
           condiciones sin estar sujeto a las reglas de las OTAs.
         </p>
 
@@ -222,12 +222,12 @@
         </p>
 
         <h2>Ventajas de las OTAs</h2>
-        <p>Las OTAs no son el enemigo. Tienen su funcion:</p>
+        <p>Las OTAs no son el enemigo. Tienen su función:</p>
 
         <h3>1. Visibilidad global</h3>
         <p>
-          Millones de viajeros buscan alojamiento en Booking y Airbnb cada dia.
-          Conseguir esa visibilidad por tu cuenta requeriria una inversion
+          Millones de viajeros buscan alojamiento en Booking y Airbnb cada día.
+          Conseguir esa visibilidad por tu cuenta requeriría una inversión
           enorme en marketing.
         </p>
 
@@ -237,68 +237,68 @@
           sienten protegidos ante problemas.
         </p>
 
-        <h3>3. Menos trabajo de captacion</h3>
+        <h3>3. Menos trabajo de captación</h3>
         <p>
-          Las OTAs hacen el trabajo de atraer clientes. Tu solo tienes que estar
-          ahi y tener buenas valoraciones.
+          Las OTAs hacen el trabajo de atraer clientes. Tú solo tienes que estar
+          ahí y tener buenas valoraciones.
         </p>
 
-        <h2>La estrategia optima: combinar ambas</h2>
+        <h2>La estrategia óptima: combinar ambas</h2>
         <p>
           La clave no es eliminar las OTAs, sino
           <strong>reducir la dependencia</strong>. Una estrategia equilibrada
-          podria ser:
+          podría ser:
         </p>
         <ul>
           <li>
-            <strong>OTAs para captacion:</strong> Usa Booking y Airbnb para
+            <strong>OTAs para captación:</strong> Usa Booking y Airbnb para
             conseguir nuevos clientes
           </li>
           <li>
-            <strong>Fidelizacion directa:</strong> Cuando un cliente repite,
-            animale a reservar directamente
+            <strong>Fidelización directa:</strong> Cuando un cliente repite,
+            anímale a reservar directamente
           </li>
           <li>
-            <strong>Motor de reservas propio:</strong> Ten un sistema facil en
+            <strong>Motor de reservas propio:</strong> Ten un sistema fácil en
             tu web para reservas directas
           </li>
           <li>
             <strong>Incentivos:</strong> Ofrece un 5-10% de descuento por
-            reservar directo (aun ganas mas que con OTAs)
+            reservar directo (aún ganas más que con OTAs)
           </li>
         </ul>
 
-        <h2>Como captar reservas directas</h2>
+        <h2>Cómo captar reservas directas</h2>
 
         <h3>1. Ten un motor de reservas en tu web</h3>
         <p>
-          Parece obvio, pero muchos alojamientos aun no tienen forma de reservar
+          Parece obvio, pero muchos alojamientos aún no tienen forma de reservar
           online en su web. Un motor de reservas te permite recibir reservas
           24/7 sin intermediarios.
         </p>
 
         <h3>2. Posiciona tu web en Google</h3>
         <p>
-          Cuando alguien busca "hotel [tu ciudad]", tu web deberia aparecer.
-          Trabaja el SEO local y crea contenido util sobre tu zona.
+          Cuando alguien busca "hotel [tu ciudad]", tu web debería aparecer.
+          Trabaja el SEO local y crea contenido útil sobre tu zona.
         </p>
 
         <h3>3. Recoge emails y fideliza</h3>
         <p>
-          Cada cliente que pasa por tu alojamiento es una oportunidad. Pidele su
-          email y enviale ofertas para futuras estancias.
+          Cada cliente que pasa por tu alojamiento es una oportunidad. Pídele su
+          email y envíale ofertas para futuras estancias.
         </p>
 
-        <h3>4. Incentiva las resenas en Google</h3>
+        <h3>4. Incentiva las reseñas en Google</h3>
         <p>
-          Las resenas de Google dan visibilidad y confianza. Pide a tus clientes
-          satisfechos que dejen una valoracion.
+          Las reseñas de Google dan visibilidad y confianza. Pide a tus clientes
+          satisfechos que dejen una valoración.
         </p>
 
-        <h3>5. Tarjetas de visita con codigo QR</h3>
+        <h3>5. Tarjetas de visita con código QR</h3>
         <p>
-          Deja en la habitacion una tarjeta con un QR que lleve directamente a
-          tu motor de reservas. Cuando el cliente quiera volver, la tendra
+          Deja en la habitación una tarjeta con un QR que lleve directamente a
+          tu motor de reservas. Cuando el cliente quiera volver, la tendrá
           guardada.
         </p>
 
@@ -323,7 +323,7 @@
                   d="M5 13l4 4L19 7"
                 ></path>
               </svg>
-              <span>0% de comision por reserva</span>
+              <span>0% de comisión por reserva</span>
             </li>
             <li class="flex items-center gap-2">
               <svg
@@ -339,7 +339,7 @@
                   d="M5 13l4 4L19 7"
                 ></path>
               </svg>
-              <span>Cobro de depositos con Stripe</span>
+              <span>Cobro de depósitos con Stripe</span>
             </li>
             <li class="flex items-center gap-2">
               <svg
@@ -371,16 +371,16 @@
                   d="M5 13l4 4L19 7"
                 ></path>
               </svg>
-              <span>Incluido en la suscripcion</span>
+              <span>Incluido en la suscripción</span>
             </li>
           </ul>
         </div>
 
-        <h2>Conclusion</h2>
+        <h2>Conclusión</h2>
         <p>
-          Las OTAs son utiles para captar clientes, pero depender exclusivamente
-          de ellas es caro. Con una estrategia que combine OTAs para captacion y
-          un buen motor de reservas para fidelizacion, puedes aumentar
+          Las OTAs son útiles para captar clientes, pero depender exclusivamente
+          de ellas es caro. Con una estrategia que combine OTAs para captación y
+          un buen motor de reservas para fidelización, puedes aumentar
           significativamente tu rentabilidad.
         </p>
         <p>
@@ -397,7 +397,7 @@
             ¿Quieres aumentar tus reservas directas?
           </h2>
           <p class="text-gray-600 mb-6">
-            Hospedy incluye motor de reservas sin comisiones. Pruebalo gratis.
+            Hospedy incluye motor de reservas sin comisiones. Pruébalo gratis.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>

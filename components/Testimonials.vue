@@ -50,7 +50,7 @@
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-3">
                             <img src="/testimonios/MA-solar.png" alt="Cliente MA" class="w-12 h-12 rounded-full object-cover">
-                            <p class="text-lg text-gray-500">Alava</p>
+                            <p class="text-lg text-gray-500">Álava</p>
                         </div>
                         <div class="flex items-center gap-1">
                             <svg v-for="i in 5" :key="i" class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -80,7 +80,7 @@
                 </NuxtLink>
             </div>
             <div class="text-center mt-4">
-                <NuxtLink to="/faq" class="text-white font-medium hover:underline">Saber mas →</NuxtLink>
+                <NuxtLink to="/faq" class="text-white font-medium hover:underline">Saber más →</NuxtLink>
             </div>
         </div>
     </div>

@@ -43,7 +43,7 @@
                                 <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
-                                <span>Partes automaticos</span>
+                                <span>Partes automáticos</span>
                             </li>
                             <li class="flex items-start gap-2 text-sm">
                                 <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -188,7 +188,7 @@
             <!-- What's included -->
             <div class="bg-gray-50 py-16 mt-20">
                 <div class="max-w-5xl mx-auto px-6">
-                    <h2 class="text-3xl font-bold text-center mb-12">Que incluyen todos los planes</h2>
+                    <h2 class="text-3xl font-bold text-center mb-12">Qué incluyen todos los planes</h2>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div class="flex items-start gap-3">
                             <svg class="w-6 h-6 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -200,7 +200,7 @@
                             <svg class="w-6 h-6 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Check-in con escaner de documentos</span>
+                            <span>Check-in con escáner de documentos</span>
                         </div>
                         <div class="flex items-start gap-3">
                             <svg class="w-6 h-6 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -212,19 +212,19 @@
                             <svg class="w-6 h-6 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Partes de viajeros automaticos</span>
+                            <span>Partes de viajeros automáticos</span>
                         </div>
                         <div class="flex items-start gap-3">
                             <svg class="w-6 h-6 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Encuestas INE automaticas</span>
+                            <span>Encuestas INE automáticas</span>
                         </div>
                         <div class="flex items-start gap-3">
                             <svg class="w-6 h-6 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Facturacion integrada</span>
+                            <span>Facturación integrada</span>
                         </div>
                         <div class="flex items-start gap-3">
                             <svg class="w-6 h-6 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -260,12 +260,12 @@
                 <h2 class="text-3xl font-bold text-center mb-12">Preguntas sobre precios</h2>
                 <div class="space-y-6">
                     <div class="border-b border-gray-200 pb-6">
-                        <h3 class="font-semibold text-lg mb-2">¿Que incluye el precio?</h3>
-                        <p class="text-gray-600">Todo: PMS, channel manager, motor de reservas, partes de viajeros, INE, facturacion, housekeeping y soporte. No hay costes ocultos.</p>
+                        <h3 class="font-semibold text-lg mb-2">¿Qué incluye el precio?</h3>
+                        <p class="text-gray-600">Todo: PMS, channel manager, motor de reservas, partes de viajeros, INE, facturación, housekeeping y soporte. No hay costes ocultos.</p>
                     </div>
                     <div class="border-b border-gray-200 pb-6">
                         <h3 class="font-semibold text-lg mb-2">¿Hay permanencia?</h3>
-                        <p class="text-gray-600">No. Puedes darte de baja cuando quieras sin penalizacion.</p>
+                        <p class="text-gray-600">No. Puedes darte de baja cuando quieras sin penalización.</p>
                     </div>
                     <div class="border-b border-gray-200 pb-6">
                         <h3 class="font-semibold text-lg mb-2">¿Los precios incluyen IVA?</h3>
@@ -273,11 +273,11 @@
                     </div>
                     <div class="border-b border-gray-200 pb-6">
                         <h3 class="font-semibold text-lg mb-2">¿Puedo probarlo gratis?</h3>
-                        <p class="text-gray-600">Si, tienes 30 dias de prueba gratis con todas las funciones. Sin tarjeta de credito, sin compromiso.</p>
+                        <p class="text-gray-600">Sí, tienes 30 días de prueba gratis con todas las funciones. Sin tarjeta de crédito, sin compromiso.</p>
                     </div>
                     <div class="border-b border-gray-200 pb-6">
-                        <h3 class="font-semibold text-lg mb-2">¿Como se cuentan las unidades de alojamiento?</h3>
-                        <p class="text-gray-600">Contamos cada habitacion de hotel o cada apartamento/casa rural como una unidad. Si tienes un hotel de 15 habitaciones, son 15 unidades.</p>
+                        <h3 class="font-semibold text-lg mb-2">¿Cómo se cuentan las unidades de alojamiento?</h3>
+                        <p class="text-gray-600">Contamos cada habitación de hotel o cada apartamento/casa rural como una unidad. Si tienes un hotel de 15 habitaciones, son 15 unidades.</p>
                     </div>
                 </div>
             </div>
@@ -285,7 +285,7 @@
             <!-- CTA -->
             <div class="text-center mt-20 px-6">
                 <h2 class="text-3xl font-bold mb-4">¿Listo para empezar?</h2>
-                <p class="text-xl text-gray-600 mb-8">30 dias gratis. Sin tarjeta de credito. Sin compromiso.</p>
+                <p class="text-xl text-gray-600 mb-8">30 días gratis. Sin tarjeta de crédito. Sin compromiso.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
                     <NuxtLink class="btn btn-outline" to="/comparar">Comparar con otros PMS</NuxtLink>
@@ -298,9 +298,9 @@
 
 <script setup lang="ts">
 useHead({
-    title: 'Precios - Software de gestion hotelera - Hospedy',
+    title: 'Precios - Software de gestión hotelera - Hospedy',
     meta: [
-        { name: 'description', content: 'Precios claros de Hospedy: desde 35€/mes. PMS completo con partes de viajeros automaticos, channel manager, motor de reservas y mas. Sin permanencia.' }
+        { name: 'description', content: 'Precios claros de Hospedy: desde 35€/mes. PMS completo con partes de viajeros automáticos, channel manager, motor de reservas y más. Sin permanencia.' }
     ]
 })
 </script>

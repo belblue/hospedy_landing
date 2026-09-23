@@ -14,20 +14,20 @@
                         Gestiona tu casa rural desde cualquier lugar
                     </h1>
                     <p class="text-xl text-gray-600 mb-6">
-                        No necesitas estar en la casa para gestionar reservas. Tus huespedes hacen el check-in solos y los partes de viajeros se envian automaticamente.
+                        No necesitas estar en la casa para gestionar reservas. Tus huéspedes hacen el check-in solos y los partes de viajeros se envían automáticamente.
                     </p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="100">
                             <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Auto check-in para huespedes</span>
+                            <span>Auto check-in para huéspedes</span>
                         </li>
                         <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="150">
                             <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Partes de viajeros automaticos</span>
+                            <span>Partes de viajeros automáticos</span>
                         </li>
                         <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="200">
                             <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -39,7 +39,7 @@
                             <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Gestion remota desde el movil</span>
+                            <span>Gestión remota desde el móvil</span>
                         </li>
                     </ul>
                     <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="300">
@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
-                    <img src="/phone.webp" alt="Gestion de casa rural desde el movil" class="max-w-xs hover:scale-105 transition-transform duration-500">
+                    <img src="/phone.webp" alt="Gestión de casa rural desde el móvil" class="max-w-xs hover:scale-105 transition-transform duration-500">
                 </div>
             </div>
         </div>
@@ -62,16 +62,16 @@
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="0">
                             <div class="text-3xl mb-4">🚗</div>
                             <h3 class="font-semibold text-lg mb-2">"Tengo que ir a recibir a todos"</h3>
-                            <p class="text-gray-600">Desplazarte cada vez que llega un huesped es agotador. Con el auto check-in, ellos se registran solos antes de llegar.</p>
+                            <p class="text-gray-600">Desplazarte cada vez que llega un huésped es agotador. Con el auto check-in, ellos se registran solos antes de llegar.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="100">
                             <div class="text-3xl mb-4">📝</div>
                             <h3 class="font-semibold text-lg mb-2">"El papeleo me quita tiempo"</h3>
-                            <p class="text-gray-600">Partes de viajeros, INE, facturas... Con Hospedy todo se genera automaticamente.</p>
+                            <p class="text-gray-600">Partes de viajeros, INE, facturas... Con Hospedy todo se genera automáticamente.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="200">
                             <div class="text-3xl mb-4">📅</div>
-                            <h3 class="font-semibold text-lg mb-2">"No se cuando tengo libre"</h3>
+                            <h3 class="font-semibold text-lg mb-2">"No sé cuándo tengo libre"</h3>
                             <p class="text-gray-600">Reservas en Booking, en Airbnb, directas... Un solo calendario donde ves todo de un vistazo.</p>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
             <div class="max-w-5xl mx-auto px-6 mt-20">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
                     <div data-aos="fade-right">
-                        <h2 class="text-3xl font-bold mb-6">Auto check-in: tus huespedes se registran solos</h2>
+                        <h2 class="text-3xl font-bold mb-6">Auto check-in: tus huéspedes se registran solos</h2>
                         <p class="text-xl text-gray-600 mb-6">
                             Perfecto para casas rurales donde no siempre puedes estar presente.
                         </p>
@@ -90,7 +90,7 @@
                             <li class="flex gap-4" data-aos="fade-up" data-aos-delay="100">
                                 <span class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">1</span>
                                 <div>
-                                    <p class="font-semibold">El huesped recibe un enlace</p>
+                                    <p class="font-semibold">El huésped recibe un enlace</p>
                                     <p class="text-gray-600">Por email o SMS antes de llegar</p>
                                 </div>
                             </li>
@@ -98,14 +98,14 @@
                                 <span class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">2</span>
                                 <div>
                                     <p class="font-semibold">Introduce sus datos y escanea el DNI</p>
-                                    <p class="text-gray-600">Desde su propio movil, sin apps</p>
+                                    <p class="text-gray-600">Desde su propio móvil, sin apps</p>
                                 </div>
                             </li>
                             <li class="flex gap-4" data-aos="fade-up" data-aos-delay="300">
                                 <span class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">3</span>
                                 <div>
-                                    <p class="font-semibold">Hospedy envia el parte automaticamente</p>
-                                    <p class="text-gray-600">Tu solo verificas cuando lleguen</p>
+                                    <p class="font-semibold">Hospedy envía el parte automáticamente</p>
+                                    <p class="text-gray-600">Tú solo verificas cuando lleguen</p>
                                 </div>
                             </li>
                         </ol>
@@ -127,8 +127,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-semibold text-xl mb-2">Gestion desde el movil</h3>
-                            <p class="text-gray-600">Controla reservas, check-ins y facturacion desde tu smartphone. Como tener la recepcion en el bolsillo.</p>
+                            <h3 class="font-semibold text-xl mb-2">Gestión desde el móvil</h3>
+                            <p class="text-gray-600">Controla reservas, check-ins y facturación desde tu smartphone. Como tener la recepción en el bolsillo.</p>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="100">
@@ -139,7 +139,7 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Precios por temporada</h3>
-                            <p class="text-gray-600">Configura tarifas diferentes para Semana Santa, verano, puentes... Se aplican automaticamente.</p>
+                            <p class="text-gray-600">Configura tarifas diferentes para Semana Santa, verano, puentes... Se aplican automáticamente.</p>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="200">
@@ -160,8 +160,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-semibold text-xl mb-2">Gestion de varias casas</h3>
-                            <p class="text-gray-600">¿Tienes mas de una casa rural? Gestionalas todas desde una sola cuenta con calendarios separados.</p>
+                            <h3 class="font-semibold text-xl mb-2">Gestión de varias casas</h3>
+                            <p class="text-gray-600">¿Tienes más de una casa rural? Gestiónalas todas desde una sola cuenta con calendarios separados.</p>
                         </div>
                     </div>
                 </div>
@@ -174,10 +174,10 @@
                 <div class="max-w-3xl mx-auto px-6 text-center" data-aos="fade-up">
                     <div class="text-5xl mb-6 text-secondary">"</div>
                     <p class="text-2xl text-gray-700 mb-6">
-                        Tengo 3 casas rurales en pueblos diferentes. Antes tenia que ir a todas para los check-ins. Ahora los huespedes se registran solos y yo gestiono todo desde casa.
+                        Tengo 3 casas rurales en pueblos diferentes. Antes tenía que ir a todas para los check-ins. Ahora los huéspedes se registran solos y yo gestiono todo desde casa.
                     </p>
-                    <p class="font-semibold text-lg">Carlos Fernandez</p>
-                    <p class="text-gray-500">Casas Rurales Sierra de Albarracin, Teruel</p>
+                    <p class="font-semibold text-lg">Carlos Fernández</p>
+                    <p class="text-gray-500">Casas Rurales Sierra de Albarracín, Teruel</p>
                 </div>
             </div>
 
@@ -186,7 +186,7 @@
                 <h2 class="text-3xl font-bold mb-4">Precios para casas rurales</h2>
                 <p class="text-xl text-gray-600 mb-8">
                     Desde <span class="text-primary font-bold">35€/mes</span> para una casa rural.
-                    Precio segun numero de unidades, sin comisiones.
+                    Precio según número de unidades, sin comisiones.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <NuxtLink class="btn btn-grad btn-shimmer" to="/#precios">Ver precios</NuxtLink>
@@ -209,9 +209,9 @@
 
 <script setup lang="ts">
 useHead({
-    title: 'Software para Casas Rurales - Gestion y partes automaticos - Hospedy',
+    title: 'Software para Casas Rurales - Gestión y partes automáticos - Hospedy',
     meta: [
-        { name: 'description', content: 'Software de gestion para casas rurales con auto check-in, partes de viajeros automaticos y encuestas INE. Gestiona tu casa rural desde cualquier lugar.' }
+        { name: 'description', content: 'Software de gestión para casas rurales con auto check-in, partes de viajeros automáticos y encuestas INE. Gestiona tu casa rural desde cualquier lugar.' }
     ]
 })
 </script>

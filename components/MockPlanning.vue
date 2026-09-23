@@ -23,8 +23,8 @@
           <div class="hm-plan__bar">
             <p class="hm-plan__month">Octubre <span>2026</span></p>
             <div class="hm-plan__navs">
-              <button type="button" class="hm-nav" aria-label="Dias anteriores" @click="paso(-3)">&lsaquo;</button>
-              <button type="button" class="hm-nav" aria-label="Dias siguientes" @click="paso(3)">&rsaquo;</button>
+              <button type="button" class="hm-nav" aria-label="Días anteriores" @click="paso(-3)">&lsaquo;</button>
+              <button type="button" class="hm-nav" aria-label="Días siguientes" @click="paso(3)">&rsaquo;</button>
             </div>
           </div>
 
@@ -152,7 +152,7 @@
                   </div>
                   <!-- campos que no se ensenan: barra gris del ancho del dato -->
                   <div class="hm-fld">
-                    <label>Regimen</label>
+                    <label>Régimen</label>
                     <div class="hm-inp hm-inp--ph" aria-hidden="true"><span style="width: 58%" /></div>
                   </div>
                   <div class="hm-fld">
@@ -167,7 +167,7 @@
 
                 <div class="hm-acts">
                   <span class="hm-chip">Enviar pre check-in</span>
-                  <span class="hm-chip">Resumen al huesped</span>
+                  <span class="hm-chip">Resumen al huésped</span>
                   <span class="hm-chip hm-chip--wa">WhatsApp</span>
                   <span class="hm-chip">Extras</span>
                   <span class="hm-chip">Factura</span>
@@ -180,7 +180,7 @@
                 </div>
 
                 <div class="hm-sheet__cta">
-                  <p>&iquest;Te gusta este calendario? <b>El que usaras es mucho mejor.</b> &iquest;Te animas a probarlo?</p>
+                  <p>&iquest;Te gusta este calendario? <b>El que usarás es mucho mejor.</b> &iquest;Te animas a probarlo?</p>
                   <!-- Decorativo a proposito: el destino esta sin decidir. Cuando
                        se decida, esto pasa a <NuxtLink to="..."> y se le quita el
                        aria-hidden. -->
@@ -245,7 +245,7 @@ const RESERVAS = [
   { f: 6, c: 10, s: 5, q: "Grupo Bilbao", r: "MP", e: "future", ota: "bk" },
 ];
 
-const ET = { past: "Salio", future: "Confirmada", pre: "Auto check-in enviado", in: "En casa" };
+const ET = { past: "Salió", future: "Confirmada", pre: "Auto check-in enviado", in: "En casa" };
 
 const macEl = ref(null);
 const screenEl = ref(null);
@@ -306,7 +306,7 @@ const barras = computed(() =>
       width: r.s * COL.value - 5 + "px",
       height: ROW.value - 7 + "px",
     },
-    aria: r.q + ", habitacion " + HABS[r.f].n + ", " + r.s + " noches, " + ET[r.e],
+    aria: r.q + ", habitación " + HABS[r.f].n + ", " + r.s + " noches, " + ET[r.e],
   }))
 );
 
@@ -403,7 +403,7 @@ function abrir(b) {
     noches: b.s,
     entrada: dd(ini),
     salida: dd(ini + b.s),
-    etiqHab: hermanas.length > 1 ? "Habitaciones" : "Habitacion",
+    etiqHab: hermanas.length > 1 ? "Habitaciones" : "Habitación",
     hab:
       hermanas.length > 1
         ? hermanas.map((x) => HABS[x.f].n).join(" + ") + " · " + hermanas.length + " unidades"

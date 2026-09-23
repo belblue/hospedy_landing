@@ -4,12 +4,12 @@
         <div class="mt-24 mb-16">
             <!-- Hero -->
             <div class="text-center max-w-4xl mx-auto px-6">
-                <p class="text-secondary font-semibold text-lg mb-4">Cumplimiento normativo automatico</p>
+                <p class="text-secondary font-semibold text-lg mb-4">Cumplimiento normativo automático</p>
                 <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                    Partes de viajeros que se envian solos
+                    Partes de viajeros que se envían solos
                 </h1>
                 <p class="text-xl text-gray-600 mb-8">
-                    Olvida las multas y el papeleo. Hospedy genera y envia los partes automaticamente a SES Hospedajes y Ertzaintza cada vez que haces un check-in.
+                    Olvida las multas y el papeleo. Hospedy genera y envía los partes automáticamente a SES Hospedajes y Ertzaintza cada vez que haces un check-in.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
@@ -18,28 +18,28 @@
 
             <!-- How it works -->
             <div class="max-w-5xl mx-auto px-6 mt-20">
-                <h2 class="text-3xl font-bold text-center mb-12">Como funciona</h2>
+                <h2 class="text-3xl font-bold text-center mb-12">Cómo funciona</h2>
                 <div class="grid lg:grid-cols-3 gap-8">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                             <span class="text-2xl font-bold text-primary">1</span>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Escanea el DNI</h3>
-                        <p class="text-gray-600">Con la camara del movil o un lector de documentos. Los datos se extraen automaticamente.</p>
+                        <p class="text-gray-600">Con la cámara del móvil o un lector de documentos. Los datos se extraen automáticamente.</p>
                     </div>
                     <div class="text-center">
                         <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                             <span class="text-2xl font-bold text-primary">2</span>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Hospedy genera el parte</h3>
-                        <p class="text-gray-600">Con todos los datos del huesped y la reserva. Sin que tengas que escribir nada.</p>
+                        <p class="text-gray-600">Con todos los datos del huésped y la reserva. Sin que tengas que escribir nada.</p>
                     </div>
                     <div class="text-center">
                         <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                             <span class="text-2xl font-bold text-primary">3</span>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">Envio automatico</h3>
-                        <p class="text-gray-600">El parte se envia al cuerpo policial que corresponda. Tu libro de viajeros queda actualizado.</p>
+                        <h3 class="text-xl font-semibold mb-2">Envío automático</h3>
+                        <p class="text-gray-600">El parte se envía al cuerpo policial que corresponda. Tu libro de viajeros queda actualizado.</p>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
             <!-- Benefits -->
             <div class="bg-gray-50 py-16 mt-20">
                 <div class="max-w-5xl mx-auto px-6">
-                    <h2 class="text-3xl font-bold text-center mb-12">Por que automatizar los partes</h2>
+                    <h2 class="text-3xl font-bold text-center mb-12">Por qué automatizar los partes</h2>
                     <div class="grid lg:grid-cols-2 gap-8">
                         <div class="bg-white p-6 rounded-xl shadow-sm">
                             <div class="flex gap-4">
@@ -57,7 +57,7 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-lg mb-2">Ahorra 2 horas al dia</h3>
+                                    <h3 class="font-semibold text-lg mb-2">Ahorra 2 horas al día</h3>
                                     <p class="text-gray-600">Un check-in manual lleva 5-10 minutos. Con Hospedy, 30 segundos.</p>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-lg mb-2">Cero errores</h3>
-                                    <p class="text-gray-600">Sin teclear datos manualmente, no hay errores de transcripcion.</p>
+                                    <p class="text-gray-600">Sin teclear datos manualmente, no hay errores de transcripción.</p>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-lg mb-2">Evita multas</h3>
-                                    <p class="text-gray-600">Las multas por no enviar partes pueden superar los 600€. Con el envio automatico, cumples siempre.</p>
+                                    <p class="text-gray-600">Las multas por no enviar partes pueden superar los 600€. Con el envío automático, cumples siempre.</p>
                                 </div>
                             </div>
                         </div>
@@ -97,8 +97,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-lg mb-2">Envio automatico a SES y Ertzaintza</h3>
-                                    <p class="text-gray-600">Hospedy envia a SES Hospedajes (Policia Nacional y Guardia Civil) y Ertzaintza (Pais Vasco) segun tu ubicacion.</p>
+                                    <h3 class="font-semibold text-lg mb-2">Envío automático a SES y Ertzaintza</h3>
+                                    <p class="text-gray-600">Hospedy envía a SES Hospedajes (Policía Nacional y Guardia Civil) y Ertzaintza (País Vasco) según tu ubicación.</p>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +121,7 @@
                                 </svg>
                             </div>
                             <h3 class="font-semibold mb-1">SES Hospedajes</h3>
-                            <p class="text-lg text-gray-500">Policia Nacional y Guardia Civil</p>
+                            <p class="text-lg text-gray-500">Policía Nacional y Guardia Civil</p>
                         </div>
                         <div class="bg-white rounded-xl p-6 text-center shadow-sm">
                             <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -148,17 +148,17 @@
 
             <!-- SES Hospedajes explanation -->
             <div class="max-w-4xl mx-auto px-6 mt-20">
-                <h2 class="text-3xl font-bold text-center mb-8">Que es SES Hospedajes</h2>
+                <h2 class="text-3xl font-bold text-center mb-8">Qué es SES Hospedajes</h2>
                 <div class="prose prose-lg max-w-none">
                     <p class="text-gray-600 text-lg">
-                        SES Hospedajes es el sistema del Ministerio del Interior de Espana para el registro de viajeros.
-                        Todos los establecimientos de hospedaje estan obligados a comunicar los datos de sus huespedes
+                        SES Hospedajes es el sistema del Ministerio del Interior de España para el registro de viajeros.
+                        Todos los establecimientos de hospedaje están obligados a comunicar los datos de sus huéspedes
                         en las primeras 24 horas desde su llegada.
                     </p>
                     <p class="text-gray-600 text-lg mt-4">
-                        Con Hospedy, esta comunicacion es automatica. Cuando registras un huesped, el parte se genera
-                        y se envia sin que tengas que hacer nada mas. Ademas, tu libro de viajeros queda actualizado
-                        y disponible para cualquier inspeccion.
+                        Con Hospedy, esta comunicación es automática. Cuando registras un huésped, el parte se genera
+                        y se envía sin que tengas que hacer nada más. Además, tu libro de viajeros queda actualizado
+                        y disponible para cualquier inspección.
                     </p>
                 </div>
             </div>
@@ -178,9 +178,9 @@
 
 <script setup lang="ts">
 useHead({
-    title: 'Partes de viajeros automaticos a SES Hospedajes y Ertzaintza - Hospedy',
+    title: 'Partes de viajeros automáticos a SES Hospedajes y Ertzaintza - Hospedy',
     meta: [
-        { name: 'description', content: 'Envio automatico de partes de viajeros a SES Hospedajes y Ertzaintza (Pais Vasco). Escanea el DNI y Hospedy genera y envia el parte automaticamente.' }
+        { name: 'description', content: 'Envío automático de partes de viajeros a SES Hospedajes y Ertzaintza (País Vasco). Escanea el DNI y Hospedy genera y envía el parte automáticamente.' }
     ]
 })
 </script>

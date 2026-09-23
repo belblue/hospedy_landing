@@ -11,7 +11,7 @@
   <div
     class="hm-ph"
     role="img"
-    aria-label="Formulario de auto check-in en un movil: nombre y apellidos, sexo, fecha de nacimiento y caducidad, tipo y numero de documento, direccion, provincia y pais, entrada, noches y habitacion, telefono y correo, aceptacion de condiciones, firma y boton de enviar."
+    aria-label="Formulario de auto check-in en un móvil: nombre y apellidos, sexo, fecha de nacimiento y caducidad, tipo y número de documento, dirección, provincia y país, entrada, noches y habitación, teléfono y correo, aceptación de condiciones, firma y botón de enviar."
   >
     <div class="hm-ph__in">
       <div class="hm-ph__body">
@@ -31,19 +31,19 @@
           <div class="hm-ph__row">
             <div class="hm-seg"><b class="on">M</b><b>F</b></div>
             <div class="hm-fi"><label>Nacimiento</label><span>12/04/1995</span></div>
-            <div class="hm-fi"><label>Expiracion</label><span>23/06/2032</span></div>
+            <div class="hm-fi"><label>Expiración</label><span>23/06/2032</span></div>
           </div>
 
           <div class="hm-ph__row">
             <div class="hm-seg hm-seg--doc"><b class="on">DNI</b><b>NIE</b><b>P</b><b>ID</b><b>C</b><b>X</b></div>
-            <div class="hm-fi"><label>Numero ID</label><span>49703622R</span></div>
+            <div class="hm-fi"><label>Número ID</label><span>49703622R</span></div>
           </div>
 
-          <div class="hm-fi"><label>Direccion</label><span>Calle de Alcala 122, Madrid</span></div>
+          <div class="hm-fi"><label>Dirección</label><span>Calle de Alcalá 122, Madrid</span></div>
 
           <div class="hm-ph__row">
             <div class="hm-fi"><label>Provincia</label><span>Madrid</span></div>
-            <div class="hm-fi"><label>Pais</label><span>Espana</span></div>
+            <div class="hm-fi"><label>País</label><span>España</span></div>
             <span class="hm-ph__refresh">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
                 <path d="M20 12a8 8 0 1 1-2.6-5.9" /><path d="M20 4v5h-5" />
@@ -58,13 +58,13 @@
           </div>
 
           <div class="hm-ph__row">
-            <div class="hm-fi"><label>Telefono</label><span>974 55 00 22</span></div>
+            <div class="hm-fi"><label>Teléfono</label><span>974 55 00 22</span></div>
             <div class="hm-fi"><label>Correo</label><span>correo@ejemplo.es</span></div>
           </div>
 
           <div class="hm-ph__terms">
             <span class="hm-ph__check">&#10003;</span>
-            <p>Acepto los <span class="hm-ph__link">terminos y condiciones</span></p>
+            <p>Acepto los <span class="hm-ph__link">términos y condiciones</span></p>
           </div>
 
           <div class="hm-sign">

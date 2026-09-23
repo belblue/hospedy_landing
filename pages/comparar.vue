@@ -20,7 +20,7 @@
             <thead>
               <tr class="bg-gray-50">
                 <th class="text-left p-4 border-b border-gray-200 w-1/5">
-                  Caracteristica
+                  Característica
                 </th>
                 <th
                   class="text-center p-4 border-b border-gray-200 bg-primary/5 border-l-2 border-r-2 border-primary"
@@ -68,7 +68,7 @@
               </tr>
               <tr>
                 <td class="p-4 border-b border-gray-100">
-                  Comision por reserva
+                  Comisión por reserva
                 </td>
                 <td
                   class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary font-bold text-green-600"
@@ -96,10 +96,10 @@
                 <td class="p-4 border-b border-gray-100 text-center">Demo</td>
                 <td class="p-4 border-b border-gray-100 text-center">Demo</td>
                 <td class="p-4 border-b border-gray-100 text-center">
-                  14 dias
+                  14 días
                 </td>
                 <td class="p-4 border-b border-gray-100 text-center">
-                  30 dias
+                  30 días
                 </td>
               </tr>
 
@@ -111,7 +111,7 @@
               </tr>
               <tr>
                 <td class="p-4 border-b border-gray-100">
-                  Partes de viajeros automaticos
+                  Partes de viajeros automáticos
                 </td>
                 <td
                   class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary"
@@ -183,7 +183,7 @@
               </tr>
               <tr>
                 <td class="p-4 border-b border-gray-100">
-                  Envio a SES Hospedajes
+                  Envío a SES Hospedajes
                 </td>
                 <td
                   class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary"
@@ -255,7 +255,7 @@
               </tr>
               <tr class="bg-green-50">
                 <td class="p-4 border-b border-gray-100 font-semibold">
-                  Envio a Ertzaintza (Pais Vasco)
+                  Envío a Ertzaintza (País Vasco)
                 </td>
                 <td
                   class="p-4 border-b border-gray-100 text-center bg-green-100 border-l-2 border-r-2 border-primary"
@@ -337,7 +337,7 @@
               </tr>
               <tr>
                 <td class="p-4 border-b border-gray-100">
-                  Encuestas INE automaticas
+                  Encuestas INE automáticas
                 </td>
                 <td
                   class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary"
@@ -525,7 +525,7 @@
                 </td>
               </tr>
               <tr>
-                <td class="p-4 border-b border-gray-100">Facturacion</td>
+                <td class="p-4 border-b border-gray-100">Facturación</td>
                 <td
                   class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary"
                 >
@@ -825,7 +825,7 @@
           </table>
         </div>
         <p class="text-lg text-gray-500 mt-4">
-          * Precios aproximados basados en informacion publica. Consulta cada
+          * Precios aproximados basados en información pública. Consulta cada
           proveedor para precios actualizados. Febrero 2025.
         </p>
       </div>
@@ -910,7 +910,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                 </td>
-                <td class="p-4 border-b border-gray-100 text-center text-sm text-gray-600">Mas caro</td>
+                <td class="p-4 border-b border-gray-100 text-center text-sm text-gray-600">Más caro</td>
               </tr>
             </tbody>
           </table>
@@ -920,7 +920,7 @@
           <ul class="space-y-2 text-green-700">
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">✓</span>
-              <span>40-60% mas barato que RuralGest (hoteles) y HotelManager</span>
+              <span>40-60% más barato que RuralGest (hoteles) y HotelManager</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">✓</span>
@@ -942,7 +942,7 @@
       <div class="bg-primary/5 py-16 mt-20">
         <div class="max-w-4xl mx-auto px-6">
           <h2 class="text-3xl font-bold text-center mb-12">
-            Por que elegir Hospedy
+            Por qué elegir Hospedy
           </h2>
           <div class="grid lg:grid-cols-3 gap-8">
             <div class="text-center">
@@ -964,10 +964,10 @@
                 </svg>
               </div>
               <h3 class="font-semibold text-lg mb-2">
-                Cumplimiento automatico
+                Cumplimiento automático
               </h3>
               <p class="text-gray-600">
-                Envio automatico de partes a SES Hospedajes y Ertzaintza (Pais
+                Envío automático de partes a SES Hospedajes y Ertzaintza (País
                 Vasco).
               </p>
             </div>
@@ -989,7 +989,7 @@
                   ></path>
                 </svg>
               </div>
-              <h3 class="font-semibold text-lg mb-2">Hasta 60% mas barato</h3>
+              <h3 class="font-semibold text-lg mb-2">Hasta 60% más barato</h3>
               <p class="text-gray-600">
                 Desde 350€/año frente a +1.000€/año de la competencia.
               </p>
@@ -1014,7 +1014,7 @@
               </div>
               <h3 class="font-semibold text-lg mb-2">Soporte humano real</h3>
               <p class="text-gray-600">
-                Telefono, email y WhatsApp con personas reales que hablan
+                Teléfono, email y WhatsApp con personas reales que hablan
                 español.
               </p>
             </div>
@@ -1025,7 +1025,7 @@
       <!-- CTA -->
       <div class="text-center mt-20 px-6">
         <h2 class="text-3xl font-bold mb-4">
-          ¿Quieres saber cuanto te costaria?
+          ¿Quieres saber cuánto te costaría?
         </h2>
         <p class="text-xl text-gray-600 mb-8">
           Solicita un presupuesto personalizado sin compromiso.

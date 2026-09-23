@@ -9,14 +9,14 @@
       <NuxtLink
         class="lg:block hidden"
         to="/"
-        title="volver a la pagina principal de Hospedy"
+        title="volver a la página principal de Hospedy"
       >
         <img src="/logo.svg" alt="logo hospedy" class="w-36" />
       </NuxtLink>
       <NuxtLink
         class="block lg:hidden"
         to="/"
-        title="volver a la pagina principal de Hospedy"
+        title="volver a la página principal de Hospedy"
       >
         <img src="/logor.svg" alt="logo hospedy" class="w-8" />
       </NuxtLink>
@@ -53,7 +53,7 @@
           >Contacto</NuxtLink
         >
         <a
-          title="Envianos un mensaje por WhatsApp"
+          title="Envíanos un mensaje por WhatsApp"
           target="_blank"
           href="https://wa.me/376619224"
           class="p-2"
@@ -78,11 +78,11 @@
           <img
             class="mt-1 w-10"
             src="/hamburger.svg"
-            alt="desplegar menu de Hospedy"
+            alt="desplegar menú de Hospedy"
           />
         </button>
         <button v-else @click="closeMenu()">
-          <img class="mt-1 w-10" src="/close.svg" alt="plegar menu de Hospedy" />
+          <img class="mt-1 w-10" src="/close.svg" alt="plegar menú de Hospedy" />
         </button>
       </div>
     </div>

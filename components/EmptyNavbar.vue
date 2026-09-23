@@ -1,9 +1,9 @@
 <template>
     <div class=" flex bg-white fixed top-0 w-full z-10 shadow py-1 px-4">
-        <NuxtLink class="lg:block hidden" to="/" title="volver a la pagina principal de Hospedy">
+        <NuxtLink class="lg:block hidden" to="/" title="volver a la página principal de Hospedy">
             <img src="/logo.svg" alt="logo hospedy" class="w-36">
         </NuxtLink>
-        <NuxtLink class="block lg:hidden" to="/" title="volver a la pagina principal de Hospedy">
+        <NuxtLink class="block lg:hidden" to="/" title="volver a la página principal de Hospedy">
             <img src="/logor.svg" alt="logo hospedy" class="w-8">
         </NuxtLink>
 

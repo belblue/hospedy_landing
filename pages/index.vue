@@ -455,7 +455,7 @@
                 d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
               ></path>
             </svg>
-            Escaner de escritorio
+            Escáner de escritorio
           </button>
         </div>
 
@@ -503,19 +503,19 @@
               v-show="activeCheckInTab === 0"
               src="/phone.webp"
               class="max-w-full max-h-full object-contain"
-              alt="Check-in rapido con Hospedy"
+              alt="Check-in rápido con Hospedy"
             />
             <img
               v-show="activeCheckInTab === 1"
               src="/auto_check.svg"
               class="max-w-full max-h-full object-contain rotate-90"
-              alt="Auto check-in para huespedes"
+              alt="Auto check-in para huéspedes"
             />
             <img
               v-show="activeCheckInTab === 2"
               src="/scaner.png"
               class="max-w-full max-h-full object-contain"
-              alt="Escaner de documentos"
+              alt="Escáner de documentos"
             />
           </div>
         </div>
@@ -539,8 +539,8 @@
             Cierras la reserva y
             <span class="font-semibold text-gold"
               >la factura aparece generada</span
-            >. Con todos los datos correctos, lista para enviar. Depositos, tasa
-            turistica, extras... todo calculado. Y Zenfisk, el programa de
+            >. Con todos los datos correctos, lista para enviar. Depósitos, tasa
+            turística, extras... todo calculado. Y Zenfisk, el programa de
             facturación y gastos con Verifactu, incluido en tu suscripción.
           </p>
         </div>
@@ -548,7 +548,7 @@
           <img
             src="/invoices_1.svg"
             class="w-40 lg:w-52"
-            alt="Facturacion automatica con Hospedy"
+            alt="Facturación automática con Hospedy"
           />
         </div>
       </div>
@@ -569,7 +569,7 @@
           </p>
           <p class="text-white">
             Un calendario visual donde
-            <span class="font-semibold text-gold">todo esta bajo control</span>.
+            <span class="font-semibold text-gold">todo está bajo control</span>.
             Arrastra para mover reservas, haz clic para ver detalles. Como el
             planning de toda la vida, pero sin papeles.
           </p>
@@ -595,20 +595,20 @@
           <p class="text-3xl text-white font-semibold">Partes e INE</p>
         </div>
         <p class="text-xl mb-4 text-white font-semibold">
-          En piloto automatico
+          En piloto automático
         </p>
         <div class="space-y-4">
           <!-- Partes de viajeros -->
           <div>
             <p class="text-white">
               <span class="font-semibold text-white">Partes de viajeros</span>:
-              Se generan en el check-in y se envian solos a SES Hospedajes y
+              Se generan en el check-in y se envían solos a SES Hospedajes y
               Ertzaintza. Tu libro de viajeros siempre actualizado.
             </p>
             <NuxtLink
               to="/funciones/partes-viajeros"
               class="inline-block mt-2 text-gold font-semibold hover:underline"
-              >Saber mas →</NuxtLink
+              >Saber más →</NuxtLink
             >
           </div>
 
@@ -630,7 +630,7 @@
           <img
             src="/partes.svg"
             class="w-48 lg:w-64"
-            alt="Partes de viajeros automaticos"
+            alt="Partes de viajeros automáticos"
           />
         </div>
       </div>
@@ -718,21 +718,21 @@
             Reservas directas, sin comisiones
           </p>
           <p class="text-xl mt-8">
-            Con el motor de reservas de Hospedy los huespedes reservan
+            Con el motor de reservas de Hospedy los huéspedes reservan
             <span class="font-semibold text-black"
-              >directamente desde tu pagina web</span
+              >directamente desde tu página web</span
             >, sin intermediarios ni comisiones por reserva . Ofrece el mejor
             precio a tus clientes y ahorra en comisiones a Booking.
           </p>
           <p class="text-xl mt-4">
-            Las reservas aparecen automaticamente en tu calendario. Si tienes
+            Las reservas aparecen automáticamente en tu calendario. Si tienes
             channel manager, la disponibilidad se actualiza en todas las OTAs al
             instante.
           </p>
           <NuxtLink
             to="/funciones/motor-reservas"
             class="inline-block mt-4 text-xl text-primary font-semibold hover:underline"
-            >Calcula cuanto te ahorras →</NuxtLink
+            >Calcula cuánto te ahorras →</NuxtLink
           >
         </div>
         <div class="flex justify-center items-center" data-aos="fade-left">
@@ -756,9 +756,9 @@
             Channel Manager: todo sincronizado
           </p>
           <p class="text-xl mt-8">
-            Conecta con mas de 50 OTAs y
+            Conecta con más de 50 OTAs y
             <span class="font-semibold text-black"
-              >olvidate de los overbookings</span
+              >olvídate de los overbookings</span
             >. Booking, Expedia, Airbnb... todas sincronizadas con tu calendario
             en tiempo real.
           </p>
@@ -787,15 +787,15 @@
             Cobra por adelantado, evita problemas
           </p>
           <p class="text-xl mt-8">
-            El TPV no funciona, los huespedes no se presentan, han fumado en la
-            habitacion...
+            El TPV no funciona, los huéspedes no se presentan, han fumado en la
+            habitación...
             <span class="font-semibold text-black"
-              >Cobra reservas completas o pide depositos</span
+              >Cobra reservas completas o pide depósitos</span
             >
-            a traves de nuestra pasarela de pago integrada con Stripe.
+            a través de nuestra pasarela de pago integrada con Stripe.
           </p>
           <p class="text-xl mt-4">
-            Tranquilidad para ti y para tus huespedes bajo la protección de una
+            Tranquilidad para ti y para tus huéspedes bajo la protección de una
             empresa de renombre mundial.
           </p>
         </div>
@@ -868,7 +868,7 @@
             </div>
             <div class="bg-gold/15 rounded-xl p-4">
               <p class="text-gray-900 font-bold">Facturas</p>
-              <p class="text-gray-700 text-sm">Automaticas</p>
+              <p class="text-gray-700 text-sm">Automáticas</p>
             </div>
             <div class="bg-gold/15 rounded-xl p-4">
               <p class="text-gray-900 font-bold">INE</p>
@@ -891,7 +891,7 @@
             </NuxtLink>
           </div>
           <p class="text-gray-700 mt-4 text-sm">
-            30 dias gratis · Sin compromiso
+            30 días gratis · Sin compromiso
           </p>
         </div>
       </div>
@@ -902,7 +902,7 @@
       >
         <div class="flex items-center justify-center gap-2 text-gray-600">
           <span class="text-primary font-semibold">+</span>
-          <span>OTAs incluidas segun plan (1-3 o ilimitadas)</span>
+          <span>OTAs incluidas según plan (1-3 o ilimitadas)</span>
         </div>
         <NuxtLink
           to="/comparar"

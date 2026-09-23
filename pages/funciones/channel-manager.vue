@@ -6,10 +6,10 @@
             <div class="text-center max-w-4xl mx-auto px-6">
                 <p class="text-secondary font-semibold text-lg mb-4">Todas tus OTAs sincronizadas</p>
                 <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                    Channel Manager: adios a los overbookings
+                    Channel Manager: adiós a los overbookings
                 </h1>
                 <p class="text-xl text-gray-600 mb-8">
-                    Conecta con Booking, Airbnb, Expedia y mas de 50 OTAs. Actualiza precios y disponibilidad desde un solo lugar.
+                    Conecta con Booking, Airbnb, Expedia y más de 50 OTAs. Actualiza precios y disponibilidad desde un solo lugar.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
@@ -43,7 +43,7 @@
 
             <!-- How it works -->
             <div class="max-w-5xl mx-auto px-6 mt-20">
-                <h2 class="text-3xl font-bold text-center mb-12">Como funciona</h2>
+                <h2 class="text-3xl font-bold text-center mb-12">Cómo funciona</h2>
                 <div class="grid lg:grid-cols-3 gap-8">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -83,7 +83,7 @@
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-lg mb-2">Cero overbookings</h3>
-                                    <p class="text-gray-600">Cuando entra una reserva en una OTA, se bloquea automaticamente en las demas.</p>
+                                    <p class="text-gray-600">Cuando entra una reserva en una OTA, se bloquea automáticamente en las demás.</p>
                                 </div>
                             </div>
                         </div>
@@ -108,8 +108,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-lg mb-2">Maximiza ocupacion</h3>
-                                    <p class="text-gray-600">Estas presente en mas agencias, llegas a mas viajeros potenciales.</p>
+                                    <h3 class="font-semibold text-lg mb-2">Maximiza ocupación</h3>
+                                    <p class="text-gray-600">Estás presente en más agencias, llegas a más viajeros potenciales.</p>
                                 </div>
                             </div>
                         </div>
@@ -141,13 +141,13 @@
                             <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Sincronizacion en tiempo real</span>
+                            <span>Sincronización en tiempo real</span>
                         </li>
                         <li class="flex items-center gap-2">
                             <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>15 dias de prueba gratis</span>
+                            <span>15 días de prueba gratis</span>
                         </li>
                         <li class="flex items-center gap-2">
                             <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,14 +156,14 @@
                             <span>Sin permanencia</span>
                         </li>
                     </ul>
-                    <p class="text-lg text-gray-500">Servicio ofrecido en colaboracion con Wubook</p>
+                    <p class="text-lg text-gray-500">Servicio ofrecido en colaboración con Wubook</p>
                 </div>
             </div>
 
             <!-- CTA -->
             <div class="text-center mt-20 px-6">
                 <h2 class="text-3xl font-bold mb-4">Sincroniza todas tus OTAs</h2>
-                <p class="text-xl text-gray-600 mb-8">Prueba el Channel Manager 15 dias gratis.</p>
+                <p class="text-xl text-gray-600 mb-8">Prueba el Channel Manager 15 días gratis.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
                 </div>
@@ -175,9 +175,9 @@
 
 <script setup lang="ts">
 useHead({
-    title: 'Channel Manager - Conecta con Booking, Airbnb y mas - Hospedy',
+    title: 'Channel Manager - Conecta con Booking, Airbnb y más - Hospedy',
     meta: [
-        { name: 'description', content: 'Channel Manager para conectar tu alojamiento con Booking, Airbnb, Expedia y mas de 50 OTAs. Evita overbookings y ahorra tiempo.' }
+        { name: 'description', content: 'Channel Manager para conectar tu alojamiento con Booking, Airbnb, Expedia y más de 50 OTAs. Evita overbookings y ahorra tiempo.' }
     ]
 })
 </script>

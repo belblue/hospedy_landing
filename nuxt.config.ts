@@ -16,30 +16,30 @@ export default defineNuxtConfig({
         htmlAttrs: {
           lang: 'es'
         },
-        title: 'Hospedy - Software PMS con partes de viajeros automaticos',
+        title: 'Hospedy - Software PMS con partes de viajeros automáticos',
         titleTemplate: '%s | Hospedy',
         meta: [
-          { name: 'description', content: 'Software de gestion hotelera con partes de viajeros automaticos a SES Hospedajes y Ertzaintza. Encuestas INE, channel manager y motor de reservas para hoteles, casas rurales y apartamentos.' },
+          { name: 'description', content: 'Software de gestión hotelera con partes de viajeros automáticos a SES Hospedajes y Ertzaintza. Encuestas INE, channel manager y motor de reservas para hoteles, casas rurales y apartamentos.' },
           { name: 'msapplication-TileColor', content: '#0D9488' },
           { name: 'theme-color', content: '#ffffff' },
           { name: 'author', content: 'Hospedy - Silatek, S.L.U.' },
           { name: 'publisher', content: 'Silatek, S.L.U.' },
           { name: 'copyright', content: 'Silatek, S.L.U.' },
-          { name: 'keywords', content: 'PMS hotel, software gestion hotelera, partes viajeros automaticos, SES Hospedajes, Ertzaintza, Pais Vasco, encuesta INE, channel manager, motor reservas, casa rural, apartamentos turisticos' },
+          { name: 'keywords', content: 'PMS hotel, software gestión hotelera, partes viajeros automáticos, SES Hospedajes, Ertzaintza, País Vasco, encuesta INE, channel manager, motor reservas, casa rural, apartamentos turísticos' },
           { name: 'page-topic', content: 'Software de gestion hotelera' },
           { name: 'robots', content: 'index, follow' },
           // Open Graph
           { property: 'og:type', content: 'website' },
           { property: 'og:site_name', content: 'Hospedy' },
           { property: 'og:locale', content: 'es_ES' },
-          { property: 'og:title', content: 'Hospedy - Software PMS con partes de viajeros automaticos' },
-          { property: 'og:description', content: 'PMS con envio automatico de partes a SES Hospedajes y Ertzaintza (Pais Vasco). Gestion completa de hoteles, casas rurales y apartamentos.' },
+          { property: 'og:title', content: 'Hospedy - Software PMS con partes de viajeros automáticos' },
+          { property: 'og:description', content: 'PMS con envío automático de partes a SES Hospedajes y Ertzaintza (País Vasco). Gestión completa de hoteles, casas rurales y apartamentos.' },
           { property: 'og:image', content: 'https://gethospedy.com/og-image.png' },
           { property: 'og:url', content: 'https://gethospedy.com' },
           // Twitter Card
           { name: 'twitter:card', content: 'summary_large_image' },
-          { name: 'twitter:title', content: 'Hospedy - Software PMS con partes de viajeros automaticos' },
-          { name: 'twitter:description', content: 'PMS con envio automatico de partes a SES Hospedajes y Ertzaintza. Encuestas INE, channel manager y motor de reservas.' },
+          { name: 'twitter:title', content: 'Hospedy - Software PMS con partes de viajeros automáticos' },
+          { name: 'twitter:description', content: 'PMS con envío automático de partes a SES Hospedajes y Ertzaintza. Encuestas INE, channel manager y motor de reservas.' },
           { name: 'twitter:image', content: 'https://gethospedy.com/og-image.png' },
         ],
         link:[
@@ -60,7 +60,7 @@ export default defineNuxtConfig({
               name: 'Hospedy',
               applicationCategory: 'BusinessApplication',
               operatingSystem: 'Web',
-              description: 'Software de gestion hotelera con partes de viajeros automaticos a SES Hospedajes y Ertzaintza. Encuestas INE, channel manager y motor de reservas.',
+              description: 'Software de gestión hotelera con partes de viajeros automáticos a SES Hospedajes y Ertzaintza. Encuestas INE, channel manager y motor de reservas.',
               url: 'https://gethospedy.com',
               author: {
                 '@type': 'Organization',

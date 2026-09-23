@@ -11,47 +11,47 @@
                     Programa Amigos de Hospedy
                 </h1>
                 <p class="text-xl text-gray-600 mb-8">
-                    Recomienda Hospedy y gana meses gratis. Cuanto mayor sea el plan de tu amigo, mas meses ganas tu.
+                    Recomienda Hospedy y gana meses gratis. Cuanto mayor sea el plan de tu amigo, más meses ganas tú.
                 </p>
             </div>
 
             <!-- How it works -->
             <div class="max-w-5xl mx-auto px-6 mt-16">
-                <h2 class="text-3xl font-bold text-center mb-12">Como funciona</h2>
+                <h2 class="text-3xl font-bold text-center mb-12">Cómo funciona</h2>
                 <div class="grid lg:grid-cols-3 gap-8">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                             <span class="text-2xl font-bold text-primary">1</span>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">Comparte tu codigo</h3>
-                        <p class="text-gray-600">Tu codigo es HOSPEDY-[TUNOMBRE]. Compartelo con otros alojamientos turisticos.</p>
+                        <h3 class="text-xl font-semibold mb-2">Comparte tu código</h3>
+                        <p class="text-gray-600">Tu código es HOSPEDY-[TUNOMBRE]. Compártelo con otros alojamientos turísticos.</p>
                     </div>
                     <div class="text-center">
                         <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                             <span class="text-2xl font-bold text-primary">2</span>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Tu amigo contrata</h3>
-                        <p class="text-gray-600">Cuando tu amigo se registra con tu codigo y completa su primera suscripcion.</p>
+                        <p class="text-gray-600">Cuando tu amigo se registra con tu código y completa su primera suscripción.</p>
                     </div>
                     <div class="text-center">
                         <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                             <span class="text-2xl font-bold text-primary">3</span>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">Tu ganas meses gratis</h3>
-                        <p class="text-gray-600">Se anaden meses gratis a tu suscripcion automaticamente.</p>
+                        <h3 class="text-xl font-semibold mb-2">Tú ganas meses gratis</h3>
+                        <p class="text-gray-600">Se añaden meses gratis a tu suscripción automáticamente.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Rewards table -->
             <div class="max-w-4xl mx-auto px-6 mt-20">
-                <h2 class="text-3xl font-bold text-center mb-8">Cuanto ganas por cada referido</h2>
+                <h2 class="text-3xl font-bold text-center mb-8">Cuánto ganas por cada referido</h2>
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
                     <table class="w-full">
                         <thead class="bg-gray-50">
                             <tr>
                                 <th class="text-left p-4 font-semibold">Tu amigo contrata</th>
-                                <th class="text-center p-4 font-semibold text-primary">Tu ganas</th>
+                                <th class="text-center p-4 font-semibold text-primary">Tú ganas</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -94,19 +94,19 @@
                         </tbody>
                     </table>
                 </div>
-                <p class="text-center text-gray-500 mt-4">Sin limite de referidos. Los meses se acumulan.</p>
+                <p class="text-center text-gray-500 mt-4">Sin límite de referidos. Los meses se acumulan.</p>
             </div>
 
             <!-- New customer benefit -->
             <div class="bg-tertiary py-16 mt-20">
                 <div class="max-w-4xl mx-auto px-6 text-center">
-                    <h2 class="text-3xl font-bold mb-4">Tu amigo tambien gana</h2>
+                    <h2 class="text-3xl font-bold mb-4">Tu amigo también gana</h2>
                     <p class="text-xl text-gray-600 mb-8">
-                        Cuando alguien usa tu codigo, obtiene:
+                        Cuando alguien usa tu código, obtiene:
                     </p>
                     <div class="bg-white rounded-2xl p-8 shadow-sm inline-block">
                         <p class="text-4xl font-bold text-primary mb-2">50% descuento</p>
-                        <p class="text-gray-600">en la configuracion de su primera OTA extra</p>
+                        <p class="text-gray-600">en la configuración de su primera OTA extra</p>
                     </div>
                 </div>
             </div>
@@ -119,9 +119,9 @@
                             <div class="inline-block bg-gold text-white font-semibold px-3 py-1 rounded-full text-sm mb-4">
                                 Status especial
                             </div>
-                            <h2 class="text-3xl font-bold mb-4">Conviertete en Embajador</h2>
+                            <h2 class="text-3xl font-bold mb-4">Conviértete en Embajador</h2>
                             <p class="text-gray-600 text-lg mb-6">
-                                Si has referido a 5 o mas amigos, te convertimos en Embajador de Hospedy con beneficios exclusivos.
+                                Si has referido a 5 o más amigos, te convertimos en Embajador de Hospedy con beneficios exclusivos.
                             </p>
                         </div>
                         <div class="bg-white rounded-xl p-6 shadow-sm">
@@ -131,7 +131,7 @@
                                     <svg class="w-5 h-5 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                     </svg>
-                                    <span><strong>10% descuento permanente</strong> en tu renovacion anual</span>
+                                    <span><strong>10% descuento permanente</strong> en tu renovación anual</span>
                                 </li>
                                 <li class="flex items-center gap-3">
                                     <svg class="w-5 h-5 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,28 +156,28 @@
                 <h2 class="text-3xl font-bold text-center mb-12">Preguntas frecuentes</h2>
                 <div class="space-y-6">
                     <div class="border-b border-gray-200 pb-6">
-                        <h3 class="font-semibold text-lg mb-2">¿Como consigo mi codigo?</h3>
-                        <p class="text-gray-600">Tu codigo es automaticamente HOSPEDY-[TUNOMBRE]. Si te llamas Juan Garcia, tu codigo seria HOSPEDY-JUANGARCIA. Puedes verlo en tu panel de usuario.</p>
+                        <h3 class="font-semibold text-lg mb-2">¿Cómo consigo mi código?</h3>
+                        <p class="text-gray-600">Tu código es automáticamente HOSPEDY-[TUNOMBRE]. Si te llamas Juan García, tu código sería HOSPEDY-JUANGARCIA. Puedes verlo en tu panel de usuario.</p>
                     </div>
                     <div class="border-b border-gray-200 pb-6">
-                        <h3 class="font-semibold text-lg mb-2">¿Cuando recibo los meses gratis?</h3>
-                        <p class="text-gray-600">Los meses se anaden a tu cuenta en cuanto tu amigo completa la prueba gratuita y realiza su primer pago.</p>
+                        <h3 class="font-semibold text-lg mb-2">¿Cuándo recibo los meses gratis?</h3>
+                        <p class="text-gray-600">Los meses se añaden a tu cuenta en cuanto tu amigo completa la prueba gratuita y realiza su primer pago.</p>
                     </div>
                     <div class="border-b border-gray-200 pb-6">
-                        <h3 class="font-semibold text-lg mb-2">¿Hay limite de referidos?</h3>
-                        <p class="text-gray-600">No, puedes referir a tantos amigos como quieras. Los meses se van acumulando sin limite.</p>
+                        <h3 class="font-semibold text-lg mb-2">¿Hay límite de referidos?</h3>
+                        <p class="text-gray-600">No, puedes referir a tantos amigos como quieras. Los meses se van acumulando sin límite.</p>
                     </div>
                     <div class="border-b border-gray-200 pb-6">
-                        <h3 class="font-semibold text-lg mb-2">¿Caduca mi codigo?</h3>
-                        <p class="text-gray-600">No, tu codigo no caduca mientras seas cliente de Hospedy.</p>
+                        <h3 class="font-semibold text-lg mb-2">¿Caduca mi código?</h3>
+                        <p class="text-gray-600">No, tu código no caduca mientras seas cliente de Hospedy.</p>
                     </div>
                 </div>
             </div>
 
             <!-- CTA -->
             <div class="text-center mt-20 px-6">
-                <h2 class="text-3xl font-bold mb-4">¿Aun no eres cliente?</h2>
-                <p class="text-xl text-gray-600 mb-8">Prueba Hospedy 30 dias gratis y empieza a referir amigos.</p>
+                <h2 class="text-3xl font-bold mb-4">¿Aún no eres cliente?</h2>
+                <p class="text-xl text-gray-600 mb-8">Prueba Hospedy 30 días gratis y empieza a referir amigos.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
                     <NuxtLink class="btn btn-outline" to="/precios">Ver precios</NuxtLink>
@@ -192,7 +192,7 @@
 useHead({
     title: 'Programa Amigos - Gana meses gratis recomendando Hospedy',
     meta: [
-        { name: 'description', content: 'Recomienda Hospedy y gana hasta 4 meses gratis por cada referido. Programa de referidos sin limite. Conviertete en Embajador con 5+ referidos.' }
+        { name: 'description', content: 'Recomienda Hospedy y gana hasta 4 meses gratis por cada referido. Programa de referidos sin límite. Conviértete en Embajador con 5+ referidos.' }
     ]
 })
 </script>

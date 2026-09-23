@@ -9,12 +9,12 @@
 
             <div class="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto px-6">
                 <div class="lg:mt-12" data-aos="fade-right">
-                    <p class="text-secondary font-semibold text-lg mb-4">Software para apartamentos turisticos</p>
+                    <p class="text-secondary font-semibold text-lg mb-4">Software para apartamentos turísticos</p>
                     <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                        Menos comisiones, mas reservas directas
+                        Menos comisiones, más reservas directas
                     </h1>
                     <p class="text-xl text-gray-600 mb-6">
-                        Deja de depender solo de Airbnb y Booking. Motor de reservas sin comisiones, channel manager para evitar overbookings y partes automaticos.
+                        Deja de depender solo de Airbnb y Booking. Motor de reservas sin comisiones, channel manager para evitar overbookings y partes automáticos.
                     </p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="100">
@@ -33,13 +33,13 @@
                             <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Cobro de depositos con Stripe</span>
+                            <span>Cobro de depósitos con Stripe</span>
                         </li>
                         <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="250">
                             <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Partes de viajeros automaticos</span>
+                            <span>Partes de viajeros automáticos</span>
                         </li>
                     </ul>
                     <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="300">
@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
-                    <img src="/laptop_and_phone.webp" alt="Gestion de apartamentos turisticos" class="max-w-full hover:scale-105 transition-transform duration-500">
+                    <img src="/laptop_and_phone.webp" alt="Gestión de apartamentos turísticos" class="max-w-full hover:scale-105 transition-transform duration-500">
                 </div>
             </div>
         </div>
@@ -66,13 +66,13 @@
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="100">
                             <div class="text-3xl mb-4">😱</div>
-                            <h3 class="font-semibold text-lg mb-2">"Otro no-show mas"</h3>
-                            <p class="text-gray-600">Reservan y no aparecen. Con Stripe integrado, cobras depositos y te aseguras de que vengan.</p>
+                            <h3 class="font-semibold text-lg mb-2">"Otro no-show más"</h3>
+                            <p class="text-gray-600">Reservan y no aparecen. Con Stripe integrado, cobras depósitos y te aseguras de que vengan.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="200">
                             <div class="text-3xl mb-4">📱</div>
                             <h3 class="font-semibold text-lg mb-2">"Actualizo 5 calendarios"</h3>
-                            <p class="text-gray-600">Booking, Airbnb, Vrbo, tu web... Con el Channel Manager todo se sincroniza automaticamente.</p>
+                            <p class="text-gray-600">Booking, Airbnb, Vrbo, tu web... Con el Channel Manager todo se sincroniza automáticamente.</p>
                         </div>
                     </div>
                 </div>
@@ -80,19 +80,19 @@
 
             <!-- Commission savings -->
             <div class="max-w-4xl mx-auto px-6 mt-20">
-                <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Cuanto te ahorras en comisiones</h2>
+                <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Cuánto te ahorras en comisiones</h2>
                 <div class="savings-card rounded-2xl p-8" data-aos="zoom-in">
                     <div class="grid lg:grid-cols-2 gap-8">
                         <div class="bg-white p-6 rounded-xl border-2 border-red-200 lift-hover">
-                            <h3 class="text-xl font-semibold mb-4 text-red-600">Reserva via Booking</h3>
+                            <h3 class="text-xl font-semibold mb-4 text-red-600">Reserva vía Booking</h3>
                             <p class="text-gray-600 mb-2">Apartamento 3 noches × 100€/noche</p>
-                            <p class="text-gray-600 mb-4">Comision Booking: 15%</p>
+                            <p class="text-gray-600 mb-4">Comisión Booking: 15%</p>
                             <p class="text-3xl font-bold text-red-600">-45€</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl border-2 border-green-200 lift-hover">
                             <h3 class="text-xl font-semibold mb-4 text-green-600">Reserva directa con Hospedy</h3>
                             <p class="text-gray-600 mb-2">Apartamento 3 noches × 100€/noche</p>
-                            <p class="text-gray-600 mb-4">Comision Hospedy: 0%</p>
+                            <p class="text-gray-600 mb-4">Comisión Hospedy: 0%</p>
                             <p class="text-3xl font-bold text-green-600">0€</p>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
 
             <!-- Key features -->
             <div class="max-w-5xl mx-auto px-6 mt-20">
-                <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Pensado para apartamentos turisticos</h2>
+                <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Pensado para apartamentos turísticos</h2>
                 <div class="grid lg:grid-cols-2 gap-12">
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="0">
                         <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -117,8 +117,8 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Motor de reservas para tu web</h3>
-                            <p class="text-gray-600">Un codigo que pegas en tu pagina y empiezas a recibir reservas directas. Sin comisiones, sin intermediarios.</p>
-                            <NuxtLink to="/funciones/motor-reservas" class="text-primary hover:underline text-lg mt-2 inline-block">Saber mas →</NuxtLink>
+                            <p class="text-gray-600">Un código que pegas en tu página y empiezas a recibir reservas directas. Sin comisiones, sin intermediarios.</p>
+                            <NuxtLink to="/funciones/motor-reservas" class="text-primary hover:underline text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="100">
@@ -129,7 +129,7 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Channel Manager</h3>
-                            <p class="text-gray-600">Conecta Booking, Airbnb, Vrbo, Expedia y +50 OTAs. Cuando entra una reserva, se bloquea en todas las demas.</p>
+                            <p class="text-gray-600">Conecta Booking, Airbnb, Vrbo, Expedia y +50 OTAs. Cuando entra una reserva, se bloquea en todas las demás.</p>
                             <NuxtLink to="/funciones/channel-manager" class="text-primary hover:underline text-lg mt-2 inline-block">Ver agencias →</NuxtLink>
                         </div>
                     </div>
@@ -140,8 +140,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-semibold text-xl mb-2">Cobro de depositos</h3>
-                            <p class="text-gray-600">Evita disgustos cobrando depositos o la reserva completa. Integrado con Stripe, la pasarela mas segura.</p>
+                            <h3 class="font-semibold text-xl mb-2">Cobro de depósitos</h3>
+                            <p class="text-gray-600">Evita disgustos cobrando depósitos o la reserva completa. Integrado con Stripe, la pasarela más segura.</p>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="300">
@@ -151,8 +151,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-semibold text-xl mb-2">Gestion de varios apartamentos</h3>
-                            <p class="text-gray-600">Una cuenta, multiples propiedades. Cada apartamento tiene su calendario pero los ves todos juntos.</p>
+                            <h3 class="font-semibold text-xl mb-2">Gestión de varios apartamentos</h3>
+                            <p class="text-gray-600">Una cuenta, múltiples propiedades. Cada apartamento tiene su calendario pero los ves todos juntos.</p>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="400">
@@ -162,9 +162,9 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-semibold text-xl mb-2">Encuesta de Apartamentos Turisticos</h3>
+                            <h3 class="font-semibold text-xl mb-2">Encuesta de Apartamentos Turísticos</h3>
                             <p class="text-gray-600">Hospedy rellena la encuesta del INE de apartamentos turísticos con tus datos y la envía al INE con un clic, sin entrar en ARCE.</p>
-                            <NuxtLink to="/funciones/encuestas-ine" class="text-primary hover:underline text-lg mt-2 inline-block">Ver mas →</NuxtLink>
+                            <NuxtLink to="/funciones/encuestas-ine" class="text-primary hover:underline text-lg mt-2 inline-block">Ver más →</NuxtLink>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="500">
@@ -175,7 +175,7 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Auto check-in</h3>
-                            <p class="text-gray-600">Perfecto para llegadas fuera de horario. El huesped se registra antes de llegar y tu solo entregas las llaves.</p>
+                            <p class="text-gray-600">Perfecto para llegadas fuera de horario. El huésped se registra antes de llegar y tú solo entregas las llaves.</p>
                         </div>
                     </div>
                 </div>
@@ -190,7 +190,7 @@
                     <p class="text-2xl text-gray-700 mb-6">
                         Gestiono 8 apartamentos en el centro de Zaragoza. Desde que uso Hospedy he pasado del 90% de reservas por Booking al 60%. El resto son directas y me ahorro una pasta.
                     </p>
-                    <p class="font-semibold text-lg">Laura Martinez</p>
+                    <p class="font-semibold text-lg">Laura Martínez</p>
                     <p class="text-gray-500">Apartamentos Centro Zaragoza</p>
                 </div>
             </div>
@@ -210,9 +210,9 @@
 
 <script setup lang="ts">
 useHead({
-    title: 'Software para Apartamentos Turisticos - Hospedy',
+    title: 'Software para Apartamentos Turísticos - Hospedy',
     meta: [
-        { name: 'description', content: 'Software para apartamentos turisticos con motor de reservas sin comisiones, channel manager y partes automaticos. Menos comisiones, mas reservas directas.' }
+        { name: 'description', content: 'Software para apartamentos turísticos con motor de reservas sin comisiones, channel manager y partes automáticos. Menos comisiones, más reservas directas.' }
     ]
 })
 </script>
