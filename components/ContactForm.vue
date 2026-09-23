@@ -211,8 +211,10 @@ async function enviar() {
   const texto = quiere_novedades.value
     ? `${message.value}\n\nQuiere recibir novedades de Hospedy por email: sí`
     : message.value;
+  // El backend responde 200 también en los errores, con resultado "Error" y un mensaje.
+  let mensajeError = "";
   try {
-    await $fetch(`${baseURL}/api/contact/send_message`, {
+    const resp: any = await $fetch(`${baseURL}/api/contact/send_message`, {
       method: "post",
       body: {
         contact_email: email.value,
@@ -221,13 +223,21 @@ async function enviar() {
         captcha_token: captchaToken.value,
       },
     });
+    if (resp && resp.resultado === "Error") {
+      mensajeError = resp.mensaje || "";
+      throw new Error("backend");
+    }
     message_sent.value = true;
     aviso("Mensaje enviado correctamente", TYPE.SUCCESS);
   } catch (e: unknown) {
-    aviso("No se ha podido enviar el mensaje. Inténtalo de nuevo.", TYPE.ERROR);
+    aviso(
+      mensajeError || "No se ha podido enviar el mensaje. Inténtalo de nuevo.",
+      TYPE.ERROR
+    );
+    // El token es de un solo uso: si el envío falla, hay que reponer el widget.
+    resetCaptcha();
   } finally {
     sending_form.value = false;
-    resetCaptcha();
   }
 }
 </script>

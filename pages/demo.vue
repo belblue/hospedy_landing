@@ -222,6 +222,8 @@ async function submitForm() {
 
     sending.value = true
 
+    // El backend responde 200 también en los errores, con resultado "Error" y un mensaje.
+    let mensajeError = ''
     try {
         const demoMessage = `
 SOLICITUD DE DEMO
@@ -236,7 +238,7 @@ Quiere recibir novedades por email: ${quiereNovedades.value ? 'sí' : 'no'}
 Mensaje: ${message.value || 'Sin mensaje adicional'}
         `.trim()
 
-        await $fetch(`${baseURL}/api/contact/send_message`, {
+        const resp: any = await $fetch(`${baseURL}/api/contact/send_message`, {
             method: 'post',
             body: {
                 contact_email: email.value,
@@ -245,6 +247,10 @@ Mensaje: ${message.value || 'Sin mensaje adicional'}
                 captcha_token: captchaToken.value
             }
         })
+        if (resp && resp.resultado === 'Error') {
+            mensajeError = resp.mensaje || ''
+            throw new Error('backend')
+        }
 
         formSent.value = true
         toast("Solicitud enviada correctamente", {
@@ -254,14 +260,15 @@ Mensaje: ${message.value || 'Sin mensaje adicional'}
         })
     } catch (e) {
         console.error('Error sending demo request:', e)
-        toast("Error al enviar la solicitud. Inténtalo de nuevo.", {
+        toast(mensajeError || "Error al enviar la solicitud. Inténtalo de nuevo.", {
             position: POSITION.TOP_CENTER,
             type: TYPE.ERROR,
             timeout: 3000
         })
+        // El token es de un solo uso: si el envío falla, hay que reponer el widget.
+        resetCaptcha()
     } finally {
         sending.value = false
-        resetCaptcha()
     }
 }
 </script>
