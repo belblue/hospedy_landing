@@ -67,17 +67,18 @@ export default defineNuxtConfig({
                 name: 'Pyrebytes SLU',
                 url: 'https://hospedy.us'
               },
+              // Rango de los planes publicados en /precios (EUR al mes, sin impuestos).
               offers: {
-                '@type': 'Offer',
-                price: '120',
+                '@type': 'AggregateOffer',
+                lowPrice: '35',
+                highPrice: '129',
                 priceCurrency: 'EUR',
-                priceValidUntil: '2025-12-31'
-              },
-              aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: '4.8',
-                reviewCount: '150'
+                offerCount: '4'
               }
+              // aggregateRating: añadirlo solo con valoraciones reales de clientes que se
+              // muestren en la página con su puntuación, y con ratingValue y reviewCount
+              // iguales a lo que se ve (guía de Google "Review snippet"). Sin eso, Google
+              // puede ignorar todo el marcado de la página.
             })
           }
         ]

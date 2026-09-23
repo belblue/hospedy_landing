@@ -163,7 +163,7 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Encuesta de Apartamentos Turisticos</h3>
-                            <p class="text-gray-600">Hospedy genera automaticamente la encuesta del INE especifica para apartamentos turisticos.</p>
+                            <p class="text-gray-600">Hospedy rellena la encuesta del INE de apartamentos turísticos con tus datos y la envía al INE con un clic, sin entrar en ARCE.</p>
                             <NuxtLink to="/funciones/encuestas-ine" class="text-primary hover:underline text-lg mt-2 inline-block">Ver mas →</NuxtLink>
                         </div>
                     </div>

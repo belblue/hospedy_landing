@@ -33,7 +33,7 @@
                             <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Encuesta de Turismo Rural del INE</span>
+                            <span>Encuesta de Turismo Rural del INE, rellena y lista para presentar</span>
                         </li>
                         <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="250">
                             <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -150,7 +150,7 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Encuesta de Turismo Rural</h3>
-                            <p class="text-gray-600">Hospedy genera la encuesta especifica del INE para alojamientos de turismo rural. Un clic y lista.</p>
+                            <p class="text-gray-600">Hospedy rellena cada mes la encuesta del INE de turismo rural con los datos de tus reservas. La descargas lista para presentar.</p>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="300">

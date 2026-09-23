@@ -52,7 +52,7 @@
                 <td class="px-3 py-3 font-medium text-gray-900">Hospedy</td>
                 <td class="px-3 py-3 text-gray-700">€350-1.290</td>
                 <td class="px-3 py-3 text-center text-green-600">✅ Auto</td>
-                <td class="px-3 py-3 text-center text-green-600 font-medium">✅ FULL</td>
+                <td class="px-3 py-3 text-center text-green-600 font-medium">✅ Rellena y lista</td>
                 <td class="px-3 py-3 text-center text-green-600">✅</td>
                 <td class="px-3 py-3 text-center text-green-600">0%</td>
               </tr>
@@ -95,7 +95,7 @@
         <h2>1. Hospedy</h2>
         <p><strong>Ideal para:</strong> casas rurales y hoteles pequeños que quieren automatización total</p>
         <p>
-          Hospedy es un PMS español lanzado en 2020 y recientemente rebautizado. Su punto fuerte es la automatización del cumplimiento normativo español: envía los partes de viajeros a SES Hospedajes automáticamente y es el <strong>único PMS que envía la encuesta del INE de forma completamente automática</strong> (no solo genera XML).
+          Hospedy es un PMS español lanzado en 2020 y recientemente rebautizado. Su punto fuerte es la automatización del cumplimiento normativo español: envía los partes de viajeros a SES Hospedajes automáticamente y te deja la encuesta del INE rellena con tus datos: la de turismo rural, lista para presentar; en hoteles y apartamentos, <strong>enviada al INE con un clic</strong>.
         </p>
 
         <h3>Puntos fuertes</h3>
@@ -228,9 +228,9 @@
           La migración entre sistemas suele requerir exportar datos y configurar de nuevo los canales. La mayoría ofrecen ayuda en la migración durante el período de prueba.
         </p>
 
-        <h3>¿Qué significa "INE FULL" vs "INE XML"?</h3>
+        <h3>¿Qué significa "Rellena y lista", "INE FULL" e "INE XML"?</h3>
         <p>
-          "INE FULL" significa que el sistema envía la encuesta directamente al INE con un clic. "INE XML" significa que genera un archivo que tú debes descargar y subir manualmente a la plataforma ARCE del INE cada mes.
+          "Rellena y lista" significa que el sistema te deja la encuesta de turismo rural rellena con tus datos para que la presentes tú, como hace Hospedy. "INE FULL" significa que el sistema envía la encuesta directamente al INE con un clic (Hospedy lo hace con la de ocupación hotelera y la de apartamentos). "INE XML" significa que genera un archivo que tú debes descargar y subir manualmente a la plataforma ARCE del INE cada mes.
         </p>
       </div>
 

@@ -540,7 +540,8 @@
             <span class="font-semibold text-gold"
               >la factura aparece generada</span
             >. Con todos los datos correctos, lista para enviar. Depositos, tasa
-            turistica, extras... todo calculado.
+            turistica, extras... todo calculado. Y Zenfisk, el programa de
+            facturación y gastos con Verifactu, incluido en tu suscripción.
           </p>
         </div>
         <div class="flex justify-center mt-6">
@@ -614,8 +615,9 @@
           <!-- Encuestas INE -->
           <div>
             <p class="text-white">
-              <span class="font-semibold text-gold">Encuestas INE</span>: Envío
-              automático al INE con un clic. Sin descargas, sin subir archivos.
+              <span class="font-semibold text-gold">Encuestas INE</span>: La
+              encuesta de ocupación se envía al INE con un clic, sin entrar en ARCE.
+              La de turismo rural sale rellena, lista para presentar.
             </p>
             <NuxtLink
               to="/funciones/encuestas-ine"
@@ -673,7 +675,7 @@
                 Muchos PMS generan un archivo XML que tú debes subir
                 manualmente.
                 <span class="font-semibold text-gray-900"
-                  >Hospedy lo envía directamente al INE</span
+                  >Hospedy envía la encuesta de ocupación directamente al INE</span
                 >
                 sin descargas ni ARCE.
               </p>

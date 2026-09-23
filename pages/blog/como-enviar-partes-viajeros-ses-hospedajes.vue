@@ -163,7 +163,7 @@
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Catalunya</td>
                 <td class="px-4 py-3 text-sm text-gray-700">Mossos d'Esquadra</td>
-                <td class="px-4 py-3 text-sm text-blue-600 font-medium">🔜 Próximamente</td>
+                <td class="px-4 py-3 text-sm text-green-600 font-medium">✅ Lo activamos contigo</td>
               </tr>
             </tbody>
           </table>

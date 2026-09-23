@@ -93,17 +93,6 @@
                             <p class="text-gray-600">Planning visual donde ves todas tus habitaciones de un vistazo. Arrastra reservas, cambia asignaciones, todo con un clic.</p>
                         </div>
                     </div>
-                    <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="100">
-                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-xl mb-2">Acceso para empleados</h3>
-                            <p class="text-gray-600">Crea usuarios para tu equipo de recepcion con permisos personalizados. Cada uno ve solo lo que necesita.</p>
-                        </div>
-                    </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="200">
                         <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                             <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -112,7 +101,7 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Encuesta de Ocupacion Hotelera</h3>
-                            <p class="text-gray-600">Hospedy genera automaticamente la EOH del INE con los datos que ya tienes. Solo descargas y envias.</p>
+                            <p class="text-gray-600">Hospedy rellena la Encuesta de Ocupación Hotelera con los datos que ya tienes y la envía al INE con un clic, sin entrar en ARCE.</p>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="300">
@@ -123,7 +112,7 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Facturacion profesional</h3>
-                            <p class="text-gray-600">Facturas automaticas con todos los conceptos: habitacion, extras, tasa turistica. Integracion con Anfix.</p>
+                            <p class="text-gray-600">Facturas automáticas con todos los conceptos: habitación, extras, tasa turística. Y Zenfisk, el programa de facturación y gastos con Verifactu, incluido en tu suscripción.</p>
                         </div>
                     </div>
                 </div>

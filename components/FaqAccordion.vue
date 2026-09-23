@@ -97,7 +97,7 @@ const faqItems = [
   {
     question: "¿Como se generan las encuestas del INE?",
     answer:
-      "Hospedy genera automaticamente las encuestas de ocupacion del INE (hoteles, apartamentos turisticos y turismo rural) con los datos de tus reservas. Solo tienes que descargarla y enviarla. Tambien generamos documentos autonomicos como los de Castilla y Leon o Andalucia.",
+      "Hospedy rellena las encuestas de ocupación del INE con los datos de tus reservas. La de hoteles y la de apartamentos turísticos se envían al INE desde Hospedy con un clic, sin entrar en ARCE; la de turismo rural y la de Castilla y León te las deja listas para descargar y presentar. También genera el documento de admisión que exigen once comunidades autónomas.",
   },
   {
     question: "¿Puedo gestionar varios alojamientos?",

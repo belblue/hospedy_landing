@@ -230,6 +230,12 @@
                             <svg class="w-6 h-6 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
+                            <span>Zenfisk: facturación y gastos con Verifactu</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
                             <span>Motor de reservas sin comisiones</span>
                         </div>
                         <div class="flex items-start gap-3">
@@ -245,6 +251,7 @@
                             <span>Multi-propiedad</span>
                         </div>
                     </div>
+                    <p class="text-center text-gray-600 mt-10">Zenfisk, el programa de facturación y gastos con Verifactu, va incluido: si contratas ahora, lo tendrás incluido mientras mantengas tu suscripción de Hospedy.</p>
                 </div>
             </div>
 

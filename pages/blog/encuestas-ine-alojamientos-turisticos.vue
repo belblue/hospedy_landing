@@ -16,7 +16,7 @@
           Guía completa: Encuesta INE para alojamientos turísticos 2026
         </h1>
         <p class="text-xl text-gray-600 mb-6">
-          Hospedy genera la encuesta del INE automáticamente con los datos de tus reservas. Solo tienes que actualizar el código de control cada mes y enviar con un clic.
+          Hospedy rellena la encuesta del INE con los datos de tus reservas. En hoteles y apartamentos solo tienes que actualizar el código de control cada mes y enviarla con un clic; la de turismo rural la descargas lista para presentar.
         </p>
         <div
           class="flex items-center text-lg text-gray-500 border-b border-gray-200 pb-6"
@@ -84,7 +84,7 @@
             Aquí está la diferencia clave que debes conocer:
           </p>
           <p class="text-green-900 font-semibold mb-4">
-            Hospedy es el único PMS del mercado que envía la encuesta INE de forma completamente automática.
+            Hospedy envía la encuesta de ocupación hotelera y la de apartamentos turísticos al INE de forma automática, por su servicio web.
           </p>
           <p class="text-green-900">
             Otros sistemas como RuralGest, AvaiBook, Amenitiz o Cloudbeds solo generan un archivo XML. Tú tienes que descargar ese archivo y subirlo manualmente a la plataforma ARCE del INE cada mes.

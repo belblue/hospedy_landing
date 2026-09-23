@@ -30,7 +30,7 @@
       <!-- Content -->
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
         <p class="lead">
-          La diferencia clave: Hospedy envía la encuesta INE automáticamente mientras RuralGest solo genera un archivo XML que debes subir manualmente. Hospedy tiene precios públicos desde €350/año; RuralGest no publica precios y cobra extras por diseño web y SEO.
+          La diferencia clave: Hospedy te deja la encuesta del INE rellena con los datos de tus reservas (y en hoteles y apartamentos la envía al INE con un clic), mientras RuralGest solo genera un archivo XML que debes subir manualmente. Hospedy tiene precios públicos desde €350/año; RuralGest no publica precios y cobra extras por diseño web y SEO.
         </p>
 
         <h2>Comparativa directa</h2>
@@ -67,7 +67,7 @@
               </tr>
               <tr class="bg-green-50">
                 <td class="px-4 py-3 text-sm text-gray-700 font-medium">Encuesta INE</td>
-                <td class="px-4 py-3 text-sm text-green-600 font-medium">✅ ENVÍO AUTOMÁTICO</td>
+                <td class="px-4 py-3 text-sm text-green-600 font-medium">✅ Rellena y lista (envío automático en hoteles y apartamentos)</td>
                 <td class="px-4 py-3 text-sm text-orange-600">❌ Solo genera XML</td>
               </tr>
               <tr>
@@ -102,9 +102,9 @@
         <h2>Por qué los clientes cambian de RuralGest a Hospedy</h2>
         <p>Basándonos en el feedback de usuarios que han hecho el cambio, estos son los tres motivos principales:</p>
 
-        <h3>1. Encuesta INE automática</h3>
+        <h3>1. Encuesta INE sin rellenar nada</h3>
         <p>
-          Con RuralGest, cada mes tienes que descargar un archivo XML y subirlo manualmente a la plataforma ARCE del INE. Con Hospedy, actualizas el código de control y haces clic en enviar. <strong>El ahorro de tiempo es significativo</strong>, especialmente si gestionas varios alojamientos.
+          Con RuralGest, cada mes tienes que descargar un archivo XML y subirlo manualmente a la plataforma ARCE del INE. Con Hospedy, la encuesta de turismo rural sale rellena con tus datos, lista para presentar; y si tienes un hotel o apartamentos, la envías al INE con un clic. <strong>El ahorro de tiempo es significativo</strong>, especialmente si gestionas varios alojamientos.
         </p>
 
         <h3>2. Precio más accesible</h3>
@@ -133,7 +133,7 @@
         <div class="bg-green-50 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4 text-green-800">Elige Hospedy si:</h3>
           <ul class="space-y-2 text-green-900">
-            <li>Quieres automatización total (especialmente del INE)</li>
+            <li>Quieres la encuesta del INE rellena sin tocar nada</li>
             <li>Valoras los precios claros y transparentes</li>
             <li>Prefieres una interfaz moderna e intuitiva</li>
             <li>No necesitas app móvil para gestionar el alojamiento</li>
@@ -199,7 +199,7 @@ useHead({
   meta: [
     {
       name: "description",
-      content: "Comparativa detallada entre Hospedy y RuralGest. Hospedy envía el INE automáticamente y tiene precios públicos. RuralGest ofrece app móvil y servicios de web/SEO.",
+      content: "Comparativa detallada entre Hospedy y RuralGest. Hospedy te deja la encuesta del INE rellena y tiene precios públicos. RuralGest ofrece app móvil y servicios de web/SEO.",
     },
   ],
 });

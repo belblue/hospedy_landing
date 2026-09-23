@@ -78,8 +78,8 @@
 
             <!-- Survey types -->
             <div class="max-w-5xl mx-auto px-6 mt-20">
-                <h2 class="text-3xl font-bold text-center mb-4">Encuestas que enviamos</h2>
-                <p class="text-center text-gray-600 mb-12">Para todo tipo de alojamientos turísticos</p>
+                <h2 class="text-3xl font-bold text-center mb-4">Las tres encuestas del INE</h2>
+                <p class="text-center text-gray-600 mb-12">La de ocupación hotelera y la de apartamentos se envían al INE desde Hospedy; la de turismo rural se descarga rellena, lista para presentar.</p>
                 <div class="grid lg:grid-cols-3 gap-8">
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                         <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
@@ -88,7 +88,7 @@
                             </svg>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Encuesta de Ocupación Hotelera</h3>
-                        <p class="text-gray-600">Para hoteles y establecimientos similares. Datos de ocupación, pernoctaciones y procedencia.</p>
+                        <p class="text-gray-600">Para hoteles y establecimientos similares. Datos de ocupación, pernoctaciones y procedencia. Se envía al INE con un clic.</p>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                         <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
@@ -97,7 +97,7 @@
                             </svg>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Encuesta de Apartamentos Turísticos</h3>
-                        <p class="text-gray-600">Para apartamentos, villas y alojamientos de alquiler completo.</p>
+                        <p class="text-gray-600">Para apartamentos, villas y alojamientos de alquiler completo. Se envía al INE con un clic.</p>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                         <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
@@ -106,7 +106,7 @@
                             </svg>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Encuesta de Turismo Rural</h3>
-                        <p class="text-gray-600">Para casas rurales, albergues y establecimientos de turismo rural.</p>
+                        <p class="text-gray-600">Para casas rurales, albergues y establecimientos de turismo rural. Hospedy te la deja rellena con los datos del mes para que la descargues y la presentes tú.</p>
                     </div>
                 </div>
             </div>
@@ -115,15 +115,15 @@
             <div class="bg-gray-50 py-16 mt-20">
                 <div class="max-w-5xl mx-auto px-6">
                     <h2 class="text-3xl font-bold text-center mb-8">También documentos autonómicos</h2>
-                    <p class="text-center text-gray-600 text-lg mb-12">Algunas comunidades autónomas tienen requisitos adicionales. Hospedy los genera automáticamente.</p>
+                    <p class="text-center text-gray-600 text-lg mb-12">Algunas comunidades autónomas exigen documentos propios. Hospedy los genera rellenos con tus datos; presentarlos sigue siendo cosa tuya.</p>
                     <div class="grid lg:grid-cols-2 gap-8">
                         <div class="bg-white p-6 rounded-xl">
                             <h3 class="font-semibold text-lg mb-2">Castilla y León</h3>
-                            <p class="text-gray-600">Encuesta de Ocupación en Alojamientos de Turismo Rural de Castilla y León.</p>
+                            <p class="text-gray-600">Encuesta de Ocupación en Alojamientos de Turismo Rural de Castilla y León, lista para descargar cada mes.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl">
-                            <h3 class="font-semibold text-lg mb-2">Andalucía</h3>
-                            <p class="text-gray-600">Documento de Admisión y Parte de Entrada de Viajeros.</p>
+                            <h3 class="font-semibold text-lg mb-2">Documento de admisión en once comunidades</h3>
+                            <p class="text-gray-600">Documento de admisión y parte de entrada del viajero para Andalucía, Aragón, Canarias, Cantabria, Castilla-La Mancha, Ceuta, Comunitat Valenciana, La Rioja, Navarra, País Vasco y Región de Murcia. Se genera desde la ficha de la reserva y desde el listado de huéspedes.</p>
                         </div>
                     </div>
                     <p class="text-center text-gray-500 mt-8">¿Tu comunidad tiene requisitos específicos? <NuxtLink to="/demo" class="text-primary hover:underline">Contáctanos</NuxtLink> y lo implementamos.</p>
@@ -145,7 +145,7 @@
                         <div class="flex-shrink-0 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold">2</div>
                         <div>
                             <h3 class="text-xl font-semibold mb-2">Al final del mes, haz clic en "Enviar"</h3>
-                            <p class="text-gray-600">Un clic y la encuesta se envía directamente al INE. Sin descargas, sin ARCE.</p>
+                            <p class="text-gray-600">Un clic y Hospedy envía la encuesta de ocupación al INE por su servicio web. Sin entrar en ARCE ni subir archivos.</p>
                         </div>
                     </div>
                     <div class="flex gap-6 items-start">
@@ -156,7 +156,7 @@
                         </div>
                         <div>
                             <h3 class="text-xl font-semibold mb-2">¡Listo! Nosotros nos encargamos</h3>
-                            <p class="text-gray-600">Hospedy envía los datos al INE automáticamente. Sin descargas, sin ARCE.</p>
+                            <p class="text-gray-600">El INE responde en el momento y Hospedy guarda la fecha y el resultado de cada envío.</p>
                         </div>
                     </div>
                 </div>
@@ -197,7 +197,7 @@
 useHead({
     title: 'Envío INE automático - Hospedy',
     meta: [
-        { name: 'description', content: 'Hospedy envía automáticamente las encuestas del INE con un clic. Sin descargar XML, sin subir archivos a ARCE. Ahorra horas cada mes.' }
+        { name: 'description', content: 'Hospedy envía la encuesta de ocupación hotelera o de apartamentos al INE con un clic, sin entrar en ARCE, y te deja rellenas la de turismo rural y los documentos autonómicos.' }
     ]
 })
 </script>
