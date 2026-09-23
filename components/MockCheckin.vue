@@ -59,7 +59,7 @@
 
           <div class="hm-ph__row">
             <div class="hm-fi"><label>Telefono</label><span>974 55 00 22</span></div>
-            <div class="hm-fi"><label>Correo</label><span>info@hospedy.com</span></div>
+            <div class="hm-fi"><label>Correo</label><span>correo@ejemplo.es</span></div>
           </div>
 
           <div class="hm-ph__terms">

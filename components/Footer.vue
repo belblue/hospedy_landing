@@ -107,6 +107,6 @@
                 <img class="" width="70px" src="/youtube.svg" alt="cuenta de youtube de Hospedy">
             </NuxtLink>
         </div>
-        <p class="text-lg text-white mt-4">©Hospedy 2024 - Diseñado por Silatek SLU</p>
+        <p class="text-lg text-white mt-4">© 2026 Hospedy es una marca de Silatek, S.L.U. · NRT L-713544-Y</p>
     </div>
 </template>

@@ -9,7 +9,7 @@
                <div class="flex justify-center my-8">
                     <p class="text-2xl text-secondary">¿Quién es el responsable del tratamiento de datos personales?</p>
                 </div>
-                <p class="text-xl"><span class="blue">Silatek, S.L.U.</span> con C.I.F. <span class="blue">L713544Y</span> con domicilio en <span class="blue">Carrer Vilaneu 10, Ed Club Vilaneu 2, Incles (Andorra) </span> y correo electrónico <span class="blue">info@hospedy.us</span>.</p>
+                <p class="text-xl"><span class="blue">Silatek, S.L.U.</span> con NRT <span class="blue">L-713544-Y</span>, domicilio social en Andorra (ver <NuxtLink to="/aviso_legal" class="text-primary">Aviso legal</NuxtLink>) y correo electrónico <span class="blue">hola@hospedy.app</span>.</p>
                <div class="flex justify-center my-8">
                     <p class="text-2xl text-secondary">¿Con que finalidad se tratan los datos personales?</p>
                 </div>
@@ -56,7 +56,7 @@
                 <div class="flex justify-center my-8">
                     <p class="text-2xl text-secondary">¿Cómo se pueden ejercer los derechos?</p>                
                 </div>
-                <p class="text-xl">Para el ejercicio de los derechos mencionados de acceso, rectificación, supresión limitación, oposición y portabilidad, los clientes o usuarios deberán dirigirse a <span class="blue">Silatek, S.L.U.</span> a través del correo electrónico<span class="blue">admin@hospedy.us</span> acreditando siempre su identidad. </p>
+                <p class="text-xl">Para el ejercicio de los derechos mencionados de acceso, rectificación, supresión limitación, oposición y portabilidad, los clientes o usuarios deberán dirigirse a <span class="blue">Silatek, S.L.U.</span> a través del correo electrónico <span class="blue">hola@hospedy.app</span> acreditando siempre su identidad. </p>
                 <div class="flex justify-center my-8">
                     <p class="text-2xl text-secondary">¿Cómo se han obtenido los datos personales?</p>                
                 </div>

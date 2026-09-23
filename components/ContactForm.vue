@@ -85,7 +85,7 @@
         </button>
         <a
           v-else
-          href="mailto:info@hospedy.us"
+          href="mailto:hola@hospedy.app"
           class="inline-flex items-center gap-2 text-xl text-primary hover:underline transition-all duration-300"
         >
           <svg
@@ -101,7 +101,7 @@
               d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
             ></path>
           </svg>
-          info@hospedy.us
+          hola@hospedy.app
         </a>
       </div>
     </div>
@@ -133,7 +133,7 @@
       />
       <span class="text-lg mt-4 ml-2" for="privacy_checkbox"
         >He leído la
-        <a href="{{url_for('core.privacyWeb')}}" class="text-primary"
+        <a href="/privacidad" class="text-primary"
           >política de privacidad</a
         >
         y acepto el tratamiento de mis datos para la resolución de dudas o
@@ -157,7 +157,7 @@
           <!---->
         </VueRecaptcha>
         <p class="mt-4 text-left">
-          Responsable del tratamiento: Pyrebytes, S.L..; Finalidad: resolución
+          Responsable del tratamiento: Silatek, S.L.U.; Finalidad: resolución
           de dudas o consultas planteadas a través del formulario; Legitimación:
           Consentimiento, No se cederán los datos; Tiene derecho a ejercer el
           acceso, rectificación, supresión, portabilidad, limitación, oposición

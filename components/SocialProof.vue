@@ -50,7 +50,7 @@
             />
           </a>
           <a
-            href="https://booking_engine.hospedy.us/TJQLCgP1HIa7-09lomFVt02w"
+            href="https://booking.hospedy.app/TJQLCgP1HIa7-09lomFVt02w"
             target="_blank"
             rel="noopener"
             class="flex items-center justify-center h-16 px-4 hover:opacity-80 transition-opacity"

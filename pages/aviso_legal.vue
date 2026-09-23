@@ -7,9 +7,9 @@
         <div class="">
             <div class="m-10">
                 <p class="text-xl">Titular del portal: <strong>Silatek, S.L.U.</strong> </p>
-                <p class="text-xl">Dirección: Carrer Pobladó 037, Naus Cortes Num.2, Santa Coloma AD500, Andorra la Vella</p>
-                <p class="text-xl">Contacto:  <strong>info@hospedy.us </strong></p>
-                <p class="text-xl">C.I.F.  <strong>L713544Y </strong></p>
+                <p class="text-xl">Domicilio social: Carrer del Bosc, 1, El Serrat, Ordino (Andorra)</p>
+                <p class="text-xl">Contacto: <strong>hola@hospedy.app</strong></p>
+                <p class="text-xl">NRT: <strong>L-713544-Y</strong></p>
                 <p class="text-xl">Todos los derechos reservados.</p>                
 
                 <div class="flex justify-center my-8">
@@ -41,7 +41,7 @@
                     <p class="text-2xl text-secondary">¿Dónde puede encontrar más información sobre las cookies?</p>
                 </div>
                 <p class="text-xl">Puede obtener más información sobre las cookies y los siguientes sitios web de terceros:</p>
-                <p class="text-xl">Para la resolución de problemas o preguntas relacionadas con este sitio Web, por favor póngase en contacto con Silatek, S.L.U., en la siguiente dirección de correo electrónico info@hospedy.us.</p>                
+                <p class="text-xl">Para la resolución de problemas o preguntas relacionadas con este sitio Web, por favor póngase en contacto con Silatek, S.L.U., en la siguiente dirección de correo electrónico hola@hospedy.app.</p>                
             </div>
         </div>
         <Footer />

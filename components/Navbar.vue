@@ -69,7 +69,7 @@
       <div class="">
         <a
           class="btn btn-grad-gold align-middle flex flex-wrap text-black"
-          href="https://app.hospedy.us/"
+          href="https://app.hospedy.app/"
           >Iniciar sesión</a
         >
       </div>
