@@ -52,8 +52,8 @@
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Precios públicos</td>
-                <td class="px-4 py-3 text-sm text-green-600">✅ Sí, transparentes</td>
-                <td class="px-4 py-3 text-sm text-orange-600">❌ Hay que pedir presupuesto</td>
+                <td class="px-4 py-3 text-sm text-green-600"><IconoMarca tipo="si" /> Sí, transparentes</td>
+                <td class="px-4 py-3 text-sm text-orange-600"><IconoMarca tipo="no" /> Hay que pedir presupuesto</td>
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Precio base anual</td>
@@ -62,38 +62,38 @@
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Partes SES automáticos</td>
-                <td class="px-4 py-3 text-sm text-green-600">✅ Sí</td>
-                <td class="px-4 py-3 text-sm text-green-600">✅ Sí</td>
+                <td class="px-4 py-3 text-sm text-green-600"><IconoMarca tipo="si" /> Sí</td>
+                <td class="px-4 py-3 text-sm text-green-600"><IconoMarca tipo="si" /> Sí</td>
               </tr>
               <tr class="bg-green-50">
                 <td class="px-4 py-3 text-sm text-gray-700 font-medium">Encuesta INE</td>
-                <td class="px-4 py-3 text-sm text-green-600 font-medium">✅ Rellena y lista (envío automático en hoteles y apartamentos)</td>
-                <td class="px-4 py-3 text-sm text-orange-600">❌ Solo genera XML</td>
+                <td class="px-4 py-3 text-sm text-green-600 font-medium"><IconoMarca tipo="si" /> Rellena y lista (envío automático en hoteles y apartamentos)</td>
+                <td class="px-4 py-3 text-sm text-orange-600"><IconoMarca tipo="no" /> Solo genera XML</td>
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">App móvil</td>
-                <td class="px-4 py-3 text-sm text-orange-600">❌ No disponible</td>
-                <td class="px-4 py-3 text-sm text-green-600">✅ Sí</td>
+                <td class="px-4 py-3 text-sm text-orange-600"><IconoMarca tipo="no" /> No disponible</td>
+                <td class="px-4 py-3 text-sm text-green-600"><IconoMarca tipo="si" /> Sí</td>
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Facilidad de uso</td>
-                <td class="px-4 py-3 text-sm text-gray-700">⭐⭐⭐⭐⭐ Muy intuitivo</td>
-                <td class="px-4 py-3 text-sm text-gray-700">⭐⭐⭐ Curva de aprendizaje</td>
+                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca :estrellas="5" /> Muy intuitivo</td>
+                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca :estrellas="3" /> Curva de aprendizaje</td>
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Channel manager</td>
-                <td class="px-4 py-3 text-sm text-green-600">✅ Incluido</td>
-                <td class="px-4 py-3 text-sm text-green-600">✅ Incluido</td>
+                <td class="px-4 py-3 text-sm text-green-600"><IconoMarca tipo="si" /> Incluido</td>
+                <td class="px-4 py-3 text-sm text-green-600"><IconoMarca tipo="si" /> Incluido</td>
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Diseño web</td>
-                <td class="px-4 py-3 text-sm text-gray-500">❌ No ofrece</td>
-                <td class="px-4 py-3 text-sm text-gray-700">✅ €150 - €1.200</td>
+                <td class="px-4 py-3 text-sm text-gray-500"><IconoMarca tipo="no" /> No ofrece</td>
+                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="si" /> €150 - €1.200</td>
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Servicios SEO</td>
-                <td class="px-4 py-3 text-sm text-gray-500">❌ No ofrece</td>
-                <td class="px-4 py-3 text-sm text-gray-700">✅ €220 - €800 + €90/mes</td>
+                <td class="px-4 py-3 text-sm text-gray-500"><IconoMarca tipo="no" /> No ofrece</td>
+                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="si" /> €220 - €800 + €90/mes</td>
               </tr>
             </tbody>
           </table>

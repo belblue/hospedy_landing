@@ -51,41 +51,41 @@
               <tr class="bg-green-50">
                 <td class="px-3 py-3 font-medium text-gray-900">Hospedy</td>
                 <td class="px-3 py-3 text-gray-700">€350-1.290</td>
-                <td class="px-3 py-3 text-center text-green-600">✅ Auto</td>
-                <td class="px-3 py-3 text-center text-green-600 font-medium">✅ Rellena y lista</td>
-                <td class="px-3 py-3 text-center text-green-600">✅</td>
+                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /> Auto</td>
+                <td class="px-3 py-3 text-center text-green-600 font-medium"><IconoMarca tipo="si" /> Rellena y lista</td>
+                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /><span class="sr-only">Sí</span></td>
                 <td class="px-3 py-3 text-center text-green-600">0%</td>
               </tr>
               <tr>
                 <td class="px-3 py-3 font-medium text-gray-900">RuralGest</td>
                 <td class="px-3 py-3 text-gray-700">No público</td>
-                <td class="px-3 py-3 text-center text-green-600">✅ Auto</td>
-                <td class="px-3 py-3 text-center text-orange-600">❌ XML</td>
-                <td class="px-3 py-3 text-center text-green-600">✅</td>
+                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /> Auto</td>
+                <td class="px-3 py-3 text-center text-orange-600"><IconoMarca tipo="no" /> XML</td>
+                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /><span class="sr-only">Sí</span></td>
                 <td class="px-3 py-3 text-center text-gray-500">Variable</td>
               </tr>
               <tr>
                 <td class="px-3 py-3 font-medium text-gray-900">AvaiBook</td>
                 <td class="px-3 py-3 text-gray-700">€204-576+</td>
-                <td class="px-3 py-3 text-center text-green-600">✅ Auto</td>
-                <td class="px-3 py-3 text-center text-orange-600">❌ XML</td>
-                <td class="px-3 py-3 text-center text-green-600">✅</td>
+                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /> Auto</td>
+                <td class="px-3 py-3 text-center text-orange-600"><IconoMarca tipo="no" /> XML</td>
+                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /><span class="sr-only">Sí</span></td>
                 <td class="px-3 py-3 text-center text-red-600">2-4%</td>
               </tr>
               <tr>
                 <td class="px-3 py-3 font-medium text-gray-900">Amenitiz</td>
                 <td class="px-3 py-3 text-gray-700">€504-1.500</td>
-                <td class="px-3 py-3 text-center text-green-600">✅ Auto</td>
-                <td class="px-3 py-3 text-center text-orange-600">❌ XML</td>
-                <td class="px-3 py-3 text-center text-green-600">✅</td>
+                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /> Auto</td>
+                <td class="px-3 py-3 text-center text-orange-600"><IconoMarca tipo="no" /> XML</td>
+                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /><span class="sr-only">Sí</span></td>
                 <td class="px-3 py-3 text-center text-green-600">0%</td>
               </tr>
               <tr>
                 <td class="px-3 py-3 font-medium text-gray-900">Cloudbeds</td>
                 <td class="px-3 py-3 text-gray-700">€1.200+</td>
-                <td class="px-3 py-3 text-center text-orange-600">⚠️ Parcial</td>
-                <td class="px-3 py-3 text-center text-orange-600">❌ XML</td>
-                <td class="px-3 py-3 text-center text-green-600">✅</td>
+                <td class="px-3 py-3 text-center text-orange-600"><IconoMarca tipo="parcial" /> Parcial</td>
+                <td class="px-3 py-3 text-center text-orange-600"><IconoMarca tipo="no" /> XML</td>
+                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /><span class="sr-only">Sí</span></td>
                 <td class="px-3 py-3 text-center text-green-600">0%</td>
               </tr>
             </tbody>

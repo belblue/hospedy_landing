@@ -153,17 +153,17 @@
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Resto de España</td>
                 <td class="px-4 py-3 text-sm text-gray-700">SES Hospedajes</td>
-                <td class="px-4 py-3 text-sm text-green-600 font-medium">✅ Automático</td>
+                <td class="px-4 py-3 text-sm text-green-600 font-medium"><IconoMarca tipo="si" /> Automático</td>
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">País Vasco</td>
                 <td class="px-4 py-3 text-sm text-gray-700">Ertzaintza</td>
-                <td class="px-4 py-3 text-sm text-green-600 font-medium">✅ Automático</td>
+                <td class="px-4 py-3 text-sm text-green-600 font-medium"><IconoMarca tipo="si" /> Automático</td>
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Catalunya</td>
                 <td class="px-4 py-3 text-sm text-gray-700">Mossos d'Esquadra</td>
-                <td class="px-4 py-3 text-sm text-green-600 font-medium">✅ Lo activamos contigo</td>
+                <td class="px-4 py-3 text-sm text-green-600 font-medium"><IconoMarca tipo="si" /> Lo activamos contigo</td>
               </tr>
             </tbody>
           </table>

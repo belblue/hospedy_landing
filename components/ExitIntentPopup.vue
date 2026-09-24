@@ -68,15 +68,15 @@
               </p>
               <ul class="space-y-1 text-lg text-gray-600">
                 <li class="flex items-center gap-2">
-                  <span class="text-green-500">✓</span> Partes de viajeros
+                  <IconoMarca tipo="si" /> Partes de viajeros
                   automáticos
                 </li>
                 <li class="flex items-center gap-2">
-                  <span class="text-green-500">✓</span> Encuestas INE sin
+                  <IconoMarca tipo="si" /> Encuestas INE sin
                   esfuerzo
                 </li>
                 <li class="flex items-center gap-2">
-                  <span class="text-green-500">✓</span> Soporte en español L-V
+                  <IconoMarca tipo="si" /> Soporte en español L-V
                 </li>
               </ul>
             </div>

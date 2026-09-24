@@ -919,19 +919,19 @@
           <h3 class="font-semibold text-lg mb-3 text-green-800">Ventajas de Hospedy vs competencia española:</h3>
           <ul class="space-y-2 text-green-700">
             <li class="flex items-start gap-2">
-              <span class="text-green-500 mt-1">✓</span>
+              <IconoMarca tipo="si" class="mt-1" />
               <span>40-60% más barato que RuralGest (hoteles) y HotelManager</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-green-500 mt-1">✓</span>
+              <IconoMarca tipo="si" class="mt-1" />
               <span>ÚNICO PMS con cumplimiento nativo español (partes SES + INE + regionales)</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-green-500 mt-1">✓</span>
+              <IconoMarca tipo="si" class="mt-1" />
               <span>Sin comisiones en reservas directas (Avaibook cobra 2-4%)</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-green-500 mt-1">✓</span>
+              <IconoMarca tipo="si" class="mt-1" />
               <span>Todo en uno: PMS + Channel Manager + Motor de reservas incluidos</span>
             </li>
           </ul>
