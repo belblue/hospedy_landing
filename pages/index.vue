@@ -372,11 +372,13 @@
         :opacity="0.4"
         :delay="1.3"
       />
-      <!-- 1. Check-in (Top Left) -->
+      <!-- 1. Check-in (Top Left). data-demo-zona: con raton, su demo solo se mueve con el
+           raton encima de la tarjeta (composables/useDemo) -->
       <div
         class="gestiona-card-gradient rounded-2xl p-8 glow-hover"
         data-aos="fade-right"
         data-aos-delay="0"
+        data-demo-zona
       >
         <!-- desde 1024px el movil va a la derecha de todo el contenido: la tarjeta crece lo
              justo y la de Facturas, que comparte fila, no se queda medio vacia -->
@@ -503,8 +505,8 @@
           <div
             class="flex justify-center items-center shrink-0 self-center w-[240px] h-[503px] lg:w-[160px] lg:h-[335px] xl:w-[220px] xl:h-[461px]"
           >
-            <!-- el auto check-in real, completo y en demostracion: se reproduce solo mientras se
-                 ve y es del visitante en cuanto lo toca -->
+            <!-- el auto check-in real, completo y en demostracion: se reproduce solo (con raton,
+                 al pasarlo por la tarjeta) y es del visitante en cuanto lo toca -->
             <div v-show="activeCheckInTab === 0" class="w-full">
               <MockCheckinPhone demo />
             </div>
@@ -554,11 +556,12 @@
         </div>
       </div>
 
-      <!-- 3. Reservas (Bottom Left) -->
+      <!-- 3. Reservas (Bottom Left), zona de su demo como la de Check-in -->
       <div
         class="gestiona-card-gradient rounded-2xl p-8 glow-hover"
         data-aos="fade-right"
         data-aos-delay="200"
+        data-demo-zona
       >
         <div class="flex items-center gap-4 mb-6">
           <span class="step-number-light">3</span>
@@ -576,8 +579,10 @@
           </p>
         </div>
         <div class="flex justify-center mt-6">
-          <!-- el planning del portatil en foto: escala como una imagen y no se toca -->
-          <div class="w-64 lg:w-80"><MockPlanning estatico /></div>
+          <!-- el planning en demostracion: pasa dias, mueve una reserva y abre su ficha, y es
+               del visitante en cuanto lo toca. Hasta 480 px: la fila con Partes e INE apenas
+               crece -->
+          <div class="w-full max-w-[480px]"><MockPlanning demo /></div>
         </div>
       </div>
 

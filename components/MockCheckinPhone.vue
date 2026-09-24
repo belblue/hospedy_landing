@@ -14,8 +14,9 @@
   vertical del dedo siguen siendo de la pagina, y tras cada paso la maqueta baja sola al
   siguiente (mientras se rellenan los datos, va bajando con el campo que se rellena).
 
-  Con "demo" se reproduce sola y en bucle mientras se ve (foto, datos, firma, aceptacion y
-  guardado, con un circulo que marca cada toque); en cuanto el visitante toca algo se para y
+  Con "demo" se reproduce sola y en bucle (foto, datos, firma, aceptacion y guardado, con un
+  circulo que marca cada toque): con raton, solo mientras el raton esta encima de su tarjeta;
+  sin raton, mientras se ve (composables/useDemo). En cuanto el visitante toca algo se para y
   la maqueta queda en sus manos. Con "estatico" es una foto sin eventos ni animacion; "inicio"
   elige si empieza en el formulario o en la lista de huespedes.
 -->
@@ -938,42 +939,23 @@ function usuario(fn, ...args) {
   fn(...args);
 }
 
-/* ---- demo: el check-in completo, solo y en bucle, mientras se ve. Sus esperas van con
-   temporizadores propios: reiniciar() cancela los del formulario y no debe cortarla ---- */
+/* ---- demo: el check-in completo, solo y en bucle. Cuando se mueve y como se para lo decide
+   useDemo; sus esperas van aparte de los temporizadores del formulario, porque reiniciar()
+   cancela esos y no debe cortarla ---- */
 const toque = ref(null);
-const PARADA = {};
-let demoViva = false;
-let demoGen = 0;
-let demoUsuario = false;
-let demoTimers = [];
 let nToque = 0;
+const demo = useDemo({
+  activa: () => props.demo && !props.estatico,
+  raiz: () => marcoEl.value && marcoEl.value.$el,
+  correr: correrDemo,
+  alParar: () => {
+    toque.value = null;
+  },
+});
+const { espera, hasta, PARADA } = demo;
 
 function pararDemo(delVisitante) {
-  if (delVisitante) demoUsuario = true;
-  if (!demoViva) return;
-  demoViva = false;
-  demoGen += 1;
-  demoTimers.forEach(clearTimeout);
-  demoTimers = [];
-  toque.value = null;
-}
-function espera(ms) {
-  const gen = demoGen;
-  return new Promise((resolve, reject) => {
-    const id = setTimeout(() => {
-      demoTimers = demoTimers.filter((x) => x !== id);
-      if (demoViva && gen === demoGen) resolve();
-      else reject(PARADA);
-    }, ms);
-    demoTimers.push(id);
-  });
-}
-async function hasta(cond, max) {
-  const t0 = performance.now();
-  while (!cond()) {
-    if (performance.now() - t0 > max) throw PARADA;
-    await espera(120);
-  }
+  demo.parar(delVisitante);
 }
 /* el "dedo": un circulo que pulsa en el centro del elemento */
 async function pulsar(el) {
@@ -996,31 +978,24 @@ function reiniciarTodo() {
   nextTick(() => fijar(0));
 }
 async function correrDemo() {
-  if (demoViva || demoUsuario) return;
-  demoViva = true;
-  demoGen += 1;
-  try {
-    for (;;) {
-      reiniciarTodo();
-      await espera(1100);
-      await pulsar(fotoEl.value);
-      escanear();
-      /* foto, lectura, datos y bajada a la firma: el propio formulario avisa al llegar */
-      await hasta(() => pulsoFirma.value, 16000);
-      await espera(700);
-      await pulsar(lienzoEl.value);
-      firmarSolo();
-      await espera(3000);
-      await pulsar(aceptoEl.value);
-      alternarAcepto();
-      await espera(700);
-      await pulsar(guardarEl.value);
-      guardar();
-      await hasta(() => vista.value === "lista", 8000);
-      await espera(3800);
-    }
-  } catch (e) {
-    /* parada: la ha cortado el visitante o el movil ha dejado de verse */
+  for (;;) {
+    reiniciarTodo();
+    await espera(1100);
+    await pulsar(fotoEl.value);
+    escanear();
+    /* foto, lectura, datos y bajada a la firma: el propio formulario avisa al llegar */
+    await hasta(() => pulsoFirma.value, 16000);
+    await espera(700);
+    await pulsar(lienzoEl.value);
+    firmarSolo();
+    await espera(3000);
+    await pulsar(aceptoEl.value);
+    alternarAcepto();
+    await espera(700);
+    await pulsar(guardarEl.value);
+    guardar();
+    await hasta(() => vista.value === "lista", 8000);
+    await espera(3800);
   }
 }
 
@@ -1038,21 +1013,10 @@ onMounted(() => {
     if (vistaEl.value) ro.observe(vistaEl.value);
     if (docEl.value) ro.observe(docEl.value);
   }
-  if (reducido || !("IntersectionObserver" in window)) return;
+  /* con "demo" no hay vistazo: la pone en marcha useDemo */
+  if (props.demo || reducido || !("IntersectionObserver" in window)) return;
   const raiz = marcoEl.value && marcoEl.value.$el;
   if (!raiz) return;
-  if (props.demo) {
-    /* en marcha solo mientras se ve (tambien se para si la pestanna la oculta) */
-    io = new IntersectionObserver(
-      (entradas) => {
-        if (entradas.some((x) => x.isIntersecting)) correrDemo();
-        else pararDemo(false);
-      },
-      { threshold: 0.5 }
-    );
-    io.observe(raiz);
-    return;
-  }
   io = new IntersectionObserver(
     (entradas) => {
       if (entradas.some((x) => x.isIntersecting)) {
@@ -1067,7 +1031,6 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
-  pararDemo(false);
   if (io) io.disconnect();
   if (ro) ro.disconnect();
   cancelarTemporizadores();
