@@ -48,8 +48,9 @@
                 </div>
                 <div class="flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
                     <!-- Maquetas en CSS (sustituyen a la captura /macbook.webp): el planning de
-                         un hotel en el portatil y el de 30 habitaciones en el movil, en foto -->
-                    <MockDevices perfil="hotel" movil="planning" estatico />
+                         un hotel en el portatil, que se puede usar como el de casas rurales, y el
+                         de 30 habitaciones en el movil, en foto -->
+                    <MockDevices perfil="hotel" movil="planning" />
                 </div>
             </div>
         </div>

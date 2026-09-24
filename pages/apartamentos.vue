@@ -48,9 +48,9 @@
                 </div>
                 <div class="flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
                     <!-- Maquetas en CSS (sustituyen a la captura /laptop_and_phone.webp): el
-                         planning de unos apartamentos en el portatil y el auto check-in del
-                         huesped en el movil, en foto -->
-                    <MockDevices perfil="apartamentos" estatico />
+                         planning de unos apartamentos en el portatil, que se puede usar, y el
+                         auto check-in del huesped en el movil, en foto -->
+                    <MockDevices perfil="apartamentos" />
                 </div>
             </div>
         </div>
