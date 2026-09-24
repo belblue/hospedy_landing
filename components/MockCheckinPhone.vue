@@ -1013,8 +1013,9 @@ onMounted(() => {
     if (vistaEl.value) ro.observe(vistaEl.value);
     if (docEl.value) ro.observe(docEl.value);
   }
-  /* con "demo" no hay vistazo: la pone en marcha useDemo */
-  if (props.demo || reducido || !("IntersectionObserver" in window)) return;
+  /* con "demo" no hay vistazo: la pone en marcha useDemo. Empezando en la lista tampoco: el
+     vistazo es del formulario (baja hasta los datos) */
+  if (props.demo || props.inicio === "lista" || reducido || !("IntersectionObserver" in window)) return;
   const raiz = marcoEl.value && marcoEl.value.$el;
   if (!raiz) return;
   io = new IntersectionObserver(

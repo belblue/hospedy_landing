@@ -511,16 +511,16 @@
             <div v-show="activeCheckInTab === 0" class="w-full">
               <MockCheckinPhone demo />
             </div>
-            <!-- lo primero que ve el huesped al abrir el enlace: la lista de la reserva -->
+            <!-- lo primero que ve el huesped al abrir el enlace, la lista de la reserva, y
+                 desde ahi el check-in entero para usarlo, sin demostracion -->
             <div v-show="activeCheckInTab === 1" class="w-full">
-              <MockCheckinPhone estatico inicio="lista" />
+              <MockCheckinPhone inicio="lista" />
             </div>
-            <img
-              v-show="activeCheckInTab === 2"
-              src="/scaner.png"
-              class="max-w-full max-h-full object-contain"
-              alt="Escáner de documentos"
-            />
+            <!-- el escaner en funcionamiento: el DNI entra por la ranura pequenna y el pasaporte
+                 por la grande (solo CSS; se para fuera de la vista y con movimiento reducido) -->
+            <div v-show="activeCheckInTab === 2" class="w-full">
+              <MockEscaner />
+            </div>
           </div>
         </div>
       </div>
