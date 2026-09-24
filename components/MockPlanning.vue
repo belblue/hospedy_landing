@@ -15,7 +15,8 @@
       como una imagen en cualquier hueco y no se toca.
 
   La rueda vertical NO se captura: quien esta leyendo la pagina sigue bajando.
-  Los dias se recorren arrastrando, con Mayus+rueda, con rueda horizontal o con
+  Los dias se recorren arrastrando (tambien si se empieza encima de una reserva), con
+  Mayus+rueda, con rueda horizontal o con
   las flechas que hay junto al mes, encima de las habitaciones (como en el panel). La barra
   de arriba lleva el logo.
 
@@ -585,33 +586,58 @@ function alRodar(e) {
   desplazar(dx / k.value);
 }
 
-let pulsado = false;
-let x0 = 0;
-let off0 = 0;
+/* arrastrar para recorrer los dias: empieza en cualquier punto de la pista, tambien encima de
+   una reserva, cuando el puntero se ha movido 5 px; sin moverse, el toque es un clic y abre la
+   ficha. En modo mover, el raton sobre una reserva la arrastra a ella (barraPulsar); el dedo
+   recorre los dias hasta que la pulsacion larga levanta la reserva */
+let pulsado = null;
 
 function alPulsar(e) {
-  if (e.target.closest(".hm-bar")) return;
-  e.preventDefault(); /* sin esto, arrastrar selecciona los dias de la cabecera */
-  pulsado = true;
-  arrastrando.value = true;
-  x0 = e.clientX;
-  off0 = off.value;
-  trackEl.value.setPointerCapture(e.pointerId);
+  if (e.button !== undefined && e.button !== 0) return;
+  const tactil = e.pointerType === "touch";
+  const enBarra = !!(e.target.closest && e.target.closest(".hm-bar"));
+  if (enBarra && modoMover.value && !tactil) return;
+  if (!tactil) e.preventDefault(); /* sin esto, arrastrar selecciona los dias de la cabecera */
+  pulsado = { id: e.pointerId, x0: e.clientX, off0: off.value, movido: false };
 }
 
 function alMover(e) {
-  if (!pulsado) return;
-  const d = e.clientX - x0;
-  if (Math.abs(d) > 3) {
+  if (!pulsado || e.pointerId !== pulsado.id) return;
+  if (e.pointerType === "mouse" && !(e.buttons & 1)) {
+    /* el boton se solto fuera de la pista antes de arrastrar */
+    alSoltar(e);
+    return;
+  }
+  if (gesto && gesto.activo) return; /* la reserva esta levantada: el dedo la lleva a ella */
+  const d = e.clientX - pulsado.x0;
+  if (!pulsado.movido) {
+    if (Math.abs(d) < 5) return;
+    pulsado.movido = true;
+    arrastrando.value = true;
+    /* si se desliza antes de la pulsacion larga, gana recorrer los dias */
+    if (gesto) gestoCancelar();
     cerrar();
     pararDemo(true);
+    try {
+      trackEl.value.setPointerCapture(e.pointerId);
+    } catch (err) {
+      /* sin captura el arrastre sigue funcionando dentro de la pista */
+    }
   }
-  off.value = Math.max(0, Math.min(maxOff.value, off0 - d / k.value));
+  off.value = Math.max(0, Math.min(maxOff.value, pulsado.off0 - d / k.value));
 }
 
-function alSoltar() {
-  pulsado = false;
+function alSoltar(e) {
+  if (!pulsado || (e && e.pointerId !== pulsado.id)) return;
+  const movido = pulsado.movido;
+  pulsado = null;
   arrastrando.value = false;
+  if (!movido) return;
+  /* el clic que llega al soltar tras recorrer los dias no abre la ficha */
+  sinClic = true;
+  setTimeout(() => {
+    sinClic = false;
+  }, 0);
 }
 
 const manejadores = {
@@ -730,7 +756,8 @@ function salirModo() {
 }
 
 /* el gesto del visitante: con raton, la reserva se levanta al moverla 5 px; con el dedo, al
-   mantenerla pulsada 350 ms (si antes se desliza, gana el desplazamiento de la pagina) */
+   mantenerla pulsada 350 ms (si antes se desliza, gana desplazar: los dias en horizontal y la
+   pagina en vertical) */
 let gesto = null;
 let sinClic = false;
 
