@@ -15,7 +15,7 @@
                 <ul class="mt-2">
                     <li class="text-xl list-disc">Denominación social: <span class="blue font-semibold">Silatek, S.L.U.</span>, sociedad andorrana.</li>
                     <li class="text-xl list-disc">NRT (número de registro tributario de Andorra): <span class="blue font-semibold">L-713544-Y</span>.</li>
-                    <li class="text-xl list-disc">Domicilio social: Carrer del Bosc, 1, El Serrat, Ordino (Andorra).</li>
+                    <li v-if="domicilio" class="text-xl list-disc" data-nosnippet>Domicilio social: {{ domicilio }}.</li>
                     <li class="text-xl list-disc">Correo electrónico: <a href="mailto:hola@hospedy.app" class="text-primary">hola@hospedy.app</a>. También puedes escribirnos desde el <NuxtLink to="/#contacto" class="text-primary">formulario de contacto</NuxtLink>.</li>
                 </ul>
                 <p class="text-xl mt-4">Hospedy es la marca con la que <span class="blue font-semibold">Silatek, S.L.U.</span> comercializa su software de gestión para alojamientos turísticos.</p>
@@ -75,8 +75,21 @@
 </template>
 
 <script setup lang="ts">
+// El domicilio tiene que estar en esta pagina (LSSI art. 10 y Llei 20/2014 art. 6), pero no hace
+// falta que lo recojan los buscadores: la pagina lleva noindex y no esta en el sitemap, el
+// domicilio no va en el HTML que sirve el servidor (se pinta en el navegador) y en el codigo no
+// esta en texto plano.
+const DOMICILIO = 'Q2FycmVyIGRlbCBCb3NjLCAxLCBFbCBTZXJyYXQsIE9yZGlubyAoQW5kb3JyYSk='
+const domicilio = ref('')
+onMounted(() => {
+    domicilio.value = atob(DOMICILIO)
+})
+
 useHead({
     title: 'Aviso legal',
-    meta: [{ name: 'description', content: 'Aviso legal de gethospedy.com y de los servicios de Hospedy, de Silatek, S.L.U.' }],
+    meta: [
+        { name: 'description', content: 'Aviso legal de gethospedy.com y de los servicios de Hospedy, de Silatek, S.L.U.' },
+        { name: 'robots', content: 'noindex, follow' },
+    ],
 })
 </script>
