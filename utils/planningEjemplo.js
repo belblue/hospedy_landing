@@ -167,12 +167,15 @@ function hotel() {
     reservas = reservas.concat(llenar(f, rnd, noches, 0.8, titular));
   });
 
-  /* dos grupos (una barra por habitacion, como el panel), la reserva que mueve la demo (con un
-     nombre que el generador no usa, para que no se repita) con un hueco libre en la 101 para
-     llevarla, y tres cierres */
+  /* dos grupos (una barra por habitacion, como el panel), una llegada con el auto check-in
+     enviado arriba del todo, que es lo primero que se ve (la 102, al dejarla el grupo), la
+     reserva que mueve la demo con un hueco libre en la 101 para llevarla (las dos con nombres
+     que el generador no usa, para que no se repitan) y tres cierres. La de la 102 lleva todos
+     sus datos: asi no gasta numeros del generador y el resto no cambia */
   const fijas = [
     ...[0, 1].map((f) => ({ f, c: HOY - 2, s: 4, q: "Grupo Solana", r: "MP", g: "sol", e: "in", ota: "" })),
     ...[14, 15, 16].map((f) => ({ f, c: HOY + 1, s: 3, q: "Grupo Pirineo", r: "MP", g: "pir", e: "pre", ota: "" })),
+    { f: 1, c: HOY + 2, s: 3, q: "Inés Salas", r: "AD", e: "pre", ota: "bk", cobro: "", pax: 2 },
     { f: 2, c: HOY + 10, s: 4, q: "Beatriz Robles", r: "AD", e: "future", ota: "", cobro: "pend", demo: true },
     { f: 3, c: HOY + 5, s: 3, cierre: true, motivo: "Pintura" },
     { f: 1, c: HOY - 10, s: 2, cierre: true, motivo: "Avería de fontanería" },
