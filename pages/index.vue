@@ -23,9 +23,10 @@
       </svg>
       Solicitar demo
     </NuxtLink>
-    <!-- Hero Section -->
+    <!-- Hero Section. El padding de arriba deja sitio a la barra fija: sin el, cuando el
+         contenido no cabe en una pantalla (movil, tablet), empieza debajo de ella -->
     <div
-      class="min-h-screen hero-gradient flex flex-col overflow-hidden relative"
+      class="min-h-screen hero-gradient flex flex-col overflow-hidden relative pt-24 lg:pt-16"
     >
       <div class="flex-1 flex items-center">
         <div class="w-full">
