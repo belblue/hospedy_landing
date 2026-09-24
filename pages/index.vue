@@ -378,90 +378,92 @@
         data-aos="fade-right"
         data-aos-delay="0"
       >
-        <div class="flex items-center gap-4 mb-6">
-          <span class="step-number-light">1</span>
-          <p class="text-3xl text-white font-semibold">Check-in</p>
-        </div>
+        <!-- desde 1024px el movil va a la derecha de todo el contenido: la tarjeta crece lo
+             justo y la de Facturas, que comparte fila, no se queda medio vacia -->
+        <div class="flex flex-col lg:flex-row gap-6 xl:gap-8">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-4 mb-6">
+              <span class="step-number-light">1</span>
+              <p class="text-3xl lg:text-2xl xl:text-3xl text-white font-semibold whitespace-nowrap">Check-in</p>
+            </div>
 
-        <!-- Tab Buttons -->
-        <div class="flex flex-wrap gap-2 mb-6">
-          <button
-            @click="activeCheckInTab = 0"
-            :class="[
-              'checkin-tab-sm flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300',
-              activeCheckInTab === 0
-                ? 'bg-white text-primary shadow-md'
-                : 'bg-white/20 text-white hover:bg-white/30 hover:scale-105',
-            ]"
-          >
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-              ></path>
-            </svg>
-            Check-in en 30 seg
-          </button>
-          <button
-            @click="activeCheckInTab = 1"
-            :class="[
-              'checkin-tab-sm flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300',
-              activeCheckInTab === 1
-                ? 'bg-white text-primary shadow-md'
-                : 'bg-white/20 text-white hover:bg-white/30 hover:scale-105',
-            ]"
-          >
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path>
-            </svg>
-            Auto check-in
-          </button>
-          <button
-            @click="activeCheckInTab = 2"
-            :class="[
-              'checkin-tab-sm flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300',
-              activeCheckInTab === 2
-                ? 'bg-white text-primary shadow-md'
-                : 'bg-white/20 text-white hover:bg-white/30 hover:scale-105',
-            ]"
-          >
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path>
-            </svg>
-            Escáner de escritorio
-          </button>
-        </div>
+            <!-- Tab Buttons -->
+            <div class="flex flex-wrap gap-2 mb-6">
+              <button
+                @click="activeCheckInTab = 0"
+                :class="[
+                  'checkin-tab-sm flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300',
+                  activeCheckInTab === 0
+                    ? 'bg-white text-primary shadow-md'
+                    : 'bg-white/20 text-white hover:bg-white/30 hover:scale-105',
+                ]"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                Check-in en 30 seg
+              </button>
+              <button
+                @click="activeCheckInTab = 1"
+                :class="[
+                  'checkin-tab-sm flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300',
+                  activeCheckInTab === 1
+                    ? 'bg-white text-primary shadow-md'
+                    : 'bg-white/20 text-white hover:bg-white/30 hover:scale-105',
+                ]"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                Auto check-in
+              </button>
+              <button
+                @click="activeCheckInTab = 2"
+                :class="[
+                  'checkin-tab-sm flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300',
+                  activeCheckInTab === 2
+                    ? 'bg-white text-primary shadow-md'
+                    : 'bg-white/20 text-white hover:bg-white/30 hover:scale-105',
+                ]"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                Escáner de escritorio
+              </button>
+            </div>
 
-        <!-- Tab Content -->
-        <div class="flex flex-col lg:flex-row gap-6 items-center">
-          <div class="flex-1">
+            <!-- Tab Content -->
             <div v-show="activeCheckInTab === 0">
               <p class="text-xl mb-2 text-white font-semibold">
                 Check-in en 30 segundos
@@ -496,15 +498,19 @@
               </p>
             </div>
           </div>
+          <!-- Un solo hueco para las tres pestañas, con el alto del movil (2,09 veces su
+               ancho): la tarjeta no salta al cambiar de pestaña -->
           <div
-            class="flex justify-center items-center shrink-0 w-36 lg:w-44 h-36 lg:h-44"
+            class="flex justify-center items-center shrink-0 self-center w-[240px] h-[503px] lg:w-[160px] lg:h-[335px] xl:w-[220px] xl:h-[461px]"
           >
-            <div v-show="activeCheckInTab === 0" class="w-[68px] lg:w-[83px]">
-              <MockCheckin etiqueta="Check-in rápido con Hospedy: formulario del huésped en un móvil, con sus datos, el documento, las fechas de la estancia y la firma." />
+            <!-- el auto check-in real, completo y en demostracion: se reproduce solo mientras se
+                 ve y es del visitante en cuanto lo toca -->
+            <div v-show="activeCheckInTab === 0" class="w-full">
+              <MockCheckinPhone demo />
             </div>
-            <!-- el formulario de auto check-in real, en foto: es el que recibe el huesped -->
-            <div v-show="activeCheckInTab === 1" class="w-[64px] lg:w-[78px]">
-              <MockCheckinPhone estatico />
+            <!-- lo primero que ve el huesped al abrir el enlace: la lista de la reserva -->
+            <div v-show="activeCheckInTab === 1" class="w-full">
+              <MockCheckinPhone estatico inicio="lista" />
             </div>
             <img
               v-show="activeCheckInTab === 2"

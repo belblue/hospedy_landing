@@ -14,11 +14,14 @@
   vertical del dedo siguen siendo de la pagina, y tras cada paso la maqueta baja sola al
   siguiente.
 
-  Con "estatico" es una foto de la parte de arriba del formulario, sin eventos ni animacion.
+  Con "demo" se reproduce sola y en bucle mientras se ve (foto, datos, firma, aceptacion y
+  guardado, con un circulo que marca cada toque); en cuanto el visitante toca algo se para y
+  la maqueta queda en sus manos. Con "estatico" es una foto sin eventos ni animacion; "inicio"
+  elige si empieza en el formulario o en la lista de huespedes.
 -->
 <template>
   <MockPhoneFrame ref="marcoEl" :role="estatico ? 'img' : null" :aria-label="estatico ? DESCRIPCION : null">
-    <div class="hm-ck" :class="{ 'is-foto': estatico }">
+    <div ref="ckEl" class="hm-ck" :class="{ 'is-foto': estatico }">
       <div
         ref="vistaEl"
         class="hm-ck__vista"
@@ -65,7 +68,7 @@
           <!-- ======================= Formulario de un huesped ======================= -->
           <div v-if="vista === 'form'" class="hm-page">
             <div class="hm-shell">
-              <button type="button" class="hm-back" @click="aLista()">&larr; Volver a los huéspedes</button>
+              <button type="button" class="hm-back" @click="usuario(aLista)">&larr; Volver a los huéspedes</button>
 
               <div class="hm-hero">
                 <p class="hm-hero__t">Auto check-in en {{ A.nombre }}</p>
@@ -81,7 +84,7 @@
                       <p class="hm-panel__t">Escanee su documento</p>
                       <p class="hm-panel__d">Haga una foto del DNI o pasaporte por la cara del código MRZ, como en el ejemplo. Rellenaremos varios campos automáticamente.</p>
                       <div class="hm-scan__acts">
-                        <button type="button" class="hm-bp" :class="{ 'is-pulso': pulso }" @click="escanear()">Hacer foto del documento</button>
+                        <button ref="fotoEl" type="button" class="hm-bp" :class="{ 'is-pulso': pulso }" @click="usuario(escanear)">Hacer foto del documento</button>
                         <span class="hm-scan__hint">JPG o PNG · máx. 10 MB</span>
                       </div>
 
@@ -111,7 +114,7 @@
                             >{{ linea }}</text>
                           </g>
                         </svg>
-                        <button type="button" class="hm-bp" :disabled="fase === 'subiendo' || fase === 'leyendo'" @click="leer()">
+                        <button type="button" class="hm-bp" :disabled="fase === 'subiendo' || fase === 'leyendo'" @click="usuario(leer)">
                           <template v-if="fase === 'subiendo'"><i class="hm-spin" aria-hidden="true" />Subiendo...100%</template>
                           <template v-else-if="fase === 'leyendo'"><i class="hm-spin" aria-hidden="true" />Leyendo datos</template>
                           <template v-else>
@@ -192,8 +195,8 @@
                     @pointermove="firmaMover"
                     @pointerup="firmaSoltar"
                     @pointercancel="firmaSoltar"
-                    @keydown.enter.prevent="firmarSolo()"
-                    @keydown.space.prevent="firmarSolo()"
+                    @keydown.enter.prevent="usuario(firmarSolo)"
+                    @keydown.space.prevent="usuario(firmarSolo)"
                   >
                     <svg viewBox="0 0 343 190" aria-hidden="true">
                       <path v-for="(t, i) in trazos" :key="i" :d="t" />
@@ -203,8 +206,8 @@
                     </svg>
                   </div>
                   <div class="hm-sig__acts">
-                    <button type="button" class="hm-bm" @click="deshacer()">Deshacer</button>
-                    <button type="button" class="hm-bd" @click="borrar()">Borrar</button>
+                    <button type="button" class="hm-bm" @click="usuario(deshacer)">Deshacer</button>
+                    <button type="button" class="hm-bd" @click="usuario(borrar)">Borrar</button>
                   </div>
                 </div>
 
@@ -228,7 +231,7 @@
                     </div>
                   </div>
                   <div :data-err="errores.consent ? 'si' : null">
-                    <button type="button" class="hm-consent" role="checkbox" :aria-checked="acepto ? 'true' : 'false'" @click="alternarAcepto()">
+                    <button ref="aceptoEl" type="button" class="hm-consent" role="checkbox" :aria-checked="acepto ? 'true' : 'false'" @click="usuario(alternarAcepto)">
                       <i class="hm-consent__box" :class="{ on: acepto }" aria-hidden="true">
                         <svg v-if="acepto" viewBox="0 0 448 512"><path fill="currentColor" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" /></svg>
                       </i>
@@ -244,7 +247,8 @@
                     class="hm-bp hm-submit"
                     :class="{ 'is-ok': guardado }"
                     :aria-busy="guardando ? 'true' : 'false'"
-                    @click="guardar()"
+                    ref="guardarEl"
+                    @click="usuario(guardar)"
                   >
                     <template v-if="guardando"><i class="hm-spin" aria-hidden="true" />Guardar huésped</template>
                     <template v-else-if="guardado">
@@ -273,7 +277,7 @@
                     <svg class="hm-tick" viewBox="0 0 24 24" aria-hidden="true"><path fill="#16a34a" d="M9 16.17 5.53 12.7a1 1 0 0 0-1.41 1.41l4.18 4.18a1 1 0 0 0 1.41 0L20.29 7.71a1 1 0 0 0-1.41-1.41z" /></svg>
                     <span>Huésped {{ i + 1 }}:&nbsp;{{ g.nombre }}</span>
                   </div>
-                  <button v-else type="button" class="hm-gcard hm-gcard--pend" @click="aForm(i)">Introducir datos</button>
+                  <button v-else type="button" class="hm-gcard hm-gcard--pend" @click="usuario(aForm, i)">Introducir datos</button>
                 </template>
               </div>
               <p class="hm-note">Abrir la página en un dispositivo táctil para poder firmar.</p>
@@ -290,6 +294,7 @@
         aria-hidden="true"
       />
       <p v-if="toast" :key="toast.n" class="hm-toast" :class="'hm-toast--' + toast.tipo" role="status">{{ toast.texto }}</p>
+      <span v-if="toque" :key="toque.n" class="hm-toque" :style="{ left: toque.x + 'px', top: toque.y + 'px' }" aria-hidden="true" />
       <span class="hm-tag" aria-hidden="true">Datos de ejemplo</span>
     </div>
   </MockPhoneFrame>
@@ -307,6 +312,14 @@ const props = defineProps({
   },
   /* foto sin interaccion ni animacion */
   estatico: { type: Boolean, default: false },
+  /* se reproduce sola, en bucle, mientras se ve; el primer toque del visitante la para */
+  demo: { type: Boolean, default: false },
+  /* pantalla con la que empieza: el formulario de un huesped o la lista de la reserva */
+  inicio: {
+    type: String,
+    default: "form",
+    validator: (v) => ["form", "lista"].includes(v),
+  },
 });
 
 const ANCHO = 375; /* ancho del movil de referencia */
@@ -390,7 +403,11 @@ const FIRMA =
 const FIRMA_RAYA = "M78 146C136 139 196 137 268 128";
 
 const marcoEl = ref(null);
+const ckEl = ref(null);
 const vistaEl = ref(null);
+const fotoEl = ref(null);
+const aceptoEl = ref(null);
+const guardarEl = ref(null);
 const docEl = ref(null);
 const prevEl = ref(null);
 const datosEl = ref(null);
@@ -399,9 +416,12 @@ const lienzoEl = ref(null);
 const contactoEl = ref(null);
 
 /* ---- estado ---- */
-const huespedes = ref(A.huespedes.map((h) => ({ hecho: !!h.hecho, nombre: h.nombre || "", ficha: h.ficha || null })));
+function huespedesIniciales() {
+  return A.huespedes.map((h) => ({ hecho: !!h.hecho, nombre: h.nombre || "", ficha: h.ficha || null }));
+}
+const huespedes = ref(huespedesIniciales());
 const actual = ref(Math.max(0, huespedes.value.findIndex((h) => !h.hecho)));
-const vista = ref("form");
+const vista = ref(props.inicio === "lista" ? "lista" : "form");
 const fase = ref("inicio"); /* inicio | foto | subiendo | leyendo | leido */
 const datos = ref(null);
 const revelados = ref([]);
@@ -590,6 +610,7 @@ let recienArrastrado = false;
 function alPulsar(e) {
   if (e.pointerType === "touch") return;
   if (e.button !== undefined && e.button !== 0) return;
+  pararDemo(true);
   tomarControl();
   if (e.target && e.target.closest && e.target.closest(".hm-sig")) return;
   e.preventDefault(); /* sin esto, arrastrar selecciona texto */
@@ -641,6 +662,7 @@ function alTeclear(e) {
   if (e.key === "End") d = maxOff();
   if (d === null) return;
   e.preventDefault();
+  pararDemo(true);
   tomarControl();
   fijar(off.value + d);
 }
@@ -729,6 +751,7 @@ function firmaPulsar(e) {
   if (props.estatico) return;
   e.stopPropagation();
   if (e.button !== undefined && e.button !== 0) return;
+  pararDemo(true);
   tomarControl();
   pulsoFirma.value = false;
   clearTimeout(tFirma);
@@ -858,6 +881,98 @@ function aForm(i) {
   nextTick(() => fijar(0));
 }
 
+/* ---- lo que hace el visitante: para la demo para siempre y ejecuta la accion ---- */
+function usuario(fn, ...args) {
+  pararDemo(true);
+  fn(...args);
+}
+
+/* ---- demo: el check-in completo, solo y en bucle, mientras se ve. Sus esperas van con
+   temporizadores propios: reiniciar() cancela los del formulario y no debe cortarla ---- */
+const toque = ref(null);
+const PARADA = {};
+let demoViva = false;
+let demoGen = 0;
+let demoUsuario = false;
+let demoTimers = [];
+let nToque = 0;
+
+function pararDemo(delVisitante) {
+  if (delVisitante) demoUsuario = true;
+  if (!demoViva) return;
+  demoViva = false;
+  demoGen += 1;
+  demoTimers.forEach(clearTimeout);
+  demoTimers = [];
+  toque.value = null;
+}
+function espera(ms) {
+  const gen = demoGen;
+  return new Promise((resolve, reject) => {
+    const id = setTimeout(() => {
+      demoTimers = demoTimers.filter((x) => x !== id);
+      if (demoViva && gen === demoGen) resolve();
+      else reject(PARADA);
+    }, ms);
+    demoTimers.push(id);
+  });
+}
+async function hasta(cond, max) {
+  const t0 = performance.now();
+  while (!cond()) {
+    if (performance.now() - t0 > max) throw PARADA;
+    await espera(120);
+  }
+}
+/* el "dedo": un circulo que pulsa en el centro del elemento */
+async function pulsar(el) {
+  const ck = ckEl.value;
+  if (!el || !ck) throw PARADA;
+  const rc = ck.getBoundingClientRect();
+  const re = el.getBoundingClientRect();
+  const k = ck.offsetWidth / (rc.width || 1);
+  nToque += 1;
+  toque.value = { x: (re.left + re.width / 2 - rc.left) * k, y: (re.top + re.height / 2 - rc.top) * k, n: nToque };
+  await espera(520);
+  toque.value = null;
+}
+function reiniciarTodo() {
+  reiniciar();
+  huespedes.value = huespedesIniciales();
+  actual.value = Math.max(0, huespedes.value.findIndex((h) => !h.hecho));
+  vista.value = "form";
+  toast.value = null;
+  nextTick(() => fijar(0));
+}
+async function correrDemo() {
+  if (demoViva || demoUsuario) return;
+  demoViva = true;
+  demoGen += 1;
+  try {
+    for (;;) {
+      reiniciarTodo();
+      await espera(1100);
+      await pulsar(fotoEl.value);
+      escanear();
+      /* foto, lectura, datos y bajada a la firma: el propio formulario avisa al llegar */
+      await hasta(() => pulsoFirma.value, 16000);
+      await espera(700);
+      await pulsar(lienzoEl.value);
+      firmarSolo();
+      await espera(3000);
+      await pulsar(aceptoEl.value);
+      alternarAcepto();
+      await espera(700);
+      await pulsar(guardarEl.value);
+      guardar();
+      await hasta(() => vista.value === "lista", 8000);
+      await espera(3800);
+    }
+  } catch (e) {
+    /* parada: la ha cortado el visitante o el movil ha dejado de verse */
+  }
+}
+
 let io = null;
 let ro = null;
 
@@ -875,6 +990,18 @@ onMounted(() => {
   if (reducido || !("IntersectionObserver" in window)) return;
   const raiz = marcoEl.value && marcoEl.value.$el;
   if (!raiz) return;
+  if (props.demo) {
+    /* en marcha solo mientras se ve (tambien se para si la pestanna la oculta) */
+    io = new IntersectionObserver(
+      (entradas) => {
+        if (entradas.some((x) => x.isIntersecting)) correrDemo();
+        else pararDemo(false);
+      },
+      { threshold: 0.5 }
+    );
+    io.observe(raiz);
+    return;
+  }
   io = new IntersectionObserver(
     (entradas) => {
       if (entradas.some((x) => x.isIntersecting)) {
@@ -889,6 +1016,7 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
+  pararDemo(false);
   if (io) io.disconnect();
   if (ro) ro.disconnect();
   cancelarTemporizadores();
@@ -1637,6 +1765,36 @@ onBeforeUnmount(() => {
   from {
     opacity: 0;
     transform: translateY(calc(-8 * var(--p)));
+  }
+}
+/* el "dedo" de la demo */
+.hm-toque {
+  position: absolute;
+  z-index: 8;
+  width: calc(44 * var(--p));
+  height: calc(44 * var(--p));
+  margin: calc(-22 * var(--p)) 0 0 calc(-22 * var(--p));
+  border-radius: 50%;
+  background: rgba(38, 50, 63, 0.28);
+  box-shadow: 0 0 0 calc(2 * var(--p)) rgba(255, 255, 255, 0.85), 0 calc(3 * var(--p)) calc(10 * var(--p)) rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  animation: hm-toque 0.52s ease-out forwards;
+}
+@keyframes hm-toque {
+  0% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+  35% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.82);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
   }
 }
 .hm-tag {
