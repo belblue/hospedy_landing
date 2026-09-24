@@ -1,7 +1,8 @@
 <!--
   Maqueta del planning de Hospedy dentro de un portatil dibujado en CSS.
   Datos de ejemplo, fijos: NO habla con ninguna API. Un alojamiento de ejemplo por perfil
-  (prop "perfil": hotel, rural o apartamentos).
+  (prop "perfil": hotel, rural o apartamentos), con diez semanas de reservas alrededor de hoy y
+  algun cierre (utils/planningEjemplo, comunes con el planning del movil).
 
   La piel (colores, alturas, tipografias) esta copiada del planning real para que
   la web ensene el producto y no una ilustracion. Todas las medidas del producto van en
@@ -71,12 +72,13 @@
                 <button ref="izqEl" type="button" class="hm-nav hm-nav--izq" aria-label="Días anteriores" @click="paso(-3)">
                   <svg viewBox="0 0 10 16" aria-hidden="true"><path d="M7.5 2 2 8l5.5 6" /></svg>
                 </button>
-                <p class="hm-month__txt">Oct 2026</p>
+                <p class="hm-month__txt">{{ mesVisible }}</p>
                 <button ref="derEl" type="button" class="hm-nav hm-nav--der" aria-label="Días siguientes" @click="paso(3)">
                   <svg viewBox="0 0 10 16" aria-hidden="true"><path d="M2.5 2 8 8l-5.5 6" /></svg>
                 </button>
               </div>
-              <div v-for="h in habsVisibles" :key="h.n" class="hm-room">
+              <!-- el color es la limpieza de hoy, como en el panel: limpia, a medias o por hacer -->
+              <div v-for="h in habsVisibles" :key="h.n" class="hm-room" :class="'hm-room--' + h.limpieza">
                 <b>{{ h.n }}</b><span>{{ h.t }}</span>
               </div>
             </div>
@@ -95,13 +97,10 @@
                   </div>
                 </div>
 
-                <div
-                  v-for="c in celdas"
-                  :key="c.k"
-                  class="hm-cell"
-                  :class="{ 'hm-cell--hoy': c.hoy }"
-                  :style="{ left: c.x, top: c.y }"
-                />
+                <!-- la rejilla, de fondo: la columna de hoy y las lineas de las casillas -->
+                <div class="hm-grid" :style="estiloRejilla" aria-hidden="true">
+                  <span class="hm-grid__hoy" :style="{ left: u(HOY * M_COL) }" />
+                </div>
 
                 <button
                   v-for="b in barras"
@@ -124,31 +123,20 @@
                     <span v-if="b.r" class="hm-bar__reg">{{ b.r }}</span>
                   </span>
 
-                  <span v-if="b.ota || b.fact" class="hm-bar__ic">
-                    <!--
-                      Logos de agencia tal y como los pinta el panel: salen de la
-                      columna Agencias.LogoSVG de la base de datos.
-                      PENDIENTE antes de publicar en gethospedy.com: confirmar las
-                      normas de uso de marca de Booking y Expedia. Dentro del panel
-                      el logo es funcional (identifica el origen de la reserva); en
-                      una web comercial el uso es otro.
-                    -->
-                    <svg v-if="b.ota === 'bk'" class="hm-ota" viewBox="0 0 24 24" aria-hidden="true">
-                      <path fill="#FFFFFF" d="M18.7,2H5.3C3.5,2,2,3.5,2,5.3v12.3v1V22h3.3h1.2h12.1c1.8,0,3.3-1.5,3.3-3.3V5.3C22,3.5,20.5,2,18.7,2z" />
-                      <path fill="#0C3B7C" d="M18.2,3.5H5.8c-1.3,0-2.3,1-2.3,2.3v11.7v0.6v2.3h2.3h0.6h11.7c1.3,0,2.3-1,2.3-2.3V5.8C20.5,4.5,19.5,3.5,18.2,3.5z" />
-                      <path fill="#FFFFFF" d="M10.1,16.1H7.9v-2.5c0-0.6,0.2-0.8,0.7-0.9h1.5c1.1,0,1.7,0.6,1.7,1.7C11.8,15.5,11.1,16.1,10.1,16.1L10.1,16.1z M7.9,9.3V8.7c0-0.6,0.2-0.9,0.8-0.9h1.1c0.9,0,1.5,0.6,1.5,1.5c0,0.7-0.4,1.5-1.5,1.5H7.9V9.3z M12.7,11.8l-0.4-0.2l0.3-0.3c0.4-0.3,1.1-1.1,1.1-2.4c0-2-1.5-3.2-3.9-3.2H7.1l0,0H6.8C6.1,5.7,5.5,6.3,5.5,7v11.3h4.4c2.7,0,4.4-1.5,4.4-3.7C14.3,13.4,13.7,12.4,12.7,11.8" />
-                      <circle fill="#00BAFC" cx="16.9" cy="16.7" r="1.5" />
-                    </svg>
-                    <svg v-else-if="b.ota === 'ex'" class="hm-ota" viewBox="0 0 24 24" aria-hidden="true">
-                      <circle fill="#FFFFFF" cx="12" cy="12" r="10" />
-                      <circle fill="#072F54" cx="12" cy="12" r="8.5" />
-                      <path fill="#FBC108" d="M13.8,11.2l0.2,1L13.6,17l0.5-0.2l2-6.3l3-0.8c0.4-0.1,0.8-0.3,1-0.5c-0.1-0.3-0.2-0.5-0.3-0.8c-0.3,0-0.7,0-1,0.1l-2.9,0.8l-5-4.3l-0.5,0.1L13.1,9l0.3,1l-2.8,0.8l-7.1,2.5c0,0.1,0.1,0.3,0.1,0.4L11,12L13.8,11.2L13.8,11.2z" />
-                    </svg>
-                    <!-- pendiente de facturar: hereda el color de la barra -->
-                    <svg v-if="b.fact" viewBox="0 0 24 24" aria-hidden="true">
-                      <path fill="currentColor" d="M19.07,7,15.18,3A3.08,3.08,0,0,0,13,2H7.15A3.22,3.22,0,0,0,4,5.28V18.72A3.22,3.22,0,0,0,7.15,22h9.7A3.22,3.22,0,0,0,20,18.72V9.34A3.33,3.33,0,0,0,19.07,7ZM5.54,18.72V5.28A1.65,1.65,0,0,1,7.15,3.6H13a1.56,1.56,0,0,1,1.13.5L18,8.15a1.68,1.68,0,0,1,.48,1.19v9.38a1.66,1.66,0,0,1-1.61,1.68H7.15A1.65,1.65,0,0,1,5.54,18.72Z" />
-                      <path fill="currentColor" d="M12.81,4.86V8.64a.83.83,0,0,0,.81.84h3.63Z" />
-                    </svg>
+                  <!-- iconos de la barra: el cierre solo lleva el candado; el resto, el logo de la
+                       agencia, pendiente de facturar y cobro (vacio si falta todo, a medias si hay
+                       un deposito), en la tinta de la barra -->
+                  <span v-if="b.e === 'cierre' || b.ota || b.fact || b.cobro" class="hm-bar__ic">
+                    <svg v-if="b.e === 'cierre'" viewBox="0 0 448 512" aria-hidden="true"><path :d="CANDADO" /></svg>
+                    <template v-else>
+                      <MockLogoAgencia v-if="b.ota" :agencia="b.ota" class="hm-ota" />
+                      <svg v-if="b.fact" viewBox="0 0 24 24" aria-hidden="true"><path :d="FACTURA[0]" /><path :d="FACTURA[1]" /></svg>
+                      <svg v-if="b.cobro" class="hm-cobro" viewBox="0 0 24 24" aria-hidden="true">
+                        <path v-if="b.cobro === 'parcial'" d="M12,2.5 A9.5,9.5 0 0,0 12,21.5 Z" />
+                        <circle cx="12" cy="12" r="9.5" />
+                        <text x="12" y="16.5" text-anchor="middle">&euro;</text>
+                      </svg>
+                    </template>
                   </span>
                 </button>
 
@@ -179,7 +167,9 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path :d="FLECHAS" /></svg>
             </button>
 
-            <p v-if="aviso" :key="aviso.n" class="hm-aviso" role="status">{{ aviso.texto }}</p>
+            <p v-if="aviso" :key="aviso.n" class="hm-aviso" role="status">
+              {{ aviso.texto }}<span class="hm-aviso__x" aria-hidden="true">&times;</span>
+            </p>
 
             <!-- ficha reducida de la reserva: misma anatomia que la del panel -->
             <div
@@ -193,62 +183,105 @@
               aria-label="Resumen de la reserva"
             >
               <template v-if="ficha">
-                <div class="hm-sheet__head">
-                  <button ref="cerrarEl" type="button" class="hm-sheet__x" aria-label="Cerrar" @click.stop="cerrar()">&#10005;</button>
-                  <p class="hm-sheet__title">Reserva {{ ficha.num }}</p>
-                  <span class="hm-minibtn hm-minibtn--del" aria-hidden="true">Eliminar</span>
-                  <span class="hm-minibtn hm-minibtn--save" aria-hidden="true">Guardar</span>
-                </div>
+                <!-- un cierre abre su propia ficha, como en el panel: que esta cerrado, cuando y por que -->
+                <template v-if="ficha.cierre">
+                  <div class="hm-sheet__head">
+                    <button ref="cerrarEl" type="button" class="hm-sheet__x" aria-label="Cerrar" @click.stop="cerrar()">&#10005;</button>
+                    <p class="hm-sheet__title">
+                      <svg class="hm-sheet__lock" viewBox="0 0 448 512" aria-hidden="true"><path :d="CANDADO" /></svg>Cierre de habitación
+                    </p>
+                  </div>
+                  <div class="hm-rayas" aria-hidden="true" />
+                  <div class="hm-sheet__grid">
+                    <div class="hm-fld">
+                      <label>{{ ficha.etiqHab }}</label>
+                      <div class="hm-inp">{{ ficha.hab }}</div>
+                    </div>
+                    <div class="hm-fld">
+                      <label>Noches cerradas</label>
+                      <div class="hm-inp">{{ ficha.noches }}</div>
+                    </div>
+                    <div class="hm-fld">
+                      <label>Desde (primera noche)</label>
+                      <div class="hm-inp">{{ ficha.entrada }}</div>
+                    </div>
+                    <div class="hm-fld">
+                      <label>Hasta (última noche)</label>
+                      <div class="hm-inp">{{ ficha.ultima }}</div>
+                    </div>
+                    <div class="hm-fld hm-fld--wide">
+                      <label>Motivo / notas</label>
+                      <div class="hm-inp">{{ ficha.motivo }}</div>
+                    </div>
+                  </div>
+                  <div class="hm-acts">
+                    <span class="hm-chip">Reabrir habitación</span>
+                    <span class="hm-chip">Convertir en reserva normal</span>
+                  </div>
+                </template>
 
-                <div class="hm-sheet__grid">
-                  <div class="hm-fld">
-                    <label>Noches</label>
-                    <div class="hm-nights"><i aria-hidden="true">&minus;</i><b>{{ ficha.noches }}</b><i aria-hidden="true">+</i></div>
+                <template v-else>
+                  <div class="hm-sheet__head">
+                    <button ref="cerrarEl" type="button" class="hm-sheet__x" aria-label="Cerrar" @click.stop="cerrar()">&#10005;</button>
+                    <p class="hm-sheet__title">Reserva {{ ficha.num }}</p>
+                    <span class="hm-minibtn hm-minibtn--del" aria-hidden="true">Eliminar</span>
+                    <span class="hm-minibtn hm-minibtn--save" aria-hidden="true">Guardar</span>
                   </div>
-                  <div class="hm-fld">
-                    <label>Entrada</label>
-                    <div class="hm-inp">{{ ficha.entrada }}</div>
-                  </div>
-                  <div class="hm-fld">
-                    <label>Salida</label>
-                    <div class="hm-inp">{{ ficha.salida }}</div>
-                  </div>
-                  <div class="hm-fld">
-                    <label>{{ ficha.etiqHab }}</label>
-                    <div class="hm-inp">{{ ficha.hab }}</div>
-                  </div>
-                  <div class="hm-fld hm-fld--wide">
-                    <label>Titular</label>
-                    <div class="hm-inp">{{ ficha.titular }}</div>
-                  </div>
-                  <!-- campos que no se ensenan: barra gris del ancho del dato -->
-                  <div class="hm-fld">
-                    <label>Régimen</label>
-                    <div class="hm-inp hm-inp--ph" aria-hidden="true"><span style="width: 58%" /></div>
-                  </div>
-                  <div class="hm-fld">
-                    <label>Agencia</label>
-                    <div class="hm-inp hm-inp--ph" aria-hidden="true"><span style="width: 72%" /></div>
-                  </div>
-                  <div class="hm-fld">
-                    <label>Total</label>
-                    <div class="hm-inp hm-inp--ph" aria-hidden="true"><span style="width: 46%" /></div>
-                  </div>
-                </div>
 
-                <div class="hm-acts">
-                  <span class="hm-chip">Enviar pre check-in</span>
-                  <span class="hm-chip">Resumen al huésped</span>
-                  <span class="hm-chip hm-chip--wa">WhatsApp</span>
-                  <span class="hm-chip">Extras</span>
-                  <span class="hm-chip">Factura</span>
-                </div>
+                  <div class="hm-sheet__grid">
+                    <div class="hm-fld">
+                      <label>Noches</label>
+                      <div class="hm-nights"><i aria-hidden="true">&minus;</i><b>{{ ficha.noches }}</b><i aria-hidden="true">+</i></div>
+                    </div>
+                    <div class="hm-fld">
+                      <label>Entrada</label>
+                      <div class="hm-inp">{{ ficha.entrada }}</div>
+                    </div>
+                    <div class="hm-fld">
+                      <label>Salida</label>
+                      <div class="hm-inp">{{ ficha.salida }}</div>
+                    </div>
+                    <div class="hm-fld">
+                      <label>{{ ficha.etiqHab }}</label>
+                      <div class="hm-inp">{{ ficha.hab }}</div>
+                    </div>
+                    <div class="hm-fld hm-fld--wide">
+                      <label>Titular</label>
+                      <div class="hm-inp">{{ ficha.titular }}</div>
+                    </div>
+                    <!-- campos que no se ensenan: barra gris del ancho del dato -->
+                    <div class="hm-fld">
+                      <label>Régimen</label>
+                      <div class="hm-inp hm-inp--ph" aria-hidden="true"><span style="width: 58%" /></div>
+                    </div>
+                    <div class="hm-fld">
+                      <label>Agencia</label>
+                      <div class="hm-inp hm-inp--ph" aria-hidden="true"><span style="width: 72%" /></div>
+                    </div>
+                    <div class="hm-fld">
+                      <label>Total</label>
+                      <div class="hm-inp hm-inp--ph" aria-hidden="true"><span style="width: 46%" /></div>
+                    </div>
+                  </div>
 
-                <div class="hm-ses">
-                  <i aria-hidden="true">&#10003;</i>
-                  <span>Parte de viajeros enviado &middot; SES Hospedajes</span>
-                  <b>{{ ficha.ses }}</b>
-                </div>
+                  <div class="hm-acts">
+                    <span class="hm-chip">Enviar pre check-in</span>
+                    <span class="hm-chip">Resumen al huésped</span>
+                    <span class="hm-chip hm-chip--wa">WhatsApp</span>
+                    <span class="hm-chip">Extras</span>
+                    <span class="hm-chip">Factura</span>
+                  </div>
+
+                  <!-- el parte: enviado si el huesped ya ha entrado; si no, pendiente -->
+                  <div class="hm-ses" :class="{ 'hm-ses--pend': !ficha.parteHecho }">
+                    <i v-if="ficha.parteHecho" aria-hidden="true">&#10003;</i>
+                    <i v-else aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg>
+                    </i>
+                    <span>{{ ficha.parte }}</span>
+                    <b v-if="ficha.parteHecho">{{ ficha.ses }}</b>
+                  </div>
+                </template>
 
                 <div class="hm-sheet__cta">
                   <p>&iquest;Te gusta este calendario? <b>El que usarás es mucho mejor.</b> &iquest;Te animas a probarlo?</p>
@@ -281,6 +314,7 @@
 
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
+import { DIAS, DIAS_PLANNING, HOY, fecha, mesDe, planningEjemplo } from "~/utils/planningEjemplo";
 
 const props = defineProps({
   /* hotel, rural o apartamentos: cambia el alojamiento de ejemplo */
@@ -302,128 +336,46 @@ const M_HEAD = 58;  /* alto de la cabecera de dia */
 const M_COL = 78;   /* ancho de columna de dia */
 const M_ROOMW = 150; /* ancho de la columna de habitaciones */
 
-const DIAS_TOTAL = 21;
-const DIA_INI = 5; /* lunes 5 de octubre de 2026; hoy es el viernes 9 (columna 5) */
-const HOY = 9;
-const SEM = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
+/* al abrir, hoy queda en la cuarta columna, como en el panel */
+const OFF_INI = (HOY - 3) * M_COL;
+/* en la pantalla del portatil no caben mas filas */
+const FILAS_MAX = 8;
 
-/* g = grupo: barras con el mismo grupo son LA MISMA reserva repartida en varias
-   habitaciones, que es como las pinta el planning real (una barra por habitacion).
-   c = columna del dia de entrada (1 = lunes 5), s = noches.
-   demo = la reserva que mueve la demo (i, su posicion en "reservas") y la fila a la que va */
-const PERFILES = {
+const TEXTOS = {
   hotel: {
     descripcion: "Planning de ejemplo de un hotel en un portátil: habitaciones en filas, días en columnas y las reservas como barras de colores según su estado.",
     unidad: ["Habitación", "Habitaciones", "unidades"],
-    habs: [
-      { n: "101", t: "Doble" },
-      { n: "102", t: "Doble" },
-      { n: "103", t: "Familiar" },
-      { n: "104", t: "Doble" },
-      { n: "201", t: "Suite" },
-      { n: "202", t: "Individual" },
-      { n: "203", t: "Familiar" },
-    ],
-    reservas: [
-      { f: 0, c: 1, s: 4, q: "A. Ferrer", r: "AD", e: "past", ota: "bk", fact: true },
-      { f: 0, c: 6, s: 3, q: "Grupo Solana", r: "MP", e: "in", g: "sol", fact: true },
-      { f: 1, c: 6, s: 3, q: "Grupo Solana", r: "MP", e: "in", g: "sol", fact: true },
-      { f: 1, c: 2, s: 3, q: "L. Prieto", r: "AD", e: "past", ota: "ex" },
-      { f: 2, c: 1, s: 3, q: "Fam. Olmedo", r: "PC", e: "past", fact: true },
-      { f: 2, c: 7, s: 2, q: "N. Barreiro", r: "AD", e: "in", ota: "bk" },
-      { f: 2, c: 14, s: 4, q: "D. Santos", r: "AD", e: "future" },
-      { f: 3, c: 2, s: 3, q: "C. Vilalta", r: "MP", e: "past" },
-      { f: 3, c: 8, s: 4, q: "M. Aguirre", r: "AD", e: "future", ota: "bk" },
-      { f: 4, c: 4, s: 5, q: "Fam. Requena", r: "PC", e: "pre" },
-      { f: 4, c: 13, s: 3, q: "O. Lamas", r: "AD", e: "future", ota: "ex" },
-      { f: 5, c: 3, s: 2, q: "J. Mendoza", r: "AD", e: "past", fact: true },
-      { f: 5, c: 9, s: 6, q: "S. Arenas", r: "AD", e: "in" },
-      { f: 5, c: 17, s: 3, q: "T. Navarro", r: "MP", e: "future", ota: "bk" },
-      { f: 6, c: 1, s: 4, q: "P. Cuesta", r: "AD", e: "past", ota: "ex", fact: true },
-      { f: 6, c: 10, s: 5, q: "Grupo Bilbao", r: "MP", e: "future", ota: "bk" },
-    ],
-    /* la que mueve la demo: una reserva directa y futura */
-    demo: { i: 6, f: 0 },
   },
-  /* casa rural de seis habitaciones con nombre; el puente del Pilar, la casa entera */
   rural: {
     descripcion: "Planning de ejemplo de una casa rural de seis habitaciones en un portátil, con la casa entera reservada para el puente.",
     unidad: ["Habitación", "Habitaciones", "habitaciones"],
-    habs: [
-      { n: "Olmo", t: "Doble" },
-      { n: "Tejo", t: "Doble" },
-      { n: "Haya", t: "Familiar" },
-      { n: "Pino", t: "Doble" },
-      { n: "Arce", t: "Triple" },
-      { n: "Tilo", t: "Individual" },
-    ],
-    reservas: [
-      { f: 0, c: 1, s: 2, q: "M. Iglesias", r: "AD", e: "past", fact: true },
-      { f: 0, c: 9, s: 2, q: "A. Serrano", r: "AD", e: "pre" },
-      { f: 0, c: 12, s: 2, q: "P. Gil", e: "future", ota: "bk" },
-      { f: 1, c: 2, s: 2, q: "R. Campos", e: "past", ota: "bk", fact: true },
-      { f: 1, c: 12, s: 2, q: "I. Soler", r: "AD", e: "future" },
-      { f: 1, c: 16, s: 2, q: "H. Lamas", e: "future" },
-      { f: 2, c: 2, s: 2, q: "D. Nieto", r: "AD", e: "past", fact: true },
-      { f: 2, c: 10, s: 2, q: "J. Aguirre", e: "future", ota: "bk" },
-      { f: 2, c: 12, s: 2, q: "L. Rubio", r: "AD", e: "future" },
-      { f: 3, c: 3, s: 2, q: "C. Vidal", r: "MP", e: "past" },
-      { f: 3, c: 12, s: 2, q: "C. Marín", e: "future", ota: "ex" },
-      { f: 3, c: 15, s: 3, q: "A. Soto", r: "AD", e: "future" },
-      { f: 4, c: 1, s: 2, q: "Ó. Prieto", e: "past", fact: true },
-      { f: 4, c: 13, s: 1, q: "T. Rey", r: "AD", e: "future" },
-      { f: 5, c: 2, s: 1, q: "N. Cuesta", e: "past", fact: true },
-      { f: 5, c: 9, s: 1, q: "E. Montes", e: "future" },
-      { f: 5, c: 12, s: 3, q: "R. Vidal", e: "future", ota: "bk" },
-      ...[0, 1, 2, 3, 4, 5].map((f) => ({ f, c: 5, s: 3, q: "Fam. Lozano", r: "MP", e: "pre", g: "loz" })),
-    ],
   },
-  /* apartamentos turisticos en dos edificios: estancias largas y mucha agencia */
   apartamentos: {
     descripcion: "Planning de ejemplo de apartamentos turísticos en un portátil: cada apartamento en una fila, con estancias largas y reservas de agencia.",
     unidad: ["Apartamento", "Apartamentos", "apartamentos"],
-    habs: [
-      { n: "1A", t: "Marina · 2 dorm." },
-      { n: "1B", t: "Marina · estudio" },
-      { n: "2A", t: "Marina · 2 dorm." },
-      { n: "2B", t: "Marina · 1 dorm." },
-      { n: "3A", t: "Marina · ático" },
-      { n: "1", t: "Mirador · 3 dorm." },
-      { n: "2", t: "Mirador · 2 dorm." },
-    ],
-    reservas: [
-      { f: 0, c: 1, s: 4, q: "E. Müller", e: "past", ota: "bk", fact: true },
-      { f: 0, c: 5, s: 7, q: "T. Jansen", e: "pre", ota: "bk" },
-      { f: 0, c: 13, s: 5, q: "C. Marín", e: "future" },
-      { f: 1, c: 2, s: 5, q: "L. Dubois", e: "in", ota: "ex", fact: true },
-      { f: 1, c: 8, s: 3, q: "R. Campos", e: "future" },
-      { f: 1, c: 13, s: 4, q: "O. Smith", e: "future", ota: "bk" },
-      { f: 2, c: 1, s: 3, q: "A. Nieto", e: "past", fact: true },
-      { f: 2, c: 6, s: 7, q: "S. Larsson", e: "pre", ota: "bk" },
-      { f: 2, c: 15, s: 5, q: "G. Bianchi", e: "future", ota: "ex" },
-      { f: 3, c: 3, s: 4, q: "M. Aguirre", e: "in", fact: true },
-      { f: 3, c: 9, s: 5, q: "J. Walker", e: "future", ota: "bk" },
-      { f: 3, c: 16, s: 3, q: "I. Rey", e: "future" },
-      { f: 4, c: 1, s: 10, q: "Fam. Kowalska", e: "in", ota: "bk" },
-      { f: 4, c: 13, s: 4, q: "D. Luna", e: "future" },
-      { f: 5, c: 2, s: 3, q: "P. Vidal", e: "past", fact: true },
-      { f: 5, c: 5, s: 4, q: "N. Peeters", e: "pre", ota: "ex" },
-      { f: 5, c: 11, s: 7, q: "Fam. Schmidt", e: "future", ota: "bk" },
-      { f: 6, c: 4, s: 7, q: "H. Soler", e: "in" },
-      { f: 6, c: 12, s: 5, q: "C. Martin", e: "future", ota: "bk" },
-    ],
   },
 };
 
-const P = PERFILES[props.perfil] || PERFILES.hotel;
-const HABS = P.habs;
-const RESERVAS = P.reservas;
+/* los datos de ejemplo (utils/planningEjemplo), comunes con el planning del movil. g = grupo:
+   barras con el mismo grupo son LA MISMA reserva repartida en varias habitaciones, que es como
+   las pinta el planning real (una barra por habitacion); c = dia de entrada, s = noches */
+const P = TEXTOS[props.perfil] || TEXTOS.hotel;
+const DATOS = planningEjemplo(props.perfil);
+const HABS = DATOS.habs;
+const RESERVAS = DATOS.reservas;
 
-const ET = { past: "Salió", future: "Confirmada", pre: "Auto check-in enviado", in: "En casa" };
+const ET = { past: "Salió", future: "Confirmada", pre: "Auto check-in enviado", in: "En casa", cierre: "Cierre de habitación" };
 
-/* flechas en cruz del boton de mover reservas (el icono del panel) */
+/* iconos del panel: las flechas del boton de mover, el candado del cierre y el documento de
+   "pendiente de facturar" (los logos de agencia van en MockLogoAgencia) */
 const FLECHAS =
   "M12 2l3.5 3.5H13V11h5.5V8.5L22 12l-3.5 3.5V13H13v5.5h2.5L12 22l-3.5-3.5H11V13H5.5v2.5L2 12l3.5-3.5V11H11V5.5H8.5z";
+const CANDADO =
+  "M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z";
+const FACTURA = [
+  "M19.07,7,15.18,3A3.08,3.08,0,0,0,13,2H7.15A3.22,3.22,0,0,0,4,5.28V18.72A3.22,3.22,0,0,0,7.15,22h9.7A3.22,3.22,0,0,0,20,18.72V9.34A3.33,3.33,0,0,0,19.07,7ZM5.54,18.72V5.28A1.65,1.65,0,0,1,7.15,3.6H13a1.56,1.56,0,0,1,1.13.5L18,8.15a1.68,1.68,0,0,1,.48,1.19v9.38a1.66,1.66,0,0,1-1.61,1.68H7.15A1.65,1.65,0,0,1,5.54,18.72Z",
+  "M12.81,4.86V8.64a.83.83,0,0,0,.81.84h3.63Z",
+];
 
 const macEl = ref(null);
 const screenEl = ref(null);
@@ -438,9 +390,11 @@ const salirEl = ref(null);
 const cerrarEl = ref(null);
 
 const k = ref(0.66);
-const filas = ref(HABS.length);
-const off = ref(0); /* en px del planning real */
-const maxOff = ref(0);
+const filas = ref(Math.min(HABS.length, FILAS_MAX));
+const off = ref(OFF_INI); /* en px del planning real */
+const maxOff = ref(DIAS * M_COL);
+/* ancho de dias a la vista, en px del planning real (en la foto, los 1000 menos las habitaciones) */
+const anchoVisto = ref(1000 - M_ROOMW);
 const arrastrando = ref(false);
 const deslizando = ref(false);
 const grupoActivo = ref(null);
@@ -468,30 +422,24 @@ function u(n) {
 
 const habsVisibles = computed(() => HABS.slice(0, filas.value));
 const estiloStrip = computed(() => ({
-  width: u(DIAS_TOTAL * M_COL),
+  width: u(DIAS * M_COL),
   transform: "translateX(" + u(-off.value) + ")",
 }));
 
-const dias = [];
-for (let i = 0; i < DIAS_TOTAL; i++) {
-  const n = DIA_INI + i;
-  const dow = (n + 2) % 7; /* 0 = lunes */
-  dias.push({ i, n, x: i * M_COL, sem: SEM[dow], finde: dow === 5 || dow === 6, hoy: n === HOY });
-}
+const dias = DIAS_PLANNING.map((d) => ({ ...d, x: d.i * M_COL }));
 
-const celdas = computed(() => {
-  const out = [];
-  for (let i = 0; i < DIAS_TOTAL; i++) {
-    for (let f = 0; f < filas.value; f++) {
-      out.push({ k: i + "-" + f, x: u(i * M_COL), y: u(M_HEAD + f * M_ROW), hoy: DIA_INI + i === HOY });
-    }
-  }
-  return out;
+/* el mes del rotulo: el del dia que se ve en el centro, como en el panel */
+const mesVisible = computed(() => {
+  const m = mesDe(Math.floor((off.value + anchoVisto.value / 2) / M_COL));
+  return m.mes + " " + m.anyo;
 });
+
+/* la rejilla va de fondo (con un div por casilla serian cientos): lineas y columna de hoy */
+const estiloRejilla = computed(() => ({ top: u(M_HEAD), height: u(filas.value * M_ROW) }));
 
 function posBarra(f, c, s) {
   return {
-    left: u((c - 1) * M_COL + 2),
+    left: u(c * M_COL + 2),
     top: u(M_HEAD + f * M_ROW + 3),
     width: u(s * M_COL - 5),
     height: u(M_ROW - 7),
@@ -500,12 +448,15 @@ function posBarra(f, c, s) {
 
 const barras = computed(() =>
   reservas.value
-    .filter((r) => r.f < filas.value)
+    .filter((r) => r.f < filas.value && r.c + r.s > 0 && r.c < DIAS)
     .map((r) => ({
       ...r,
       id: "r" + r.i,
       css: posBarra(r.f, r.c, r.s),
-      aria: r.q + ", " + P.unidad[0].toLowerCase() + " " + HABS[r.f].n + ", " + r.s + " noches, " + ET[r.e],
+      aria:
+        r.e === "cierre"
+          ? ET.cierre + ", " + P.unidad[0].toLowerCase() + " " + HABS[r.f].n + ", " + r.s + " noches"
+          : r.q + ", " + P.unidad[0].toLowerCase() + " " + HABS[r.f].n + ", " + r.s + " noches, " + ET[r.e],
     }))
 );
 
@@ -546,7 +497,8 @@ async function medir() {
 
   const track = trackEl.value;
   if (!track) return;
-  maxOff.value = Math.max(0, DIAS_TOTAL * M_COL - track.clientWidth / k.value);
+  anchoVisto.value = track.clientWidth / k.value;
+  maxOff.value = Math.max(0, DIAS * M_COL - anchoVisto.value);
   if (off.value > maxOff.value) off.value = maxOff.value;
 }
 
@@ -663,10 +615,6 @@ function cerrar() {
   ficha.value = null;
 }
 
-function dd(d) {
-  return (d < 10 ? "0" : "") + d + "/10/2026";
-}
-
 function abrir(b) {
   if (props.estatico) return;
   if (abierta.value === b.id) {
@@ -674,22 +622,26 @@ function abrir(b) {
     return;
   }
   const hermanas = b.g ? reservas.value.filter((x) => x.g === b.g) : [b];
-  /* el numero de reserva y el del parte no cambian aunque la reserva se mueva */
-  const o = RESERVAS[b.i];
-  const ini = DIA_INI + b.c - 1;
+  const hecho = b.e === "in" || b.e === "past";
   abierta.value = b.id;
   ficha.value = {
-    num: 4100 + o.c * 7 + o.f,
+    cierre: b.e === "cierre",
+    /* el numero de reserva y el del parte no cambian aunque la reserva se mueva */
+    num: 4100 + b.i * 7,
     noches: b.s,
-    entrada: dd(ini),
-    salida: dd(ini + b.s),
+    entrada: fecha(b.c),
+    salida: fecha(b.c + b.s),
+    ultima: fecha(b.c + b.s - 1),
     etiqHab: P.unidad[hermanas.length > 1 ? 1 : 0],
     hab:
       hermanas.length > 1
         ? hermanas.map((x) => HABS[x.f].n).join(" + ") + " · " + hermanas.length + " " + P.unidad[2]
         : HABS[b.f].n + " · " + HABS[b.f].t,
     titular: b.q,
-    ses: "SES-2026-" + (4000 + o.c * 13 + o.f * 7),
+    motivo: b.motivo || "",
+    parteHecho: hecho,
+    parte: hecho ? "Parte de viajeros enviado · SES Hospedajes" : "El parte sale solo al hacer el check-in",
+    ses: "SES-2026-" + (4000 + b.i * 13),
   };
   nextTick(situar);
 }
@@ -710,7 +662,7 @@ function situar() {
   const wv = w * s;
   const hv = h * s;
   const ancho = (b.s * M_COL - 5) * kk;
-  const bx = (M_ROOMW + (b.c - 1) * M_COL + 2 - off.value) * kk;
+  const bx = (M_ROOMW + b.c * M_COL + 2 - off.value) * kk;
   const by = (M_HEAD + b.f * M_ROW + 3) * kk;
 
   let cx = bx + ancho / 2;
@@ -849,7 +801,7 @@ function moverArrastre(dx, dy) {
   if (!a) return;
   const r = reservas.value[a.i];
   const f = Math.max(0, Math.min(filas.value - 1, a.f0 + Math.round(dy / M_ROW)));
-  const c = Math.max(1, Math.min(DIAS_TOTAL - r.s + 1, a.c0 + Math.round(dx / M_COL)));
+  const c = Math.max(0, Math.min(DIAS - r.s, a.c0 + Math.round(dx / M_COL)));
   if (f === a.f && c === a.c) return;
   arrastre.value = { ...a, f, c, valido: libre(a.i, f, c, r.s) };
 }
@@ -887,7 +839,7 @@ function avisar(texto) {
    y como se para lo decide useDemo ---- */
 let nDedo = 0;
 const demo = useDemo({
-  activa: () => props.demo && !props.estatico && !!P.demo,
+  activa: () => props.demo && !props.estatico && !!DATOS.demo,
   raiz: () => macEl.value,
   correr: correrDemo,
   alParar: limpiarDemo,
@@ -955,21 +907,22 @@ async function arrastrarDemo(i, df, dc) {
   await espera(260);
   dedo.value = null;
 }
-/* cada vuelta empieza con todo en su sitio; si hay dias pasados, antes se vuelve a hoy, para
+/* cada vuelta empieza con todo en su sitio; si se han pasado dias, antes se vuelve a hoy, para
    que la reserva movida regrese sin verse */
 async function alInicio() {
   cerrar();
   arrastre.value = null;
   salirModo();
-  if (off.value > 0) {
+  const inicio = Math.min(OFF_INI, maxOff.value);
+  if (off.value !== inicio) {
     deslizar();
-    off.value = 0;
+    off.value = inicio;
     await espera(450);
   }
   reservas.value = reservasIniciales();
 }
 async function correrDemo() {
-  const D = P.demo;
+  const D = DATOS.demo;
   for (;;) {
     await alInicio();
     await espera(900);
@@ -1039,12 +992,13 @@ onBeforeUnmount(() => {
   /* tokens del planning real (src/App.vue del panel), renombrados */
   --hm-past-bg: #b5bfce;
   --hm-past-fg: #0b0e12;
-  --hm-future-bg: #14b8a6;
-  --hm-future-fg: #042b26; /* tinta oscura: con blanco se queda en 2,49:1 */
+  --hm-future-bg: #2f5d8c; /* azul acero: la que aun no ha llegado */
+  --hm-future-fg: #ffffff;
   --hm-pre-bg: #ebb04e;
   --hm-pre-fg: #1a1a2e;
-  --hm-house-bg: #273141;
-  --hm-house-fg: #ffffff;
+  --hm-house-bg: #14b8a6; /* Bright Teal: el huesped que esta dentro se lleva el color vivo */
+  --hm-house-fg: #042b26; /* tinta oscura: con blanco se queda en 2,49:1 */
+  --hm-navy: #1a1a2e;
   --hm-line: #d8d8d852;
   --hm-today: #edf3f1; /* columna de hoy en la rejilla */
   --hm-today-edge: #14716a;
@@ -1270,6 +1224,21 @@ onBeforeUnmount(() => {
   text-overflow: ellipsis;
   max-width: 100%;
 }
+/* limpieza de hoy (--room-clean-partial y --room-dirty del panel) */
+.hm-room--media {
+  background: #f2e3bf;
+}
+.hm-room--sucia {
+  background: #f3d6d4;
+}
+.hm-room--media b,
+.hm-room--media span {
+  color: #7c4a02;
+}
+.hm-room--sucia b,
+.hm-room--sucia span {
+  color: #8c1515;
+}
 
 .hm-track {
   flex: 1 1 auto;
@@ -1332,15 +1301,26 @@ onBeforeUnmount(() => {
   margin-top: calc(-3 * var(--hm-u));
 }
 
-.hm-cell {
+/* la rejilla: una linea a la derecha y otra abajo de cada casilla, por encima de la columna de hoy */
+.hm-grid {
   position: absolute;
-  width: calc(78 * var(--hm-u));
-  height: calc(70 * var(--hm-u));
-  border-right: 1px solid var(--hm-line);
-  border-bottom: 1px solid var(--hm-line);
-  background: #fff;
+  left: 0;
+  right: 0;
 }
-.hm-cell--hoy {
+.hm-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, transparent calc(100% - 1px), var(--hm-line) calc(100% - 1px)),
+    linear-gradient(to bottom, transparent calc(100% - 1px), var(--hm-line) calc(100% - 1px));
+  background-size: calc(78 * var(--hm-u)) 100%, 100% calc(70 * var(--hm-u));
+}
+.hm-grid__hoy {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: calc(78 * var(--hm-u));
   background: var(--hm-today);
 }
 
@@ -1364,8 +1344,11 @@ onBeforeUnmount(() => {
   color: var(--hm-future-fg);
   transition: filter 0.12s ease, box-shadow 0.12s ease;
 }
-.hm-bar:hover {
-  filter: brightness(1.1);
+/* los brillos siguen a la claridad de la barra, como en el panel: 1,15 en general, mas en la
+   futura (oscura) y menos en la de "en casa" (ya clara) */
+.hm-bar:hover,
+.hm-bar.is-sib {
+  filter: brightness(1.15);
 }
 .hm-bar:focus-visible {
   outline: 2px solid var(--hm-today-edge);
@@ -1404,15 +1387,31 @@ onBeforeUnmount(() => {
   background: var(--hm-house-bg);
   color: var(--hm-house-fg);
 }
-.hm-bar--in:hover {
-  filter: brightness(1.65);
+/* las barras de la MISMA reserva se aclaran juntas (is-sib), como en el planning */
+.hm-bar--future:hover,
+.hm-bar--future.is-sib {
+  filter: brightness(1.25);
 }
-/* las barras de la MISMA reserva se aclaran juntas, como en el planning */
-.hm-bar.is-sib {
+.hm-bar--in:hover,
+.hm-bar--in.is-sib {
   filter: brightness(1.1);
 }
-.hm-bar--in.is-sib {
-  filter: brightness(1.65);
+/* cierre de habitacion: gris azulado con rayas blancas, texto y candado en negro */
+.hm-bar--cierre {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.65) 0,
+      rgba(255, 255, 255, 0.65) calc(6 * var(--hm-u)),
+      rgba(255, 255, 255, 0) calc(6 * var(--hm-u)),
+      rgba(255, 255, 255, 0) calc(16 * var(--hm-u))
+    ),
+    #a0a9bc;
+  color: #000;
+}
+.hm-bar--cierre:hover {
+  filter: none;
+  background-color: #aeb6c7;
 }
 /* iconos abajo a la derecha de la barra, igual que .bar-icons del panel */
 .hm-bar__ic {
@@ -1424,15 +1423,40 @@ onBeforeUnmount(() => {
   bottom: calc(2 * var(--hm-u));
   right: calc(4 * var(--hm-u));
 }
+/* tinta de los iconos: navy sobre las barras claras, blanco sobre la futura, negro en el cierre */
+.hm-bar__ic {
+  color: var(--hm-navy);
+}
+.hm-bar--future .hm-bar__ic {
+  color: #fff;
+}
+.hm-bar--cierre .hm-bar__ic {
+  color: #000;
+}
 .hm-bar__ic svg {
   width: calc(15 * var(--hm-u));
   height: calc(15 * var(--hm-u));
   display: block;
+  fill: currentColor;
 }
 .hm-bar__ic .hm-ota {
   width: calc(16 * var(--hm-u));
   height: calc(16 * var(--hm-u));
   border-radius: calc(3 * var(--hm-u));
+}
+/* cobro: circulo con el euro, vacio si falta todo y medio lleno si hay un deposito */
+.hm-cobro circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+}
+.hm-cobro text {
+  font-size: 12px;
+  font-weight: 700;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.9;
+  paint-order: stroke;
 }
 
 /* ============ Modo mover reservas, como en el panel ============ */
@@ -1529,7 +1553,7 @@ onBeforeUnmount(() => {
   border: 0;
   padding: 0;
   border-radius: 50%;
-  background: var(--hm-we-bg);
+  background: var(--hm-teal); /* el teal primario, como las burbujas flotantes del panel */
   color: #fff;
   display: flex;
   align-items: center;
@@ -1545,7 +1569,7 @@ onBeforeUnmount(() => {
 }
 .hm-mover:hover {
   background: #fff;
-  color: var(--hm-we-bg);
+  color: var(--hm-teal);
 }
 .hm-mover.is-on {
   background: #14b8a6;
@@ -1629,6 +1653,16 @@ onBeforeUnmount(() => {
   box-shadow: 0 calc(4 * var(--hm-u)) calc(12 * var(--hm-u)) rgba(0, 0, 0, 0.1);
   pointer-events: none;
   animation: hm-aparece 0.2s ease-out;
+}
+/* la X de cierre de los avisos del panel */
+.hm-aviso__x {
+  position: absolute;
+  top: calc(2 * var(--hm-u));
+  right: calc(8 * var(--hm-u));
+  font-size: calc(18 * var(--hm-u));
+  line-height: 1;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.45);
 }
 @keyframes hm-aparece {
   from {
@@ -1744,6 +1778,21 @@ onBeforeUnmount(() => {
   color: #1f2c2a;
   margin: 0;
   letter-spacing: -0.01em;
+}
+.hm-sheet__lock {
+  display: inline-block;
+  width: calc(13 * var(--hm-u));
+  height: calc(15 * var(--hm-u));
+  margin-right: calc(6 * var(--hm-u));
+  vertical-align: calc(-1 * var(--hm-u));
+  fill: currentColor;
+}
+/* la franja de la ficha del cierre */
+.hm-rayas {
+  height: calc(10 * var(--hm-u));
+  margin: calc(10 * var(--hm-u)) calc(11 * var(--hm-u)) 0;
+  border-radius: calc(5 * var(--hm-u));
+  background: repeating-linear-gradient(135deg, #0f766e 0, #0f766e calc(12 * var(--hm-u)), #c0392b calc(12 * var(--hm-u)), #c0392b calc(18 * var(--hm-u)));
 }
 .hm-minibtn {
   font-weight: 700;
@@ -1889,6 +1938,15 @@ onBeforeUnmount(() => {
   justify-content: center;
   flex: 0 0 auto;
   font-weight: 800;
+}
+/* parte pendiente: el reloj en ocre, como en el movil */
+.hm-ses.hm-ses--pend i {
+  background: #b7791f;
+}
+.hm-ses i svg {
+  width: 80%;
+  height: 80%;
+  display: block;
 }
 .hm-sheet__cta {
   background: var(--hm-mint);

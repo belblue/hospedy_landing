@@ -1,7 +1,8 @@
 <!--
   Maqueta del planning de Hospedy en la vista de movil, dentro de un movil dibujado en CSS
   (MockPhoneFrame). Datos de ejemplo fijos y deterministas (mismo resultado en servidor y en
-  cliente): NO habla con ninguna API.
+  cliente), comunes con el portatil (utils/planningEjemplo): diez semanas de reservas alrededor
+  de hoy y algun cierre. NO habla con ninguna API.
 
   Tres alojamientos de ejemplo, uno por perfil (prop "perfil"):
     hotel         30 habitaciones numeradas: las filas no caben y el planning se recorre
@@ -47,7 +48,7 @@
         :aria-label="estatico ? null : descripcion + ' Se recorre arrastrando o con las flechas; Intro abre la ficha de una reserva.'"
         v-on="estatico ? {} : manejadores"
       >
-        <div class="hm-cal__month" aria-hidden="true"><b>Oct</b><span>2026</span></div>
+        <div class="hm-cal__month" aria-hidden="true"><b>{{ mesVisible.mes }}</b><span>{{ mesVisible.anyo }}</span></div>
 
         <div class="hm-cal__head" aria-hidden="true">
           <div class="hm-cal__strip" :style="estiloX">
@@ -78,11 +79,11 @@
         </div>
 
         <div class="hm-cal__grid" aria-hidden="true">
-          <div class="hm-cal__strip hm-cal__plane" :style="[estiloXY, { height: px(HABS.length * FILA) }]">
+          <div class="hm-cal__strip hm-cal__plane" :style="[estiloXY, { width: px(DIAS * COL), height: px(HABS.length * FILA) }]">
             <div class="hm-cal__hoy" :style="{ left: px(H * COL) }" />
             <div class="hm-cal__lines" />
             <div
-              v-for="b in barras"
+              v-for="b in barrasVisibles"
               :key="b.id"
               class="hm-bar"
               :class="[
@@ -98,31 +99,19 @@
                 <span class="hm-bar__owner">{{ b.q }}</span>
                 <span v-if="b.r" class="hm-bar__reg">{{ b.r }}</span>
               </div>
-              <span v-if="b.ota || b.fact" class="hm-bar__ic">
-                <!--
-                  Logos de agencia tal y como los pinta el panel: salen de la
-                  columna Agencias.LogoSVG de la base de datos.
-                  PENDIENTE antes de publicar en gethospedy.com: confirmar las
-                  normas de uso de marca de Booking y Expedia. Dentro del panel
-                  el logo es funcional (identifica el origen de la reserva); en
-                  una web comercial el uso es otro.
-                -->
-                <svg v-if="b.ota === 'bk'" class="hm-ota" viewBox="0 0 24 24">
-                  <path fill="#FFFFFF" d="M18.7,2H5.3C3.5,2,2,3.5,2,5.3v12.3v1V22h3.3h1.2h12.1c1.8,0,3.3-1.5,3.3-3.3V5.3C22,3.5,20.5,2,18.7,2z" />
-                  <path fill="#0C3B7C" d="M18.2,3.5H5.8c-1.3,0-2.3,1-2.3,2.3v11.7v0.6v2.3h2.3h0.6h11.7c1.3,0,2.3-1,2.3-2.3V5.8C20.5,4.5,19.5,3.5,18.2,3.5z" />
-                  <path fill="#FFFFFF" d="M10.1,16.1H7.9v-2.5c0-0.6,0.2-0.8,0.7-0.9h1.5c1.1,0,1.7,0.6,1.7,1.7C11.8,15.5,11.1,16.1,10.1,16.1L10.1,16.1z M7.9,9.3V8.7c0-0.6,0.2-0.9,0.8-0.9h1.1c0.9,0,1.5,0.6,1.5,1.5c0,0.7-0.4,1.5-1.5,1.5H7.9V9.3z M12.7,11.8l-0.4-0.2l0.3-0.3c0.4-0.3,1.1-1.1,1.1-2.4c0-2-1.5-3.2-3.9-3.2H7.1l0,0H6.8C6.1,5.7,5.5,6.3,5.5,7v11.3h4.4c2.7,0,4.4-1.5,4.4-3.7C14.3,13.4,13.7,12.4,12.7,11.8" />
-                  <circle fill="#00BAFC" cx="16.9" cy="16.7" r="1.5" />
-                </svg>
-                <svg v-else-if="b.ota === 'ex'" class="hm-ota" viewBox="0 0 24 24">
-                  <circle fill="#FFFFFF" cx="12" cy="12" r="10" />
-                  <circle fill="#072F54" cx="12" cy="12" r="8.5" />
-                  <path fill="#FBC108" d="M13.8,11.2l0.2,1L13.6,17l0.5-0.2l2-6.3l3-0.8c0.4-0.1,0.8-0.3,1-0.5c-0.1-0.3-0.2-0.5-0.3-0.8c-0.3,0-0.7,0-1,0.1l-2.9,0.8l-5-4.3l-0.5,0.1L13.1,9l0.3,1l-2.8,0.8l-7.1,2.5c0,0.1,0.1,0.3,0.1,0.4L11,12L13.8,11.2L13.8,11.2z" />
-                </svg>
-                <!-- pendiente de facturar -->
-                <svg v-if="b.fact" class="hm-doc" viewBox="0 0 24 24">
-                  <path d="M19.07,7,15.18,3A3.08,3.08,0,0,0,13,2H7.15A3.22,3.22,0,0,0,4,5.28V18.72A3.22,3.22,0,0,0,7.15,22h9.7A3.22,3.22,0,0,0,20,18.72V9.34A3.33,3.33,0,0,0,19.07,7ZM5.54,18.72V5.28A1.65,1.65,0,0,1,7.15,3.6H13a1.56,1.56,0,0,1,1.13.5L18,8.15a1.68,1.68,0,0,1,.48,1.19v9.38a1.66,1.66,0,0,1-1.61,1.68H7.15A1.65,1.65,0,0,1,5.54,18.72Z" />
-                  <path d="M12.81,4.86V8.64a.83.83,0,0,0,.81.84h3.63Z" />
-                </svg>
+              <!-- iconos de la barra: el cierre solo lleva el candado; el resto, el logo de la
+                   agencia, pendiente de facturar y cobro, en la tinta de la barra -->
+              <span v-if="b.e === 'cierre' || b.ota || b.fact || b.cobro" class="hm-bar__ic">
+                <svg v-if="b.e === 'cierre'" viewBox="0 0 448 512"><path :d="CANDADO" /></svg>
+                <template v-else>
+                  <MockLogoAgencia v-if="b.ota" :agencia="b.ota" class="hm-ota" />
+                  <svg v-if="b.fact" viewBox="0 0 24 24"><path :d="FACTURA[0]" /><path :d="FACTURA[1]" /></svg>
+                  <svg v-if="b.cobro" class="hm-cobro" viewBox="0 0 24 24">
+                    <path v-if="b.cobro === 'parcial'" d="M12,2.5 A9.5,9.5 0 0,0 12,21.5 Z" />
+                    <circle cx="12" cy="12" r="9.5" />
+                    <text x="12" y="16.5" text-anchor="middle">&euro;</text>
+                  </svg>
+                </template>
               </span>
             </div>
           </div>
@@ -138,7 +127,7 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5 15.6 5.3h-2.4v5.5h5.5V8.4L22.5 12l-3.8 3.6v-2.4h-5.5v5.5h2.4L12 22.5l-3.6-3.8h2.4v-5.5H5.3v2.4L1.5 12l3.8-3.6v2.4h5.5V5.3H8.4z" /></svg>
         </span>
         <span class="hm-fab hm-fab--chat">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.2 1.1 4.2 2.9 5.6-.2 1.6-1 3.1-2.2 4.1 2.2-.1 4.2-.9 5.6-2.1 1.2.4 2.4.5 3.7.5 5.5 0 10-3.6 10-8S17.5 3 12 3Z" /><circle cx="7.8" cy="11" r="1.4" fill="#14716a" /><circle cx="12" cy="11" r="1.4" fill="#14716a" /><circle cx="16.2" cy="11" r="1.4" fill="#14716a" /></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.2 1.1 4.2 2.9 5.6-.2 1.6-1 3.1-2.2 4.1 2.2-.1 4.2-.9 5.6-2.1 1.2.4 2.4.5 3.7.5 5.5 0 10-3.6 10-8S17.5 3 12 3Z" /><circle cx="7.8" cy="11" r="1.4" fill="#f59e0b" /><circle cx="12" cy="11" r="1.4" fill="#f59e0b" /><circle cx="16.2" cy="11" r="1.4" fill="#f59e0b" /></svg>
         </span>
       </div>
 
@@ -158,72 +147,116 @@
       >
         <div ref="cardEl" class="hm-card" tabindex="-1">
           <template v-if="ficha">
-            <div class="hm-card__head">
-              <button ref="xEl" type="button" class="hm-card__x" aria-label="Cerrar la ficha" @click="cerrar()">&#10005;</button>
-              <p class="hm-card__title">Reserva {{ ficha.num }}</p>
-              <div class="hm-card__btns" aria-hidden="true">
-                <span class="hm-mb hm-mb--del">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2.5h6l1 1.5h4.5v2.5h-17V4H8zM5 8h14l-1.1 12.3A2 2 0 0 1 15.9 22H8.1a2 2 0 0 1-2-1.7z" /></svg>
-                  Eliminar
-                </span>
-                <span class="hm-mb hm-mb--save">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h13l4 4v12.5A1.5 1.5 0 0 1 19.5 21h-15A1.5 1.5 0 0 1 3 19.5v-15A1.5 1.5 0 0 1 4.5 3zm2 2v5h10V5zm6 8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" /></svg>
-                  Guardar
-                </span>
+            <!-- un cierre abre su propia ficha, como en el panel: que esta cerrado, cuando y por que -->
+            <template v-if="ficha.cierre">
+              <div class="hm-card__head">
+                <button ref="xEl" type="button" class="hm-card__x" aria-label="Cerrar la ficha" @click="cerrar()">&#10005;</button>
+                <p class="hm-card__title">
+                  <svg class="hm-card__lock" viewBox="0 0 448 512" aria-hidden="true"><path :d="CANDADO" /></svg>Cierre de habitación
+                </p>
               </div>
-            </div>
-
-            <div class="hm-card__body">
-              <p class="hm-lbl">Noches</p>
-              <div class="hm-step" aria-hidden="true"><i>&minus;</i><b>{{ ficha.noches }}</b><i>+</i></div>
-
-              <p class="hm-lbl">Check-In</p>
-              <div class="hm-dt"><span>{{ ficha.entrada }}</span><i aria-hidden="true" /></div>
-
-              <p class="hm-lbl">Check-Out</p>
-              <div class="hm-dt"><span>{{ ficha.salida }}</span><i aria-hidden="true" /></div>
-
-              <div class="hm-pair">
-                <div>
-                  <p class="hm-lbl">{{ ficha.etiqHab }}</p>
-                  <p class="hm-val">{{ ficha.hab }}</p>
+              <div class="hm-card__body">
+                <div class="hm-rayas" aria-hidden="true" />
+                <div class="hm-pair">
+                  <div>
+                    <p class="hm-lbl">{{ ficha.etiqHab }}</p>
+                    <p class="hm-val">{{ ficha.hab }}</p>
+                  </div>
+                  <div>
+                    <p class="hm-lbl">Noches cerradas</p>
+                    <p class="hm-val">{{ ficha.noches }}</p>
+                  </div>
                 </div>
-                <div>
-                  <p class="hm-lbl">Titular</p>
-                  <p class="hm-val">{{ ficha.titular }}</p>
+                <div class="hm-pair">
+                  <div>
+                    <p class="hm-lbl">Desde (primera noche)</p>
+                    <p class="hm-val">{{ ficha.entrada }}</p>
+                  </div>
+                  <div>
+                    <p class="hm-lbl">Hasta (última noche)</p>
+                    <p class="hm-val">{{ ficha.ultima }}</p>
+                  </div>
+                </div>
+                <p class="hm-lbl">Motivo / notas</p>
+                <p class="hm-motivo">{{ ficha.motivo }}</p>
+                <span class="hm-wbtn" aria-hidden="true">Reabrir habitación</span>
+                <span class="hm-wbtn hm-wbtn--gris" aria-hidden="true">Convertir en reserva normal</span>
+
+                <div class="hm-cta">
+                  <p>&iquest;Te gusta este calendario? <b>El que usarás es mucho mejor.</b> &iquest;Te animas a probarlo?</p>
+                  <span class="hm-btn" aria-hidden="true">Probar gratis</span>
+                </div>
+              </div>
+            </template>
+
+            <template v-else>
+              <div class="hm-card__head">
+                <button ref="xEl" type="button" class="hm-card__x" aria-label="Cerrar la ficha" @click="cerrar()">&#10005;</button>
+                <p class="hm-card__title">Reserva {{ ficha.num }}</p>
+                <div class="hm-card__btns" aria-hidden="true">
+                  <span class="hm-mb hm-mb--del">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2.5h6l1 1.5h4.5v2.5h-17V4H8zM5 8h14l-1.1 12.3A2 2 0 0 1 15.9 22H8.1a2 2 0 0 1-2-1.7z" /></svg>
+                    Eliminar
+                  </span>
+                  <span class="hm-mb hm-mb--save">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h13l4 4v12.5A1.5 1.5 0 0 1 19.5 21h-15A1.5 1.5 0 0 1 3 19.5v-15A1.5 1.5 0 0 1 4.5 3zm2 2v5h10V5zm6 8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" /></svg>
+                    Guardar
+                  </span>
                 </div>
               </div>
 
-              <hr class="hm-sep" />
-              <p class="hm-h">Gestionar reserva</p>
+              <div class="hm-card__body">
+                <p class="hm-lbl">Noches</p>
+                <div class="hm-step" aria-hidden="true"><i>&minus;</i><b>{{ ficha.noches }}</b><i>+</i></div>
 
-              <p class="hm-lbl">Auto check-in</p>
-              <span class="hm-wbtn hm-wbtn--light" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 2.5 2.8 10.2c-.8.3-.7 1.4.1 1.6l6.3 1.8 1.9 6.4c.2.8 1.3.9 1.6.1z" /></svg>
-                Gestionar {{ ficha.pre }}
-              </span>
+                <p class="hm-lbl">Check-In</p>
+                <div class="hm-dt"><span>{{ ficha.entrada }}</span><i aria-hidden="true" /></div>
 
-              <p class="hm-lbl">Resumen de la reserva</p>
-              <span class="hm-wbtn" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1.6 2 7.4 5.4L19.4 7zm15.4 1.6-7.4 5.4a1 1 0 0 1-1.2 0L4 8.6V17h16z" /></svg>
-                Enviar
-              </span>
+                <p class="hm-lbl">Check-Out</p>
+                <div class="hm-dt"><span>{{ ficha.salida }}</span><i aria-hidden="true" /></div>
 
-              <div class="hm-ses" :class="{ 'hm-ses--pend': !ficha.parteHecho }">
-                <i v-if="ficha.parteHecho" aria-hidden="true">&#10003;</i>
-                <i v-else aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg>
-                </i>
-                <span>{{ ficha.parte }}</span>
+                <div class="hm-pair">
+                  <div>
+                    <p class="hm-lbl">{{ ficha.etiqHab }}</p>
+                    <p class="hm-val">{{ ficha.hab }}</p>
+                  </div>
+                  <div>
+                    <p class="hm-lbl">Titular</p>
+                    <p class="hm-val">{{ ficha.titular }}</p>
+                  </div>
+                </div>
+
+                <hr class="hm-sep" />
+                <p class="hm-h">Gestionar reserva</p>
+
+                <p class="hm-lbl">Auto check-in</p>
+                <span class="hm-wbtn hm-wbtn--light" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 2.5 2.8 10.2c-.8.3-.7 1.4.1 1.6l6.3 1.8 1.9 6.4c.2.8 1.3.9 1.6.1z" /></svg>
+                  Gestionar {{ ficha.pre }}
+                </span>
+
+                <p class="hm-lbl">Resumen de la reserva</p>
+                <span class="hm-wbtn" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1.6 2 7.4 5.4L19.4 7zm15.4 1.6-7.4 5.4a1 1 0 0 1-1.2 0L4 8.6V17h16z" /></svg>
+                  Enviar
+                </span>
+
+                <div class="hm-ses" :class="{ 'hm-ses--pend': !ficha.parteHecho }">
+                  <i v-if="ficha.parteHecho" aria-hidden="true">&#10003;</i>
+                  <i v-else aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg>
+                  </i>
+                  <span>{{ ficha.parte }}</span>
+                </div>
+
+                <div class="hm-cta">
+                  <p>&iquest;Te gusta este calendario? <b>El que usarás es mucho mejor.</b> &iquest;Te animas a probarlo?</p>
+                  <!-- Decorativo a proposito, igual que en la maqueta del portatil: el destino
+                       esta sin decidir. Cuando se decida, pasa a <NuxtLink> sin aria-hidden. -->
+                  <span class="hm-btn" aria-hidden="true">Probar gratis</span>
+                </div>
               </div>
-
-              <div class="hm-cta">
-                <p>&iquest;Te gusta este calendario? <b>El que usarás es mucho mejor.</b> &iquest;Te animas a probarlo?</p>
-                <!-- Decorativo a proposito, igual que en la maqueta del portatil: el destino
-                     esta sin decidir. Cuando se decida, pasa a <NuxtLink> sin aria-hidden. -->
-                <span class="hm-btn" aria-hidden="true">Probar gratis</span>
-              </div>
-            </div>
+            </template>
           </template>
         </div>
       </div>
@@ -233,6 +266,7 @@
 
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
+import { DIAS, DIAS_PLANNING, HOY, fecha, mesDe, planningEjemplo } from "~/utils/planningEjemplo";
 
 const props = defineProps({
   /* hotel, rural o apartamentos: cambia el alojamiento de ejemplo */
@@ -255,216 +289,23 @@ const HUECO = 2; /* margen a la derecha de la columna */
 const COL = 47; /* ancho de un dia */
 const FILA = 39; /* 38 de habitacion + 1 de separacion */
 
-const DIAS = 21;
-const DIA_INI = 6; /* 6 de octubre de 2026, martes */
-const HOY = 9;
-const H = HOY - DIA_INI;
-const SEM = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
-
+/* los datos de ejemplo (utils/planningEjemplo), comunes con el portatil: diez semanas
+   alrededor de hoy, con reservas pasadas, en curso, proximas y lejanas y algun cierre */
+const H = HOY;
 const VISIBLE_X = ANCHO - COL_HAB - HUECO;
 const VISIBLE_Y = ALTO_APP - NAV - CAB;
 const MAX_X = DIAS * COL - VISIBLE_X;
 
-const NOMBRES = [
-  "Lucía", "Martín", "Carmen", "Javier", "Elena", "Pablo", "Nuria", "Diego", "Irene", "Óscar",
-  "Marta", "Hugo", "Sara", "Álvaro", "Laura", "Iker", "Noelia", "Raúl", "Ana", "Tomás",
-  "Paula", "Adrián", "Rocío", "Marcos", "Julia", "Sergio", "Clara", "Andrés", "Eva", "Gonzalo",
-];
-const APELLIDOS = [
-  "Ferrer", "Prieto", "Olmedo", "Vilalta", "Aguirre", "Requena", "Lamas", "Mendoza", "Arenas", "Navarro",
-  "Cuesta", "Barreiro", "Santos", "Ibarra", "Montes", "Luna", "Serrano", "Gil", "Rey", "Campos",
-  "Vidal", "Nieto", "Soler", "Crespo", "Pastor", "Rubio", "Marín", "Lozano", "Iglesias", "Moreno",
-];
-/* huespedes de fuera, que en apartamentos turisticos son muchos */
-const VIAJEROS = [
-  "Emma Müller", "Luca Rossi", "James Walker", "Chloé Martin", "Sven Larsson", "Anna Kowalska",
-  "Tom Jansen", "Giulia Bianchi", "Léa Dubois", "Oliver Smith", "Mia Schmidt", "Noah Peeters",
-];
-
-/* generador pseudoaleatorio con semilla: el mismo planning en el servidor y en el navegador */
-function mulberry32(a) {
-  return function () {
-    a |= 0;
-    a = (a + 0x6d2b79f5) | 0;
-    let t = Math.imul(a ^ (a >>> 15), 1 | a);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-/* hotel de 30 habitaciones (101-310) con un grupo en tres habitaciones */
-function generarHotel() {
-  const rnd = mulberry32(20261009);
-  const pick = (arr) => arr[Math.floor(rnd() * arr.length)];
-  const noches = () => {
-    const r = rnd();
-    return r < 0.14 ? 1 : r < 0.44 ? 2 : r < 0.7 ? 3 : r < 0.85 ? 4 : r < 0.95 ? 5 : 7;
-  };
-
-  const habs = [];
-  for (const planta of [1, 2, 3]) {
-    for (let i = 1; i <= 10; i++) habs.push({ n: String(planta * 100 + i), limpieza: "limpia" });
-  }
-
-  /* una reserva de grupo en tres habitaciones: una barra por habitacion, como el panel */
-  const GRUPO = { filas: [13, 14, 15], ini: H + 1, n: 3, q: "Grupo Pirineo", r: "MP", g: "pir" };
-
-  const reservas = [];
-  habs.forEach((_, f) => {
-    let d = -Math.floor(rnd() * 4);
-    while (d < DIAS) {
-      const n = noches();
-      if (rnd() < 0.8) reservas.push({ f, ini: d, n, q: pick(NOMBRES) + " " + pick(APELLIDOS) });
-      d += n + (rnd() < 0.5 ? 0 : 1 + Math.floor(rnd() * 3));
-    }
-  });
-
-  const libres = reservas.filter(
-    (r) => !(GRUPO.filas.includes(r.f) && r.ini < GRUPO.ini + GRUPO.n + 1 && r.ini + r.n > GRUPO.ini - 1)
-  );
-  for (const f of GRUPO.filas) libres.push({ f, ini: GRUPO.ini, n: GRUPO.n, q: GRUPO.q, r: GRUPO.r, g: GRUPO.g });
-
-  libres.sort((a, b) => a.f - b.f || a.ini - b.ini);
-
-  for (const r of libres) {
-    const fin = r.ini + r.n;
-    if (fin <= H) r.e = "past";
-    else if (r.ini < H) r.e = "in";
-    else if (r.ini === H) r.e = rnd() < 0.5 ? "in" : "pre";
-    else if (r.ini <= H + 2) r.e = rnd() < 0.7 ? "pre" : "future";
-    else r.e = rnd() < 0.12 ? "pre" : "future";
-    if (r.g) r.e = "pre";
-
-    if (!r.r) {
-      const x = rnd();
-      r.r = x < 0.3 ? "AD" : x < 0.4 ? "MP" : x < 0.45 ? "PC" : "";
-    }
-    if (!r.g) {
-      const o = rnd();
-      r.ota = o < 0.34 ? "bk" : o < 0.52 ? "ex" : "";
-    }
-    r.fact = (r.e === "past" || r.e === "in") && rnd() < 0.65;
-    r.pax = 1 + Math.floor(rnd() * 3);
-
-    /* limpieza de la habitacion hoy: la que se vacio hoy esta por hacer; con huespedes
-       dentro, a medias; el resto, limpia */
-    if (fin === H) habs[r.f].limpieza = "sucia";
-    else if (r.e === "in" && r.ini < H && habs[r.f].limpieza === "limpia" && rnd() < 0.55) habs[r.f].limpieza = "media";
-  }
-
-  return { habs, reservas: libres };
-}
-
-/* casa rural de 6 habitaciones con nombre (de menos de 5 letras: el panel las pinta a
-   28px, como un numero). El viernes 9 empieza el puente del Pilar y la casa entera es de
-   una familia: una reserva en las seis habitaciones. Hecho a mano, sin azar. */
-function generarRural() {
-  const habs = ["Olmo", "Tejo", "Haya", "Pino", "Arce", "Tilo"].map((n) => ({ n, limpieza: "limpia" }));
-  /* hoy: Pino se ha vaciado esta mannana y Arce esta a medias */
-  habs[3].limpieza = "sucia";
-  habs[4].limpieza = "media";
-
-  const reservas = [
-    { f: 0, ini: -2, n: 3, q: "Marta Iglesias", r: "AD", fact: true },
-    { f: 0, ini: 7, n: 2, q: "Ana Serrano", r: "AD", pre: true },
-    { f: 0, ini: 10, n: 2, q: "Pablo Gil", ota: "bk" },
-    { f: 0, ini: 17, n: 2, q: "Iker Navarro", r: "MP" },
-    { f: 1, ini: 0, n: 2, q: "Rocío Campos", ota: "bk", fact: true },
-    { f: 1, ini: 10, n: 2, q: "Irene Soler", r: "AD" },
-    { f: 1, ini: 14, n: 2, q: "Hugo Lamas" },
-    { f: 1, ini: 17, n: 2, q: "Sara Crespo", ota: "bk" },
-    { f: 2, ini: 0, n: 2, q: "Diego Nieto", r: "AD", fact: true },
-    { f: 2, ini: 8, n: 2, q: "Jorge Aguirre", ota: "bk" },
-    { f: 2, ini: 10, n: 2, q: "Laura Rubio", r: "AD" },
-    { f: 2, ini: 18, n: 2, q: "Álvaro Luna", ota: "ex" },
-    { f: 3, ini: 1, n: 2, q: "Carmen Vidal", r: "MP" },
-    { f: 3, ini: 10, n: 2, q: "Clara Marín", ota: "ex" },
-    { f: 3, ini: 13, n: 3, q: "Adrián Soto", r: "AD" },
-    { f: 4, ini: -1, n: 2, q: "Óscar Prieto", fact: true },
-    { f: 4, ini: 11, n: 1, q: "Tomás Rey", r: "AD" },
-    { f: 4, ini: 17, n: 2, q: "Elena Mendoza", r: "AD" },
-    { f: 5, ini: 0, n: 1, q: "Nuria Cuesta", fact: true },
-    { f: 5, ini: 7, n: 1, q: "Eva Montes" },
-    { f: 5, ini: 10, n: 3, q: "Raúl Vidal", ota: "bk" },
-    { f: 5, ini: 18, n: 2, q: "Paula Rey" },
-  ];
-  /* la casa entera para el puente: 12 personas, 9 ya han hecho el auto check-in */
-  for (let f = 0; f < habs.length; f++) {
-    reservas.push({ f, ini: H, n: 3, q: "Familia Lozano", r: "MP", g: "loz", pax: 12, hechos: 9 });
-  }
-  reservas.sort((a, b) => a.f - b.f || a.ini - b.ini);
-
-  for (const r of reservas) {
-    const fin = r.ini + r.n;
-    r.e = fin <= H ? "past" : r.ini < H ? "in" : r.ini === H || r.pre ? "pre" : "future";
-    r.r = r.r || "";
-    r.ota = r.ota || "";
-    r.fact = !!r.fact;
-    r.pax = r.pax || 2;
-  }
-  return { habs, reservas };
-}
-
-/* 12 apartamentos en dos edificios; cada edificio es un alojamiento del panel */
-function generarApartamentos() {
-  const rnd = mulberry32(20261012);
-  const pick = (arr) => arr[Math.floor(rnd() * arr.length)];
-  const noches = () => {
-    const r = rnd();
-    return r < 0.12 ? 2 : r < 0.36 ? 3 : r < 0.56 ? 4 : r < 0.72 ? 5 : r < 0.93 ? 7 : 10;
-  };
-
-  const habs = [];
-  for (const n of ["1A", "1B", "2A", "2B", "3A", "3B", "4A", "4B"]) habs.push({ n, acc: "Marina", limpieza: "limpia" });
-  for (const n of ["1", "2", "3", "4"]) habs.push({ n, acc: "Mirador", limpieza: "limpia" });
-
-  const reservas = [];
-  habs.forEach((_, f) => {
-    let d = -Math.floor(rnd() * 6);
-    while (d < DIAS) {
-      const n = noches();
-      if (rnd() < 0.8) {
-        const q = rnd() < 0.35 ? pick(VIAJEROS) : pick(NOMBRES) + " " + pick(APELLIDOS);
-        reservas.push({ f, ini: d, n, q });
-      }
-      d += n + (rnd() < 0.45 ? 0 : 1 + Math.floor(rnd() * 3));
-    }
-  });
-
-  let limpiando = false;
-  for (const r of reservas) {
-    const fin = r.ini + r.n;
-    if (fin <= H) r.e = "past";
-    else if (r.ini < H) r.e = "in";
-    else if (r.ini <= H + 3) r.e = rnd() < 0.8 ? "pre" : "future";
-    else r.e = rnd() < 0.15 ? "pre" : "future";
-    r.r = "";
-    const o = rnd();
-    r.ota = o < 0.45 ? "bk" : o < 0.57 ? "ex" : "";
-    r.fact = (r.e === "past" || r.e === "in") && rnd() < 0.6;
-    r.pax = 1 + Math.floor(rnd() * 4);
-    /* los que se han vaciado hoy: el primero ya se esta limpiando */
-    if (fin === H) {
-      habs[r.f].limpieza = limpiando ? "sucia" : "media";
-      limpiando = true;
-    }
-  }
-  return { habs, reservas };
-}
-
 const PERFILES = {
   hotel: {
-    generar: generarHotel,
     descripcion: "Planning de ejemplo de un hotel de 30 habitaciones en la vista de móvil.",
     unidad: ["Habitación", "Habitaciones"],
   },
   rural: {
-    generar: generarRural,
     descripcion: "Planning de ejemplo de una casa rural de 6 habitaciones en la vista de móvil, con la casa entera reservada para el puente.",
     unidad: ["Habitación", "Habitaciones"],
   },
   apartamentos: {
-    generar: generarApartamentos,
     descripcion: "Planning de ejemplo de 12 apartamentos turísticos en dos edificios, en la vista de móvil.",
     unidad: ["Apartamento", "Apartamentos"],
   },
@@ -472,29 +313,35 @@ const PERFILES = {
 
 const PERFIL = PERFILES[props.perfil] || PERFILES.hotel;
 const descripcion = PERFIL.descripcion;
-const { habs: HABS_BASE, reservas: RESERVAS } = PERFIL.generar();
+const { habs: HABS_BASE, reservas: RESERVAS } = planningEjemplo(props.perfil);
 const HABS = HABS_BASE.map((h) => ({ ...h, id: (h.acc || "") + "-" + h.n }));
 const MAX_Y = Math.max(0, HABS.length * FILA - VISIBLE_Y + 8);
 
+/* iconos del panel: candado del cierre y documento de "pendiente de facturar" (los logos de
+   agencia van en MockLogoAgencia) */
+const CANDADO =
+  "M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z";
+const FACTURA = [
+  "M19.07,7,15.18,3A3.08,3.08,0,0,0,13,2H7.15A3.22,3.22,0,0,0,4,5.28V18.72A3.22,3.22,0,0,0,7.15,22h9.7A3.22,3.22,0,0,0,20,18.72V9.34A3.33,3.33,0,0,0,19.07,7ZM5.54,18.72V5.28A1.65,1.65,0,0,1,7.15,3.6H13a1.56,1.56,0,0,1,1.13.5L18,8.15a1.68,1.68,0,0,1,.48,1.19v9.38a1.66,1.66,0,0,1-1.61,1.68H7.15A1.65,1.65,0,0,1,5.54,18.72Z",
+  "M12.81,4.86V8.64a.83.83,0,0,0,.81.84h3.63Z",
+];
+
+/* c = dia de entrada (negativo si empezo antes del primer dia), s = noches */
 const barras = RESERVAS.map((r, i) => {
-  const a = Math.max(0, r.ini);
-  const b = Math.min(DIAS, r.ini + r.n);
+  const a = Math.max(0, r.c);
+  const b = Math.min(DIAS, r.c + r.s);
   return {
     ...r,
     id: i,
     x: a * COL + 1,
     y: r.f * FILA + 1,
     w: (b - a) * COL - 1,
-    cortaIzq: r.ini < 0,
-    cortaDer: r.ini + r.n > DIAS,
+    cortaIzq: r.c < 0,
+    cortaDer: r.c + r.s > DIAS,
   };
 }).filter((b) => b.w > 0);
 
-const dias = Array.from({ length: DIAS }, (_, i) => {
-  const n = DIA_INI + i;
-  const dow = (n + 2) % 7; /* 0 = lunes */
-  return { i, n, sem: SEM[dow], finde: dow === 5 || dow === 6, hoy: n === HOY };
-});
+const dias = DIAS_PLANNING;
 
 function px(n) {
   return "calc(var(--p) * " + n + ")";
@@ -517,6 +364,18 @@ const ficha = ref(null);
 const estiloX = computed(() => ({ transform: "translate3d(" + px(-offX.value) + ",0,0)" }));
 const estiloY = computed(() => ({ transform: "translate3d(0," + px(-offY.value) + ",0)" }));
 const estiloXY = computed(() => ({ transform: "translate3d(" + px(-offX.value) + "," + px(-offY.value) + ",0)" }));
+
+/* solo se pintan las barras que caen cerca de la vista: el hotel tiene cientos */
+const barrasVisibles = computed(() => {
+  const x0 = offX.value - 3 * COL;
+  const x1 = offX.value + VISIBLE_X + 3 * COL;
+  const y0 = offY.value - 4 * FILA;
+  const y1 = offY.value + VISIBLE_Y + 4 * FILA;
+  return barras.filter((b) => b.x + b.w > x0 && b.x < x1 && b.y + FILA > y0 && b.y < y1);
+});
+
+/* el mes del rotulo: el del dia que se ve en el centro, como en el panel */
+const mesVisible = computed(() => mesDe(Math.floor((offX.value + VISIBLE_X / 2) / COL)));
 
 function limitar(v, max) {
   return Math.max(0, Math.min(max, v));
@@ -663,13 +522,6 @@ function abrirVisible(teclado) {
 }
 
 /* --- ficha --- */
-function fecha(dia) {
-  const d = new Date(2026, 9, dia);
-  const dd = String(d.getDate()).padStart(2, "0");
-  const mm = String(d.getMonth() + 1).padStart(2, "0");
-  return dd + "/" + mm + "/" + d.getFullYear();
-}
-
 function nombreHab(f) {
   const h = HABS[f];
   return h.acc ? h.acc + " " + h.n : h.n;
@@ -679,25 +531,25 @@ function abrir(id, teclado) {
   const b = barras.find((x) => x.id === id);
   if (!b) return;
   parar();
-  const hermanas = b.g ? RESERVAS.filter((x) => x.g === b.g) : [b];
-  const ini = DIA_INI + b.ini;
+  const hermanas = b.g ? barras.filter((x) => x.g === b.g) : [b];
   const hechos =
     b.hechos !== undefined ? b.hechos : b.e === "in" || b.e === "past" ? b.pax : b.e === "pre" ? Math.max(0, b.pax - 1) : 0;
+  const hecho = b.e === "in" || b.e === "past";
   abierta.value = b.id;
   ficha.value = {
-    num: 4100 + b.f * 7 + Math.abs(b.ini) * 3,
-    noches: b.n,
-    entrada: fecha(ini),
-    salida: fecha(ini + b.n),
+    cierre: b.e === "cierre",
+    num: 4100 + b.id * 7,
+    noches: b.s,
+    entrada: fecha(b.c),
+    salida: fecha(b.c + b.s),
+    ultima: fecha(b.c + b.s - 1),
     etiqHab: PERFIL.unidad[hermanas.length > 1 ? 1 : 0],
     hab: hermanas.map((x) => nombreHab(x.f)).join(" + "),
     titular: b.q,
+    motivo: b.motivo || "",
     pre: hechos + "/" + b.pax,
-    parteHecho: b.e === "in" || b.e === "past",
-    parte:
-      b.e === "in" || b.e === "past"
-        ? "Parte de viajeros enviado · SES Hospedajes"
-        : "El parte sale solo al hacer el check-in",
+    parteHecho: hecho,
+    parte: hecho ? "Parte de viajeros enviado · SES Hospedajes" : "El parte sale solo al hacer el check-in",
   };
   nextTick(() => {
     const destino = teclado ? xEl.value : cardEl.value;
@@ -962,10 +814,7 @@ onBeforeUnmount(() => {
   overflow: hidden;
   z-index: 1;
 }
-/* el alto va en linea: depende de cuantas habitaciones tenga el alojamiento */
-.hm-cal__plane {
-  width: calc(21 * 47 * var(--p));
-}
+/* el ancho y el alto del plano van en linea: dependen de los dias y de las habitaciones */
 .hm-cal__hoy {
   position: absolute;
   top: 0;
@@ -996,16 +845,22 @@ onBeforeUnmount(() => {
   line-height: calc(21 * var(--p));
   text-transform: capitalize;
   cursor: pointer;
-  background: #14b8a6;
-  color: #042b26;
+  /* la futura, en azul acero: la que aun no ha llegado */
+  background: #2f5d8c;
+  color: #fff;
   transition: filter 0.12s ease, box-shadow 0.12s ease;
 }
 .hm-cal.is-drag .hm-bar {
   cursor: grabbing;
 }
+/* los brillos siguen a la claridad de la barra, como en el panel */
 .hm-bar:hover,
 .hm-bar.is-sib {
-  filter: brightness(1.1);
+  filter: brightness(1.15);
+}
+.hm-bar--future:hover,
+.hm-bar--future.is-sib {
+  filter: brightness(1.25);
 }
 .hm-bar.is-open {
   box-shadow: 0 0 0 2px var(--hm-day);
@@ -1026,13 +881,27 @@ onBeforeUnmount(() => {
   background: #ebb04e;
   color: #1a1a2e;
 }
+/* "en casa", en Bright Teal: el huesped que esta dentro se lleva el color vivo */
 .hm-bar--in {
-  background: #273141;
-  color: #fff;
+  background: #14b8a6;
+  color: #042b26;
 }
 .hm-bar--in:hover,
 .hm-bar--in.is-sib {
-  filter: brightness(1.6);
+  filter: brightness(1.1);
+}
+/* cierre de habitacion: gris azulado con rayas blancas, texto y candado en negro */
+.hm-bar--cierre {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.65) 0,
+      rgba(255, 255, 255, 0.65) calc(4 * var(--p)),
+      rgba(255, 255, 255, 0) calc(4 * var(--p)),
+      rgba(255, 255, 255, 0) calc(10 * var(--p))
+    ),
+    #a0a9bc;
+  color: #000;
 }
 /* el titular se recorta en seco, sin puntos suspensivos, como en el movil real */
 .hm-bar__c {
@@ -1058,19 +927,37 @@ onBeforeUnmount(() => {
   gap: calc(2 * var(--p));
   opacity: 0.85;
 }
+/* tinta de los iconos: navy sobre las barras claras, blanco sobre la futura, negro en el cierre */
+.hm-bar__ic {
+  color: var(--hm-navy);
+}
+.hm-bar--future .hm-bar__ic {
+  color: #fff;
+}
+.hm-bar--cierre .hm-bar__ic {
+  color: #000;
+}
 .hm-bar__ic svg {
   width: calc(10 * var(--p));
   height: calc(10 * var(--p));
   display: block;
+  fill: currentColor;
 }
 .hm-bar__ic .hm-ota {
   border-radius: calc(2 * var(--p));
 }
-.hm-doc {
-  fill: var(--hm-navy);
+.hm-cobro circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
 }
-.hm-bar--in .hm-doc {
-  fill: #fff;
+.hm-cobro text {
+  font-size: 12px;
+  font-weight: 700;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  paint-order: stroke;
 }
 
 /* ============ Flotantes ============ */
@@ -1089,12 +976,13 @@ onBeforeUnmount(() => {
   justify-content: center;
   box-shadow: 0 calc(3 * var(--p)) calc(8 * var(--p)) rgba(6, 30, 28, 0.28);
 }
+/* buscar y mover, en el teal primario; Hugo, en el ambar de marca con tinta navy */
 .hm-fab--find,
 .hm-fab--move {
   width: calc(40 * var(--p));
   height: calc(40 * var(--p));
   bottom: calc(25 * var(--p));
-  background: var(--hm-day-we);
+  background: #0f766e;
 }
 .hm-fab--find {
   right: calc(154 * var(--p));
@@ -1107,7 +995,8 @@ onBeforeUnmount(() => {
   height: calc(56 * var(--p));
   right: calc(22 * var(--p));
   bottom: calc(22 * var(--p));
-  background: var(--hm-day);
+  background: #f59e0b;
+  color: var(--hm-navy);
 }
 .hm-fab svg {
   width: 46%;
@@ -1350,6 +1239,34 @@ onBeforeUnmount(() => {
 .hm-wbtn--light {
   background: #14b8a6;
   color: #042b26;
+}
+.hm-wbtn--gris {
+  background: #e7ecec;
+  color: #334744;
+}
+/* la ficha del cierre: candado en el titulo, franja rayada y el motivo */
+.hm-card__lock {
+  display: inline-block;
+  width: calc(14 * var(--p));
+  height: calc(16 * var(--p));
+  margin-right: calc(6 * var(--p));
+  vertical-align: calc(-2 * var(--p));
+  fill: currentColor;
+}
+.hm-rayas {
+  height: calc(10 * var(--p));
+  border-radius: calc(5 * var(--p));
+  margin-bottom: calc(14 * var(--p));
+  background: repeating-linear-gradient(135deg, #0f766e 0, #0f766e calc(12 * var(--p)), #c0392b calc(12 * var(--p)), #c0392b calc(18 * var(--p)));
+}
+.hm-motivo {
+  margin: 0 0 calc(14 * var(--p));
+  padding: calc(8 * var(--p)) calc(10 * var(--p));
+  border: 1px solid #e2e8f0;
+  border-radius: calc(8 * var(--p));
+  background: #f7fafc;
+  font-size: calc(13.5 * var(--p));
+  color: #2d3748;
 }
 .hm-ses {
   display: flex;
