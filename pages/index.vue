@@ -499,12 +499,9 @@
           <div
             class="flex justify-center items-center shrink-0 w-36 lg:w-44 h-36 lg:h-44"
           >
-            <img
-              v-show="activeCheckInTab === 0"
-              src="/phone.webp"
-              class="max-w-full max-h-full object-contain"
-              alt="Check-in rápido con Hospedy"
-            />
+            <div v-show="activeCheckInTab === 0" class="w-[68px] lg:w-[83px]">
+              <MockCheckin etiqueta="Check-in rápido con Hospedy: formulario del huésped en un móvil, con sus datos, el documento, las fechas de la estancia y la firma." />
+            </div>
             <img
               v-show="activeCheckInTab === 1"
               src="/auto_check.svg"

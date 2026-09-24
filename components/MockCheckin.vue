@@ -8,11 +8,7 @@
   cualquier hueco sin medir nada.
 -->
 <template>
-  <div
-    class="hm-ph"
-    role="img"
-    aria-label="Formulario de auto check-in en un móvil: nombre y apellidos, sexo, fecha de nacimiento y caducidad, tipo y número de documento, dirección, provincia y país, entrada, noches y habitación, teléfono y correo, aceptación de condiciones, firma y botón de enviar."
-  >
+  <div class="hm-ph" role="img" :aria-label="etiqueta">
     <div class="hm-ph__in">
       <div class="hm-ph__body">
         <span class="hm-ph__speaker" />
@@ -88,6 +84,16 @@
   </div>
 </template>
 
+<script setup>
+defineProps({
+  etiqueta: {
+    type: String,
+    default:
+      "Formulario de auto check-in en un móvil: nombre y apellidos, sexo, fecha de nacimiento y caducidad, tipo y número de documento, dirección, provincia y país, entrada, noches y habitación, teléfono y correo, aceptación de condiciones, firma y botón de enviar.",
+  },
+});
+</script>
+
 <style scoped>
 .hm-ph {
   container-type: inline-size;
@@ -97,7 +103,7 @@
   /* 1 unidad = 1px cuando el movil mide sus 288px de referencia */
   --u: calc(100cqw / 288);
   --hm-teal: #0f766e;
-  font-family: Nunito, system-ui, -apple-system, sans-serif;
+  font-family: "Nunito Variable", Nunito, system-ui, -apple-system, sans-serif;
   line-height: 1.55;
 }
 

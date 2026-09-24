@@ -47,7 +47,9 @@
                     </div>
                 </div>
                 <div class="flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
-                    <img src="/phone.webp" alt="Gestión de casa rural desde el móvil" class="max-w-xs hover:scale-105 transition-transform duration-500">
+                    <!-- Maqueta del planning en la vista de movil (sustituye a la captura /phone.webp) -->
+                    <!-- el alto sale del ancho (unas 2,1 veces): se limita para que quepa en pantallas bajas -->
+                    <div class="w-full" style="max-width: min(340px, calc((100vh - 9.5rem) / 2.1))"><MockPlanningPhone /></div>
                 </div>
             </div>
         </div>

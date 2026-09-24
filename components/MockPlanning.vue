@@ -493,7 +493,7 @@ onBeforeUnmount(() => {
   --hm-mint: #ccfbf1;
 
   width: 100%;
-  font-family: Nunito, system-ui, -apple-system, sans-serif;
+  font-family: "Nunito Variable", Nunito, system-ui, -apple-system, sans-serif;
   line-height: 1.55;
 }
 
