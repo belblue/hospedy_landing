@@ -16,7 +16,8 @@
 
   La rueda vertical NO se captura: quien esta leyendo la pagina sigue bajando.
   Los dias se recorren arrastrando, con Mayus+rueda, con rueda horizontal o con
-  las flechas de la cabecera.
+  las flechas que hay junto al mes, encima de las habitaciones (como en el panel). La barra
+  de arriba lleva el logo.
 -->
 <template>
   <div
@@ -33,17 +34,25 @@
       <div ref="screenEl" class="hm-mac__screen">
         <div class="hm-plan" :inert="estatico">
           <div class="hm-plan__bar">
-            <p class="hm-plan__month">Octubre <span>2026</span></p>
-            <div class="hm-plan__navs">
-              <button type="button" class="hm-nav" aria-label="Días anteriores" @click="paso(-3)">&lsaquo;</button>
-              <button type="button" class="hm-nav" aria-label="Días siguientes" @click="paso(3)">&rsaquo;</button>
-            </div>
+            <svg class="hm-plan__logo" viewBox="0 0 260 70" aria-hidden="true">
+          <g transform="translate(5, 3) scale(1.6)"> <g transform="translate(-45.053681,-99.309918)"> <path fill="#0d9488" d="m 45.148833,121.47429 c 5.64e-4,-2.83541 0.07781,-5.22613 0.180269,-5.57893 0.360693,-1.24204 1.135154,-2.00215 5.113081,-5.01835 5.893415,-4.4686 10.41632,-7.55818 11.080034,-7.9014 0.747892,-0.38675 2.187605,-0.40916 3.151078,-0.14847 0.673851,0.18233 1.63612,0.82421 5.989411,3.99522 0.79077,0.57602 3.10609,2.25817 5.14516,3.73811 3.88641,2.82074 4.95286,3.81488 5.286,4.92757 0.2121,0.70842 0.35122,2.79804 0.19658,2.95268 -0.0499,0.05 -1.67388,0.45369 -3.60872,0.8972 -1.93485,0.44351 -4.32245,1.00131 -5.30578,1.23955 -2.43943,0.59102 -2.35726,0.60697 -2.35726,-0.45754 0,-1.37332 -0.68037,-2.37351 -1.889349,-2.77747 -0.596475,-0.1993 -2.116878,0.0154 -6.577321,0.9289 -1.11566,0.22848 -2.345972,0.46593 -2.734028,0.52766 -2.767535,0.44025 -4.321528,2.11474 -4.321528,4.65661 v 0.67531 0.16985 l -0.160051,0.0323 -1.647935,0.3328 c -0.994392,0.20082 -2.522361,0.54093 -3.395486,0.7558 -0.873125,0.21488 -2.162969,0.53097 -2.86632,0.70242 l -1.278819,0.31174 9.88e-4,-4.96158 z" /> <path fill="#0f766e" d="m 45.148831,130.87964 -9.84e-4,-3.80114 1.278819,-0.30707 c 3.51441,-0.84388 7.41812,-1.641 7.721677,-1.70385 0.122739,-0.0254 0.323083,-0.10914 0.324739,0.0607 0.0043,0.44413 -0.02832,1.50183 0.02338,6.64212 l 0.07237,7.19576 c -1.83558,0.12649 -5.417276,0.0966 -7.662009,0.0831 -0.672714,-0.0531 -1.125354,-0.67035 -1.395617,-1.16882 -0.736383,-2.13633 -0.362845,-4.82516 -0.362375,-7.0008 z m 25.046245,0.12765 v -8.02532 l 3.1309,-0.73844 c 1.72199,-0.40614 4.0834,-0.9685 5.24757,-1.24969 1.16416,-0.28119 2.45029,-0.43857 2.57156,-0.43888 0.17298,-3.5e-4 0.22277,1.4983 0.21973,7.34501 -0.004,6.83135 -0.26823,7.54516 -0.56303,8.19191 -0.47914,1.05108 -1.19686,1.81314 -2.20714,2.34352 -0.8841,0.46413 -0.98178,0.47538 -4.65133,0.53565 l -3.74826,0.0616 z" /> <g fill="#f59e0b"> <path d="m 78.960337,105.05075 c -0.15088,0.0251 -0.22423,0.43692 -0.28799,0.70383 -0.0782,0.32717 -0.3262,0.5858 -0.76125,0.79375 -0.88127,0.42125 -0.90271,0.66893 -0.0936,1.08169 0.49504,0.25255 0.73538,0.51499 0.85564,0.93431 0.23934,0.83451 0.68871,0.84488 1.07485,0.0248 0.21085,-0.44779 0.53694,-0.77593 0.977,-0.98314 0.82806,-0.3899 0.84192,-0.75017 0.0391,-1.01514 -0.44282,-0.14614 -0.72094,-0.40013 -0.96762,-0.88365 -0.40874,-0.80121 -0.46346,-0.71856 -0.83607,-0.65646 z m -4.83946,0.28365 c -0.15154,-0.17337 -0.36557,-0.59613 -0.47562,-0.93947 -0.19531,-0.60935 -0.95375,-1.10191 -1.47598,-1.22782 -0.27887,-0.0672 -0.86406,-0.60873 -0.74754,-0.91237 0.0544,-0.1418 0.49041,-0.42322 0.96887,-0.62536 0.77247,-0.32636 0.91951,-0.47963 1.31238,-1.36798 0.37183,-0.840769 0.50644,-0.991368 0.84337,-0.943554 0.28837,0.04092 0.52073,0.316532 0.82771,0.981774 0.38028,0.82407 0.52446,0.96125 1.32292,1.25869 0.51766,0.19284 0.92127,0.4596 0.95568,0.63165 0.0827,0.4136 -0.41841,0.91662 -1.03624,1.04019 -0.64095,0.12819 -1.05951,0.59316 -1.40973,1.56604 -0.29937,0.8316 -0.66914,1.01489 -1.08582,0.53821 z" /> <path d="m 65.766821,139.59097 c -0.436561,-0.0328 -2.103436,-0.17778 -3.704165,-0.32227 -1.60073,-0.14449 -3.448447,-0.31054 -4.106037,-0.369 l -1.195622,-0.10629 -0.0405,-9.15289 -0.01638,-3.70262 c -0.0261,-5.25515 -0.839499,-4.40523 4.407607,-5.52553 2.573249,-0.56623 4.748327,-0.83765 5.749901,-0.68608 1.110927,0.21914 0.925883,1.73868 0.948195,2.35691 0.0504,1.44744 0.06989,4.00615 0.07106,8.2363 l 0.0026,9.39271 -0.661458,-0.0308 c -0.363802,-0.017 -1.018646,-0.0576 -1.455209,-0.0904 z m 0.399112,-8.18603 c 0.483388,-0.59148 0.561617,-1.18959 0.242986,-1.85776 -0.729033,-1.5288 -3.111541,-0.98307 -3.111541,0.71271 0,0.64295 0.403735,1.29431 0.944915,1.52446 0.575471,0.24474 1.574609,0.0477 1.92364,-0.37941 z" /> </g> </g> </g>
+          <text x="75" y="47" font-size="34" font-weight="700" fill="#0D9488">Hospedy</text>
+            </svg>
           </div>
 
           <div ref="bodyEl" class="hm-plan__body">
             <!-- columna fija de habitaciones -->
             <div class="hm-rooms">
-              <div class="hm-rooms__head" />
+              <!-- el mes y sus flechas encima de las habitaciones, como .month-row del panel -->
+              <div class="hm-month">
+                <button type="button" class="hm-nav hm-nav--izq" aria-label="Días anteriores" @click="paso(-3)">
+                  <svg viewBox="0 0 10 16" aria-hidden="true"><path d="M7.5 2 2 8l5.5 6" /></svg>
+                </button>
+                <p class="hm-month__txt">Oct 2026</p>
+                <button type="button" class="hm-nav hm-nav--der" aria-label="Días siguientes" @click="paso(3)">
+                  <svg viewBox="0 0 10 16" aria-hidden="true"><path d="M2.5 2 8 8l-5.5 6" /></svg>
+                </button>
+              </div>
               <div v-for="h in habsVisibles" :key="h.n" class="hm-room">
                 <b>{{ h.n }}</b><span>{{ h.t }}</span>
               </div>
@@ -232,7 +241,7 @@ const M_ROOMW = 150; /* ancho de la columna de habitaciones */
 const DIAS_TOTAL = 21;
 const DIA_INI = 5; /* lunes 5 de octubre de 2026; hoy es el viernes 9 (columna 5) */
 const HOY = 9;
-const SEM = ["lun", "mar", "mié", "jue", "vie", "sáb", "dom"];
+const SEM = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
 
 /* g = grupo: barras con el mismo grupo son LA MISMA reserva repartida en varias
    habitaciones, que es como las pinta el planning real (una barra por habitacion).
@@ -587,13 +596,15 @@ onBeforeUnmount(() => {
   --hm-house-bg: #273141;
   --hm-house-fg: #ffffff;
   --hm-line: #d8d8d852;
-  --hm-today: #edf3f1;
+  --hm-today: #edf3f1; /* columna de hoy en la rejilla */
   --hm-today-edge: #14716a;
+  --hm-today-head: #e4ecea; /* cabecera de hoy */
+  --hm-today-head-fg: #164b47;
   --hm-room-bg: #e4ecea;
-  --hm-day-bg: #f4f7f6;
-  --hm-day-fg: #33343d;
-  --hm-we-bg: #e8efee;
-  --hm-we-fg: #14716a;
+  --hm-day-bg: #14716a;
+  --hm-day-fg: #ffffff;
+  --hm-we-bg: #164b47;
+  --hm-we-fg: #ffffff;
   /* marca de la landing (tailwind.config.js) */
   --hm-teal: #0f766e;
   --hm-teal-deep: #0b5a54;
@@ -704,45 +715,65 @@ onBeforeUnmount(() => {
   border-bottom: 1px solid var(--hm-line);
   flex: 0 0 auto;
 }
-.hm-plan__month {
-  font-size: calc(19 * var(--hm-u));
-  font-weight: 800;
-  color: #33343d;
-  margin: 0;
-  letter-spacing: -0.01em;
-}
-.hm-plan__month span {
-  color: #8a9997;
-  font-weight: 600;
-}
-.hm-plan__navs {
-  display: flex;
-  gap: calc(4 * var(--hm-u));
-}
-.hm-nav {
-  width: calc(30 * var(--hm-u));
+.hm-plan__logo {
+  display: block;
   height: calc(30 * var(--hm-u));
-  border-radius: 50%;
-  border: 1px solid var(--hm-line);
-  background: #fff;
-  color: #4a605d;
-  cursor: pointer;
-  font: inherit;
-  font-size: calc(17 * var(--hm-u));
-  font-weight: 800;
-  line-height: 1;
+  width: calc(111 * var(--hm-u));
+  font-family: "Nunito Variable", Nunito, system-ui, sans-serif;
+}
+
+/* el mes entre sus flechas, encima de las habitaciones (.month-row del panel: 58 px, fondo
+   de la cabecera de dias y las esquinas de abajo redondeadas como las filas) */
+.hm-month {
+  display: flex;
+  gap: calc(2 * var(--hm-u));
+  height: calc(58 * var(--hm-u));
+}
+.hm-month__txt {
+  flex: 1 1 auto;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--hm-day-bg);
+  color: var(--hm-day-fg);
+  font-size: calc(18 * var(--hm-u));
+  font-weight: 600;
+  white-space: nowrap;
+}
+.hm-nav {
+  flex: 0 0 calc(30 * var(--hm-u));
+  border: 0;
+  border-radius: 0;
+  background: var(--hm-day-bg);
+  color: var(--hm-day-fg);
+  cursor: pointer;
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hm-nav--izq {
+  border-radius: 0 0 0 calc(10 * var(--hm-u));
+}
+.hm-nav--der {
+  border-radius: 0 0 calc(10 * var(--hm-u)) 0;
 }
 .hm-nav:hover {
   background: var(--hm-we-bg);
-  color: var(--hm-we-fg);
 }
 .hm-nav:focus-visible {
-  outline: 2px solid var(--hm-teal);
-  outline-offset: 1px;
+  outline: 2px solid #fff;
+  outline-offset: -4px;
+}
+.hm-nav svg {
+  width: calc(9 * var(--hm-u));
+  height: calc(15 * var(--hm-u));
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .hm-plan__body {
@@ -758,10 +789,6 @@ onBeforeUnmount(() => {
   border-right: 1px solid var(--hm-line);
   background: #fff;
   z-index: 3;
-}
-.hm-rooms__head {
-  height: calc(58 * var(--hm-u));
-  border-bottom: 1px solid var(--hm-line);
 }
 /* 68 + 2 de margen = 70, el paso de la rejilla, como .room del panel */
 .hm-room {
@@ -834,9 +861,11 @@ onBeforeUnmount(() => {
   color: var(--hm-we-fg);
 }
 .hm-date--hoy {
-  background: var(--hm-today);
+  background: var(--hm-today-head);
+  color: var(--hm-today-head-fg);
   border: 1px solid var(--hm-today-edge);
   border-top: none;
+  box-sizing: border-box;
 }
 .hm-date b {
   font-size: calc(30 * var(--hm-u));
@@ -848,7 +877,6 @@ onBeforeUnmount(() => {
   font-size: calc(16 * var(--hm-u));
   font-weight: 400;
   margin-top: calc(-3 * var(--hm-u));
-  text-transform: lowercase;
 }
 
 .hm-cell {
