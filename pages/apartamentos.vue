@@ -63,17 +63,17 @@
                     <p class="text-center text-gray-600 mb-12" data-aos="fade-up" data-aos-delay="100">¿Te sientes identificado?</p>
                     <div class="grid lg:grid-cols-3 gap-8">
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="0">
-                            <div class="text-3xl mb-4">💸</div>
+                            <IconoReto nombre="comisiones" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"Las comisiones me comen"</h3>
                             <p class="text-gray-600">Booking cobra 15%, Airbnb otro tanto... Con un motor de reservas propio, cada reserva directa es 100% tuya.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="100">
-                            <div class="text-3xl mb-4">😱</div>
+                            <IconoReto nombre="noshow" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"Otro no-show más"</h3>
                             <p class="text-gray-600">Reservan y no aparecen. Con Stripe integrado, cobras depósitos y te aseguras de que vengan.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="200">
-                            <div class="text-3xl mb-4">📱</div>
+                            <IconoReto nombre="calendarios" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"Actualizo 5 calendarios"</h3>
                             <p class="text-gray-600">Booking, Airbnb, Vrbo, tu web... Con el Channel Manager todo se sincroniza automáticamente.</p>
                         </div>

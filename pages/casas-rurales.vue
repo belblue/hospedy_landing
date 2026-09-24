@@ -63,17 +63,17 @@
                     <p class="text-center text-gray-600 mb-12" data-aos="fade-up" data-aos-delay="100">Sabemos lo que es...</p>
                     <div class="grid lg:grid-cols-3 gap-8">
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="0">
-                            <div class="text-3xl mb-4">🚗</div>
+                            <IconoReto nombre="desplazamiento" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"Tengo que ir a recibir a todos"</h3>
                             <p class="text-gray-600">Desplazarte cada vez que llega un huésped es agotador. Con el auto check-in, ellos se registran solos antes de llegar.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="100">
-                            <div class="text-3xl mb-4">📝</div>
+                            <IconoReto nombre="papeleo" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"El papeleo me quita tiempo"</h3>
                             <p class="text-gray-600">Partes de viajeros, INE, facturas... Con Hospedy todo se genera automáticamente.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="200">
-                            <div class="text-3xl mb-4">📅</div>
+                            <IconoReto nombre="disponibilidad" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"No sé cuándo tengo libre"</h3>
                             <p class="text-gray-600">Reservas en Booking, en Airbnb, directas... Un solo calendario donde ves todo de un vistazo.</p>
                         </div>

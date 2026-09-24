@@ -63,17 +63,17 @@
                     <p class="text-center text-gray-600 mb-12" data-aos="fade-up" data-aos-delay="100">Seguro que te suenan...</p>
                     <div class="grid lg:grid-cols-3 gap-8">
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="0">
-                            <div class="text-3xl mb-4">😤</div>
+                            <IconoReto nombre="checkin" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"El check-in es eterno"</h3>
                             <p class="text-gray-600">Teclear datos de 10 huéspedes a mano lleva media hora. Con Hospedy, escaneas y listo.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="100">
-                            <div class="text-3xl mb-4">😰</div>
+                            <IconoReto nombre="parte" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"Se me olvidó enviar el parte"</h3>
                             <p class="text-gray-600">Las multas por no comunicar viajeros son de hasta 600€. Con Hospedy, se envían solos.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="200">
-                            <div class="text-3xl mb-4">🤯</div>
+                            <IconoReto nombre="overbooking" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"Tengo overbooking otra vez"</h3>
                             <p class="text-gray-600">Booking, Expedia, tu web... imposible tenerlo todo sincronizado. Con el Channel Manager, imposible fallar.</p>
                         </div>
