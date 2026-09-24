@@ -5,7 +5,7 @@
             <p class="text-4xl text-primary text-center px-4">POLÍTICA DE PRIVACIDAD</p>
         </div>
         <div class="m-10">
-            <p class="text-xl">Última actualización: 23 de septiembre de 2026.</p>
+            <p class="text-xl">Última actualización: 24 de septiembre de 2026.</p>
             <p class="text-xl mt-4">Hospedy es un servicio de <span class="blue font-semibold">Silatek, S.L.U.</span> En esta política te explicamos qué datos personales tratamos, para qué, con qué base jurídica, a quién se los comunicamos, cuánto tiempo los conservamos y cómo puedes ejercer tus derechos. Se aplica a esta web (gethospedy.com) y a los servicios de Hospedy en hospedy.app.</p>
             <p class="text-xl mt-4">Tratamos los datos conforme a la ley andorrana de protección de datos (Llei 29/2021, del 28 d'octubre, qualificada de protecció de dades personals) y al Reglamento (UE) 2016/679, general de protección de datos (RGPD), en lo que resulte aplicable a nuestra actividad en España.</p>
 
@@ -98,7 +98,7 @@
             </div>
             <p class="text-xl">No vendemos tus datos. Solo los comunicamos a los proveedores y entidades que necesitamos para funcionar, y únicamente los imprescindibles para su tarea:</p>
             <ul class="mt-2">
-                <li class="text-xl list-disc"><strong>Alojamiento de los datos:</strong> servidores propios situados en España.</li>
+                <li class="text-xl list-disc"><strong>Alojamiento de los datos:</strong> infraestructura propia, situada en Andorra.</li>
                 <li class="text-xl list-disc"><strong>Red, protección y antispam:</strong> Cloudflare (Estados Unidos), que sirve la web, la protege frente a ataques y comprueba los formularios con Turnstile.</li>
                 <li class="text-xl list-disc"><strong>Correo electrónico:</strong> Proton (Suiza), que presta nuestros buzones de correo.</li>
                 <li class="text-xl list-disc"><strong>Cobro de la suscripción:</strong> nuestra entidad bancaria y Redsys, la pasarela de pago con tarjeta.</li>
@@ -113,7 +113,7 @@
             </div>
             <p class="text-xl">En algunos casos sí, y siempre con garantías reconocidas por la Comisión Europea:</p>
             <ul class="mt-2">
-                <li class="text-xl list-disc"><strong>Andorra:</strong> Silatek, S.L.U. está establecida en Andorra, país que cuenta con una decisión de adecuación de la Comisión Europea (Decisión 2010/625/UE). Es decir, la Unión Europea reconoce que Andorra ofrece un nivel adecuado de protección de datos.</li>
+                <li class="text-xl list-disc"><strong>Andorra:</strong> Silatek, S.L.U. está establecida en Andorra y guarda los datos en su propia infraestructura, situada allí. Andorra cuenta con una decisión de adecuación de la Comisión Europea (Decisión 2010/625/UE): la Unión Europea reconoce que ofrece un nivel adecuado de protección de datos.</li>
                 <li class="text-xl list-disc"><strong>Suiza:</strong> Proton está en Suiza, que también cuenta con una decisión de adecuación de la Comisión Europea.</li>
                 <li class="text-xl list-disc"><strong>Estados Unidos:</strong> Cloudflare está adherida al Marco de Privacidad de Datos UE-EE. UU. (Data Privacy Framework), al que la Comisión Europea reconoce un nivel adecuado de protección (Decisión de Ejecución (UE) 2023/1795).</li>
             </ul>
