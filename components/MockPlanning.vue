@@ -1,25 +1,37 @@
 <!--
   Maqueta del planning de Hospedy dentro de un portatil dibujado en CSS.
-  Datos de ejemplo, fijos: NO habla con ninguna API.
+  Datos de ejemplo, fijos: NO habla con ninguna API. Un alojamiento de ejemplo por perfil
+  (prop "perfil": hotel, rural o apartamentos).
 
   La piel (colores, alturas, tipografias) esta copiada del planning real para que
-  la web ensene el producto y no una ilustracion. Todas las medidas del producto
-  se multiplican por --hm-k, que se calcula en JavaScript a partir del ancho real
-  de la pantalla del portatil: asi el componente conserva las proporciones en
-  cualquier hueco. Ese numero vive en JS a proposito, porque getPropertyValue
-  devuelve los calc() sin resolver y parsearlos da NaN.
+  la web ensene el producto y no una ilustracion. Todas las medidas del producto van en
+  --hm-u, que vale "1 px del planning real" a la escala del portatil:
+    - interactivo: --hm-u sale de --hm-k, un factor que JS calcula a partir del ancho de
+      la pantalla (entre 0,55 y 0,9, para que el texto se lea en cualquier hueco). Ese
+      numero vive en JS a proposito, porque getPropertyValue devuelve los calc() sin
+      resolver y parsearlos da NaN.
+    - "estatico": es una foto. La pantalla ensenna siempre 1000 px del planning real y
+      --hm-u sale del ancho del portatil con container queries, sin JavaScript: escala
+      como una imagen en cualquier hueco y no se toca.
 
   La rueda vertical NO se captura: quien esta leyendo la pagina sigue bajando.
   Los dias se recorren arrastrando, con Mayus+rueda, con rueda horizontal o con
   las flechas de la cabecera.
 -->
 <template>
-  <div ref="macEl" class="hm-mac" :style="{ '--hm-k': k }">
+  <div
+    ref="macEl"
+    class="hm-mac"
+    :class="{ 'hm-mac--foto': estatico }"
+    :style="estatico ? null : { '--hm-k': k }"
+    :role="estatico ? 'img' : null"
+    :aria-label="estatico ? P.descripcion : null"
+  >
     <div class="hm-mac__lid">
       <span class="hm-mac__cam" aria-hidden="true" />
 
       <div ref="screenEl" class="hm-mac__screen">
-        <div class="hm-plan">
+        <div class="hm-plan" :inert="estatico">
           <div class="hm-plan__bar">
             <p class="hm-plan__month">Octubre <span>2026</span></p>
             <div class="hm-plan__navs">
@@ -42,14 +54,10 @@
               ref="trackEl"
               class="hm-track"
               :class="{ 'is-drag': arrastrando }"
-              @wheel="alRodar"
-              @pointerdown="alPulsar"
-              @pointermove="alMover"
-              @pointerup="alSoltar"
-              @pointercancel="alSoltar"
+              v-on="estatico ? {} : manejadores"
             >
               <div class="hm-strip" :style="estiloStrip">
-                <div v-for="d in dias" :key="'d' + d.i" class="hm-dayhead" :style="{ left: d.x + 'px' }">
+                <div v-for="d in dias" :key="'d' + d.i" class="hm-dayhead" :style="{ left: u(d.x) }">
                   <div class="hm-date" :class="{ 'hm-date--we': d.finde, 'hm-date--hoy': d.hoy }">
                     <b>{{ d.n }}</b><span>{{ d.sem }}</span>
                   </div>
@@ -60,7 +68,7 @@
                   :key="c.k"
                   class="hm-cell"
                   :class="{ 'hm-cell--hoy': c.hoy }"
-                  :style="{ left: c.x + 'px', top: c.y + 'px' }"
+                  :style="{ left: c.x, top: c.y }"
                 />
 
                 <button
@@ -113,6 +121,7 @@
 
             <!-- ficha reducida de la reserva: misma anatomia que la del panel -->
             <div
+              v-if="!estatico"
               ref="sheetEl"
               class="hm-sheet"
               :data-open="ficha ? 'true' : 'false'"
@@ -203,6 +212,17 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 
+const props = defineProps({
+  /* hotel, rural o apartamentos: cambia el alojamiento de ejemplo */
+  perfil: {
+    type: String,
+    default: "hotel",
+    validator: (v) => ["hotel", "rural", "apartamentos"].includes(v),
+  },
+  /* foto sin interaccion, que escala como una imagen */
+  estatico: { type: Boolean, default: false },
+});
+
 /* ---- Medidas reales del planning (src/views/Calendar.vue del panel) ---- */
 const M_ROW = 70;   /* alto de fila */
 const M_HEAD = 58;  /* alto de la cabecera de dia */
@@ -210,40 +230,118 @@ const M_COL = 78;   /* ancho de columna de dia */
 const M_ROOMW = 150; /* ancho de la columna de habitaciones */
 
 const DIAS_TOTAL = 21;
-const DIA_INI = 5;
+const DIA_INI = 5; /* lunes 5 de octubre de 2026; hoy es el viernes 9 (columna 5) */
 const HOY = 9;
 const SEM = ["lun", "mar", "mié", "jue", "vie", "sáb", "dom"];
 
-const HABS = [
-  { n: "101", t: "Doble" },
-  { n: "102", t: "Doble" },
-  { n: "103", t: "Familiar" },
-  { n: "104", t: "Doble" },
-  { n: "201", t: "Suite" },
-  { n: "202", t: "Individual" },
-  { n: "203", t: "Familiar" },
-];
+/* g = grupo: barras con el mismo grupo son LA MISMA reserva repartida en varias
+   habitaciones, que es como las pinta el planning real (una barra por habitacion).
+   c = columna del dia de entrada (1 = lunes 5), s = noches */
+const PERFILES = {
+  hotel: {
+    descripcion: "Planning de ejemplo de un hotel en un portátil: habitaciones en filas, días en columnas y las reservas como barras de colores según su estado.",
+    unidad: ["Habitación", "Habitaciones", "unidades"],
+    habs: [
+      { n: "101", t: "Doble" },
+      { n: "102", t: "Doble" },
+      { n: "103", t: "Familiar" },
+      { n: "104", t: "Doble" },
+      { n: "201", t: "Suite" },
+      { n: "202", t: "Individual" },
+      { n: "203", t: "Familiar" },
+    ],
+    reservas: [
+      { f: 0, c: 1, s: 4, q: "A. Ferrer", r: "AD", e: "past", ota: "bk", fact: true },
+      { f: 0, c: 6, s: 3, q: "Grupo Solana", r: "MP", e: "in", g: "sol", fact: true },
+      { f: 1, c: 6, s: 3, q: "Grupo Solana", r: "MP", e: "in", g: "sol", fact: true },
+      { f: 1, c: 2, s: 3, q: "L. Prieto", r: "AD", e: "past", ota: "ex" },
+      { f: 2, c: 1, s: 3, q: "Fam. Olmedo", r: "PC", e: "past", fact: true },
+      { f: 2, c: 7, s: 2, q: "N. Barreiro", r: "AD", e: "in", ota: "bk" },
+      { f: 2, c: 14, s: 4, q: "D. Santos", r: "AD", e: "future", ota: "ex" },
+      { f: 3, c: 2, s: 3, q: "C. Vilalta", r: "MP", e: "past" },
+      { f: 3, c: 8, s: 4, q: "M. Aguirre", r: "AD", e: "future", ota: "bk" },
+      { f: 4, c: 4, s: 5, q: "Fam. Requena", r: "PC", e: "pre" },
+      { f: 4, c: 13, s: 3, q: "O. Lamas", r: "AD", e: "future", ota: "ex" },
+      { f: 5, c: 3, s: 2, q: "J. Mendoza", r: "AD", e: "past", fact: true },
+      { f: 5, c: 9, s: 6, q: "S. Arenas", r: "AD", e: "in" },
+      { f: 5, c: 17, s: 3, q: "T. Navarro", r: "MP", e: "future", ota: "bk" },
+      { f: 6, c: 1, s: 4, q: "P. Cuesta", r: "AD", e: "past", ota: "ex", fact: true },
+      { f: 6, c: 10, s: 5, q: "Grupo Bilbao", r: "MP", e: "future", ota: "bk" },
+    ],
+  },
+  /* casa rural de seis habitaciones con nombre; el puente del Pilar, la casa entera */
+  rural: {
+    descripcion: "Planning de ejemplo de una casa rural de seis habitaciones en un portátil, con la casa entera reservada para el puente.",
+    unidad: ["Habitación", "Habitaciones", "habitaciones"],
+    habs: [
+      { n: "Olmo", t: "Doble" },
+      { n: "Tejo", t: "Doble" },
+      { n: "Haya", t: "Familiar" },
+      { n: "Pino", t: "Doble" },
+      { n: "Arce", t: "Triple" },
+      { n: "Tilo", t: "Individual" },
+    ],
+    reservas: [
+      { f: 0, c: 1, s: 2, q: "M. Iglesias", r: "AD", e: "past", fact: true },
+      { f: 0, c: 9, s: 2, q: "A. Serrano", r: "AD", e: "pre" },
+      { f: 0, c: 12, s: 2, q: "P. Gil", e: "future", ota: "bk" },
+      { f: 1, c: 2, s: 2, q: "R. Campos", e: "past", ota: "bk", fact: true },
+      { f: 1, c: 12, s: 2, q: "I. Soler", r: "AD", e: "future" },
+      { f: 1, c: 16, s: 2, q: "H. Lamas", e: "future" },
+      { f: 2, c: 2, s: 2, q: "D. Nieto", r: "AD", e: "past", fact: true },
+      { f: 2, c: 10, s: 2, q: "J. Aguirre", e: "future", ota: "bk" },
+      { f: 2, c: 12, s: 2, q: "L. Rubio", r: "AD", e: "future" },
+      { f: 3, c: 3, s: 2, q: "C. Vidal", r: "MP", e: "past" },
+      { f: 3, c: 12, s: 2, q: "C. Marín", e: "future", ota: "ex" },
+      { f: 3, c: 15, s: 3, q: "A. Soto", r: "AD", e: "future" },
+      { f: 4, c: 1, s: 2, q: "Ó. Prieto", e: "past", fact: true },
+      { f: 4, c: 13, s: 1, q: "T. Rey", r: "AD", e: "future" },
+      { f: 5, c: 2, s: 1, q: "N. Cuesta", e: "past", fact: true },
+      { f: 5, c: 9, s: 1, q: "E. Montes", e: "future" },
+      { f: 5, c: 12, s: 3, q: "R. Vidal", e: "future", ota: "bk" },
+      ...[0, 1, 2, 3, 4, 5].map((f) => ({ f, c: 5, s: 3, q: "Fam. Lozano", r: "MP", e: "pre", g: "loz" })),
+    ],
+  },
+  /* apartamentos turisticos en dos edificios: estancias largas y mucha agencia */
+  apartamentos: {
+    descripcion: "Planning de ejemplo de apartamentos turísticos en un portátil: cada apartamento en una fila, con estancias largas y reservas de agencia.",
+    unidad: ["Apartamento", "Apartamentos", "apartamentos"],
+    habs: [
+      { n: "1A", t: "Marina · 2 dorm." },
+      { n: "1B", t: "Marina · estudio" },
+      { n: "2A", t: "Marina · 2 dorm." },
+      { n: "2B", t: "Marina · 1 dorm." },
+      { n: "3A", t: "Marina · ático" },
+      { n: "1", t: "Mirador · 3 dorm." },
+      { n: "2", t: "Mirador · 2 dorm." },
+    ],
+    reservas: [
+      { f: 0, c: 1, s: 4, q: "E. Müller", e: "past", ota: "bk", fact: true },
+      { f: 0, c: 5, s: 7, q: "T. Jansen", e: "pre", ota: "bk" },
+      { f: 0, c: 13, s: 5, q: "C. Marín", e: "future" },
+      { f: 1, c: 2, s: 5, q: "L. Dubois", e: "in", ota: "ex", fact: true },
+      { f: 1, c: 8, s: 3, q: "R. Campos", e: "future" },
+      { f: 1, c: 13, s: 4, q: "O. Smith", e: "future", ota: "bk" },
+      { f: 2, c: 1, s: 3, q: "A. Nieto", e: "past", fact: true },
+      { f: 2, c: 6, s: 7, q: "S. Larsson", e: "pre", ota: "bk" },
+      { f: 2, c: 15, s: 5, q: "G. Bianchi", e: "future", ota: "ex" },
+      { f: 3, c: 3, s: 4, q: "M. Aguirre", e: "in", fact: true },
+      { f: 3, c: 9, s: 5, q: "J. Walker", e: "future", ota: "bk" },
+      { f: 3, c: 16, s: 3, q: "I. Rey", e: "future" },
+      { f: 4, c: 1, s: 10, q: "Fam. Kowalska", e: "in", ota: "bk" },
+      { f: 4, c: 13, s: 4, q: "D. Luna", e: "future" },
+      { f: 5, c: 2, s: 3, q: "P. Vidal", e: "past", fact: true },
+      { f: 5, c: 5, s: 4, q: "N. Peeters", e: "pre", ota: "ex" },
+      { f: 5, c: 11, s: 7, q: "Fam. Schmidt", e: "future", ota: "bk" },
+      { f: 6, c: 4, s: 7, q: "H. Soler", e: "in" },
+      { f: 6, c: 12, s: 5, q: "C. Martin", e: "future", ota: "bk" },
+    ],
+  },
+};
 
-/* g = grupo: dos barras con el mismo grupo son LA MISMA reserva repartida en dos
-   habitaciones, que es como las pinta el planning real (una barra por habitacion) */
-const RESERVAS = [
-  { f: 0, c: 1, s: 4, q: "A. Ferrer", r: "AD", e: "past", ota: "bk", fact: true },
-  { f: 0, c: 6, s: 3, q: "Grupo Solana", r: "MP", e: "in", g: "sol", fact: true },
-  { f: 1, c: 6, s: 3, q: "Grupo Solana", r: "MP", e: "in", g: "sol", fact: true },
-  { f: 1, c: 2, s: 3, q: "L. Prieto", r: "AD", e: "past", ota: "ex" },
-  { f: 2, c: 1, s: 3, q: "Fam. Olmedo", r: "PC", e: "past", fact: true },
-  { f: 2, c: 7, s: 2, q: "N. Barreiro", r: "AD", e: "in", ota: "bk" },
-  { f: 2, c: 14, s: 4, q: "D. Santos", r: "AD", e: "future", ota: "ex" },
-  { f: 3, c: 2, s: 3, q: "C. Vilalta", r: "MP", e: "past" },
-  { f: 3, c: 8, s: 4, q: "M. Aguirre", r: "AD", e: "future", ota: "bk" },
-  { f: 4, c: 4, s: 5, q: "Fam. Requena", r: "PC", e: "pre" },
-  { f: 4, c: 13, s: 3, q: "O. Lamas", r: "AD", e: "future", ota: "ex" },
-  { f: 5, c: 3, s: 2, q: "J. Mendoza", r: "AD", e: "past", fact: true },
-  { f: 5, c: 9, s: 6, q: "S. Arenas", r: "AD", e: "in" },
-  { f: 5, c: 17, s: 3, q: "T. Navarro", r: "MP", e: "future", ota: "bk" },
-  { f: 6, c: 1, s: 4, q: "P. Cuesta", r: "AD", e: "past", ota: "ex", fact: true },
-  { f: 6, c: 10, s: 5, q: "Grupo Bilbao", r: "MP", e: "future", ota: "bk" },
-];
+const P = PERFILES[props.perfil] || PERFILES.hotel;
+const HABS = P.habs;
+const RESERVAS = P.reservas;
 
 const ET = { past: "Salió", future: "Confirmada", pre: "Auto check-in enviado", in: "En casa" };
 
@@ -255,7 +353,7 @@ const sheetEl = ref(null);
 
 const k = ref(0.66);
 const filas = ref(HABS.length);
-const off = ref(0);
+const off = ref(0); /* en px del planning real */
 const maxOff = ref(0);
 const arrastrando = ref(false);
 const grupoActivo = ref(null);
@@ -263,56 +361,52 @@ const abierta = ref(null);
 const ficha = ref(null);
 const pos = ref({ left: "0px", top: "0px" });
 
-const COL = computed(() => M_COL * k.value);
-const ROW = computed(() => M_ROW * k.value);
-const HEAD = computed(() => M_HEAD * k.value);
-const ROOMW = computed(() => M_ROOMW * k.value);
+/* una medida del planning real, a la escala del portatil */
+function u(n) {
+  return "calc(var(--hm-u) * " + n + ")";
+}
 
 const habsVisibles = computed(() => HABS.slice(0, filas.value));
 const estiloStrip = computed(() => ({
-  width: DIAS_TOTAL * COL.value + "px",
-  transform: "translateX(" + -off.value + "px)",
+  width: u(DIAS_TOTAL * M_COL),
+  transform: "translateX(" + u(-off.value) + ")",
 }));
 
-const dias = computed(() => {
-  const out = [];
-  for (let i = 0; i < DIAS_TOTAL; i++) {
-    const n = DIA_INI + i;
-    const dow = (n + 2) % 7;
-    out.push({ i, n, x: i * COL.value, sem: SEM[i % 7], finde: dow === 5 || dow === 6, hoy: n === HOY });
-  }
-  return out;
-});
+const dias = [];
+for (let i = 0; i < DIAS_TOTAL; i++) {
+  const n = DIA_INI + i;
+  const dow = (n + 2) % 7; /* 0 = lunes */
+  dias.push({ i, n, x: i * M_COL, sem: SEM[dow], finde: dow === 5 || dow === 6, hoy: n === HOY });
+}
 
 const celdas = computed(() => {
   const out = [];
   for (let i = 0; i < DIAS_TOTAL; i++) {
     for (let f = 0; f < filas.value; f++) {
-      out.push({ k: i + "-" + f, x: i * COL.value, y: HEAD.value + f * ROW.value, hoy: DIA_INI + i === HOY });
+      out.push({ k: i + "-" + f, x: u(i * M_COL), y: u(M_HEAD + f * M_ROW), hoy: DIA_INI + i === HOY });
     }
   }
   return out;
 });
 
 const barras = computed(() =>
-  RESERVAS.filter((r) => r.f < filas.value).map((r, i) => ({
+  RESERVAS.filter((r) => r.f < filas.value).map((r) => ({
     ...r,
     id: r.f + "-" + r.c,
-    idx: i,
-    ancho: r.s * COL.value - 5,
     css: {
-      left: (r.c - 1) * COL.value + 2 + "px",
-      top: HEAD.value + r.f * ROW.value + 3 + "px",
-      width: r.s * COL.value - 5 + "px",
-      height: ROW.value - 7 + "px",
+      left: u((r.c - 1) * M_COL + 2),
+      top: u(M_HEAD + r.f * M_ROW + 3),
+      width: u(r.s * M_COL - 5),
+      height: u(M_ROW - 7),
     },
-    aria: r.q + ", habitación " + HABS[r.f].n + ", " + r.s + " noches, " + ET[r.e],
+    aria: r.q + ", " + P.unidad[0].toLowerCase() + " " + HABS[r.f].n + ", " + r.s + " noches, " + ET[r.e],
   }))
 );
 
 const barraAbierta = computed(() => barras.value.find((b) => b.id === abierta.value) || null);
 
-/* --- medida: JS es el duenno del factor de escala y el CSS lo lee --- */
+/* --- medida (solo la version interactiva): JS es el duenno del factor de escala y el
+   CSS lo lee --- */
 async function medir() {
   const sc = screenEl.value;
   if (!sc) return;
@@ -327,13 +421,13 @@ async function medir() {
 
   const body = bodyEl.value;
   if (!body) return;
-  const caben = Math.floor((body.clientHeight - HEAD.value) / ROW.value);
+  const caben = Math.floor((body.clientHeight / k.value - M_HEAD) / M_ROW);
   filas.value = Math.max(3, Math.min(HABS.length, caben));
   await nextTick();
 
   const track = trackEl.value;
   if (!track) return;
-  maxOff.value = Math.max(0, DIAS_TOTAL * COL.value - track.clientWidth);
+  maxOff.value = Math.max(0, DIAS_TOTAL * M_COL - track.clientWidth / k.value);
   if (off.value > maxOff.value) off.value = maxOff.value;
 }
 
@@ -343,7 +437,7 @@ function desplazar(dx) {
 
 function paso(n) {
   cerrar();
-  desplazar(COL.value * n);
+  desplazar(M_COL * n);
 }
 
 /* la rueda vertical se deja a la pagina; solo horizontal o con Mayus */
@@ -352,7 +446,7 @@ function alRodar(e) {
   if (!dx) return;
   e.preventDefault();
   cerrar();
-  desplazar(dx);
+  desplazar(dx / k.value);
 }
 
 let pulsado = false;
@@ -373,13 +467,21 @@ function alMover(e) {
   if (!pulsado) return;
   const d = e.clientX - x0;
   if (Math.abs(d) > 3) cerrar();
-  off.value = Math.max(0, Math.min(maxOff.value, off0 - d));
+  off.value = Math.max(0, Math.min(maxOff.value, off0 - d / k.value));
 }
 
 function alSoltar() {
   pulsado = false;
   arrastrando.value = false;
 }
+
+const manejadores = {
+  wheel: alRodar,
+  pointerdown: alPulsar,
+  pointermove: alMover,
+  pointerup: alSoltar,
+  pointercancel: alSoltar,
+};
 
 function cerrar() {
   abierta.value = null;
@@ -391,6 +493,7 @@ function dd(d) {
 }
 
 function abrir(b) {
+  if (props.estatico) return;
   if (abierta.value === b.id) {
     cerrar();
     return;
@@ -403,10 +506,10 @@ function abrir(b) {
     noches: b.s,
     entrada: dd(ini),
     salida: dd(ini + b.s),
-    etiqHab: hermanas.length > 1 ? "Habitaciones" : "Habitación",
+    etiqHab: P.unidad[hermanas.length > 1 ? 1 : 0],
     hab:
       hermanas.length > 1
-        ? hermanas.map((x) => HABS[x.f].n).join(" + ") + " · " + hermanas.length + " unidades"
+        ? hermanas.map((x) => HABS[x.f].n).join(" + ") + " · " + hermanas.length + " " + P.unidad[2]
         : HABS[b.f].n + " · " + HABS[b.f].t,
     titular: b.q,
     ses: "SES-2026-" + (4000 + b.c * 13 + b.f * 7),
@@ -422,16 +525,18 @@ function situar() {
   const b = barraAbierta.value;
   if (!body || !sheet || !b) return;
 
+  const kk = k.value;
   const w = sheet.offsetWidth;
   const h = sheet.offsetHeight;
-  const bx = ROOMW.value + (b.c - 1) * COL.value + 2 - off.value;
-  const by = HEAD.value + b.f * ROW.value + 3;
+  const ancho = (b.s * M_COL - 5) * kk;
+  const bx = (M_ROOMW + (b.c - 1) * M_COL + 2 - off.value) * kk;
+  const by = (M_HEAD + b.f * M_ROW + 3) * kk;
 
-  let x = bx + b.ancho / 2 - w / 2;
+  let x = bx + ancho / 2 - w / 2;
   x = Math.max(6, Math.min(x, body.clientWidth - w - 6));
 
   let y = by - h - 6;
-  if (y < 4) y = by + (ROW.value - 7) + 6;
+  if (y < 4) y = by + (M_ROW - 7) * kk + 6;
   y = Math.max(4, Math.min(y, body.clientHeight - h - 4));
 
   pos.value = { left: Math.round(x) + "px", top: Math.round(y) + "px" };
@@ -451,6 +556,7 @@ function alTeclear(e) {
 let ro = null;
 
 onMounted(() => {
+  if (props.estatico) return;
   medir();
   ro = new ResizeObserver(() => medir());
   ro.observe(macEl.value);
@@ -461,6 +567,7 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
+  if (props.estatico) return;
   if (ro) ro.disconnect();
   document.removeEventListener("click", fueraDe);
   document.removeEventListener("keydown", alTeclear);
@@ -492,9 +599,30 @@ onBeforeUnmount(() => {
   --hm-teal-deep: #0b5a54;
   --hm-mint: #ccfbf1;
 
+  /* 1 px del planning real a la escala de este portatil. En la version interactiva el factor
+     (--hm-k) lo pone JS; en la foto sale del ancho del propio portatil */
+  --hm-u: calc(var(--hm-k, 0.66) * 1px);
+
   width: 100%;
   font-family: "Nunito Variable", Nunito, system-ui, -apple-system, sans-serif;
   line-height: 1.55;
+}
+/* foto: la pantalla (96,6 % del portatil) muestra 1000 px del planning real, a cualquier
+   tamanno y sin JavaScript */
+.hm-mac.hm-mac--foto {
+  container-type: inline-size;
+  --hm-u: calc(100cqw * 0.966 / 1000);
+}
+.hm-mac--foto .hm-plan {
+  pointer-events: none;
+}
+.hm-mac--foto .hm-mac__lid {
+  box-shadow: 0 calc(22 * var(--hm-u)) calc(40 * var(--hm-u)) calc(-26 * var(--hm-u)) rgba(6, 30, 28, 0.7),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.09);
+}
+.hm-mac--foto .hm-mac__base {
+  border-radius: 0 0 calc(9 * var(--hm-u)) calc(9 * var(--hm-u));
+  box-shadow: 0 calc(10 * var(--hm-u)) calc(16 * var(--hm-u)) calc(-10 * var(--hm-u)) rgba(6, 30, 28, 0.55);
 }
 
 /* ============ Portatil en CSS ============ */
@@ -527,7 +655,7 @@ onBeforeUnmount(() => {
 .hm-mac__chin {
   text-align: center;
   color: #9aa2a9;
-  font-size: calc(14px * var(--hm-k));
+  font-size: calc(14 * var(--hm-u));
   letter-spacing: 0.18em;
   font-weight: 800;
   margin: 0.9% 0 0;
@@ -535,7 +663,7 @@ onBeforeUnmount(() => {
   user-select: none;
 }
 .hm-mac__base {
-  height: calc(17px * var(--hm-k));
+  height: calc(17 * var(--hm-u));
   margin: 0 auto;
   width: 112%;
   transform: translateX(-5.3%);
@@ -571,13 +699,13 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  padding: calc(7px * var(--hm-k)) calc(12px * var(--hm-k));
+  gap: calc(8 * var(--hm-u));
+  padding: calc(7 * var(--hm-u)) calc(12 * var(--hm-u));
   border-bottom: 1px solid var(--hm-line);
   flex: 0 0 auto;
 }
 .hm-plan__month {
-  font-size: calc(19px * var(--hm-k));
+  font-size: calc(19 * var(--hm-u));
   font-weight: 800;
   color: #33343d;
   margin: 0;
@@ -589,18 +717,18 @@ onBeforeUnmount(() => {
 }
 .hm-plan__navs {
   display: flex;
-  gap: 4px;
+  gap: calc(4 * var(--hm-u));
 }
 .hm-nav {
-  width: calc(30px * var(--hm-k));
-  height: calc(30px * var(--hm-k));
+  width: calc(30 * var(--hm-u));
+  height: calc(30 * var(--hm-u));
   border-radius: 50%;
   border: 1px solid var(--hm-line);
   background: #fff;
   color: #4a605d;
   cursor: pointer;
   font: inherit;
-  font-size: calc(17px * var(--hm-k));
+  font-size: calc(17 * var(--hm-u));
   font-weight: 800;
   line-height: 1;
   display: flex;
@@ -626,22 +754,23 @@ onBeforeUnmount(() => {
 
 .hm-rooms {
   flex: 0 0 auto;
-  width: calc(150px * var(--hm-k));
+  width: calc(150 * var(--hm-u));
   border-right: 1px solid var(--hm-line);
   background: #fff;
   z-index: 3;
 }
 .hm-rooms__head {
-  height: calc(58px * var(--hm-k));
+  height: calc(58 * var(--hm-u));
   border-bottom: 1px solid var(--hm-line);
 }
+/* 68 + 2 de margen = 70, el paso de la rejilla, como .room del panel */
 .hm-room {
-  height: calc(70px * var(--hm-k));
+  height: calc(68 * var(--hm-u));
   border-bottom: 1px solid var(--hm-line);
   background: var(--hm-room-bg);
-  border-radius: 0 calc(10px * var(--hm-k)) calc(10px * var(--hm-k)) 0;
-  margin-bottom: 2px;
-  padding: calc(5px * var(--hm-k)) calc(8px * var(--hm-k));
+  border-radius: 0 calc(10 * var(--hm-u)) calc(10 * var(--hm-u)) 0;
+  margin-bottom: calc(2 * var(--hm-u));
+  padding: calc(5 * var(--hm-u)) calc(8 * var(--hm-u));
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -650,13 +779,13 @@ onBeforeUnmount(() => {
   overflow: hidden;
 }
 .hm-room b {
-  font-size: calc(35px * var(--hm-k));
+  font-size: calc(35 * var(--hm-u));
   font-weight: 400;
   line-height: 0.92;
   color: #1f2c2a;
 }
 .hm-room span {
-  font-size: calc(17px * var(--hm-k));
+  font-size: calc(17 * var(--hm-u));
   font-weight: 400;
   color: #4a605d;
   white-space: nowrap;
@@ -686,15 +815,15 @@ onBeforeUnmount(() => {
 .hm-dayhead {
   position: absolute;
   top: 0;
-  width: calc(78px * var(--hm-k));
+  width: calc(78 * var(--hm-u));
   text-align: center;
 }
 .hm-date {
-  height: calc(58px * var(--hm-k));
+  height: calc(58 * var(--hm-u));
   width: 100%;
   background: var(--hm-day-bg);
   color: var(--hm-day-fg);
-  border-radius: 0 0 calc(10px * var(--hm-k)) calc(10px * var(--hm-k));
+  border-radius: 0 0 calc(10 * var(--hm-u)) calc(10 * var(--hm-u));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -710,22 +839,22 @@ onBeforeUnmount(() => {
   border-top: none;
 }
 .hm-date b {
-  font-size: calc(30px * var(--hm-k));
+  font-size: calc(30 * var(--hm-u));
   font-weight: 400;
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
 .hm-date span {
-  font-size: calc(16px * var(--hm-k));
+  font-size: calc(16 * var(--hm-u));
   font-weight: 400;
-  margin-top: calc(-3px * var(--hm-k));
+  margin-top: calc(-3 * var(--hm-u));
   text-transform: lowercase;
 }
 
 .hm-cell {
   position: absolute;
-  width: calc(78px * var(--hm-k));
-  height: calc(70px * var(--hm-k));
+  width: calc(78 * var(--hm-u));
+  height: calc(70 * var(--hm-u));
   border-right: 1px solid var(--hm-line);
   border-bottom: 1px solid var(--hm-line);
   background: #fff;
@@ -738,10 +867,10 @@ onBeforeUnmount(() => {
 .hm-bar {
   position: absolute;
   border: 0;
-  border-radius: calc(10px * var(--hm-k));
-  padding: calc(2px * var(--hm-k)) calc(5px * var(--hm-k));
+  border-radius: calc(10 * var(--hm-u));
+  padding: calc(2 * var(--hm-u)) calc(5 * var(--hm-u));
   font: inherit;
-  font-size: calc(14px * var(--hm-k));
+  font-size: calc(14 * var(--hm-u));
   font-weight: 700;
   text-align: left;
   cursor: pointer;
@@ -767,7 +896,7 @@ onBeforeUnmount(() => {
 .hm-bar__top {
   display: flex;
   align-items: baseline;
-  gap: calc(5px * var(--hm-k));
+  gap: calc(5 * var(--hm-u));
   width: 100%;
 }
 .hm-bar__owner {
@@ -779,7 +908,7 @@ onBeforeUnmount(() => {
 .hm-bar__reg {
   font-weight: 800;
   opacity: 0.72;
-  font-size: calc(12px * var(--hm-k));
+  font-size: calc(12 * var(--hm-u));
   flex: 0 0 auto;
 }
 .hm-bar--past {
@@ -807,31 +936,31 @@ onBeforeUnmount(() => {
 /* iconos abajo a la derecha de la barra, igual que .bar-icons del panel */
 .hm-bar__ic {
   display: flex;
-  gap: calc(2px * var(--hm-k));
+  gap: calc(2 * var(--hm-u));
   justify-content: flex-end;
   opacity: 0.85;
   position: absolute;
-  bottom: calc(2px * var(--hm-k));
-  right: calc(4px * var(--hm-k));
+  bottom: calc(2 * var(--hm-u));
+  right: calc(4 * var(--hm-u));
 }
 .hm-bar__ic svg {
-  width: calc(15px * var(--hm-k));
-  height: calc(15px * var(--hm-k));
+  width: calc(15 * var(--hm-u));
+  height: calc(15 * var(--hm-u));
   display: block;
 }
 .hm-bar__ic .hm-ota {
-  width: calc(16px * var(--hm-k));
-  height: calc(16px * var(--hm-k));
-  border-radius: calc(3px * var(--hm-k));
+  width: calc(16 * var(--hm-u));
+  height: calc(16 * var(--hm-u));
+  border-radius: calc(3 * var(--hm-u));
 }
 
 /* ============ Ficha de la reserva ============ */
 .hm-sheet {
   position: absolute;
   z-index: 9;
-  width: min(76%, calc(490px * var(--hm-k)));
+  width: min(76%, calc(490 * var(--hm-u)));
   background: #fff;
-  border-radius: calc(8px * var(--hm-k));
+  border-radius: calc(8 * var(--hm-u));
   box-shadow: 0 20px 38px -14px rgba(10, 30, 28, 0.55), 0 0 0 1px rgba(19, 37, 35, 0.12);
   opacity: 0;
   transform: scale(0.97);
@@ -847,8 +976,8 @@ onBeforeUnmount(() => {
 .hm-sheet__head {
   display: flex;
   align-items: center;
-  gap: calc(8px * var(--hm-k));
-  padding: calc(9px * var(--hm-k)) calc(11px * var(--hm-k));
+  gap: calc(8 * var(--hm-u));
+  padding: calc(9 * var(--hm-u)) calc(11 * var(--hm-u));
   border-bottom: 1px solid var(--hm-line);
 }
 .hm-sheet__x {
@@ -857,7 +986,7 @@ onBeforeUnmount(() => {
   background: none;
   cursor: pointer;
   color: #8a9997;
-  font-size: calc(17px * var(--hm-k));
+  font-size: calc(17 * var(--hm-u));
   line-height: 1;
   padding: 0;
   flex: 0 0 auto;
@@ -869,17 +998,17 @@ onBeforeUnmount(() => {
   flex: 1 1 auto;
   text-align: center;
   font-weight: 800;
-  font-size: calc(17px * var(--hm-k));
+  font-size: calc(17 * var(--hm-u));
   color: #1f2c2a;
   margin: 0;
   letter-spacing: -0.01em;
 }
 .hm-minibtn {
   font-weight: 700;
-  font-size: calc(12px * var(--hm-k));
+  font-size: calc(12 * var(--hm-u));
   line-height: 1;
-  padding: calc(6px * var(--hm-k)) calc(8px * var(--hm-k));
-  border-radius: calc(6px * var(--hm-k));
+  padding: calc(6 * var(--hm-u)) calc(8 * var(--hm-u));
+  border-radius: calc(6 * var(--hm-u));
   color: #fff;
   flex: 0 0 auto;
   opacity: 0.92;
@@ -895,20 +1024,20 @@ onBeforeUnmount(() => {
 .hm-sheet__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: calc(8px * var(--hm-k)) calc(9px * var(--hm-k));
-  padding: calc(11px * var(--hm-k));
+  gap: calc(8 * var(--hm-u)) calc(9 * var(--hm-u));
+  padding: calc(11 * var(--hm-u));
 }
 .hm-fld {
   display: flex;
   flex-direction: column;
-  gap: calc(3px * var(--hm-k));
+  gap: calc(3 * var(--hm-u));
   min-width: 0;
 }
 .hm-fld--wide {
   grid-column: span 2;
 }
 .hm-fld label {
-  font-size: calc(14px * var(--hm-k));
+  font-size: calc(14 * var(--hm-u));
   color: var(--hm-teal);
   font-weight: 600;
   line-height: 1;
@@ -916,9 +1045,9 @@ onBeforeUnmount(() => {
 .hm-inp {
   border: 1px solid var(--hm-teal);
   background: #fff;
-  border-radius: calc(4px * var(--hm-k));
-  padding: calc(6px * var(--hm-k)) calc(7px * var(--hm-k));
-  font-size: calc(14px * var(--hm-k));
+  border-radius: calc(4 * var(--hm-u));
+  padding: calc(6 * var(--hm-u)) calc(7 * var(--hm-u));
+  font-size: calc(14 * var(--hm-u));
   color: #1f2c2a;
   font-weight: 600;
   line-height: 1.15;
@@ -933,53 +1062,53 @@ onBeforeUnmount(() => {
 }
 .hm-inp--ph span {
   display: block;
-  height: calc(8px * var(--hm-k));
+  height: calc(8 * var(--hm-u));
   border-radius: 99px;
   background: linear-gradient(90deg, #dee7e5, #eaf0ef);
 }
 .hm-nights {
   display: flex;
   align-items: center;
-  gap: calc(5px * var(--hm-k));
+  gap: calc(5 * var(--hm-u));
 }
 .hm-nights i {
-  width: calc(22px * var(--hm-k));
-  height: calc(22px * var(--hm-k));
-  border-radius: calc(4px * var(--hm-k));
+  width: calc(22 * var(--hm-u));
+  height: calc(22 * var(--hm-u));
+  border-radius: calc(4 * var(--hm-u));
   background: var(--hm-teal);
   color: #fff;
   font-style: normal;
   font-weight: 800;
-  font-size: calc(13px * var(--hm-k));
+  font-size: calc(13 * var(--hm-u));
   display: flex;
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
 }
 .hm-nights b {
-  font-size: calc(17px * var(--hm-k));
+  font-size: calc(17 * var(--hm-u));
   font-weight: 700;
   color: #1f2c2a;
-  min-width: calc(16px * var(--hm-k));
+  min-width: calc(16 * var(--hm-u));
   text-align: center;
 }
 
 .hm-acts {
   display: flex;
   flex-wrap: wrap;
-  gap: calc(5px * var(--hm-k));
-  padding: 0 calc(11px * var(--hm-k)) calc(9px * var(--hm-k));
+  gap: calc(5 * var(--hm-u));
+  padding: 0 calc(11 * var(--hm-u)) calc(9 * var(--hm-u));
 }
 .hm-chip {
   display: inline-flex;
   align-items: center;
-  gap: calc(4px * var(--hm-k));
+  gap: calc(4 * var(--hm-u));
   border: 1px solid var(--hm-teal);
   color: var(--hm-teal);
   background: #fff;
   border-radius: 99px;
-  padding: calc(4px * var(--hm-k)) calc(8px * var(--hm-k));
-  font-size: calc(12px * var(--hm-k));
+  padding: calc(4 * var(--hm-u)) calc(8 * var(--hm-u));
+  font-size: calc(12 * var(--hm-u));
   font-weight: 700;
   line-height: 1.2;
   white-space: nowrap;
@@ -991,12 +1120,12 @@ onBeforeUnmount(() => {
 .hm-ses {
   display: flex;
   align-items: center;
-  gap: calc(6px * var(--hm-k));
-  margin: 0 calc(11px * var(--hm-k)) calc(10px * var(--hm-k));
-  padding: calc(6px * var(--hm-k)) calc(8px * var(--hm-k));
-  border-radius: calc(5px * var(--hm-k));
+  gap: calc(6 * var(--hm-u));
+  margin: 0 calc(11 * var(--hm-u)) calc(10 * var(--hm-u));
+  padding: calc(6 * var(--hm-u)) calc(8 * var(--hm-u));
+  border-radius: calc(5 * var(--hm-u));
   background: #edf3f1;
-  font-size: calc(12px * var(--hm-k));
+  font-size: calc(12 * var(--hm-u));
   color: #334744;
   font-weight: 600;
 }
@@ -1006,13 +1135,13 @@ onBeforeUnmount(() => {
   font-variant-numeric: tabular-nums;
 }
 .hm-ses i {
-  width: calc(13px * var(--hm-k));
-  height: calc(13px * var(--hm-k));
+  width: calc(13 * var(--hm-u));
+  height: calc(13 * var(--hm-u));
   border-radius: 50%;
   background: #15803d;
   color: #fff;
   font-style: normal;
-  font-size: calc(9px * var(--hm-k));
+  font-size: calc(9 * var(--hm-u));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1021,16 +1150,16 @@ onBeforeUnmount(() => {
 }
 .hm-sheet__cta {
   background: var(--hm-mint);
-  padding: calc(10px * var(--hm-k)) calc(11px * var(--hm-k));
+  padding: calc(10 * var(--hm-u)) calc(11 * var(--hm-u));
   display: flex;
   align-items: center;
-  gap: calc(9px * var(--hm-k));
+  gap: calc(9 * var(--hm-u));
   flex-wrap: wrap;
 }
 .hm-sheet__cta p {
   margin: 0;
   flex: 1 1 150px;
-  font-size: calc(13.5px * var(--hm-k));
+  font-size: calc(13.5 * var(--hm-u));
   line-height: 1.35;
   color: var(--hm-teal-deep);
   font-weight: 600;
@@ -1040,9 +1169,9 @@ onBeforeUnmount(() => {
 }
 .hm-btn {
   font-weight: 800;
-  font-size: calc(13.5px * var(--hm-k));
-  border-radius: calc(7px * var(--hm-k));
-  padding: calc(8px * var(--hm-k)) calc(12px * var(--hm-k));
+  font-size: calc(13.5 * var(--hm-u));
+  border-radius: calc(7 * var(--hm-u));
+  padding: calc(8 * var(--hm-u)) calc(12 * var(--hm-u));
   background: var(--hm-teal);
   color: #fff;
   flex: 0 0 auto;
@@ -1051,16 +1180,16 @@ onBeforeUnmount(() => {
 
 .hm-tag {
   position: absolute;
-  right: calc(9px * var(--hm-k));
-  bottom: calc(7px * var(--hm-k));
+  right: calc(9 * var(--hm-u));
+  bottom: calc(7 * var(--hm-u));
   z-index: 4;
-  font-size: calc(11px * var(--hm-k));
+  font-size: calc(11 * var(--hm-u));
   font-weight: 800;
   letter-spacing: 0.04em;
   color: #8a9997;
   background: rgba(255, 255, 255, 0.86);
-  padding: 2px 6px;
-  border-radius: 5px;
+  padding: calc(2 * var(--hm-u)) calc(6 * var(--hm-u));
+  border-radius: calc(5 * var(--hm-u));
   pointer-events: none;
 }
 

@@ -47,7 +47,9 @@
                     </div>
                 </div>
                 <div class="flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
-                    <img src="/macbook.webp" alt="Planning de hotel en Hospedy" class="max-w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-500">
+                    <!-- Maquetas en CSS (sustituyen a la captura /macbook.webp): el planning de
+                         un hotel en el portatil y el de 30 habitaciones en el movil, en foto -->
+                    <MockDevices perfil="hotel" movil="planning" estatico />
                 </div>
             </div>
         </div>

@@ -47,7 +47,10 @@
                     </div>
                 </div>
                 <div class="flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
-                    <img src="/laptop_and_phone.webp" alt="Gestión de apartamentos turísticos" class="max-w-full hover:scale-105 transition-transform duration-500">
+                    <!-- Maquetas en CSS (sustituyen a la captura /laptop_and_phone.webp): el
+                         planning de unos apartamentos en el portatil y el auto check-in del
+                         huesped en el movil, en foto -->
+                    <MockDevices perfil="apartamentos" estatico />
                 </div>
             </div>
         </div>

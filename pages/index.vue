@@ -502,12 +502,10 @@
             <div v-show="activeCheckInTab === 0" class="w-[68px] lg:w-[83px]">
               <MockCheckin etiqueta="Check-in rápido con Hospedy: formulario del huésped en un móvil, con sus datos, el documento, las fechas de la estancia y la firma." />
             </div>
-            <img
-              v-show="activeCheckInTab === 1"
-              src="/auto_check.svg"
-              class="max-w-full max-h-full object-contain rotate-90"
-              alt="Auto check-in para huéspedes"
-            />
+            <!-- el formulario de auto check-in real, en foto: es el que recibe el huesped -->
+            <div v-show="activeCheckInTab === 1" class="w-[64px] lg:w-[78px]">
+              <MockCheckinPhone estatico />
+            </div>
             <img
               v-show="activeCheckInTab === 2"
               src="/scaner.png"
@@ -572,11 +570,8 @@
           </p>
         </div>
         <div class="flex justify-center mt-6">
-          <img
-            src="/macbook.webp"
-            class="w-64 lg:w-80"
-            alt="Planning de reservas Hospedy"
-          />
+          <!-- el planning del portatil en foto: escala como una imagen y no se toca -->
+          <div class="w-64 lg:w-80"><MockPlanning estatico /></div>
         </div>
       </div>
 

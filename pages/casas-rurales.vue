@@ -47,9 +47,10 @@
                     </div>
                 </div>
                 <div class="flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
-                    <!-- Maqueta del planning en la vista de movil (sustituye a la captura /phone.webp) -->
+                    <!-- Maqueta del planning en la vista de movil (sustituye a la captura /phone.webp),
+                         con una casa rural de seis habitaciones -->
                     <!-- el alto sale del ancho (unas 2,1 veces): se limita para que quepa en pantallas bajas -->
-                    <div class="w-full" style="max-width: min(340px, calc((100vh - 9.5rem) / 2.1))"><MockPlanningPhone /></div>
+                    <div class="w-full" style="max-width: min(340px, calc((100vh - 9.5rem) / 2.1))"><MockPlanningPhone perfil="rural" /></div>
                 </div>
             </div>
         </div>
@@ -113,7 +114,9 @@
                         </ol>
                     </div>
                     <div class="feature-image-card p-8 rounded-2xl glow-hover" data-aos="fade-left">
-                        <img src="/auto_check.svg" alt="Auto check-in para casa rural" class="w-full max-w-xs mx-auto">
+                        <!-- El auto check-in que recibe el huesped, en un movil y usable: foto del
+                             documento, firma y envio. Mismo limite de alto que el de la cabecera -->
+                        <div class="mx-auto" style="max-width: min(280px, calc((100vh - 6rem) / 2.1))"><MockCheckinPhone perfil="rural" /></div>
                     </div>
                 </div>
             </div>

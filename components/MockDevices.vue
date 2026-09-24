@@ -1,19 +1,42 @@
 <!--
-  Composicion de las dos maquetas: el planning en el portatil y el auto check-in
-  en el movil, que sale abajo a la derecha, desplazado hacia fuera y solapando
-  solo la base del portatil. La pantalla del portatil NUNCA queda tapada: el
-  borde izquierdo del movil (83,5% del ancho) cae por fuera del borde derecho de
-  la pantalla (83% menos el marco del portatil).
+  Composicion de las dos maquetas: el planning en el portatil y un movil que sale abajo a
+  la derecha, desplazado hacia fuera y solapando solo la base del portatil. La pantalla
+  del portatil NUNCA queda tapada: el borde izquierdo del movil (83,5% del ancho) cae por
+  fuera del borde derecho de la pantalla (83% menos el marco del portatil).
+
+  - perfil: hotel, rural o apartamentos (el alojamiento de ejemplo de las dos maquetas)
+  - movil: "checkin" (el auto check-in del huesped) o "planning" (el planning en el movil)
+  - estatico: el portatil es una foto que escala como una imagen. El movil, a este tamanno,
+    siempre es una foto.
 
   Por debajo de 768px el movil se retira: a ese ancho el portatil ya se queda
   pequenno y las dos cosas juntas no se leerian.
 -->
 <template>
   <div class="hm-duo">
-    <div class="hm-duo__lap"><MockPlanning /></div>
-    <div class="hm-duo__ph"><MockCheckin /></div>
+    <div class="hm-duo__lap"><MockPlanning :perfil="perfil" :estatico="estatico" /></div>
+    <div class="hm-duo__ph">
+      <MockPlanningPhone v-if="movil === 'planning'" :perfil="perfil" estatico />
+      <MockCheckinPhone v-else :perfil="perfil" estatico />
+    </div>
   </div>
 </template>
+
+<script setup>
+defineProps({
+  perfil: {
+    type: String,
+    default: "hotel",
+    validator: (v) => ["hotel", "rural", "apartamentos"].includes(v),
+  },
+  movil: {
+    type: String,
+    default: "checkin",
+    validator: (v) => ["checkin", "planning"].includes(v),
+  },
+  estatico: { type: Boolean, default: false },
+});
+</script>
 
 <style scoped>
 .hm-duo {
