@@ -86,9 +86,11 @@
         </button>
       </div>
     </div>
+    <!-- el menu del movil va justo por debajo de la barra (z-10) y por encima de todo el
+         contenido de la pagina: sin z-index, las maquetas se pintaban encima -->
     <div
       v-if="open == true"
-      class="fixed top-12 ml-auto grid w-full z-8 bg-white text-center drop-shadow-xl py-4"
+      class="fixed top-12 ml-auto grid w-full z-[9] bg-white text-center drop-shadow-xl py-4"
     >
       <span class="mb-3 mx-2"
         ><a
