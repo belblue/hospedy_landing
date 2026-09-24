@@ -1222,8 +1222,8 @@ async function calculatePriceChannel() {
 }
 
 .feature-card:hover {
-  background-color: rgba(229, 238, 252, 0.5);
-  box-shadow: 0 4px 20px rgba(38, 103, 247, 0.15);
+  background-color: rgba(204, 251, 241, 0.5);
+  box-shadow: 0 4px 20px rgba(13, 148, 136, 0.15);
 }
 
 .float-1 {
@@ -1313,7 +1313,7 @@ async function calculatePriceChannel() {
   font-size: 2rem;
   font-weight: bold;
   flex-shrink: 0;
-  box-shadow: 0 4px 15px rgba(38, 103, 247, 0.4);
+  box-shadow: 0 4px 15px rgba(13, 148, 136, 0.4);
 }
 
 /* Step Numbers Light (for gradient cards) */
@@ -1339,7 +1339,7 @@ async function calculatePriceChannel() {
 }
 
 .gestiona-card-gradient:hover {
-  box-shadow: 0 8px 30px rgba(38, 103, 247, 0.4);
+  box-shadow: 0 8px 30px rgba(13, 148, 136, 0.4);
   transform: translateY(-2px);
 }
 
@@ -1349,13 +1349,13 @@ async function calculatePriceChannel() {
 }
 
 .gestiona-card:hover {
-  box-shadow: 0 4px 20px rgba(38, 103, 247, 0.15);
+  box-shadow: 0 4px 20px rgba(13, 148, 136, 0.15);
 }
 
 /* Check-in Tab Gradients */
 .checkin-tab-active {
   background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
-  box-shadow: 0 4px 15px rgba(38, 103, 247, 0.5);
+  box-shadow: 0 4px 15px rgba(13, 148, 136, 0.5);
 }
 
 .checkin-tab-inactive {
@@ -1426,7 +1426,7 @@ async function calculatePriceChannel() {
   background: white;
   border: 3px solid #0d9488;
   transform: rotateY(180deg);
-  box-shadow: 0 4px 15px rgba(38, 103, 247, 0.2);
+  box-shadow: 0 4px 15px rgba(13, 148, 136, 0.2);
 }
 
 /* Floating Demo Button - Vertical Text */

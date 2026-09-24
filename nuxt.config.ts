@@ -26,7 +26,7 @@ export default defineNuxtConfig({
           { name: 'publisher', content: 'Silatek, S.L.U.' },
           { name: 'copyright', content: 'Silatek, S.L.U.' },
           { name: 'keywords', content: 'PMS hotel, software gestión hotelera, partes viajeros automáticos, SES Hospedajes, Ertzaintza, País Vasco, encuesta INE, channel manager, motor reservas, casa rural, apartamentos turísticos' },
-          { name: 'page-topic', content: 'Software de gestion hotelera' },
+          { name: 'page-topic', content: 'Software de gestión hotelera' },
           { name: 'robots', content: 'index, follow' },
           // Open Graph
           { property: 'og:type', content: 'website' },
@@ -35,12 +35,16 @@ export default defineNuxtConfig({
           { property: 'og:title', content: 'Hospedy - Software PMS con partes de viajeros automáticos' },
           { property: 'og:description', content: 'PMS con envío automático de partes a SES Hospedajes y Ertzaintza (País Vasco). Gestión completa de hoteles, casas rurales y apartamentos.' },
           { property: 'og:image', content: 'https://gethospedy.com/og-image.png' },
+          { property: 'og:image:width', content: '1200' },
+          { property: 'og:image:height', content: '630' },
+          { property: 'og:image:alt', content: 'Hospedy: el planning de reservas en un portátil y el auto check-in del huésped en un móvil' },
           { property: 'og:url', content: 'https://gethospedy.com' },
           // Twitter Card
           { name: 'twitter:card', content: 'summary_large_image' },
           { name: 'twitter:title', content: 'Hospedy - Software PMS con partes de viajeros automáticos' },
           { name: 'twitter:description', content: 'PMS con envío automático de partes a SES Hospedajes y Ertzaintza. Encuestas INE, channel manager y motor de reservas.' },
           { name: 'twitter:image', content: 'https://gethospedy.com/og-image.png' },
+          { name: 'twitter:image:alt', content: 'Hospedy: el planning de reservas en un portátil y el auto check-in del huésped en un móvil' },
         ],
         link:[
           { rel: 'canonical', href: 'https://gethospedy.com' },
