@@ -25,17 +25,34 @@
   es de la pagina), con rueda horizontal o Mayus+rueda y con las flechas del teclado. Tocar
   una reserva abre su ficha a pantalla completa, como en el movil real.
 
+  El boton de las flechas, junto al del chat, activa el modo mover reservas, como en el panel y
+  como en el portatil: con el dedo la reserva se mantiene pulsada antes de arrastrarla (deslizar
+  antes es recorrer los dias o la pagina) y con el raton se arrastra. Si no cabe donde se
+  suelta, vuelve a su sitio. Solo se comprueba que las casillas esten libres en los datos de
+  ejemplo.
+
   Con "estatico" es una foto: sin eventos, sin animacion y sin ficha, para huecos pequennos.
 -->
 <template>
   <MockPhoneFrame ref="marcoEl" :role="estatico ? 'img' : null" :aria-label="estatico ? descripcion : null">
-    <div ref="appEl" class="hm-app" :class="{ 'is-foto': estatico }">
+    <div
+      ref="appEl"
+      class="hm-app"
+      :class="{ 'is-foto': estatico, 'is-mover': modoMover, 'is-despierta': despierta, 'is-duerme': duerme }"
+    >
       <div class="hm-app__nav" aria-hidden="true">
         <svg class="hm-app__logo" viewBox="0 0 260 70">
           <g transform="translate(5, 3) scale(1.6)"> <g transform="translate(-45.053681,-99.309918)"> <path fill="#0d9488" d="m 45.148833,121.47429 c 5.64e-4,-2.83541 0.07781,-5.22613 0.180269,-5.57893 0.360693,-1.24204 1.135154,-2.00215 5.113081,-5.01835 5.893415,-4.4686 10.41632,-7.55818 11.080034,-7.9014 0.747892,-0.38675 2.187605,-0.40916 3.151078,-0.14847 0.673851,0.18233 1.63612,0.82421 5.989411,3.99522 0.79077,0.57602 3.10609,2.25817 5.14516,3.73811 3.88641,2.82074 4.95286,3.81488 5.286,4.92757 0.2121,0.70842 0.35122,2.79804 0.19658,2.95268 -0.0499,0.05 -1.67388,0.45369 -3.60872,0.8972 -1.93485,0.44351 -4.32245,1.00131 -5.30578,1.23955 -2.43943,0.59102 -2.35726,0.60697 -2.35726,-0.45754 0,-1.37332 -0.68037,-2.37351 -1.889349,-2.77747 -0.596475,-0.1993 -2.116878,0.0154 -6.577321,0.9289 -1.11566,0.22848 -2.345972,0.46593 -2.734028,0.52766 -2.767535,0.44025 -4.321528,2.11474 -4.321528,4.65661 v 0.67531 0.16985 l -0.160051,0.0323 -1.647935,0.3328 c -0.994392,0.20082 -2.522361,0.54093 -3.395486,0.7558 -0.873125,0.21488 -2.162969,0.53097 -2.86632,0.70242 l -1.278819,0.31174 9.88e-4,-4.96158 z" /> <path fill="#0f766e" d="m 45.148831,130.87964 -9.84e-4,-3.80114 1.278819,-0.30707 c 3.51441,-0.84388 7.41812,-1.641 7.721677,-1.70385 0.122739,-0.0254 0.323083,-0.10914 0.324739,0.0607 0.0043,0.44413 -0.02832,1.50183 0.02338,6.64212 l 0.07237,7.19576 c -1.83558,0.12649 -5.417276,0.0966 -7.662009,0.0831 -0.672714,-0.0531 -1.125354,-0.67035 -1.395617,-1.16882 -0.736383,-2.13633 -0.362845,-4.82516 -0.362375,-7.0008 z m 25.046245,0.12765 v -8.02532 l 3.1309,-0.73844 c 1.72199,-0.40614 4.0834,-0.9685 5.24757,-1.24969 1.16416,-0.28119 2.45029,-0.43857 2.57156,-0.43888 0.17298,-3.5e-4 0.22277,1.4983 0.21973,7.34501 -0.004,6.83135 -0.26823,7.54516 -0.56303,8.19191 -0.47914,1.05108 -1.19686,1.81314 -2.20714,2.34352 -0.8841,0.46413 -0.98178,0.47538 -4.65133,0.53565 l -3.74826,0.0616 z" /> <g fill="#f59e0b"> <path d="m 78.960337,105.05075 c -0.15088,0.0251 -0.22423,0.43692 -0.28799,0.70383 -0.0782,0.32717 -0.3262,0.5858 -0.76125,0.79375 -0.88127,0.42125 -0.90271,0.66893 -0.0936,1.08169 0.49504,0.25255 0.73538,0.51499 0.85564,0.93431 0.23934,0.83451 0.68871,0.84488 1.07485,0.0248 0.21085,-0.44779 0.53694,-0.77593 0.977,-0.98314 0.82806,-0.3899 0.84192,-0.75017 0.0391,-1.01514 -0.44282,-0.14614 -0.72094,-0.40013 -0.96762,-0.88365 -0.40874,-0.80121 -0.46346,-0.71856 -0.83607,-0.65646 z m -4.83946,0.28365 c -0.15154,-0.17337 -0.36557,-0.59613 -0.47562,-0.93947 -0.19531,-0.60935 -0.95375,-1.10191 -1.47598,-1.22782 -0.27887,-0.0672 -0.86406,-0.60873 -0.74754,-0.91237 0.0544,-0.1418 0.49041,-0.42322 0.96887,-0.62536 0.77247,-0.32636 0.91951,-0.47963 1.31238,-1.36798 0.37183,-0.840769 0.50644,-0.991368 0.84337,-0.943554 0.28837,0.04092 0.52073,0.316532 0.82771,0.981774 0.38028,0.82407 0.52446,0.96125 1.32292,1.25869 0.51766,0.19284 0.92127,0.4596 0.95568,0.63165 0.0827,0.4136 -0.41841,0.91662 -1.03624,1.04019 -0.64095,0.12819 -1.05951,0.59316 -1.40973,1.56604 -0.29937,0.8316 -0.66914,1.01489 -1.08582,0.53821 z" /> <path d="m 65.766821,139.59097 c -0.436561,-0.0328 -2.103436,-0.17778 -3.704165,-0.32227 -1.60073,-0.14449 -3.448447,-0.31054 -4.106037,-0.369 l -1.195622,-0.10629 -0.0405,-9.15289 -0.01638,-3.70262 c -0.0261,-5.25515 -0.839499,-4.40523 4.407607,-5.52553 2.573249,-0.56623 4.748327,-0.83765 5.749901,-0.68608 1.110927,0.21914 0.925883,1.73868 0.948195,2.35691 0.0504,1.44744 0.06989,4.00615 0.07106,8.2363 l 0.0026,9.39271 -0.661458,-0.0308 c -0.363802,-0.017 -1.018646,-0.0576 -1.455209,-0.0904 z m 0.399112,-8.18603 c 0.483388,-0.59148 0.561617,-1.18959 0.242986,-1.85776 -0.729033,-1.5288 -3.111541,-0.98307 -3.111541,0.71271 0,0.64295 0.403735,1.29431 0.944915,1.52446 0.575471,0.24474 1.574609,0.0477 1.92364,-0.37941 z" /> </g> </g> </g>
           <text x="75" y="47" font-size="34" font-weight="700" fill="#0D9488">Hospedy</text>
         </svg>
         <span class="hm-app__burger"><i /><i /><i /></span>
+      </div>
+
+      <!-- banda del modo mover, como la del panel: en el movil va fija arriba, sobre la barra -->
+      <div v-if="modoMover" class="hm-banda">
+        <svg class="hm-banda__ic" viewBox="0 0 24 24" aria-hidden="true"><path :d="FLECHAS" /></svg>
+        <span>Modo mover reservas: arrastra para cambiarlas de habitación o fecha</span>
+        <button type="button" class="hm-banda__salir" @click="salirModo()">Salir</button>
       </div>
 
       <div
@@ -88,10 +105,19 @@
               class="hm-bar"
               :class="[
                 'hm-bar--' + b.e,
-                { 'hm-bar--izq': b.cortaIzq, 'hm-bar--der': b.cortaDer, 'is-sib': b.g && b.g === grupoActivo, 'is-open': abierta === b.id },
+                {
+                  'hm-bar--izq': b.cortaIzq,
+                  'hm-bar--der': b.cortaDer,
+                  'is-sib': b.g && b.g === grupoActivo,
+                  'is-open': abierta === b.id,
+                  'is-origen': arrastre && arrastre.i === b.i,
+                },
               ]"
               :style="{ left: px(b.x), top: px(b.y), width: px(b.w) }"
               :data-bar="b.id"
+              @click="alClicBarra(b)"
+              @pointerdown="barraPulsar($event, b)"
+              @contextmenu="alMenu"
               @mouseenter="grupoActivo = b.g || null"
               @mouseleave="grupoActivo = null"
             >
@@ -114,24 +140,51 @@
                 </template>
               </span>
             </div>
+
+            <!-- la silueta del arrastre, como la del panel: encaja en la rejilla y sale en rojo
+                 si la reserva no cabe -->
+            <div
+              v-if="fantasma"
+              class="hm-bar hm-ghost"
+              :class="fantasma.valido ? 'is-ok' : 'is-ko'"
+              :style="{ left: px(fantasma.x), top: px(fantasma.y), width: px(fantasma.w) }"
+            >
+              <span v-if="fantasma.etiqueta" class="hm-ghost__lbl">{{ fantasma.etiqueta }}</span>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- botones flotantes del planning: buscar, mover reservas y el chat de Hugo -->
-      <div class="hm-fabs" aria-hidden="true">
-        <span class="hm-fab hm-fab--find">
+      <div class="hm-fabs">
+        <span class="hm-fab hm-fab--find" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 21 21" /></svg>
         </span>
-        <span class="hm-fab hm-fab--move">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5 15.6 5.3h-2.4v5.5h5.5V8.4L22.5 12l-3.8 3.6v-2.4h-5.5v5.5h2.4L12 22.5l-3.6-3.8h2.4v-5.5H5.3v2.4L1.5 12l3.8-3.6v2.4h5.5V5.3H8.4z" /></svg>
+        <button
+          v-if="!estatico"
+          type="button"
+          class="hm-fab hm-fab--move"
+          :class="{ 'is-on': modoMover }"
+          :aria-pressed="modoMover ? 'true' : 'false'"
+          aria-label="Modo mover reservas"
+          @click="alternarModo()"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path :d="FLECHAS" /></svg>
+        </button>
+        <span v-else class="hm-fab hm-fab--move" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path :d="FLECHAS" /></svg>
         </span>
-        <span class="hm-fab hm-fab--chat">
+        <span class="hm-fab hm-fab--chat" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.2 1.1 4.2 2.9 5.6-.2 1.6-1 3.1-2.2 4.1 2.2-.1 4.2-.9 5.6-2.1 1.2.4 2.4.5 3.7.5 5.5 0 10-3.6 10-8S17.5 3 12 3Z" /><circle cx="7.8" cy="11" r="1.4" fill="#f59e0b" /><circle cx="12" cy="11" r="1.4" fill="#f59e0b" /><circle cx="16.2" cy="11" r="1.4" fill="#f59e0b" /></svg>
         </span>
       </div>
 
       <span class="hm-tag" aria-hidden="true">Datos de ejemplo</span>
+
+      <!-- el aviso de exito, como los toasts del panel -->
+      <p v-if="aviso" :key="aviso.n" class="hm-aviso" role="status">
+        {{ aviso.texto }}<span class="hm-aviso__x" aria-hidden="true">&times;</span>
+      </p>
 
       <!-- ficha de la reserva a pantalla completa, como en el movil real -->
       <div
@@ -317,8 +370,10 @@ const { habs: HABS_BASE, reservas: RESERVAS } = planningEjemplo(props.perfil);
 const HABS = HABS_BASE.map((h) => ({ ...h, id: (h.acc || "") + "-" + h.n }));
 const MAX_Y = Math.max(0, HABS.length * FILA - VISIBLE_Y + 8);
 
-/* iconos del panel: candado del cierre y documento de "pendiente de facturar" (los logos de
-   agencia van en MockLogoAgencia) */
+/* iconos del panel: las flechas del boton de mover, el candado del cierre y el documento de
+   "pendiente de facturar" (los logos de agencia van en MockLogoAgencia) */
+const FLECHAS =
+  "M12 1.5 15.6 5.3h-2.4v5.5h5.5V8.4L22.5 12l-3.8 3.6v-2.4h-5.5v5.5h2.4L12 22.5l-3.6-3.8h2.4v-5.5H5.3v2.4L1.5 12l3.8-3.6v2.4h5.5V5.3H8.4z";
 const CANDADO =
   "M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z";
 const FACTURA = [
@@ -326,20 +381,24 @@ const FACTURA = [
   "M12.81,4.86V8.64a.83.83,0,0,0,.81.84h3.63Z",
 ];
 
-/* c = dia de entrada (negativo si empezo antes del primer dia), s = noches */
-const barras = RESERVAS.map((r, i) => {
-  const a = Math.max(0, r.c);
-  const b = Math.min(DIAS, r.c + r.s);
-  return {
-    ...r,
-    id: i,
-    x: a * COL + 1,
-    y: r.f * FILA + 1,
-    w: (b - a) * COL - 1,
-    cortaIzq: r.c < 0,
-    cortaDer: r.c + r.s > DIAS,
-  };
-}).filter((b) => b.w > 0);
+/* las reservas se pueden mover: cambian su fila (f) y su dia de entrada (c); "i" no cambia */
+function reservasIniciales() {
+  return RESERVAS.map((r, i) => ({ ...r, i }));
+}
+const reservas = ref(reservasIniciales());
+
+/* f = fila, c = dia de entrada (negativo si empezo antes del primer dia), s = noches */
+function posBarra(f, c, s) {
+  const a = Math.max(0, c);
+  const b = Math.min(DIAS, c + s);
+  return { x: a * COL + 1, y: f * FILA + 1, w: (b - a) * COL - 1 };
+}
+
+const barras = computed(() =>
+  reservas.value
+    .map((r) => ({ ...r, id: r.i, ...posBarra(r.f, r.c, r.s), cortaIzq: r.c < 0, cortaDer: r.c + r.s > DIAS }))
+    .filter((b) => b.w > 0)
+);
 
 const dias = DIAS_PLANNING;
 
@@ -361,6 +420,12 @@ const grupoActivo = ref(null);
 const abierta = ref(null);
 const ficha = ref(null);
 
+const modoMover = ref(false);
+const despierta = ref(false);
+const duerme = ref(false);
+const arrastre = ref(null); /* { i, f0, c0, f, c, valido } mientras se arrastra una reserva */
+const aviso = ref(null);
+
 const estiloX = computed(() => ({ transform: "translate3d(" + px(-offX.value) + ",0,0)" }));
 const estiloY = computed(() => ({ transform: "translate3d(0," + px(-offY.value) + ",0)" }));
 const estiloXY = computed(() => ({ transform: "translate3d(" + px(-offX.value) + "," + px(-offY.value) + ",0)" }));
@@ -371,7 +436,20 @@ const barrasVisibles = computed(() => {
   const x1 = offX.value + VISIBLE_X + 3 * COL;
   const y0 = offY.value - 4 * FILA;
   const y1 = offY.value + VISIBLE_Y + 4 * FILA;
-  return barras.filter((b) => b.x + b.w > x0 && b.x < x1 && b.y + FILA > y0 && b.y < y1);
+  return barras.value.filter((b) => b.x + b.w > x0 && b.x < x1 && b.y + FILA > y0 && b.y < y1);
+});
+
+/* la silueta del arrastre, con los dias que se desplaza la reserva */
+const fantasma = computed(() => {
+  const a = arrastre.value;
+  if (!a) return null;
+  const r = reservas.value[a.i];
+  const dc = a.c - r.c;
+  return {
+    valido: a.valido,
+    ...posBarra(a.f, a.c, r.s),
+    etiqueta: a.valido && dc ? (dc > 0 ? "+" : "") + dc + (Math.abs(dc) === 1 ? " día" : " días") : "",
+  };
 });
 
 /* el mes del rotulo: el del dia que se ve en el centro, como en el panel */
@@ -381,8 +459,9 @@ function limitar(v, max) {
   return Math.max(0, Math.min(max, v));
 }
 
+/* px de pantalla por px del movil (con cualquier transform de los ancestros) */
 function escala() {
-  const w = appEl.value ? appEl.value.clientWidth : 0;
+  const w = appEl.value ? appEl.value.getBoundingClientRect().width : 0;
   return w > 0 ? w / ANCHO : 1;
 }
 
@@ -425,12 +504,16 @@ function vistazo() {
   });
 }
 
-/* --- arrastre --- */
+/* --- arrastre para recorrer el planning. En modo mover, el raton sobre una reserva la
+   arrastra a ella (barraPulsar); el dedo recorre los dias hasta que la pulsacion larga
+   levanta la reserva --- */
 let pulsado = null;
 
 function alPulsar(e) {
   if (e.button !== undefined && e.button !== 0) return;
   if (ficha.value) return;
+  const tactil = e.pointerType === "touch";
+  if (modoMover.value && !tactil && e.target.closest && e.target.closest("[data-bar]")) return;
   parar();
   if (e.pointerType === "mouse") e.preventDefault(); /* sin esto, arrastrar selecciona texto */
   pulsado = { id: e.pointerId, x: e.clientX, y: e.clientY, ox: offX.value, oy: offY.value, k: escala(), tipo: e.pointerType, movido: false };
@@ -438,12 +521,20 @@ function alPulsar(e) {
 
 function alMover(e) {
   if (!pulsado || e.pointerId !== pulsado.id) return;
+  if (e.pointerType === "mouse" && !(e.buttons & 1)) {
+    /* el boton se solto fuera del movil antes de arrastrar */
+    alSoltar(e);
+    return;
+  }
+  if (gesto && gesto.activo) return; /* la reserva esta levantada: el dedo la lleva a ella */
   const dx = e.clientX - pulsado.x;
   const dy = e.clientY - pulsado.y;
   if (!pulsado.movido) {
     if (Math.hypot(dx, dy) < 5) return;
     pulsado.movido = true;
     arrastrando.value = true;
+    /* si se desliza antes de la pulsacion larga, gana recorrer los dias */
+    if (gesto) gestoCancelar();
     try {
       calEl.value.setPointerCapture(e.pointerId);
     } catch (err) {
@@ -460,9 +551,21 @@ function alSoltar(e) {
   const movido = pulsado.movido;
   pulsado = null;
   arrastrando.value = false;
-  if (movido) return;
-  const el = e.target && e.target.closest ? e.target.closest("[data-bar]") : null;
-  if (el) abrir(Number(el.dataset.bar));
+  /* el clic que llega al soltar tras recorrer el planning no abre la ficha */
+  if (movido) sinClicUnMomento();
+}
+
+/* tocar una reserva (sin arrastrar) abre su ficha, tambien en modo mover, como en el panel */
+let sinClic = false;
+function sinClicUnMomento() {
+  sinClic = true;
+  setTimeout(() => {
+    sinClic = false;
+  }, 0);
+}
+function alClicBarra(b) {
+  if (sinClic || props.estatico) return;
+  abrir(b.id);
 }
 
 function alCancelar() {
@@ -517,7 +620,7 @@ const manejadores = {
 /* con el teclado se abre la primera reserva "en casa" que se vea entera */
 function abrirVisible(teclado) {
   const vista = (b) => b.x >= offX.value && b.x + b.w <= offX.value + VISIBLE_X && b.y >= offY.value && b.y + FILA <= offY.value + VISIBLE_Y;
-  const b = barras.find((x) => x.e === "in" && vista(x)) || barras.find(vista);
+  const b = barras.value.find((x) => x.e === "in" && vista(x)) || barras.value.find(vista);
   if (b) abrir(b.id, teclado);
 }
 
@@ -528,10 +631,10 @@ function nombreHab(f) {
 }
 
 function abrir(id, teclado) {
-  const b = barras.find((x) => x.id === id);
+  const b = barras.value.find((x) => x.id === id);
   if (!b) return;
   parar();
-  const hermanas = b.g ? barras.filter((x) => x.g === b.g) : [b];
+  const hermanas = b.g ? barras.value.filter((x) => x.g === b.g) : [b];
   const hechos =
     b.hechos !== undefined ? b.hechos : b.e === "in" || b.e === "past" ? b.pax : b.e === "pre" ? Math.max(0, b.pax - 1) : 0;
   const hecho = b.e === "in" || b.e === "past";
@@ -564,10 +667,150 @@ function cerrar() {
   if (calEl.value) calEl.value.focus({ preventScroll: true });
 }
 
+/* ---- modo mover reservas, como el del panel: al entrar las barras se sacuden y al salir se
+   asientan ---- */
+let tModo = 0;
+function alternarModo() {
+  parar();
+  gestoCancelar();
+  modoMover.value = !modoMover.value;
+  despierta.value = modoMover.value;
+  duerme.value = !modoMover.value;
+  clearTimeout(tModo);
+  tModo = setTimeout(() => {
+    despierta.value = false;
+    duerme.value = false;
+  }, 700);
+}
+function salirModo() {
+  if (modoMover.value) alternarModo();
+}
+
+/* el gesto del visitante: con raton, la reserva se levanta al moverla 5 px; con el dedo, al
+   mantenerla pulsada 350 ms (si antes se desliza, gana desplazar: los dias en horizontal y la
+   pagina en vertical) */
+let gesto = null;
+
+function barraPulsar(e, b) {
+  if (props.estatico || !modoMover.value || gesto || ficha.value) return;
+  if (e.button !== undefined && e.button !== 0) return;
+  const tactil = e.pointerType === "touch";
+  if (!tactil) e.preventDefault(); /* sin esto, el raton selecciona el texto de la barra */
+  gesto = { id: e.pointerId, tactil, x0: e.clientX, y0: e.clientY, i: b.i, activo: false, t: 0 };
+  document.addEventListener("pointermove", gestoMover);
+  document.addEventListener("pointerup", gestoSoltar);
+  document.addEventListener("pointercancel", gestoCancelar);
+  document.addEventListener("keydown", gestoTecla);
+  if (tactil) gesto.t = setTimeout(levantar, 350);
+}
+function levantar() {
+  if (!gesto || gesto.activo) return;
+  gesto.t = 0;
+  gesto.activo = true;
+  parar();
+  if (gesto.tactil && navigator.vibrate) {
+    try {
+      navigator.vibrate(30);
+    } catch (err) {
+      /* la vibracion es opcional */
+    }
+  }
+  empezarArrastre(gesto.i);
+}
+function gestoMover(e) {
+  if (!gesto || e.pointerId !== gesto.id) return;
+  const dx = e.clientX - gesto.x0;
+  const dy = e.clientY - gesto.y0;
+  if (!gesto.activo) {
+    if (gesto.tactil) {
+      if (Math.abs(dx) > 10 || Math.abs(dy) > 10) gestoCancelar();
+      return;
+    }
+    if (Math.abs(dx) < 5 && Math.abs(dy) < 5) return;
+    levantar();
+  }
+  const s = escala();
+  moverArrastre(dx / s, dy / s);
+}
+function gestoSoltar(e) {
+  if (!gesto || e.pointerId !== gesto.id) return;
+  const activo = gesto.activo;
+  quitarGesto();
+  if (!activo) return;
+  soltarArrastre();
+  /* el clic que llega al soltar no abre la ficha */
+  sinClicUnMomento();
+}
+function gestoTecla(e) {
+  if (e.key === "Escape") gestoCancelar();
+}
+function gestoCancelar() {
+  quitarGesto();
+  arrastre.value = null;
+}
+function quitarGesto() {
+  if (gesto && gesto.t) clearTimeout(gesto.t);
+  gesto = null;
+  document.removeEventListener("pointermove", gestoMover);
+  document.removeEventListener("pointerup", gestoSoltar);
+  document.removeEventListener("pointercancel", gestoCancelar);
+  document.removeEventListener("keydown", gestoTecla);
+}
+/* con la reserva levantada, el dedo no desplaza la pagina. El escuchador (NO pasivo) va
+   puesto desde el principio en el planning: el navegador solo lo respeta si ya estaba al tocar */
+function bloquearScroll(e) {
+  if (gesto && gesto.activo) e.preventDefault();
+}
+/* sin el menu del navegador al mantener pulsada una reserva */
+function alMenu(e) {
+  if (modoMover.value) e.preventDefault();
+}
+
+function empezarArrastre(i) {
+  const r = reservas.value[i];
+  arrastre.value = { i, f0: r.f, c0: r.c, f: r.f, c: r.c, valido: true };
+}
+/* dx y dy en px del movil desde donde se agarro: la casilla cambia al pasar media */
+function moverArrastre(dx, dy) {
+  const a = arrastre.value;
+  if (!a) return;
+  const r = reservas.value[a.i];
+  const f = Math.max(0, Math.min(HABS.length - 1, a.f0 + Math.round(dy / FILA)));
+  const c = Math.max(Math.min(0, a.c0), Math.min(Math.max(DIAS - r.s, a.c0), a.c0 + Math.round(dx / COL)));
+  if (f === a.f && c === a.c) return;
+  arrastre.value = { ...a, f, c, valido: libre(a.i, f, c, r.s) };
+}
+/* la unica regla de la maqueta: que las noches no pisen otra reserva de esa fila */
+function libre(i, f, c, s) {
+  return reservas.value.every((o) => o.i === i || o.f !== f || o.c + o.s <= c || o.c >= c + s);
+}
+function soltarArrastre() {
+  const a = arrastre.value;
+  arrastre.value = null;
+  if (!a || !a.valido) return;
+  const r = reservas.value[a.i];
+  if (a.f === r.f && a.c === r.c) return;
+  reservas.value = reservas.value.map((x) => (x.i === a.i ? { ...x, f: a.f, c: a.c } : x));
+  avisar("Reserva movida correctamente");
+}
+
+/* ---- avisos como los del panel ---- */
+let nAviso = 0;
+let tAviso = 0;
+function avisar(texto) {
+  nAviso += 1;
+  aviso.value = { texto, n: nAviso };
+  clearTimeout(tAviso);
+  tAviso = setTimeout(() => {
+    aviso.value = null;
+  }, 2600);
+}
+
 let io = null;
 
 onMounted(() => {
   if (props.estatico) return;
+  if (calEl.value) calEl.value.addEventListener("touchmove", bloquearScroll, { passive: false });
   const reducido = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reducido || !("IntersectionObserver" in window)) return;
   const raiz = marcoEl.value && marcoEl.value.$el;
@@ -588,6 +831,10 @@ onMounted(() => {
 onBeforeUnmount(() => {
   if (io) io.disconnect();
   parar();
+  if (calEl.value) calEl.value.removeEventListener("touchmove", bloquearScroll);
+  quitarGesto();
+  clearTimeout(tModo);
+  clearTimeout(tAviso);
 });
 </script>
 
@@ -738,8 +985,11 @@ onBeforeUnmount(() => {
 .hm-date--hoy {
   background: var(--hm-today-bg);
   color: var(--hm-today-fg);
-  border: 1px solid var(--hm-day);
-  border-top: 0;
+  /* borde a los lados y abajo, en px del movil, como el de las habitaciones */
+  box-shadow:
+    inset calc(1 * var(--p)) 0 0 var(--hm-day),
+    inset calc(-1 * var(--p)) 0 0 var(--hm-day),
+    inset 0 calc(-1 * var(--p)) 0 var(--hm-day);
 }
 
 .hm-cal__rooms {
@@ -759,7 +1009,9 @@ onBeforeUnmount(() => {
   height: calc(38 * var(--p));
   margin-bottom: calc(1 * var(--p));
   padding: calc(2 * var(--p)) calc(5 * var(--p));
-  border: 1px solid currentColor;
+  /* el borde de 1 px del panel, en px del movil y como sombra: un borde no baja de 1 px de
+     pantalla y, en el movil pequenno de la foto, cada casilla parecia un recuadro */
+  box-shadow: inset 0 0 0 calc(1 * var(--p)) currentColor;
   border-radius: 0 calc(10 * var(--p)) calc(10 * var(--p)) 0;
   box-sizing: border-box;
   overflow: hidden;
@@ -960,6 +1212,186 @@ onBeforeUnmount(() => {
   paint-order: stroke;
 }
 
+/* ============ Modo mover reservas, como en el panel ============ */
+.hm-app.is-mover .hm-bar {
+  cursor: grab;
+}
+.hm-bar.is-origen {
+  opacity: 0.35;
+}
+/* al entrar, las barras "cobran vida" un instante; al salir, se asientan */
+@keyframes hm-sacude {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  20% {
+    transform: rotate(-1.1deg) scale(1.015);
+  }
+  45% {
+    transform: rotate(1.1deg) scale(1.015);
+  }
+  70% {
+    transform: rotate(-0.6deg) scale(1.008);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+.hm-app.is-despierta .hm-bar {
+  animation: hm-sacude 0.55s ease-in-out;
+}
+.hm-app.is-despierta .hm-bar:nth-child(even) {
+  animation-delay: 0.09s;
+}
+@keyframes hm-asienta {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(0.965);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.hm-app.is-duerme .hm-bar {
+  animation: hm-asienta 0.4s ease-out;
+}
+
+/* la silueta: verde si cabe, roja si no */
+.hm-bar.hm-ghost {
+  pointer-events: none;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(12 * var(--p));
+  font-weight: 700;
+  text-transform: none;
+  animation: hm-pop 0.18s ease-out;
+}
+.hm-ghost.is-ok {
+  background: rgba(20, 184, 166, 0.45);
+  border: calc(2 * var(--p)) dashed #14b8a6;
+  color: #06413b;
+}
+.hm-ghost.is-ko {
+  background: rgba(194, 85, 46, 0.35);
+  border: calc(2 * var(--p)) dashed #bb5835;
+  color: #7a2407;
+}
+.hm-ghost__lbl {
+  white-space: nowrap;
+  overflow: hidden;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+}
+@keyframes hm-pop {
+  0% {
+    transform: scale(0.94);
+  }
+  60% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* la banda: en el movil del panel va fija arriba y tapa la barra */
+.hm-banda {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  min-height: calc(52 * var(--p));
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(8 * var(--p));
+  padding: calc(6 * var(--p)) calc(10 * var(--p));
+  background: rgba(204, 251, 241, 0.85);
+  color: #06413b;
+  font-size: calc(12 * var(--p));
+  font-weight: 600;
+  line-height: 1.35;
+  box-shadow: 0 1px calc(6 * var(--p)) rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(94, 234, 212, 0.85);
+  animation: hm-aparece 0.18s ease-out;
+}
+.hm-banda span {
+  min-width: 0;
+}
+.hm-banda__ic {
+  flex: 0 0 auto;
+  width: calc(13 * var(--p));
+  height: calc(13 * var(--p));
+  fill: currentColor;
+}
+.hm-banda__salir {
+  flex: 0 0 auto;
+  font: inherit;
+  font-size: calc(12.5 * var(--p));
+  font-weight: 700;
+  line-height: 1.4;
+  border: 1px solid #06413b;
+  background: rgba(255, 255, 255, 0.9);
+  color: #06413b;
+  border-radius: calc(6 * var(--p));
+  padding: calc(2 * var(--p)) calc(12 * var(--p));
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .hm-banda__salir:hover {
+    background: #06413b;
+    color: #fff;
+  }
+}
+.hm-banda__salir:focus-visible {
+  outline: 2px solid var(--hm-day);
+  outline-offset: 2px;
+}
+
+/* el aviso de exito, como los toasts del panel (arriba, bajo la banda) */
+.hm-aviso {
+  position: absolute;
+  top: calc(60 * var(--p));
+  left: calc(8 * var(--p));
+  right: calc(8 * var(--p));
+  z-index: 8;
+  margin: 0;
+  padding: calc(10 * var(--p)) calc(22 * var(--p));
+  border: 1px solid #e2dfdd;
+  border-radius: calc(7 * var(--p));
+  background: #d4edda;
+  color: #155724;
+  font-size: calc(15 * var(--p));
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  opacity: 0.94;
+  box-shadow: 0 calc(4 * var(--p)) calc(12 * var(--p)) rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  animation: hm-aparece 0.2s ease-out;
+}
+/* la X de cierre de los avisos del panel */
+.hm-aviso__x {
+  position: absolute;
+  top: calc(2 * var(--p));
+  right: calc(8 * var(--p));
+  font-size: calc(18 * var(--p));
+  line-height: 1;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.45);
+}
+@keyframes hm-aparece {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-6 * var(--p)));
+  }
+}
+
 /* ============ Flotantes ============ */
 .hm-fabs {
   position: absolute;
@@ -1006,6 +1438,30 @@ onBeforeUnmount(() => {
 .hm-fab--chat svg {
   width: 44%;
   height: 44%;
+}
+/* el de mover reservas es un boton de verdad: activa el modo, como en el panel */
+button.hm-fab {
+  border: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: background 0.14s, color 0.14s;
+}
+@media (hover: hover) {
+  button.hm-fab--move:hover {
+    background: #fff;
+    color: #0f766e;
+  }
+}
+.hm-fab--move.is-on,
+.hm-fab--move.is-on:hover {
+  background: #14b8a6;
+  color: #06413b;
+}
+button.hm-fab:focus-visible {
+  outline: 2px solid var(--hm-day);
+  outline-offset: 2px;
 }
 
 .hm-tag {
@@ -1337,6 +1793,13 @@ onBeforeUnmount(() => {
   .hm-modal,
   .hm-card {
     transition: none;
+  }
+  .hm-app.is-despierta .hm-bar,
+  .hm-app.is-duerme .hm-bar,
+  .hm-bar.hm-ghost,
+  .hm-banda,
+  .hm-aviso {
+    animation: none;
   }
 }
 </style>
