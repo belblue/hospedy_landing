@@ -12,7 +12,7 @@
   "Guardar huesped" valida como la app real y, al guardar, vuelve a la lista de huespedes.
   El formulario se recorre arrastrando con el raton o con el teclado; la rueda y el gesto
   vertical del dedo siguen siendo de la pagina, y tras cada paso la maqueta baja sola al
-  siguiente.
+  siguiente (mientras se rellenan los datos, va bajando con el campo que se rellena).
 
   Con "demo" se reproduce sola y en bucle mientras se ve (foto, datos, firma, aceptacion y
   guardado, con un circulo que marca cada toque); en cuanto el visitante toca algo se para y
@@ -151,7 +151,7 @@
                     <p class="hm-panel__d">Deben coincidir exactamente con el documento de identidad.</p>
                   </div>
                   <div class="hm-fields">
-                    <div v-for="c in campos" :key="c.k" :data-err="errores[c.k] ? 'si' : null">
+                    <div v-for="c in campos" :key="c.k" :data-campo="c.k" :data-err="errores[c.k] ? 'si' : null">
                       <p class="hm-lbl">
                         {{ c.l }}
                         <svg v-if="c.info" class="hm-lbl__i" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 8C119 8 8 119.1 8 256c0 137 111 248 248 248s248-111 248-248C504 119.1 393 8 256 8zm0 110c23.2 0 42 18.8 42 42s-18.8 42-42 42-42-18.8-42-42 18.8-42 42-42zm56 254c0 6.6-5.4 12-12 12h-88c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h12v-64h-12c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h64c6.6 0 12 5.4 12 12v100h12c6.6 0 12 5.4 12 12z" /></svg>
@@ -533,6 +533,7 @@ function alScroll() {
 function cancelar() {
   if (animacion) cancelAnimationFrame(animacion);
   animacion = 0;
+  siguiendo = false;
 }
 function irA(destino, ms, fin) {
   cancelar();
@@ -556,12 +557,57 @@ function irA(destino, ms, fin) {
   };
   animacion = requestAnimationFrame(paso);
 }
-/* posicion de un elemento dentro de la pagina, en px del movil (inmune a transforms) */
-function posDe(el) {
+/* posicion de un elemento dentro de la pagina, en px del movil (inmune a transforms); con
+   "abajo", la de su borde inferior */
+function posDe(el, abajo) {
   if (!el || !docEl.value) return 0;
   const rd = docEl.value.getBoundingClientRect();
   const k = rd.width / ANCHO || 1;
-  return (el.getBoundingClientRect().top - rd.top) / k;
+  const re = el.getBoundingClientRect();
+  return ((abajo ? re.bottom : re.top) - rd.top) / k;
+}
+
+/* ---- seguir: mientras se rellenan los datos, la vista baja con el campo que se esta
+   rellenando. Persigue un destino que avanza a saltos con un muelle sin rebote, asi que
+   baja de corrido, sin arrancar y frenar en cada campo. Lo corta cualquier gesto ---- */
+let seguirActivo = false;
+let siguiendo = false;
+let destinoSeguir = 0;
+const MUELLE = 14;
+
+function seguirCampo(k) {
+  /* con movimiento reducido los datos salen de golpe y no hay nada que seguir */
+  if (!seguirActivo || reducido) return;
+  const v = vistaEl.value;
+  const el = docEl.value && docEl.value.querySelector('[data-campo="' + k + '"]');
+  if (!v || !el) return;
+  /* el campo queda por encima del borde, con aire para ver que vienen mas */
+  const x = limitar(posDe(el, true) + 240 - v.clientHeight / escala());
+  if (siguiendo) {
+    destinoSeguir = Math.max(destinoSeguir, x);
+    return;
+  }
+  if (x <= off.value + 0.5) return;
+  cancelar();
+  siguiendo = true;
+  destinoSeguir = x;
+  let vel = 0;
+  let t0 = performance.now();
+  const paso = (t) => {
+    const dt = Math.max(0, Math.min(0.05, (t - t0) / 1000));
+    t0 = t;
+    const d = destinoSeguir - off.value;
+    vel += (MUELLE * MUELLE * d - 2 * MUELLE * vel) * dt;
+    if (Math.abs(d) < 0.5 && Math.abs(vel) < 6) {
+      fijar(destinoSeguir);
+      animacion = 0;
+      siguiendo = false;
+      return;
+    }
+    fijar(off.value + vel * dt);
+    animacion = requestAnimationFrame(paso);
+  };
+  animacion = requestAnimationFrame(paso);
 }
 
 let tInd = 0;
@@ -589,6 +635,7 @@ function mostrarIndicador() {
 let tocado = false;
 function tomarControl() {
   tocado = true;
+  seguirActivo = false;
   cancelar();
   pulso.value = false;
 }
@@ -718,15 +765,18 @@ function rellenar() {
   nextTick(() => {
     irA(posDe(datosEl.value) - 8, 900, () => {
       const llenos = campos.value.filter((c) => c.v).map((c) => c.k);
-      const paso = reducido ? 0 : 110;
+      const paso = reducido ? 0 : 150;
+      seguirActivo = true;
       llenos.forEach((k, i) =>
         luego(paso * i, () => {
           revelados.value = [...revelados.value, k];
           if (!reducido) nuevos.value = [...nuevos.value, k];
+          seguirCampo(k);
         })
       );
       /* con los datos a la vista, baja a la firma */
       luego(paso * llenos.length + 1400, () => {
+        seguirActivo = false;
         nuevos.value = [];
         if (!hayFirma.value) irA(posDe(firmaEl.value) - 8, 1400, () => {
           if (!reducido) pulsoFirma.value = true;
@@ -854,6 +904,7 @@ function guardar() {
 function reiniciar() {
   cancelarTemporizadores();
   clearTimeout(tFirma);
+  seguirActivo = false;
   fase.value = "inicio";
   datos.value = null;
   revelados.value = [];
