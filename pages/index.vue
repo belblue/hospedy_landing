@@ -32,7 +32,7 @@
         <div class="w-full">
           <div class="grid lg:grid-cols-[45%_55%]">
             <div
-              class="mx-10 lg:mt-12 order-2 lg:order-1 flex flex-col justify-center"
+              class="mx-10 mt-8 lg:mt-12 order-2 lg:order-1 flex flex-col justify-center"
             >
               <!-- Trust Badges -->
               <div
