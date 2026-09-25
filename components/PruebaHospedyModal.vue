@@ -33,6 +33,7 @@
             Elige lo que mejor te encaje. Sin tarjeta de crédito y sin compromiso.
           </p>
 
+          <!-- flex-none en los botones: .btn trae flex 1 1 auto y en una tarjeta en columna se estira -->
           <div class="grid gap-4 md:grid-cols-3">
             <!-- Demo asistida: el formulario de /demo, que llega al equipo por email -->
             <div class="border border-gray-200 rounded-xl p-5 flex flex-col">
@@ -45,7 +46,7 @@
               <p class="text-gray-600 mb-4 flex-1">
                 Una persona del equipo te enseña Hospedy y te va resolviendo las dudas mientras lo ves.
               </p>
-              <NuxtLink to="/demo" class="btn btn-outline text-center" @click="cerrar">Pedir demo asistida</NuxtLink>
+              <NuxtLink to="/demo" class="btn btn-outline flex-none text-center" @click="cerrar">Pedir demo asistida</NuxtLink>
             </div>
 
             <!-- Cuenta de demo: cuestionario corto y entorno de pruebas con datos ficticios -->
@@ -62,7 +63,7 @@
               <p class="text-gray-600 mb-4 flex-1">
                 Responde un breve cuestionario y te preparamos un entorno de pruebas parecido a tu alojamiento, con datos ficticios, para que lo pruebes a tu aire.
               </p>
-              <NuxtLink to="/cuenta-demo" class="btn btn-outline text-center" @click="cerrar">Quiero mi cuenta de demo</NuxtLink>
+              <NuxtLink to="/cuenta-demo" class="btn btn-outline flex-none text-center" @click="cerrar">Quiero mi cuenta de demo</NuxtLink>
             </div>
 
             <!-- Cuenta propia: el registro de la app, con el código de amigo si lo hay -->
@@ -76,7 +77,7 @@
               <p class="text-gray-600 mb-4 flex-1">
                 ¿Ya lo has probado y lo tienes claro? Crea tu cuenta y nuestro asistente de configuración te ayuda a dejarlo todo listo, como en la demo, en menos de 15 minutos.
               </p>
-              <a :href="appUrl('/register')" class="btn btn-grad text-center" title="Crea tu cuenta de Hospedy y empieza la prueba gratis">Crear mi cuenta</a>
+              <a :href="appUrl('/register')" class="btn btn-grad flex-none text-center" title="Crea tu cuenta de Hospedy y empieza la prueba gratis">Crear mi cuenta</a>
               <p class="text-sm text-gray-500 text-center mt-2">30 días gratis</p>
             </div>
           </div>

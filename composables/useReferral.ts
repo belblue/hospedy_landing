@@ -15,11 +15,18 @@ export function normalizarCodigo (raw: unknown): string {
 export function useReferral () {
   const config = useRuntimeConfig()
   const cookie = useCookie<string | null>(COOKIE, { maxAge: MAX_AGE, sameSite: 'lax', path: '/' })
-  const codigo = computed(() => cookie.value || '')
+  // El código vive también en un estado compartido, que Nuxt pasa del servidor al navegador: en el
+  // servidor, un useCookie no ve lo que otro acaba de escribir, y sin esto la primera visita con
+  // ?ref= saldría sin la barra ni el código en los enlaces y el navegador no hidrataría lo mismo.
+  const estado = useState<string>('hospedy-ref', () => cookie.value || '')
+  const codigo = computed(() => estado.value)
 
   function guardar (raw: unknown) {
     const limpio = normalizarCodigo(raw)
-    if (limpio) cookie.value = limpio
+    if (limpio) {
+      cookie.value = limpio
+      estado.value = limpio
+    }
   }
 
   // Enlace a la app de Hospedy (inicio de sesión, registro) llevando el código si lo hay
