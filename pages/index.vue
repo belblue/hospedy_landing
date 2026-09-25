@@ -745,17 +745,15 @@
       </div>
 
       <div class="grid lg:grid-cols-2 lg:mb-20 relative">
+        <!-- el planning de Hospedy rodeado de agencias, en CSS (sustituye a
+             /channel_manager.svg). Una sola vez: en el movil va debajo del texto -->
         <div
-          class="hidden lg:flex justify-center items-center"
+          class="order-2 lg:order-1 flex justify-center items-center mt-8 lg:mt-0"
           data-aos="fade-right"
         >
-          <img
-            src="/channel_manager.svg"
-            class="w-1/2"
-            alt="Channel manager Hospedy"
-          />
+          <div class="w-3/4 max-w-[440px]"><MockCanales /></div>
         </div>
-        <div class="mx-10" data-aos="fade-left">
+        <div class="order-1 lg:order-2 mx-10" data-aos="fade-left">
           <p class="text-4xl mb-4 text-secondary">
             Channel Manager: todo sincronizado
           </p>
@@ -775,13 +773,6 @@
             class="inline-block mt-4 text-xl text-primary font-semibold hover:underline"
             >Ver agencias disponibles →</NuxtLink
           >
-        </div>
-        <div class="lg:hidden flex justify-center">
-          <img
-            src="/channel_manager.svg"
-            class="w-1/2"
-            alt="Channel manager Hospedy"
-          />
         </div>
       </div>
 
