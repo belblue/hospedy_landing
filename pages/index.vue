@@ -147,19 +147,20 @@
                 Para todo tipo de alojamientos turísticos, todos gestionados
                 bajo un mismo perfil.
               </h2>
+              <!-- cada botón en una línea; si no caben los dos en la fila, uno debajo del otro -->
               <div
-                class="flex flex-col sm:flex-row gap-3"
+                class="flex flex-col sm:flex-row sm:flex-wrap gap-3"
                 data-aos="fade-up"
                 data-aos-delay="400"
               >
                 <a
-                  class="btn btn-grad-wave btn-shimmer px-5 py-2"
+                  class="btn btn-grad-wave btn-shimmer px-5 py-2 whitespace-nowrap"
                   :href="appUrl('/register')"
                   title="Crea tu cuenta de Hospedy y empieza la prueba gratis"
                   >Prueba gratis 30 días</a
                 >
                 <PruebaHospedyButton
-                  class="btn btn-outline-gradient btn-wiggle px-5 py-2"
+                  class="btn btn-outline-gradient btn-wiggle px-5 py-2 whitespace-nowrap"
                   title="Elige cómo probar Hospedy: demo asistida, cuenta de demo o tu propia cuenta"
                   ><span>¡Prueba Hospedy en 5 minutos!</span></PruebaHospedyButton
                 >
