@@ -108,6 +108,10 @@ export default defineNuxtConfig({
         // NUXT_PUBLIC_CLIENT_APP_URL: en dev, el panel de dev; en prod, app.ridid.me hasta que el
         // panel se mude a app.hospedy.app.
         clientAppUrl: "https://app.ridid.me",
+        // Orquestador de la demo bajo demanda (admin panel), que recibe el cuestionario de
+        // /cuenta-demo. Se pone por entorno con NUXT_PUBLIC_DEMO_API_BASE; vacío, la cuenta de
+        // demo sale como "Muy pronto" y /cuenta-demo ofrece las otras dos formas de probar.
+        demoApiBase: "",
       },
     },
     routeRules: {

@@ -163,7 +163,7 @@
                 <h2 class="text-3xl font-bold mb-4">¿Aún no eres cliente?</h2>
                 <p class="text-xl text-gray-600 mb-8">Crea tu cuenta, prueba Hospedy 30 días gratis y empieza a invitar a tus amigos.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
+                    <PruebaHospedyButton class="btn btn-grad" />
                     <NuxtLink class="btn btn-outline" to="/precios">Ver precios</NuxtLink>
                 </div>
             </div>

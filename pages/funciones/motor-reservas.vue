@@ -12,7 +12,7 @@
                     Recibe reservas directamente en tu web. Sin comisiones por reserva, sin intermediarios. Cada reserva directa es dinero que no pagas a Booking.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
+                    <PruebaHospedyButton class="btn btn-grad" />
                 </div>
             </div>
 
@@ -132,7 +132,7 @@
                 <h2 class="text-3xl font-bold mb-4">Empieza a recibir reservas directas</h2>
                 <p class="text-xl text-gray-600 mb-8">El motor de reservas está incluido en tu suscripción. Sin coste adicional.</p>
                 <div class="flex flex-col gap-4 items-center">
-                    <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
+                    <PruebaHospedyButton class="btn btn-grad" />
                 </div>
             </div>
         </div>

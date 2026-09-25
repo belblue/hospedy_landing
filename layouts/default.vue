@@ -7,6 +7,8 @@
       <NuxtPage />
       <!-- Programa Amigos: barra "Te ha invitado un amigo" cuando se llega con un código -->
       <ReferralBanner />
+      <!-- "¡Prueba Hospedy en 5 minutos!": el modal que abren todos los PruebaHospedyButton -->
+      <PruebaHospedyModal />
     </div>
 </template>
 <script lang="ts" >

@@ -3,9 +3,8 @@
     <Navbar />
     <ExitIntentPopup />
 
-    <!-- Floating Demo Button -->
-    <NuxtLink
-      to="/demo"
+    <!-- Floating Demo Button: abre el modal "¡Prueba Hospedy en 5 minutos!" -->
+    <PruebaHospedyButton
       class="fixed right-0 top-1/2 -translate-y-1/2 z-50 bg-gradient-to-b from-primary to-secondary text-white font-semibold py-3 px-4 rounded-l-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-x-1 writing-vertical hidden lg:flex items-center gap-2 animate-bounce-subtle"
     >
       <svg
@@ -21,8 +20,8 @@
           d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
         ></path>
       </svg>
-      Solicitar demo
-    </NuxtLink>
+      ¡Prueba Hospedy en 5 minutos!
+    </PruebaHospedyButton>
     <!-- Hero Section. El padding de arriba deja sitio a la barra fija: sin el, cuando el
          contenido no cabe en una pantalla (movil, tablet), empieza debajo de ella -->
     <div
@@ -159,11 +158,10 @@
                   title="Crea tu cuenta de Hospedy y empieza la prueba gratis"
                   >Prueba gratis 30 días</a
                 >
-                <NuxtLink
+                <PruebaHospedyButton
                   class="btn btn-outline-gradient btn-wiggle px-5 py-2"
-                  to="/demo"
-                  title="Solicita una demostración personalizada de Hospedy"
-                  ><span>Solicitar demo</span></NuxtLink
+                  title="Elige cómo probar Hospedy: demo asistida, cuenta de demo o tu propia cuenta"
+                  ><span>¡Prueba Hospedy en 5 minutos!</span></PruebaHospedyButton
                 >
               </div>
               <p class="mt-4 text-lg text-gray-500">
@@ -878,12 +876,7 @@
             >
               Ver precios
             </NuxtLink>
-            <NuxtLink
-              to="/demo"
-              class="btn border-2 border-gold text-gold hover:bg-gold/10 text-lg px-8 py-3 font-semibold"
-            >
-              Solicitar demo
-            </NuxtLink>
+            <PruebaHospedyButton class="btn border-2 border-gold text-gold hover:bg-gold/10 text-lg px-8 py-3 font-semibold" />
           </div>
           <p class="text-gray-700 mt-4 text-sm">
             30 días gratis · Sin compromiso
@@ -938,7 +931,7 @@
                                 <p class="text-primary text-4xl my-2"> {{price.toFixed(2)}} <span >€/año</span> </p>
                                 <p class="text-gray-500"> {{vat_price.toFixed(2)}} €/año con IVA</p>
                                 <div class="mt-6">
-                                    <NuxtLink class="btn btn-grad p-3" to="/demo" title="Solicita una demo de Hospedy">Solicitar demo</NuxtLink>
+                                    <PruebaHospedyButton class="btn btn-grad p-3" title="Elige cómo probar Hospedy" />
                                 </div>
                                 <p class="text-xl mt-4 text-secondary"> Disfruta de 30 días gratis sin compromiso.</p>
 

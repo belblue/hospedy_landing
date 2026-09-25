@@ -214,7 +214,7 @@
             Crea tu cuenta y prueba Hospedy gratis durante 30 días. Somos el único PMS con envío automático completo.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
+            <PruebaHospedyButton class="btn btn-grad" />
             <NuxtLink class="btn btn-outline" to="/funciones/encuestas-ine"
               >Saber más</NuxtLink
             >

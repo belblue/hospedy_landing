@@ -221,7 +221,7 @@
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <NuxtLink class="btn btn-grad" to="/precios">Ver precios</NuxtLink>
-            <NuxtLink class="btn btn-outline" to="/demo">Solicitar demo</NuxtLink>
+            <PruebaHospedyButton class="btn btn-outline" />
           </div>
         </div>
       </div>

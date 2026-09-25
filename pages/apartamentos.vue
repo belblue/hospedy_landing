@@ -43,7 +43,7 @@
                         </li>
                     </ul>
                     <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="300">
-                        <NuxtLink class="btn btn-grad btn-shimmer" to="/demo">Solicitar demo</NuxtLink>
+                        <PruebaHospedyButton class="btn btn-grad btn-shimmer" />
                     </div>
                 </div>
                 <div class="flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
@@ -203,7 +203,7 @@
                 <h2 class="text-3xl font-bold mb-4 text-white" data-aos="fade-up">Prueba Hospedy en tus apartamentos</h2>
                 <p class="text-xl text-white/90 mb-8" data-aos="fade-up" data-aos-delay="100">Crea tu cuenta: 30 días gratis, sin tarjeta de crédito y sin compromiso.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
-                    <NuxtLink class="btn bg-white text-primary hover:bg-gray-100 font-semibold" to="/demo">Solicitar demo personalizada</NuxtLink>
+                    <PruebaHospedyButton class="btn bg-white text-primary hover:bg-gray-100 font-semibold" />
                 </div>
             </div>
         </div>

@@ -53,7 +53,7 @@
                             </li>
                         </ul>
                         <p class="text-xs text-gray-400 text-center mb-4">OTA extra: 79€ setup + 10€/mes</p>
-                        <NuxtLink to="/demo" class="btn btn-outline w-full block text-center">Solicitar demo</NuxtLink>
+                        <PruebaHospedyButton class="btn btn-outline w-full block text-center" />
                     </div>
 
                     <!-- Profesional (Recommended) -->
@@ -97,7 +97,7 @@
                             </li>
                         </ul>
                         <p class="text-xs text-primary-100 text-center mb-4">OTA extra: 49€ setup + 10€/mes</p>
-                        <NuxtLink to="/demo" class="bg-white text-primary font-semibold py-2 px-4 rounded-lg w-full block text-center hover:bg-gray-100 transition-colors">Solicitar demo</NuxtLink>
+                        <PruebaHospedyButton class="bg-white text-primary font-semibold py-2 px-4 rounded-lg w-full block text-center hover:bg-gray-100 transition-colors" />
                     </div>
 
                     <!-- Business -->
@@ -138,7 +138,7 @@
                             </li>
                         </ul>
                         <p class="text-xs text-gray-400 text-center mb-4">OTA extra: 29€ setup + 10€/mes</p>
-                        <NuxtLink to="/demo" class="btn btn-outline w-full block text-center">Solicitar demo</NuxtLink>
+                        <PruebaHospedyButton class="btn btn-outline w-full block text-center" />
                     </div>
 
                     <!-- Enterprise -->
@@ -179,7 +179,7 @@
                             </li>
                         </ul>
                         <p class="text-xs text-gray-400 text-center mb-4">Sin coste extra por OTAs</p>
-                        <NuxtLink to="/demo" class="btn btn-outline w-full block text-center">Solicitar demo</NuxtLink>
+                        <PruebaHospedyButton class="btn btn-outline w-full block text-center" />
                     </div>
                 </div>
                 <p class="text-center text-gray-500 mt-6">* Precios sin IVA</p>
@@ -287,7 +287,7 @@
                 <h2 class="text-3xl font-bold mb-4">¿Listo para empezar?</h2>
                 <p class="text-xl text-gray-600 mb-8">Crea tu cuenta: 30 días gratis, sin tarjeta de crédito y sin compromiso.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
+                    <PruebaHospedyButton class="btn btn-grad" />
                     <NuxtLink class="btn btn-outline" to="/comparar">Comparar con otros PMS</NuxtLink>
                 </div>
             </div>

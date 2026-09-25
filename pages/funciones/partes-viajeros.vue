@@ -12,7 +12,7 @@
                     Olvida las multas y el papeleo. Hospedy genera y envía los partes automáticamente a SES Hospedajes y Ertzaintza cada vez que haces un check-in.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
+                    <PruebaHospedyButton class="btn btn-grad" />
                 </div>
             </div>
 
@@ -168,7 +168,7 @@
                 <h2 class="text-3xl font-bold mb-4">Empieza a automatizar tus partes hoy</h2>
                 <p class="text-xl text-gray-600 mb-8">Crea tu cuenta: 30 días gratis y sin tarjeta de crédito.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
+                    <PruebaHospedyButton class="btn btn-grad" />
                 </div>
             </div>
         </div>

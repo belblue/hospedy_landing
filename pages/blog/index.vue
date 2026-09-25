@@ -191,7 +191,7 @@
           <h2 class="text-2xl font-bold mb-4">¿Quieres recibir más consejos?</h2>
           <p class="text-gray-600 mb-6">Suscríbete a nuestro boletín y recibe guías prácticas para gestionar tu alojamiento.</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <a href="#contacto" class="btn btn-grad">Contactar con nosotros</a>
+            <NuxtLink to="/#contacto" class="btn btn-grad">Contactar con nosotros</NuxtLink>
           </div>
         </div>
       </div>

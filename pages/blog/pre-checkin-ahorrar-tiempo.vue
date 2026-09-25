@@ -158,7 +158,7 @@
             El pre check-in está incluido en todos los planes de Hospedy. Crea tu cuenta y pruébalo gratis durante 30 días.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
+            <PruebaHospedyButton class="btn btn-grad" />
             <NuxtLink class="btn btn-outline" to="/precios">Ver precios</NuxtLink>
           </div>
         </div>

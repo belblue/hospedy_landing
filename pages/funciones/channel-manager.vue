@@ -12,7 +12,7 @@
                     Conecta con Booking, Airbnb, Expedia y más de 50 OTAs. Actualiza precios y disponibilidad desde un solo lugar.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
+                    <PruebaHospedyButton class="btn btn-grad" />
                 </div>
             </div>
 
@@ -165,7 +165,7 @@
                 <h2 class="text-3xl font-bold mb-4">Sincroniza todas tus OTAs</h2>
                 <p class="text-xl text-gray-600 mb-8">Crea tu cuenta y prueba el Channel Manager 30 días gratis.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
+                    <PruebaHospedyButton class="btn btn-grad" />
                 </div>
             </div>
         </div>

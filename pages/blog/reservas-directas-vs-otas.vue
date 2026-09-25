@@ -400,7 +400,7 @@
             Hospedy incluye motor de reservas sin comisiones. Crea tu cuenta y pruébalo gratis durante 30 días.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
+            <PruebaHospedyButton class="btn btn-grad" />
             <NuxtLink class="btn btn-outline" to="/funciones/motor-reservas"
               >Ver motor de reservas</NuxtLink
             >

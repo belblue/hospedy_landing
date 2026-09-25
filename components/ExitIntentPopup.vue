@@ -83,20 +83,18 @@
 
             <!-- CTAs -->
             <div class="space-y-3">
-              <NuxtLink
-                to="/demo"
+              <a
+                :href="appUrl('/register')"
                 class="block w-full btn btn-grad py-3"
+                title="Crea tu cuenta de Hospedy y empieza la prueba gratis"
                 @click="closePopup"
               >
-                Solicitar demo
-              </NuxtLink>
-              <NuxtLink
-                to="/demo"
+                Crear mi cuenta
+              </a>
+              <PruebaHospedyButton
                 class="block w-full btn btn-outline py-3"
                 @click="closePopup"
-              >
-                Solicitar una demo
-              </NuxtLink>
+              />
             </div>
 
             <p class="text-xs text-gray-400 mt-4">
@@ -112,6 +110,7 @@
 <script setup lang="ts">
 const showPopup = ref(false);
 const hasShownPopup = useState("exitPopupShown", () => false);
+const { appUrl } = useReferral();
 
 onMounted(() => {
   // Ya se ha mostrado en esta visita: estado en memoria, sin escribir nada en el navegador.

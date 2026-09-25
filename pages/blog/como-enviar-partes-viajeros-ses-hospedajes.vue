@@ -212,7 +212,7 @@
             Crea tu cuenta, prueba Hospedy gratis durante 30 días y olvídate del papeleo.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
+            <PruebaHospedyButton class="btn btn-grad" />
             <NuxtLink class="btn btn-outline" to="/funciones/partes-viajeros"
               >Saber más</NuxtLink
             >
