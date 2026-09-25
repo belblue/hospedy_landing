@@ -948,7 +948,7 @@
                     <div>
                         <h2 class="text-3xl mb-4 text-secondary">Channel Manager (opcional)</h2>
                         <p class="text-xl">Conecta con Booking, Expedia, Airbnb y más de 50 OTAs. Servicio ofrecido por WuBook.</p>
-                        <p class="text-lg mt-4 text-gray-600">Precio: <span class="font-semibold">8€/mes por agencia</span> (+ IVA)</p>
+                        <p class="text-lg mt-4 text-gray-600">Precio: <span class="font-semibold">10€/mes por agencia</span> (+ IVA)</p>
                         <a class="inline-block mt-4 text-xl text-primary font-semibold hover:underline" target="_blank" href="https://es.wubook.net/s-pgs/partners-ota/Canales-con-conexin-XML-4.html">Ver agencias disponibles →</a>
                     </div>
                     <div class="text-center">
@@ -1122,8 +1122,8 @@ const rooms = ref(6);
 const price = ref(120);
 const vat_price = ref(145.2);
 const otas = ref(1);
-const price_channel = ref(8);
-const vat_price_channel = ref(9.68);
+const price_channel = ref(10);
+const vat_price_channel = ref(12.1);
 
 async function calculatePrice() {
   if (rooms.value === undefined || rooms.value === 0) {
@@ -1164,7 +1164,7 @@ async function calculatePriceChannel() {
     price_channel.value = 0;
     //this.monthly_price = '';
   } else {
-    price_channel.value = otas.value * 8;
+    price_channel.value = otas.value * 10;
     vat_price_channel.value = price_channel.value * 1.21;
     //this.monthly_price=14;
   }

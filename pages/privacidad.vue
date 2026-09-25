@@ -5,7 +5,7 @@
             <p class="text-4xl text-primary text-center px-4">POLÍTICA DE PRIVACIDAD</p>
         </div>
         <div class="m-10">
-            <p class="text-xl">Última actualización: 24 de septiembre de 2026.</p>
+            <p class="text-xl">Última actualización: 25 de septiembre de 2026.</p>
             <p class="text-xl mt-4">Hospedy es un servicio de <span class="blue font-semibold">Silatek, S.L.U.</span> En esta política te explicamos qué datos personales tratamos, para qué, con qué base jurídica, a quién se los comunicamos, cuánto tiempo los conservamos y cómo puedes ejercer tus derechos. Se aplica a esta web (gethospedy.com) y a los servicios de Hospedy en hospedy.app.</p>
             <p class="text-xl mt-4">Tratamos los datos conforme a la ley andorrana de protección de datos (Llei 29/2021, del 28 d'octubre, qualificada de protecció de dades personals) y al Reglamento (UE) 2016/679, general de protección de datos (RGPD), en lo que resulte aplicable a nuestra actividad en España.</p>
 
@@ -106,6 +106,7 @@
                 <li class="text-xl list-disc"><strong>Administraciones públicas, juzgados y tribunales</strong>, solo cuando una ley nos obligue a comunicárselos.</li>
             </ul>
             <p class="text-xl mt-4">Los proveedores que tratan datos por nuestra cuenta lo hacen como encargados del tratamiento: solo pueden usarlos para prestarnos su servicio y deben protegerlos. Las entidades bancarias y de pago y las administraciones públicas los tratan conforme a su propia normativa.</p>
+            <p class="text-xl mt-4">Además, si te registras con el código de amigo de otro cliente, ese cliente verá en su Programa Amigos el nombre de tu alojamiento y si ya has pagado tu primera cuota. No ve tu correo electrónico ni tus datos de facturación. Te lo avisamos también en el formulario de registro, junto al código.</p>
             <p class="text-xl mt-4">Además, según su <a href="https://www.cloudflare.com/turnstile-privacy-policy/" class="text-primary" target="_blank" rel="noopener">anexo de privacidad de Turnstile</a>, Cloudflare usa por su cuenta los datos técnicos que recoge Turnstile para mejorar ese servicio. Y si nos escribes por WhatsApp, ese servicio lo presta un tercero con sus propias condiciones y su propia política de privacidad.</p>
 
             <div class="flex justify-center my-8">
