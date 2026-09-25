@@ -104,7 +104,15 @@ export default defineNuxtConfig({
       public: {
         // API del backend (formularios). Se sobrescribe por entorno con NUXT_PUBLIC_BASE_URL.
         baseURL: "https://api.hospedy.app",
+        // App de Hospedy (inicio de sesión y registro). Se sobrescribe por entorno con
+        // NUXT_PUBLIC_CLIENT_APP_URL: en dev, el panel de dev; en prod, app.ridid.me hasta que el
+        // panel se mude a app.hospedy.app.
+        clientAppUrl: "https://app.ridid.me",
       },
+    },
+    routeRules: {
+      // atajo del Programa Amigos: solo redirige, nunca se indexa
+      '/r/**': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
     },
     nitro: {
       preset: 'node-server',

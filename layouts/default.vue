@@ -5,6 +5,8 @@
          afectada -->
     <div class="overflow-x-clip">
       <NuxtPage />
+      <!-- Programa Amigos: barra "Te ha invitado un amigo" cuando se llega con un código -->
+      <ReferralBanner />
     </div>
 </template>
 <script lang="ts" >

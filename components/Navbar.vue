@@ -69,7 +69,7 @@
       <div class="">
         <a
           class="btn btn-grad-gold align-middle flex flex-wrap text-black"
-          href="https://app.hospedy.app/"
+          :href="appUrl('/')"
           >Iniciar sesión</a
         >
       </div>
@@ -182,6 +182,7 @@
   </div>
 </template>
 <script setup lang="ts">
+const { appUrl } = useReferral();
 const open = ref(false);
 const isHidden = ref(false);
 const lastScrollY = ref(0);

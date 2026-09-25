@@ -153,11 +153,11 @@
                 data-aos="fade-up"
                 data-aos-delay="400"
               >
-                <NuxtLink
+                <a
                   class="btn btn-grad-wave btn-shimmer px-5 py-2"
-                  to="/#contacto"
-                  title="Accede a la página de registro de Hospedy para iniciar la prueba gratis"
-                  >Prueba gratis 30 días</NuxtLink
+                  :href="appUrl('/register')"
+                  title="Crea tu cuenta de Hospedy y empieza la prueba gratis"
+                  >Prueba gratis 30 días</a
                 >
                 <NuxtLink
                   class="btn btn-outline-gradient btn-wiggle px-5 py-2"
@@ -1021,6 +1021,8 @@
   </div>
 </template>
 <script setup lang="ts">
+// enlaces a la app (registro) con el código de amigo si se llegó con uno
+const { appUrl } = useReferral();
 const showScrollTop = ref(false);
 const showScrollIndicator = ref(true);
 const activeCheckInTab = ref(0);

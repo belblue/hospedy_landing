@@ -12,8 +12,12 @@
                     <img class="w-10"  src="/whatsapp.svg" alt="cuenta de whatsapp de Hospedy">
             </a>
             <div class="mt-3">
-                <a class="btn btn-grad align-middle" href="https://app.hospedy.app/" >Iniciar sesión</a>
+                <a class="btn btn-grad align-middle" :href="appUrl('/')" >Iniciar sesión</a>
             </div>
         </div>
     </div>
 </template>
+
+<script setup lang="ts">
+const { appUrl } = useReferral()
+</script>
