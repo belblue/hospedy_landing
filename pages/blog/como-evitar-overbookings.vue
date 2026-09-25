@@ -23,7 +23,7 @@
         >
           <span>7 min lectura</span>
           <span class="mx-2">·</span>
-          <span>Actualizado Febrero 2026</span>
+          <span>Actualizado febrero de 2026</span>
         </div>
       </header>
 
@@ -120,17 +120,17 @@
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Esencial</td>
                 <td class="px-4 py-3 text-sm text-gray-700">1</td>
-                <td class="px-4 py-3 text-sm text-gray-700">€79 + €10/mes</td>
+                <td class="px-4 py-3 text-sm text-gray-700">79&nbsp;€ + 10&nbsp;€/mes</td>
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Profesional</td>
                 <td class="px-4 py-3 text-sm text-gray-700">2</td>
-                <td class="px-4 py-3 text-sm text-gray-700">€49 + €10/mes</td>
+                <td class="px-4 py-3 text-sm text-gray-700">49&nbsp;€ + 10&nbsp;€/mes</td>
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Business</td>
                 <td class="px-4 py-3 text-sm text-gray-700">3</td>
-                <td class="px-4 py-3 text-sm text-gray-700">€29 + €10/mes</td>
+                <td class="px-4 py-3 text-sm text-gray-700">29&nbsp;€ + 10&nbsp;€/mes</td>
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700 font-medium">Enterprise</td>

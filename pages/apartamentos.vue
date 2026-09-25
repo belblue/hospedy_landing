@@ -65,7 +65,7 @@
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="0">
                             <IconoReto nombre="comisiones" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"Las comisiones me comen"</h3>
-                            <p class="text-gray-600">Booking cobra 15%, Airbnb otro tanto... Con un motor de reservas propio, cada reserva directa es 100% tuya.</p>
+                            <p class="text-gray-600">Booking cobra 15&nbsp;%, Airbnb otro tanto... Con un motor de reservas propio, cada reserva directa es 100&nbsp;% tuya.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="100">
                             <IconoReto nombre="noshow" class="mb-4" />
@@ -88,21 +88,21 @@
                     <div class="grid lg:grid-cols-2 gap-8">
                         <div class="bg-white p-6 rounded-xl border-2 border-red-200 lift-hover">
                             <h3 class="text-xl font-semibold mb-4 text-red-600">Reserva vía Booking</h3>
-                            <p class="text-gray-600 mb-2">Apartamento 3 noches × 100€/noche</p>
-                            <p class="text-gray-600 mb-4">Comisión Booking: 15%</p>
-                            <p class="text-3xl font-bold text-red-600">-45€</p>
+                            <p class="text-gray-600 mb-2">Apartamento 3 noches × 100&nbsp;€/noche</p>
+                            <p class="text-gray-600 mb-4">Comisión Booking: 15&nbsp;%</p>
+                            <p class="text-3xl font-bold text-red-600">-45&nbsp;€</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl border-2 border-green-200 lift-hover">
                             <h3 class="text-xl font-semibold mb-4 text-green-600">Reserva directa con Hospedy</h3>
-                            <p class="text-gray-600 mb-2">Apartamento 3 noches × 100€/noche</p>
-                            <p class="text-gray-600 mb-4">Comisión Hospedy: 0%</p>
-                            <p class="text-3xl font-bold text-green-600">0€</p>
+                            <p class="text-gray-600 mb-2">Apartamento 3 noches × 100&nbsp;€/noche</p>
+                            <p class="text-gray-600 mb-4">Comisión Hospedy: 0&nbsp;%</p>
+                            <p class="text-3xl font-bold text-green-600">0&nbsp;€</p>
                         </div>
                     </div>
                     <div class="text-center mt-8 p-4 bg-white/80 rounded-lg">
                         <p class="text-lg">
-                            Con <span class="font-bold">10 reservas directas al mes</span> de 300€ de media,
-                            <span class="font-bold text-primary">ahorras 450€/mes</span> en comisiones.
+                            Con <span class="font-bold">10 reservas directas al mes</span> de 300&nbsp;€ de media,
+                            <span class="font-bold text-primary">ahorras 450&nbsp;€/mes</span> en comisiones.
                         </p>
                     </div>
                 </div>
@@ -191,7 +191,7 @@
                 <div class="max-w-3xl mx-auto px-6 text-center" data-aos="fade-up">
                     <div class="text-5xl mb-6 text-secondary">"</div>
                     <p class="text-2xl text-gray-700 mb-6">
-                        Gestiono 8 apartamentos en el centro de Zaragoza. Desde que uso Hospedy he pasado del 90% de reservas por Booking al 60%. El resto son directas y me ahorro una pasta.
+                        Gestiono 8 apartamentos en el centro de Zaragoza. Desde que uso Hospedy he pasado del 90&nbsp;% de reservas por Booking al 60&nbsp;%. El resto son directas y me ahorro una pasta.
                     </p>
                     <p class="font-semibold text-lg">Laura Martínez</p>
                     <p class="text-gray-500">Apartamentos Centro Zaragoza</p>

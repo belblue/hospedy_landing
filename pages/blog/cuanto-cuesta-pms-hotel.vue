@@ -16,21 +16,21 @@
           ¿Cuánto cuesta un PMS para hotel pequeño en 2026?
         </h1>
         <p class="text-xl text-gray-600 mb-6">
-          Un PMS para hotel pequeño o casa rural en España cuesta entre €120 y €1.500 al año. La media del mercado está en €50-70 al mes para soluciones completas con channel manager incluido.
+          Un PMS para hotel pequeño o casa rural en España cuesta entre 120&nbsp;€ y 1.500&nbsp;€ al año. La media del mercado está en 50-70&nbsp;€ al mes para soluciones completas con channel manager incluido.
         </p>
         <div
           class="flex items-center text-lg text-gray-500 border-b border-gray-200 pb-6"
         >
           <span>8 min lectura</span>
           <span class="mx-2">·</span>
-          <span>Actualizado Febrero 2026</span>
+          <span>Actualizado febrero de 2026</span>
         </div>
       </header>
 
       <!-- Content -->
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
         <p class="lead">
-          Hospedy ofrece todo incluido desde €350/año. El retorno de inversión típico es recuperar el coste en 1-6 meses gracias al ahorro de tiempo y reducción de errores.
+          Hospedy ofrece todo incluido desde 350&nbsp;€/año. El retorno de inversión típico es recuperar el coste en 1-6 meses gracias al ahorro de tiempo y reducción de errores.
         </p>
 
         <h2>Rango de precios del mercado</h2>
@@ -47,23 +47,23 @@
             <tbody class="divide-y divide-gray-200">
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Básico (solo channel manager)</td>
-                <td class="px-4 py-3 text-sm text-gray-700">€10 - €20</td>
-                <td class="px-4 py-3 text-sm text-gray-700">€120 - €240</td>
+                <td class="px-4 py-3 text-sm text-gray-700">10-20&nbsp;€</td>
+                <td class="px-4 py-3 text-sm text-gray-700">120-240&nbsp;€</td>
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Completo (PMS + CM + Motor)</td>
-                <td class="px-4 py-3 text-sm text-gray-700">€50 - €70</td>
-                <td class="px-4 py-3 text-sm text-gray-700">€600 - €840</td>
+                <td class="px-4 py-3 text-sm text-gray-700">50-70&nbsp;€</td>
+                <td class="px-4 py-3 text-sm text-gray-700">600-840&nbsp;€</td>
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Premium (plataformas internacionales)</td>
-                <td class="px-4 py-3 text-sm text-gray-700">€100+</td>
-                <td class="px-4 py-3 text-sm text-gray-700">€1.200+</td>
+                <td class="px-4 py-3 text-sm text-gray-700">100&nbsp;€+</td>
+                <td class="px-4 py-3 text-sm text-gray-700">1.200&nbsp;€+</td>
               </tr>
               <tr class="bg-green-50">
                 <td class="px-4 py-3 text-sm font-medium text-gray-900">Hospedy (todo incluido)</td>
-                <td class="px-4 py-3 text-sm text-gray-700">€29 - €129</td>
-                <td class="px-4 py-3 text-sm font-medium text-green-600">€350 - €1.290</td>
+                <td class="px-4 py-3 text-sm text-gray-700">29-129&nbsp;€</td>
+                <td class="px-4 py-3 text-sm font-medium text-green-600">350-1.290&nbsp;€</td>
               </tr>
             </tbody>
           </table>
@@ -74,23 +74,23 @@
 
         <h3>Costes de implementación</h3>
         <ul>
-          <li><strong>Configuración inicial:</strong> algunos sistemas cobran €100+ por puesta en marcha</li>
+          <li><strong>Configuración inicial:</strong> algunos sistemas cobran 100&nbsp;€+ por puesta en marcha</li>
           <li><strong>Formación:</strong> pueden cobrarte por horas de training</li>
           <li><strong>Migración de datos:</strong> pasar información de tu sistema anterior</li>
         </ul>
 
         <h3>Comisiones por reserva</h3>
         <ul>
-          <li>Algunos sistemas cobran un porcentaje de cada reserva (2-4%)</li>
+          <li>Algunos sistemas cobran un porcentaje de cada reserva (2-4&nbsp;%)</li>
           <li>AvaiBook, por ejemplo, tiene comisiones en su pasarela de pagos</li>
           <li>Con muchas reservas, estas comisiones pueden superar el coste del software</li>
         </ul>
 
         <h3>Servicios adicionales</h3>
         <ul>
-          <li>RuralGest cobra por diseño web (€150-1.200)</li>
-          <li>Packs de SEO (€220-800)</li>
-          <li>Mantenimiento SEO mensual (€90/mes)</li>
+          <li>RuralGest cobra por diseño web (150-1.200&nbsp;€)</li>
+          <li>Packs de SEO (220-800&nbsp;€)</li>
+          <li>Mantenimiento SEO mensual (90&nbsp;€/mes)</li>
           <li>Soporte premium o prioritario</li>
         </ul>
 
@@ -106,21 +106,21 @@
         <ul>
           <li><strong>ROI medio:</strong> hasta 17x en algunos casos</li>
           <li><strong>Tiempo de amortización:</strong> típicamente 1-6 meses</li>
-          <li><strong>Ahorro de tiempo:</strong> hasta 75% en tareas administrativas</li>
+          <li><strong>Ahorro de tiempo:</strong> hasta 75&nbsp;% en tareas administrativas</li>
           <li><strong>Reducción de errores:</strong> menos multas, menos overbookings</li>
         </ul>
 
         <h3>¿De dónde viene el ahorro?</h3>
         <ul>
           <li><strong>Menos tiempo en tareas manuales:</strong> partes de viajeros, INE, sincronización de calendarios</li>
-          <li><strong>Más reservas directas:</strong> motor de reservas sin comisiones vs 15-30% de OTAs</li>
+          <li><strong>Más reservas directas:</strong> motor de reservas sin comisiones vs 15-30&nbsp;% de OTAs</li>
           <li><strong>Menos errores:</strong> sin overbookings, sin multas por partes tardíos</li>
           <li><strong>Mejor gestión:</strong> informes, estadísticas, control de ocupación</li>
         </ul>
 
         <h2>El nivel de digitalización en España</h2>
         <p>
-          Según estudios recientes, solo el <strong>31% de las PYMES turísticas en España</strong> están completamente digitalizadas. Esto significa que hay una gran oportunidad:
+          Según estudios recientes, solo el <strong>31&nbsp;% de las PYMES turísticas en España</strong> están completamente digitalizadas. Esto significa que hay una gran oportunidad:
         </p>
         <ul>
           <li>Los alojamientos digitalizados tienen ventaja competitiva</li>
@@ -129,8 +129,8 @@
           <li>Tienen mejor visibilidad online</li>
         </ul>
 
-        <h2>¿Qué incluye Hospedy por €350/año?</h2>
-        <p>El plan Esencial de Hospedy (€350/año) incluye:</p>
+        <h2>¿Qué incluye Hospedy por 350&nbsp;€/año?</h2>
+        <p>El plan Esencial de Hospedy (350&nbsp;€/año) incluye:</p>
 
         <div class="bg-green-50 p-6 rounded-xl my-8 not-prose">
           <ul class="space-y-2">
@@ -236,7 +236,7 @@ useHead({
   meta: [
     {
       name: "description",
-      content: "Un PMS para hotel pequeño cuesta entre €120 y €1.500 al año. Hospedy ofrece todo incluido desde €350/año. Análisis de precios, costes ocultos y ROI.",
+      content: "Un PMS para hotel pequeño cuesta entre 120 € y 1.500 € al año. Hospedy ofrece todo incluido desde 350 €/año. Análisis de precios, costes ocultos y ROI.",
     },
   ],
 });

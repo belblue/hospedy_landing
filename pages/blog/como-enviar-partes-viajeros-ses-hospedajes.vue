@@ -23,7 +23,7 @@
         >
           <span>10 min lectura</span>
           <span class="mx-2">·</span>
-          <span>Actualizado Febrero 2026</span>
+          <span>Actualizado febrero de 2026</span>
         </div>
       </header>
 
@@ -33,13 +33,13 @@
           Desde el 2 de diciembre de 2024, el Real Decreto 933/2021 obliga a todos los alojamientos turísticos en España a enviar los partes de viajeros a través de SES Hospedajes. Con Hospedy, el proceso se reduce a 4 clics: escanear el documento, asignar habitación, guardar y marcar check-in.
         </p>
 
-        <h2>El problema: multas de hasta 30.000€</h2>
+        <h2>El problema: multas de hasta 30.000&nbsp;€</h2>
         <p>
           El plazo máximo para enviar el parte es de <strong>24 horas</strong> desde el check-in. Las sanciones por incumplimiento son severas:
         </p>
         <ul>
-          <li><strong>Infracciones leves (€100 - €600):</strong> envío fuera de plazo, datos incompletos</li>
-          <li><strong>Infracciones graves (€601 - €30.000):</strong> no enviar, no registrar, incumplimiento reiterado</li>
+          <li><strong>Infracciones leves (100-600&nbsp;€):</strong> envío fuera de plazo, datos incompletos</li>
+          <li><strong>Infracciones graves (601-30.000&nbsp;€):</strong> no enviar, no registrar, incumplimiento reiterado</li>
         </ul>
         <p>
           El proceso manual consume tiempo valioso: entrar en la web de SES, teclear todos los datos del huésped, revisar errores, enviar... Y repetir con cada huésped. En temporada alta, esto puede suponer horas de trabajo administrativo.

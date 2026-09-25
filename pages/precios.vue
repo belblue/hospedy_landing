@@ -22,9 +22,9 @@
                             <p class="text-gray-500 text-sm">1-3 unidades</p>
                         </div>
                         <div class="text-center mb-6">
-                            <p class="text-4xl font-bold text-primary">35€</p>
+                            <p class="text-4xl font-bold text-primary">35&nbsp;€</p>
                             <p class="text-gray-500">/mes</p>
-                            <p class="text-sm text-gray-400 mt-2">350€/año (ahorra 70€)</p>
+                            <p class="text-sm text-gray-400 mt-2">350&nbsp;€/año (ahorra 70&nbsp;€)</p>
                         </div>
                         <ul class="space-y-3 mb-6">
                             <li class="flex items-start gap-2 text-sm">
@@ -52,7 +52,7 @@
                                 <span>Motor de reservas</span>
                             </li>
                         </ul>
-                        <p class="text-xs text-gray-400 text-center mb-4">OTA extra: 79€ setup + 10€/mes</p>
+                        <p class="text-xs text-gray-400 text-center mb-4">OTA extra: 79&nbsp;€ setup + 10&nbsp;€/mes</p>
                         <PruebaHospedyButton class="btn btn-outline w-full block text-center" />
                     </div>
 
@@ -66,9 +66,9 @@
                             <p class="text-primary-100 text-sm">4-10 unidades</p>
                         </div>
                         <div class="text-center mb-6">
-                            <p class="text-4xl font-bold">59€</p>
+                            <p class="text-4xl font-bold">59&nbsp;€</p>
                             <p class="text-primary-100">/mes</p>
-                            <p class="text-sm text-primary-100 mt-2">590€/año (ahorra 118€)</p>
+                            <p class="text-sm text-primary-100 mt-2">590&nbsp;€/año (ahorra 118&nbsp;€)</p>
                         </div>
                         <ul class="space-y-3 mb-6">
                             <li class="flex items-start gap-2 text-sm">
@@ -96,7 +96,7 @@
                                 <span>Pre check-in</span>
                             </li>
                         </ul>
-                        <p class="text-xs text-primary-100 text-center mb-4">OTA extra: 49€ setup + 10€/mes</p>
+                        <p class="text-xs text-primary-100 text-center mb-4">OTA extra: 49&nbsp;€ setup + 10&nbsp;€/mes</p>
                         <PruebaHospedyButton class="bg-white text-primary font-semibold py-2 px-4 rounded-lg w-full block text-center hover:bg-gray-100 transition-colors" />
                     </div>
 
@@ -107,9 +107,9 @@
                             <p class="text-gray-500 text-sm">11-25 unidades</p>
                         </div>
                         <div class="text-center mb-6">
-                            <p class="text-4xl font-bold text-primary">89€</p>
+                            <p class="text-4xl font-bold text-primary">89&nbsp;€</p>
                             <p class="text-gray-500">/mes</p>
-                            <p class="text-sm text-gray-400 mt-2">890€/año (ahorra 178€)</p>
+                            <p class="text-sm text-gray-400 mt-2">890&nbsp;€/año (ahorra 178&nbsp;€)</p>
                         </div>
                         <ul class="space-y-3 mb-6">
                             <li class="flex items-start gap-2 text-sm">
@@ -137,7 +137,7 @@
                                 <span>Cartas virtuales QR</span>
                             </li>
                         </ul>
-                        <p class="text-xs text-gray-400 text-center mb-4">OTA extra: 29€ setup + 10€/mes</p>
+                        <p class="text-xs text-gray-400 text-center mb-4">OTA extra: 29&nbsp;€ setup + 10&nbsp;€/mes</p>
                         <PruebaHospedyButton class="btn btn-outline w-full block text-center" />
                     </div>
 
@@ -148,9 +148,9 @@
                             <p class="text-gray-500 text-sm">26+ unidades</p>
                         </div>
                         <div class="text-center mb-6">
-                            <p class="text-4xl font-bold text-primary">129€</p>
+                            <p class="text-4xl font-bold text-primary">129&nbsp;€</p>
                             <p class="text-gray-500">/mes</p>
-                            <p class="text-sm text-gray-400 mt-2">1.290€/año (ahorra 258€)</p>
+                            <p class="text-sm text-gray-400 mt-2">1.290&nbsp;€/año (ahorra 258&nbsp;€)</p>
                         </div>
                         <ul class="space-y-3 mb-6">
                             <li class="flex items-start gap-2 text-sm">
@@ -300,7 +300,7 @@
 useHead({
     title: 'Precios - Software de gestión hotelera - Hospedy',
     meta: [
-        { name: 'description', content: 'Precios claros de Hospedy: desde 35€/mes. PMS completo con partes de viajeros automáticos, channel manager, motor de reservas y más. Sin permanencia.' }
+        { name: 'description', content: 'Precios claros de Hospedy: desde 35 €/mes. PMS completo con partes de viajeros automáticos, channel manager, motor de reservas y más. Sin permanencia.' }
     ]
 })
 </script>

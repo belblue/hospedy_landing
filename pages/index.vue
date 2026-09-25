@@ -183,7 +183,7 @@
             <div class="grid grid-cols-3 gap-6">
               <div class="text-center" data-aos="fade-up" data-aos-delay="100">
                 <p class="text-3xl lg:text-4xl font-bold text-primary">
-                  {{ statCommissions }}%
+                  {{ statCommissions }}&nbsp;%
                 </p>
                 <p class="text-gray-600 text-lg lg:text-base mt-4">
                   Comisiones en reservas
@@ -844,7 +844,7 @@
         <div class="max-w-2xl mx-auto">
           <p class="text-gold text-lg font-semibold mb-2">Todo incluido</p>
           <p class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Desde 35€/mes
+            Desde 35&nbsp;€/mes
           </p>
           <p class="text-gray-700 text-lg mb-8">
             Sin comisiones por reserva, sin costes ocultos, sin sorpresas.

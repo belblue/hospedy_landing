@@ -70,7 +70,7 @@
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="100">
                             <IconoReto nombre="parte" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"Se me olvidó enviar el parte"</h3>
-                            <p class="text-gray-600">Las multas por no comunicar viajeros son de hasta 600€. Con Hospedy, se envían solos.</p>
+                            <p class="text-gray-600">Las multas por no comunicar viajeros son de hasta 600&nbsp;€. Con Hospedy, se envían solos.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="200">
                             <IconoReto nombre="overbooking" class="mb-4" />
@@ -139,7 +139,7 @@
             <div class="max-w-4xl mx-auto px-6 mt-20 text-center" data-aos="fade-up">
                 <h2 class="text-3xl font-bold mb-4">Precios para hoteles</h2>
                 <p class="text-xl text-gray-600 mb-8">
-                    Desde <span class="text-primary font-bold">35€/mes</span> para hoteles pequeños.
+                    Desde <span class="text-primary font-bold">35&nbsp;€/mes</span> para hoteles pequeños.
                     Precio según número de habitaciones, sin comisiones por reserva.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">

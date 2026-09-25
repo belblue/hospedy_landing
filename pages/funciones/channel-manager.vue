@@ -134,7 +134,7 @@
             <div class="max-w-4xl mx-auto px-6 mt-20">
                 <h2 class="text-3xl font-bold text-center mb-8">Precio transparente</h2>
                 <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 max-w-md mx-auto text-center">
-                    <p class="text-5xl font-bold text-primary mb-2">10€<span class="text-xl text-gray-500">/mes</span></p>
+                    <p class="text-5xl font-bold text-primary mb-2">10&nbsp;€<span class="text-xl text-gray-500">/mes</span></p>
                     <p class="text-gray-600 mb-4">por agencia conectada (+ IVA)</p>
                     <ul class="text-left space-y-3 mb-6">
                         <li class="flex items-center gap-2">

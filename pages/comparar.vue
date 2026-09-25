@@ -51,19 +51,19 @@
                 <td
                   class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary font-bold text-green-600"
                 >
-                  590€/año
+                  590&nbsp;€/año
                 </td>
                 <td class="p-4 border-b border-gray-100 text-center">
-                  ~1.200€/año
+                  ~1.200&nbsp;€/año
                 </td>
                 <td class="p-4 border-b border-gray-100 text-center">
-                  ~1.800€/año
+                  ~1.800&nbsp;€/año
                 </td>
                 <td class="p-4 border-b border-gray-100 text-center">
-                  ~600€/año
+                  ~600&nbsp;€/año
                 </td>
                 <td class="p-4 border-b border-gray-100 text-center">
-                  ~1.080€/año
+                  ~1.080&nbsp;€/año
                 </td>
               </tr>
               <tr>
@@ -73,15 +73,15 @@
                 <td
                   class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary font-bold text-green-600"
                 >
-                  0%
+                  0&nbsp;%
                 </td>
                 <td class="p-4 border-b border-gray-100 text-center">
                   Variable
                 </td>
                 <td class="p-4 border-b border-gray-100 text-center">
-                  0.75-1.5%
+                  0,75-1,5&nbsp;%
                 </td>
-                <td class="p-4 border-b border-gray-100 text-center">0%</td>
+                <td class="p-4 border-b border-gray-100 text-center">0&nbsp;%</td>
                 <td class="p-4 border-b border-gray-100 text-center">
                   Variable
                 </td>
@@ -826,7 +826,7 @@
         </div>
         <p class="text-lg text-gray-500 mt-4">
           * Precios aproximados basados en información pública. Consulta cada
-          proveedor para precios actualizados. Febrero 2025.
+          proveedor para precios actualizados. Febrero de 2025.
         </p>
       </div>
 
@@ -847,7 +847,7 @@
             <tbody>
               <tr class="bg-primary/5 border-l-2 border-primary">
                 <td class="p-4 border-b border-gray-100 font-bold text-primary">Hospedy</td>
-                <td class="p-4 border-b border-gray-100 text-center font-bold text-green-600">350-1.290€</td>
+                <td class="p-4 border-b border-gray-100 text-center font-bold text-green-600">350-1.290&nbsp;€</td>
                 <td class="p-4 border-b border-gray-100 text-center">
                   <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -862,7 +862,7 @@
               </tr>
               <tr>
                 <td class="p-4 border-b border-gray-100 font-medium">RuralGest (apts)</td>
-                <td class="p-4 border-b border-gray-100 text-center">298€</td>
+                <td class="p-4 border-b border-gray-100 text-center">298&nbsp;€</td>
                 <td class="p-4 border-b border-gray-100 text-center">
                   <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -877,7 +877,7 @@
               </tr>
               <tr>
                 <td class="p-4 border-b border-gray-100 font-medium">RuralGest (hotel)</td>
-                <td class="p-4 border-b border-gray-100 text-center">980€</td>
+                <td class="p-4 border-b border-gray-100 text-center">980&nbsp;€</td>
                 <td class="p-4 border-b border-gray-100 text-center">
                   <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -892,18 +892,18 @@
               </tr>
               <tr>
                 <td class="p-4 border-b border-gray-100 font-medium">Avaibook</td>
-                <td class="p-4 border-b border-gray-100 text-center">204-576€</td>
+                <td class="p-4 border-b border-gray-100 text-center">204-576&nbsp;€</td>
                 <td class="p-4 border-b border-gray-100 text-center">
                   <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                 </td>
                 <td class="p-4 border-b border-gray-100 text-center text-sm text-gray-500">Limitado</td>
-                <td class="p-4 border-b border-gray-100 text-center text-sm text-red-600">+ 2-4% comisiones</td>
+                <td class="p-4 border-b border-gray-100 text-center text-sm text-red-600">+ 2-4&nbsp;% comisiones</td>
               </tr>
               <tr>
                 <td class="p-4 border-b border-gray-100 font-medium">HotelManager</td>
-                <td class="p-4 border-b border-gray-100 text-center">1.308€</td>
+                <td class="p-4 border-b border-gray-100 text-center">1.308&nbsp;€</td>
                 <td class="p-4 border-b border-gray-100 text-center text-sm text-gray-500">Extra</td>
                 <td class="p-4 border-b border-gray-100 text-center">
                   <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -920,7 +920,7 @@
           <ul class="space-y-2 text-green-700">
             <li class="flex items-start gap-2">
               <IconoMarca tipo="si" class="mt-1" />
-              <span>40-60% más barato que RuralGest (hoteles) y HotelManager</span>
+              <span>40-60&nbsp;% más barato que RuralGest (hoteles) y HotelManager</span>
             </li>
             <li class="flex items-start gap-2">
               <IconoMarca tipo="si" class="mt-1" />
@@ -928,7 +928,7 @@
             </li>
             <li class="flex items-start gap-2">
               <IconoMarca tipo="si" class="mt-1" />
-              <span>Sin comisiones en reservas directas (Avaibook cobra 2-4%)</span>
+              <span>Sin comisiones en reservas directas (Avaibook cobra 2-4&nbsp;%)</span>
             </li>
             <li class="flex items-start gap-2">
               <IconoMarca tipo="si" class="mt-1" />
@@ -989,9 +989,9 @@
                   ></path>
                 </svg>
               </div>
-              <h3 class="font-semibold text-lg mb-2">Hasta 60% más barato</h3>
+              <h3 class="font-semibold text-lg mb-2">Hasta 60&nbsp;% más barato</h3>
               <p class="text-gray-600">
-                Desde 350€/año frente a +1.000€/año de la competencia.
+                Desde 350&nbsp;€/año frente a +1.000&nbsp;€/año de la competencia.
               </p>
             </div>
             <div class="text-center">

@@ -23,19 +23,19 @@
                     <div class="grid lg:grid-cols-2 gap-8">
                         <div class="bg-white p-6 rounded-xl border-2 border-red-200">
                             <h3 class="text-xl font-semibold mb-4 text-red-600">Con Booking.com</h3>
-                            <p class="text-gray-600 mb-4">Reserva de 100€ × 15% comisión</p>
-                            <p class="text-3xl font-bold text-red-600">-15€</p>
+                            <p class="text-gray-600 mb-4">Reserva de 100&nbsp;€ × 15&nbsp;% comisión</p>
+                            <p class="text-3xl font-bold text-red-600">-15&nbsp;€</p>
                             <p class="text-lg text-gray-500 mt-2">Por cada reserva</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl border-2 border-green-200">
                             <h3 class="text-xl font-semibold mb-4 text-green-600">Con Hospedy</h3>
-                            <p class="text-gray-600 mb-4">Reserva de 100€ × 0% comisión</p>
-                            <p class="text-3xl font-bold text-green-600">0€</p>
+                            <p class="text-gray-600 mb-4">Reserva de 100&nbsp;€ × 0&nbsp;% comisión</p>
+                            <p class="text-3xl font-bold text-green-600">0&nbsp;€</p>
                             <p class="text-lg text-gray-500 mt-2">Sin comisiones por reserva</p>
                         </div>
                     </div>
                     <p class="text-center mt-8 text-lg text-gray-700">
-                        Con 10 reservas directas al mes de 100€, <span class="font-bold text-primary">ahorras 150€/mes</span> en comisiones.
+                        Con 10 reservas directas al mes de 100&nbsp;€, <span class="font-bold text-primary">ahorras 150&nbsp;€/mes</span> en comisiones.
                     </p>
                 </div>
             </div>

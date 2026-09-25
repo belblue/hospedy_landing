@@ -58,7 +58,7 @@
                             <tr class="border-t border-gray-100">
                                 <td class="p-4">
                                     <span class="font-medium">Esencial</span>
-                                    <span class="text-gray-500 ml-2">(350€/año)</span>
+                                    <span class="text-gray-500 ml-2">(350&nbsp;€/año)</span>
                                 </td>
                                 <td class="p-4 text-center">
                                     <span class="bg-green-100 text-green-700 font-semibold px-3 py-1 rounded-full">1 mes gratis</span>
@@ -67,7 +67,7 @@
                             <tr class="border-t border-gray-100 bg-primary/5">
                                 <td class="p-4">
                                     <span class="font-medium">Profesional</span>
-                                    <span class="text-gray-500 ml-2">(590€/año)</span>
+                                    <span class="text-gray-500 ml-2">(590&nbsp;€/año)</span>
                                 </td>
                                 <td class="p-4 text-center">
                                     <span class="bg-green-100 text-green-700 font-semibold px-3 py-1 rounded-full">2 meses gratis</span>
@@ -76,7 +76,7 @@
                             <tr class="border-t border-gray-100">
                                 <td class="p-4">
                                     <span class="font-medium">Business</span>
-                                    <span class="text-gray-500 ml-2">(890€/año)</span>
+                                    <span class="text-gray-500 ml-2">(890&nbsp;€/año)</span>
                                 </td>
                                 <td class="p-4 text-center">
                                     <span class="bg-green-100 text-green-700 font-semibold px-3 py-1 rounded-full">3 meses gratis</span>
@@ -85,7 +85,7 @@
                             <tr class="border-t border-gray-100 bg-primary/5">
                                 <td class="p-4">
                                     <span class="font-medium">Enterprise</span>
-                                    <span class="text-gray-500 ml-2">(1.290€/año)</span>
+                                    <span class="text-gray-500 ml-2">(1.290&nbsp;€/año)</span>
                                 </td>
                                 <td class="p-4 text-center">
                                     <span class="bg-green-100 text-green-700 font-semibold px-3 py-1 rounded-full">4 meses gratis</span>

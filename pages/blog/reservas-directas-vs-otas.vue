@@ -24,7 +24,7 @@
         >
           <span>7 min lectura</span>
           <span class="mx-2">·</span>
-          <span>Actualizado Febrero 2026</span>
+          <span>Actualizado febrero de 2026</span>
         </div>
       </header>
 
@@ -54,47 +54,47 @@
                   Comisión
                 </th>
                 <th class="text-center p-4 border-b border-gray-200">
-                  En reserva de 500€
+                  En reserva de 500&nbsp;€
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td class="p-4 border-b border-gray-100">Booking.com</td>
-                <td class="p-4 border-b border-gray-100 text-center">15-18%</td>
+                <td class="p-4 border-b border-gray-100 text-center">15-18&nbsp;%</td>
                 <td
                   class="p-4 border-b border-gray-100 text-center text-red-600 font-semibold"
                 >
-                  -75€ a -90€
+                  -75&nbsp;€ a -90&nbsp;€
                 </td>
               </tr>
               <tr>
                 <td class="p-4 border-b border-gray-100">Airbnb</td>
                 <td class="p-4 border-b border-gray-100 text-center">
-                  3-5% (host) + 14% (guest)
+                  3-5&nbsp;% (host) + 14&nbsp;% (guest)
                 </td>
                 <td
                   class="p-4 border-b border-gray-100 text-center text-red-600 font-semibold"
                 >
-                  -15€ a -25€*
+                  -15&nbsp;€ a -25&nbsp;€*
                 </td>
               </tr>
               <tr>
                 <td class="p-4 border-b border-gray-100">Expedia</td>
-                <td class="p-4 border-b border-gray-100 text-center">15-25%</td>
+                <td class="p-4 border-b border-gray-100 text-center">15-25&nbsp;%</td>
                 <td
                   class="p-4 border-b border-gray-100 text-center text-red-600 font-semibold"
                 >
-                  -75€ a -125€
+                  -75&nbsp;€ a -125&nbsp;€
                 </td>
               </tr>
               <tr>
                 <td class="p-4 border-b border-gray-100">Vrbo</td>
-                <td class="p-4 border-b border-gray-100 text-center">5-8%</td>
+                <td class="p-4 border-b border-gray-100 text-center">5-8&nbsp;%</td>
                 <td
                   class="p-4 border-b border-gray-100 text-center text-red-600 font-semibold"
                 >
-                  -25€ a -40€
+                  -25&nbsp;€ a -40&nbsp;€
                 </td>
               </tr>
               <tr class="bg-green-50">
@@ -104,12 +104,12 @@
                 <td
                   class="p-4 border-b border-gray-100 text-center font-semibold"
                 >
-                  0%
+                  0&nbsp;%
                 </td>
                 <td
                   class="p-4 border-b border-gray-100 text-center text-green-600 font-semibold"
                 >
-                  0€
+                  0&nbsp;€
                 </td>
               </tr>
             </tbody>
@@ -126,62 +126,62 @@
           estas características:
         </p>
         <ul>
-          <li>Precio medio por noche: 100€</li>
+          <li>Precio medio por noche: 100&nbsp;€</li>
           <li>Estancia media: 3 noches</li>
           <li>20 reservas al mes</li>
         </ul>
 
         <div class="bg-gray-50 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4">
-            Escenario A: 100% reservas vía Booking (15% comisión)
+            Escenario A: 100&nbsp;% reservas vía Booking (15&nbsp;% comisión)
           </h3>
           <div class="grid grid-cols-2 gap-4">
             <div>
               <p class="text-gray-600">Facturación bruta mensual</p>
-              <p class="text-2xl font-bold">6.000€</p>
+              <p class="text-2xl font-bold">6.000&nbsp;€</p>
             </div>
             <div>
               <p class="text-gray-600">Comisiones a Booking</p>
-              <p class="text-2xl font-bold text-red-600">-900€</p>
+              <p class="text-2xl font-bold text-red-600">-900&nbsp;€</p>
             </div>
             <div>
               <p class="text-gray-600">Ingresos netos</p>
-              <p class="text-2xl font-bold">5.100€</p>
+              <p class="text-2xl font-bold">5.100&nbsp;€</p>
             </div>
             <div>
               <p class="text-gray-600">Comisiones anuales</p>
-              <p class="text-2xl font-bold text-red-600">-10.800€</p>
+              <p class="text-2xl font-bold text-red-600">-10.800&nbsp;€</p>
             </div>
           </div>
         </div>
 
         <div class="bg-green-50 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4">
-            Escenario B: 50% directas + 50% Booking
+            Escenario B: 50&nbsp;% directas + 50&nbsp;% Booking
           </h3>
           <div class="grid grid-cols-2 gap-4">
             <div>
               <p class="text-gray-600">Facturación bruta mensual</p>
-              <p class="text-2xl font-bold">6.000€</p>
+              <p class="text-2xl font-bold">6.000&nbsp;€</p>
             </div>
             <div>
               <p class="text-gray-600">Comisiones a Booking</p>
-              <p class="text-2xl font-bold text-red-600">-450€</p>
+              <p class="text-2xl font-bold text-red-600">-450&nbsp;€</p>
             </div>
             <div>
               <p class="text-gray-600">Ingresos netos</p>
-              <p class="text-2xl font-bold">5.550€</p>
+              <p class="text-2xl font-bold">5.550&nbsp;€</p>
             </div>
             <div>
               <p class="text-gray-600">Ahorro anual</p>
-              <p class="text-2xl font-bold text-green-600">+5.400€</p>
+              <p class="text-2xl font-bold text-green-600">+5.400&nbsp;€</p>
             </div>
           </div>
         </div>
 
         <p>
           <strong
-            >Pasar del 100% OTAs al 50% reservas directas supone 5.400€ más al
+            >Pasar del 100&nbsp;% OTAs al 50&nbsp;% reservas directas supone 5.400&nbsp;€ más al
             año en tu bolsillo.</strong
           >
           Y eso sin contar que puedes ofrecer un precio ligeramente mejor al
@@ -263,7 +263,7 @@
             tu web para reservas directas
           </li>
           <li>
-            <strong>Incentivos:</strong> Ofrece un 5-10% de descuento por
+            <strong>Incentivos:</strong> Ofrece un 5-10&nbsp;% de descuento por
             reservar directo (aún ganas más que con OTAs)
           </li>
         </ul>
@@ -323,7 +323,7 @@
                   d="M5 13l4 4L19 7"
                 ></path>
               </svg>
-              <span>0% de comisión por reserva</span>
+              <span>0&nbsp;% de comisión por reserva</span>
             </li>
             <li class="flex items-center gap-2">
               <svg
@@ -384,8 +384,8 @@
           significativamente tu rentabilidad.
         </p>
         <p>
-          <strong>Objetivo realista:</strong> pasar del 10% de reservas directas
-          al 40-50% en un año. El ahorro en comisiones puede suponer miles de
+          <strong>Objetivo realista:</strong> pasar del 10&nbsp;% de reservas directas
+          al 40-50&nbsp;% en un año. El ahorro en comisiones puede suponer miles de
           euros.
         </p>
       </div>

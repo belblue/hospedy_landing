@@ -190,7 +190,7 @@
             <div class="max-w-4xl mx-auto px-6 mt-20 text-center" data-aos="fade-up">
                 <h2 class="text-3xl font-bold mb-4">Precios para casas rurales</h2>
                 <p class="text-xl text-gray-600 mb-8">
-                    Desde <span class="text-primary font-bold">35€/mes</span> para una casa rural.
+                    Desde <span class="text-primary font-bold">35&nbsp;€/mes</span> para una casa rural.
                     Precio según número de unidades, sin comisiones.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">

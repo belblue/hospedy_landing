@@ -23,14 +23,14 @@
         >
           <span>12 min lectura</span>
           <span class="mx-2">·</span>
-          <span>Actualizado Febrero 2026</span>
+          <span>Actualizado febrero de 2026</span>
         </div>
       </header>
 
       <!-- Content -->
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
         <p class="lead">
-          Los 5 mejores PMS para casas rurales en España son: Hospedy (desde €350/año, único con envío INE automático), RuralGest (veterano del sector, sin precios públicos), AvaiBook (desde €204/año pero con comisiones del 2-4%), Amenitiz (desde €504/año) y Cloudbeds (desde €1.200/año).
+          Los 5 mejores PMS para casas rurales en España son: Hospedy (desde 350&nbsp;€/año, único con envío INE automático), RuralGest (veterano del sector, sin precios públicos), AvaiBook (desde 204&nbsp;€/año pero con comisiones del 2-4&nbsp;%), Amenitiz (desde 504&nbsp;€/año) y Cloudbeds (desde 1.200&nbsp;€/año).
         </p>
 
         <h2>Comparativa rápida</h2>
@@ -50,11 +50,11 @@
             <tbody class="divide-y divide-gray-200">
               <tr class="bg-green-50">
                 <td class="px-3 py-3 font-medium text-gray-900">Hospedy</td>
-                <td class="px-3 py-3 text-gray-700">€350-1.290</td>
+                <td class="px-3 py-3 text-gray-700">350-1.290&nbsp;€</td>
                 <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /> Auto</td>
                 <td class="px-3 py-3 text-center text-green-600 font-medium"><IconoMarca tipo="si" /> Rellena y lista</td>
                 <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /><span class="sr-only">Sí</span></td>
-                <td class="px-3 py-3 text-center text-green-600">0%</td>
+                <td class="px-3 py-3 text-center text-green-600">0&nbsp;%</td>
               </tr>
               <tr>
                 <td class="px-3 py-3 font-medium text-gray-900">RuralGest</td>
@@ -66,27 +66,27 @@
               </tr>
               <tr>
                 <td class="px-3 py-3 font-medium text-gray-900">AvaiBook</td>
-                <td class="px-3 py-3 text-gray-700">€204-576+</td>
+                <td class="px-3 py-3 text-gray-700">204-576&nbsp;€+</td>
                 <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /> Auto</td>
                 <td class="px-3 py-3 text-center text-orange-600"><IconoMarca tipo="no" /> XML</td>
                 <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /><span class="sr-only">Sí</span></td>
-                <td class="px-3 py-3 text-center text-red-600">2-4%</td>
+                <td class="px-3 py-3 text-center text-red-600">2-4&nbsp;%</td>
               </tr>
               <tr>
                 <td class="px-3 py-3 font-medium text-gray-900">Amenitiz</td>
-                <td class="px-3 py-3 text-gray-700">€504-1.500</td>
+                <td class="px-3 py-3 text-gray-700">504-1.500&nbsp;€</td>
                 <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /> Auto</td>
                 <td class="px-3 py-3 text-center text-orange-600"><IconoMarca tipo="no" /> XML</td>
                 <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /><span class="sr-only">Sí</span></td>
-                <td class="px-3 py-3 text-center text-green-600">0%</td>
+                <td class="px-3 py-3 text-center text-green-600">0&nbsp;%</td>
               </tr>
               <tr>
                 <td class="px-3 py-3 font-medium text-gray-900">Cloudbeds</td>
-                <td class="px-3 py-3 text-gray-700">€1.200+</td>
+                <td class="px-3 py-3 text-gray-700">1.200&nbsp;€+</td>
                 <td class="px-3 py-3 text-center text-orange-600"><IconoMarca tipo="parcial" /> Parcial</td>
                 <td class="px-3 py-3 text-center text-orange-600"><IconoMarca tipo="no" /> XML</td>
                 <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /><span class="sr-only">Sí</span></td>
-                <td class="px-3 py-3 text-center text-green-600">0%</td>
+                <td class="px-3 py-3 text-center text-green-600">0&nbsp;%</td>
               </tr>
             </tbody>
           </table>
@@ -104,7 +104,7 @@
           <li>Partes de viajeros automáticos a SES y Ertzaintza</li>
           <li>Precios públicos y transparentes</li>
           <li>Channel manager incluido en todos los planes</li>
-          <li>0% comisiones en reservas directas</li>
+          <li>0&nbsp;% comisiones en reservas directas</li>
         </ul>
 
         <h3>Puntos débiles</h3>
@@ -113,7 +113,7 @@
           <li>Empresa más joven que competidores veteranos</li>
         </ul>
 
-        <p><strong>Precio:</strong> desde €350/año (plan Esencial) hasta €1.290/año (Enterprise)</p>
+        <p><strong>Precio:</strong> desde 350&nbsp;€/año (plan Esencial) hasta 1.290&nbsp;€/año (Enterprise)</p>
 
         <h2>2. RuralGest</h2>
         <p><strong>Ideal para:</strong> quienes valoran la experiencia y quieren servicios adicionales de web/SEO</p>
@@ -133,7 +133,7 @@
         <ul>
           <li>No publica precios (hay que pedir presupuesto)</li>
           <li>Solo genera XML para el INE (no envío automático)</li>
-          <li>Costes adicionales: web €150-1.200, SEO €220-800, mantenimiento SEO €90/mes</li>
+          <li>Costes adicionales: web 150-1.200&nbsp;€, SEO 220-800&nbsp;€, mantenimiento SEO 90&nbsp;€/mes</li>
         </ul>
 
         <p><strong>Precio:</strong> no público, varía según negociación</p>
@@ -146,19 +146,19 @@
 
         <h3>Puntos fuertes</h3>
         <ul>
-          <li>Precio inicial más bajo (desde €17/mes)</li>
+          <li>Precio inicial más bajo (desde 17&nbsp;€/mes)</li>
           <li>Parte del ecosistema Idealista</li>
           <li>Fast Check-in para partes de viajeros</li>
         </ul>
 
         <h3>Puntos débiles</h3>
         <ul>
-          <li>Comisiones del 2-4% en pasarela de pagos</li>
+          <li>Comisiones del 2-4&nbsp;% en pasarela de pagos</li>
           <li>Solo genera XML para el INE</li>
           <li>El precio final puede ser mayor por comisiones</li>
         </ul>
 
-        <p><strong>Precio:</strong> desde €204/año, pero con posibles comisiones adicionales</p>
+        <p><strong>Precio:</strong> desde 204&nbsp;€/año, pero con posibles comisiones adicionales</p>
 
         <h2>4. Amenitiz</h2>
         <p><strong>Ideal para:</strong> hoteles boutique que buscan diseño moderno</p>
@@ -175,12 +175,12 @@
 
         <h3>Puntos débiles</h3>
         <ul>
-          <li>Precio más elevado (desde €42/mes)</li>
+          <li>Precio más elevado (desde 42&nbsp;€/mes)</li>
           <li>Solo genera XML para el INE</li>
           <li>Soporte desde call center internacional</li>
         </ul>
 
-        <p><strong>Precio:</strong> desde €504/año (plan básico) hasta €1.500/año</p>
+        <p><strong>Precio:</strong> desde 504&nbsp;€/año (plan básico) hasta 1.500&nbsp;€/año</p>
 
         <h2>5. Cloudbeds</h2>
         <p><strong>Ideal para:</strong> hoteles medianos-grandes con operaciones internacionales</p>
@@ -198,12 +198,12 @@
         <h3>Puntos débiles</h3>
         <ul>
           <li>Problemas de compatibilidad con normativa española</li>
-          <li>Precio elevado (desde €100/mes)</li>
+          <li>Precio elevado (desde 100&nbsp;€/mes)</li>
           <li>Solo genera XML para el INE</li>
           <li>Campos como parentesco/segundo apellido requieren revisión manual</li>
         </ul>
 
-        <p><strong>Precio:</strong> desde €1.200/año (contactar para presupuesto)</p>
+        <p><strong>Precio:</strong> desde 1.200&nbsp;€/año (contactar para presupuesto)</p>
 
         <div class="bg-green-50 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4 text-green-800">¿Cuál elegir?</h3>

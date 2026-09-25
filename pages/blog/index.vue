@@ -26,7 +26,7 @@
               <div class="p-6">
                 <span class="text-lg text-primary font-medium">Normativa</span>
                 <h2 class="text-xl font-bold mt-2 group-hover:text-primary transition-colors">Cómo enviar partes de viajeros a SES Hospedajes automáticamente</h2>
-                <p class="text-gray-600 mt-2">Guía completa sobre el Real Decreto 933/2021, multas de hasta 30.000€ y cómo cumplir en 4 clics.</p>
+                <p class="text-gray-600 mt-2">Guía completa sobre el Real Decreto 933/2021, multas de hasta 30.000&nbsp;€ y cómo cumplir en 4 clics.</p>
                 <div class="mt-4 flex items-center text-lg text-gray-500">
                   <span>10 min lectura</span>
                   <span class="mx-2">·</span>
@@ -173,7 +173,7 @@
               <div class="p-6">
                 <span class="text-lg text-yellow-600 font-medium">Precios</span>
                 <h2 class="text-xl font-bold mt-2 group-hover:text-primary transition-colors">¿Cuánto cuesta un PMS para hotel pequeño en 2026?</h2>
-                <p class="text-gray-600 mt-2">Rango de precios del mercado, costes ocultos y ROI. Hospedy desde €350/año todo incluido.</p>
+                <p class="text-gray-600 mt-2">Rango de precios del mercado, costes ocultos y ROI. Hospedy desde 350&nbsp;€/año todo incluido.</p>
                 <div class="mt-4 flex items-center text-lg text-gray-500">
                   <span>8 min lectura</span>
                   <span class="mx-2">·</span>

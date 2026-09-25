@@ -23,14 +23,14 @@
         >
           <span>10 min lectura</span>
           <span class="mx-2">·</span>
-          <span>Actualizado Febrero 2026</span>
+          <span>Actualizado febrero de 2026</span>
         </div>
       </header>
 
       <!-- Content -->
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
         <p class="lead">
-          La diferencia clave: Hospedy te deja la encuesta del INE rellena con los datos de tus reservas (y en hoteles y apartamentos la envía al INE con un clic), mientras RuralGest solo genera un archivo XML que debes subir manualmente. Hospedy tiene precios públicos desde €350/año; RuralGest no publica precios y cobra extras por diseño web y SEO.
+          La diferencia clave: Hospedy te deja la encuesta del INE rellena con los datos de tus reservas (y en hoteles y apartamentos la envía al INE con un clic), mientras RuralGest solo genera un archivo XML que debes subir manualmente. Hospedy tiene precios públicos desde 350&nbsp;€/año; RuralGest no publica precios y cobra extras por diseño web y SEO.
         </p>
 
         <h2>Comparativa directa</h2>
@@ -57,8 +57,8 @@
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Precio base anual</td>
-                <td class="px-4 py-3 text-sm text-gray-700">€350 - €1.290</td>
-                <td class="px-4 py-3 text-sm text-gray-700">Variable (estimado €298-980)</td>
+                <td class="px-4 py-3 text-sm text-gray-700">350-1.290&nbsp;€</td>
+                <td class="px-4 py-3 text-sm text-gray-700">Variable (estimado 298-980&nbsp;€)</td>
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Partes SES automáticos</td>
@@ -88,12 +88,12 @@
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Diseño web</td>
                 <td class="px-4 py-3 text-sm text-gray-500"><IconoMarca tipo="no" /> No ofrece</td>
-                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="si" /> €150 - €1.200</td>
+                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="si" /> 150-1.200&nbsp;€</td>
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Servicios SEO</td>
                 <td class="px-4 py-3 text-sm text-gray-500"><IconoMarca tipo="no" /> No ofrece</td>
-                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="si" /> €220 - €800 + €90/mes</td>
+                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="si" /> 220-800&nbsp;€ + 90&nbsp;€/mes</td>
               </tr>
             </tbody>
           </table>
@@ -109,7 +109,7 @@
 
         <h3>2. Precio más accesible</h3>
         <p>
-          Hospedy tiene precios públicos desde €350/año. RuralGest no publica sus tarifas y los costes adicionales pueden sumar: diseño web (€150-1.200), packs SEO (€220-800), mantenimiento SEO mensual (€90/mes). Al final, <strong>el coste total de RuralGest puede ser considerablemente mayor</strong>.
+          Hospedy tiene precios públicos desde 350&nbsp;€/año. RuralGest no publica sus tarifas y los costes adicionales pueden sumar: diseño web (150-1.200&nbsp;€), packs SEO (220-800&nbsp;€), mantenimiento SEO mensual (90&nbsp;€/mes). Al final, <strong>el coste total de RuralGest puede ser considerablemente mayor</strong>.
         </p>
 
         <h3>3. Más fácil e intuitivo</h3>

@@ -174,7 +174,7 @@
                         <p class="text-gray-600">Errores de cálculo</p>
                     </div>
                     <div>
-                        <div class="text-4xl font-bold text-primary mb-2">100%</div>
+                        <div class="text-4xl font-bold text-primary mb-2">100&nbsp;%</div>
                         <p class="text-gray-600">Cumplimiento garantizado</p>
                     </div>
                 </div>

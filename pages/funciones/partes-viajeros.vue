@@ -84,7 +84,7 @@
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-lg mb-2">Evita multas</h3>
-                                    <p class="text-gray-600">Las multas por no enviar partes pueden superar los 600€. Con el envío automático, cumples siempre.</p>
+                                    <p class="text-gray-600">Las multas por no enviar partes pueden superar los 600&nbsp;€. Con el envío automático, cumples siempre.</p>
                                 </div>
                             </div>
                         </div>
