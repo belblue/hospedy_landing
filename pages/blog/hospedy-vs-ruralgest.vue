@@ -180,7 +180,7 @@
             ¿Quieres probar Hospedy sin compromiso?
           </h2>
           <p class="text-gray-600 mb-6">
-            30 días de prueba gratis. Sin tarjeta de crédito. Puedes probarlo en paralelo con tu sistema actual.
+            Crea tu cuenta: 30 días de prueba gratis y sin tarjeta de crédito. Puedes probarlo en paralelo con tu sistema actual.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>

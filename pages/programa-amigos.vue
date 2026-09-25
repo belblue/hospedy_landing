@@ -24,21 +24,21 @@
                             <span class="text-2xl font-bold text-primary">1</span>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Comparte tu código</h3>
-                        <p class="text-gray-600">Tu código es HOSPEDY-[TUNOMBRE]. Compártelo con otros alojamientos turísticos.</p>
+                        <p class="text-gray-600">Tu código se forma con el nombre de tu empresa, por ejemplo HOSPEDY-JUAN-GARCIA. Compártelo con otros alojamientos turísticos o envíales tu enlace de invitación.</p>
                     </div>
                     <div class="text-center">
                         <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                             <span class="text-2xl font-bold text-primary">2</span>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Tu amigo contrata</h3>
-                        <p class="text-gray-600">Cuando tu amigo se registra con tu código y completa su primera suscripción.</p>
+                        <p class="text-gray-600">Tu amigo crea su cuenta con tu código y paga su primera cuota.</p>
                     </div>
                     <div class="text-center">
                         <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                             <span class="text-2xl font-bold text-primary">3</span>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Tú ganas meses gratis</h3>
-                        <p class="text-gray-600">Se añaden meses gratis a tu suscripción automáticamente.</p>
+                        <p class="text-gray-600">Los meses se añaden solos a tu suscripción y retrasan tu próximo cobro.</p>
                     </div>
                 </div>
             </div>
@@ -97,31 +97,17 @@
                 <p class="text-center text-gray-500 mt-4">Sin límite de referidos. Los meses se acumulan.</p>
             </div>
 
-            <!-- New customer benefit -->
-            <div class="bg-tertiary py-16 mt-20">
-                <div class="max-w-4xl mx-auto px-6 text-center">
-                    <h2 class="text-3xl font-bold mb-4">Tu amigo también gana</h2>
-                    <p class="text-xl text-gray-600 mb-8">
-                        Cuando alguien usa tu código, obtiene:
-                    </p>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm inline-block">
-                        <p class="text-4xl font-bold text-primary mb-2">50% descuento</p>
-                        <p class="text-gray-600">en la configuración de su primera OTA extra</p>
-                    </div>
-                </div>
-            </div>
-
             <!-- Embajador -->
             <div class="max-w-4xl mx-auto px-6 mt-20">
                 <div class="bg-gradient-to-r from-gold/20 to-gold/10 rounded-2xl p-8 lg:p-12">
                     <div class="grid lg:grid-cols-2 gap-8 items-center">
                         <div>
                             <div class="inline-block bg-gold text-white font-semibold px-3 py-1 rounded-full text-sm mb-4">
-                                Status especial
+                                Estatus especial
                             </div>
                             <h2 class="text-3xl font-bold mb-4">Conviértete en Embajador</h2>
                             <p class="text-gray-600 text-lg mb-6">
-                                Si has referido a 5 o más amigos, te convertimos en Embajador de Hospedy con beneficios exclusivos.
+                                Con 5 amigos que ya hayan pagado su primera cuota, te convertimos en Embajador de Hospedy.
                             </p>
                         </div>
                         <div class="bg-white rounded-xl p-6 shadow-sm">
@@ -131,13 +117,7 @@
                                     <svg class="w-5 h-5 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                     </svg>
-                                    <span><strong>10% descuento permanente</strong> en tu renovación anual</span>
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <svg class="w-5 h-5 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span><strong>Soporte prioritario</strong> por email</span>
+                                    <span><strong>10&nbsp;% de descuento</strong> en tu renovación</span>
                                 </li>
                                 <li class="flex items-center gap-3">
                                     <svg class="w-5 h-5 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -157,11 +137,11 @@
                 <div class="space-y-6">
                     <div class="border-b border-gray-200 pb-6">
                         <h3 class="font-semibold text-lg mb-2">¿Cómo consigo mi código?</h3>
-                        <p class="text-gray-600">Tu código es automáticamente HOSPEDY-[TUNOMBRE]. Si te llamas Juan García, tu código sería HOSPEDY-JUANGARCIA. Puedes verlo en tu panel de usuario.</p>
+                        <p class="text-gray-600">Se crea solo con el nombre de la empresa que tienes en tu perfil, con guiones entre palabras y sin coletillas como SL: si tu empresa es "Juan García, SL", tu código sería HOSPEDY-JUAN-GARCIA. Lo ves en tu Panel de usuario, en el bloque "Programa Amigos", junto al botón para copiar tu enlace de invitación.</p>
                     </div>
                     <div class="border-b border-gray-200 pb-6">
                         <h3 class="font-semibold text-lg mb-2">¿Cuándo recibo los meses gratis?</h3>
-                        <p class="text-gray-600">Los meses se añaden a tu cuenta en cuanto tu amigo completa la prueba gratuita y realiza su primer pago.</p>
+                        <p class="text-gray-600">Cuando tu amigo paga su primera cuota. Los meses se añaden solos a tu suscripción y retrasan tu próximo cobro.</p>
                     </div>
                     <div class="border-b border-gray-200 pb-6">
                         <h3 class="font-semibold text-lg mb-2">¿Hay límite de referidos?</h3>
@@ -171,13 +151,17 @@
                         <h3 class="font-semibold text-lg mb-2">¿Caduca mi código?</h3>
                         <p class="text-gray-600">No, tu código no caduca mientras seas cliente de Hospedy.</p>
                     </div>
+                    <div class="border-b border-gray-200 pb-6">
+                        <h3 class="font-semibold text-lg mb-2">¿Te ha invitado otro alojamiento?</h3>
+                        <p class="text-gray-600">Escribe su código al crear tu cuenta; si llegas con su enlace, ya viene puesto. Si se te olvida, puedes añadirlo en tu perfil durante tus primeros 30 días. Quien te invitó verá el nombre de tu alojamiento.</p>
+                    </div>
                 </div>
             </div>
 
             <!-- CTA -->
             <div class="text-center mt-20 px-6">
                 <h2 class="text-3xl font-bold mb-4">¿Aún no eres cliente?</h2>
-                <p class="text-xl text-gray-600 mb-8">Prueba Hospedy 30 días gratis y empieza a referir amigos.</p>
+                <p class="text-xl text-gray-600 mb-8">Crea tu cuenta, prueba Hospedy 30 días gratis y empieza a invitar a tus amigos.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
                     <NuxtLink class="btn btn-outline" to="/precios">Ver precios</NuxtLink>
@@ -192,7 +176,7 @@
 useHead({
     title: 'Programa Amigos - Gana meses gratis recomendando Hospedy',
     meta: [
-        { name: 'description', content: 'Recomienda Hospedy y gana hasta 4 meses gratis por cada referido. Programa de referidos sin límite. Conviértete en Embajador con 5+ referidos.' }
+        { name: 'description', content: 'Gana hasta 4 meses gratis de Hospedy por cada amigo que pague su primera cuota, sin límite. Con 5 amigos eres Embajador: 10 % de descuento en tu renovación.' }
     ]
 })
 </script>

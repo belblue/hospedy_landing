@@ -183,7 +183,7 @@
             <!-- CTA -->
             <div class="text-center mt-20 px-6">
                 <h2 class="text-3xl font-bold mb-4">Olvídate del INE para siempre</h2>
-                <p class="text-xl text-gray-600 mb-8">Prueba Hospedy gratis durante 30 días.</p>
+                <p class="text-xl text-gray-600 mb-8">Crea tu cuenta y prueba Hospedy gratis durante 30 días.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
                 </div>

@@ -725,7 +725,7 @@
             Con el motor de reservas de Hospedy los huéspedes reservan
             <span class="font-semibold text-black"
               >directamente desde tu página web</span
-            >, sin intermediarios ni comisiones por reserva . Ofrece el mejor
+            >, sin intermediarios ni comisiones por reserva. Ofrece el mejor
             precio a tus clientes y ahorra en comisiones a Booking.
           </p>
           <p class="text-xl mt-4">
@@ -912,16 +912,16 @@
         <div class="grid lg:grid-cols-2">
             <div class="m-10">
                 <h2 class="text-4xl mb-4 text-secondary">Todo incluido por un precio fijo</h2>
-                <p class="text-xl mt-8">Introduce el numero de unidades de alojamiento y calcula tu precio anual.</p>
+                <p class="text-xl mt-8">Introduce el número de unidades de alojamiento y calcula tu precio anual.</p>
                 <p class="text-xl my-4 font-bold text-primary">El precio incluye:</p>
                 <ul class="space-y-2">
-                    <li class="flex items-center gap-2 text-xl"><span class="text-green-500">✓</span> Partes de viajeros automaticos</li>
+                    <li class="flex items-center gap-2 text-xl"><span class="text-green-500">✓</span> Partes de viajeros automáticos</li>
                     <li class="flex items-center gap-2 text-xl"><span class="text-green-500">✓</span> Calendario y gestor de reservas (PMS)</li>
-                    <li class="flex items-center gap-2 text-xl"><span class="text-green-500">✓</span> Auto check-in para huespedes</li>
+                    <li class="flex items-center gap-2 text-xl"><span class="text-green-500">✓</span> Auto check-in para huéspedes</li>
                     <li class="flex items-center gap-2 text-xl"><span class="text-green-500">✓</span> Motor de reservas sin comisiones</li>
-                    <li class="flex items-center gap-2 text-xl"><span class="text-green-500">✓</span> Encuestas INE automaticas</li>
-                    <li class="flex items-center gap-2 text-xl"><span class="text-green-500">✓</span> Facturacion completa</li>
-                    <li class="flex items-center gap-2 text-xl"><span class="text-green-500">✓</span> Depositos, tasa turistica, limpieza...</li>
+                    <li class="flex items-center gap-2 text-xl"><span class="text-green-500">✓</span> Encuestas INE automáticas</li>
+                    <li class="flex items-center gap-2 text-xl"><span class="text-green-500">✓</span> Facturación completa</li>
+                    <li class="flex items-center gap-2 text-xl"><span class="text-green-500">✓</span> Depósitos, tasa turística, limpieza...</li>
                 </ul>
                 <div class="mt-8 p-4 bg-gray-50 rounded-lg">
                     <p class="text-lg">¿Tienes un camping, albergue o villa con disposición especial? <a href="#contacto" class="text-primary font-semibold hover:underline">Contáctanos</a> para un presupuesto personalizado.</p>
@@ -953,18 +953,18 @@
                 <div class="grid lg:grid-cols-2 gap-8 items-center bg-gray-50 rounded-2xl p-8">
                     <div>
                         <h2 class="text-3xl mb-4 text-secondary">Channel Manager (opcional)</h2>
-                        <p class="text-xl">Conecta con Booking, Expedia, Airbnb y mas de 50 OTAs. Servicio ofrecido por Wubook.</p>
+                        <p class="text-xl">Conecta con Booking, Expedia, Airbnb y más de 50 OTAs. Servicio ofrecido por WuBook.</p>
                         <p class="text-lg mt-4 text-gray-600">Precio: <span class="font-semibold">8€/mes por agencia</span> (+ IVA)</p>
                         <a class="inline-block mt-4 text-xl text-primary font-semibold hover:underline" target="_blank" href="https://es.wubook.net/s-pgs/partners-ota/Canales-con-conexin-XML-4.html">Ver agencias disponibles →</a>
                     </div>
                     <div class="text-center">
                         <div class="card card-blue bg-white p-6">
                             <p class="text-xl mb-4">Calcula el precio del Channel Manager:</p>
-                            <p class="text-primary mb-2">Numero de agencias:</p>
+                            <p class="text-primary mb-2">Número de agencias:</p>
                             <input class="form-input text-center w-24 mb-4" v-model="otas" @keyup="calculatePriceChannel" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
                             <p class="text-primary text-3xl my-2">{{price_channel.toFixed(2)}} €/mes</p>
                             <p class="text-gray-500 text-lg">{{ vat_price_channel.toFixed(2) }} €/mes con IVA</p>
-                            <p class="text-secondary mt-2 text-lg">15 dias gratis de prueba</p>
+                            <p class="text-secondary mt-2 text-lg">30 días gratis de prueba</p>
                         </div>
                     </div>
                 </div>

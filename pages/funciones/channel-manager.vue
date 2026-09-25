@@ -108,7 +108,7 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-lg mb-2">Maximiza ocupación</h3>
+                                    <h3 class="font-semibold text-lg mb-2">Maximiza tu ocupación</h3>
                                     <p class="text-gray-600">Estás presente en más agencias, llegas a más viajeros potenciales.</p>
                                 </div>
                             </div>
@@ -147,7 +147,7 @@
                             <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>15 días de prueba gratis</span>
+                            <span>30 días de prueba gratis</span>
                         </li>
                         <li class="flex items-center gap-2">
                             <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,14 +156,14 @@
                             <span>Sin permanencia</span>
                         </li>
                     </ul>
-                    <p class="text-lg text-gray-500">Servicio ofrecido en colaboración con Wubook</p>
+                    <p class="text-lg text-gray-500">Servicio ofrecido en colaboración con WuBook</p>
                 </div>
             </div>
 
             <!-- CTA -->
             <div class="text-center mt-20 px-6">
                 <h2 class="text-3xl font-bold mb-4">Sincroniza todas tus OTAs</h2>
-                <p class="text-xl text-gray-600 mb-8">Prueba el Channel Manager 15 días gratis.</p>
+                <p class="text-xl text-gray-600 mb-8">Crea tu cuenta y prueba el Channel Manager 30 días gratis.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
                 </div>

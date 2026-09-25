@@ -273,7 +273,7 @@
                     </div>
                     <div class="border-b border-gray-200 pb-6">
                         <h3 class="font-semibold text-lg mb-2">¿Puedo probarlo gratis?</h3>
-                        <p class="text-gray-600">Sí, tienes 30 días de prueba gratis con todas las funciones. Sin tarjeta de crédito, sin compromiso.</p>
+                        <p class="text-gray-600">Sí. Creas tu cuenta y tienes 30 días de prueba gratis con todas las funciones. Sin tarjeta de crédito, sin compromiso.</p>
                     </div>
                     <div class="border-b border-gray-200 pb-6">
                         <h3 class="font-semibold text-lg mb-2">¿Cómo se cuentan las unidades de alojamiento?</h3>
@@ -285,7 +285,7 @@
             <!-- CTA -->
             <div class="text-center mt-20 px-6">
                 <h2 class="text-3xl font-bold mb-4">¿Listo para empezar?</h2>
-                <p class="text-xl text-gray-600 mb-8">30 días gratis. Sin tarjeta de crédito. Sin compromiso.</p>
+                <p class="text-xl text-gray-600 mb-8">Crea tu cuenta: 30 días gratis, sin tarjeta de crédito y sin compromiso.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
                     <NuxtLink class="btn btn-outline" to="/comparar">Comparar con otros PMS</NuxtLink>

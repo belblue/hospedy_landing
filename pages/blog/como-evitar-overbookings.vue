@@ -211,7 +211,7 @@
         <div class="bg-primary/5 rounded-2xl p-8 text-center">
           <h2 class="text-2xl font-bold mb-4">¿Quieres olvidarte de los overbookings?</h2>
           <p class="text-gray-600 mb-6">
-            Prueba Hospedy gratis 30 días con Channel Manager y sincroniza todas tus OTAs en tiempo real.
+            Crea tu cuenta, prueba Hospedy gratis 30 días con Channel Manager y sincroniza todas tus OTAs en tiempo real.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>

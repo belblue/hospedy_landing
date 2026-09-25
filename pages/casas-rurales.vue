@@ -202,7 +202,7 @@
             <!-- CTA -->
             <div class="cta-gradient text-center mt-20 py-16 px-6">
                 <h2 class="text-3xl font-bold mb-4 text-white" data-aos="fade-up">Prueba Hospedy en tu casa rural</h2>
-                <p class="text-xl text-white/90 mb-8" data-aos="fade-up" data-aos-delay="100">30 días gratis. Sin tarjeta de crédito. Sin compromiso.</p>
+                <p class="text-xl text-white/90 mb-8" data-aos="fade-up" data-aos-delay="100">Crea tu cuenta: 30 días gratis, sin tarjeta de crédito y sin compromiso.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
                     <NuxtLink class="btn bg-white text-primary hover:bg-gray-100 font-semibold" to="/demo">Solicitar demo personalizada</NuxtLink>
                 </div>

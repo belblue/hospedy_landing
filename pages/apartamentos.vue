@@ -155,7 +155,7 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Gestión de varios apartamentos</h3>
-                            <p class="text-gray-600">Una cuenta, múltiples propiedades. Cada apartamento tiene su calendario pero los ves todos juntos.</p>
+                            <p class="text-gray-600">Una cuenta, múltiples propiedades. Cada apartamento tiene su calendario, pero los ves todos juntos.</p>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="400">
@@ -201,7 +201,7 @@
             <!-- CTA -->
             <div class="cta-gradient text-center mt-20 py-16 px-6">
                 <h2 class="text-3xl font-bold mb-4 text-white" data-aos="fade-up">Prueba Hospedy en tus apartamentos</h2>
-                <p class="text-xl text-white/90 mb-8" data-aos="fade-up" data-aos-delay="100">30 días gratis. Sin tarjeta de crédito. Sin compromiso.</p>
+                <p class="text-xl text-white/90 mb-8" data-aos="fade-up" data-aos-delay="100">Crea tu cuenta: 30 días gratis, sin tarjeta de crédito y sin compromiso.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
                     <NuxtLink class="btn bg-white text-primary hover:bg-gray-100 font-semibold" to="/demo">Solicitar demo personalizada</NuxtLink>
                 </div>

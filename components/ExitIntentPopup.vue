@@ -56,8 +56,8 @@
               Antes de irte...
             </h2>
             <p class="text-gray-600 mb-6">
-              ¿Sabías que puedes probar Hospedy
-              <span class="font-semibold text-primary">30 días gratis</span> y ver
+              ¿Sabías que puedes crear tu cuenta y probar Hospedy
+              <span class="font-semibold text-primary">30 días gratis</span> para ver
               cómo automatiza los partes de viajeros?
             </p>
 

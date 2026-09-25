@@ -241,7 +241,7 @@
             ¿Quieres probar el único PMS con INE automático?
           </h2>
           <p class="text-gray-600 mb-6">
-            Prueba Hospedy gratis durante 30 días. Sin tarjeta de crédito, sin compromiso.
+            Crea tu cuenta y prueba Hospedy gratis durante 30 días. Sin tarjeta de crédito, sin compromiso.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <NuxtLink class="btn btn-grad" to="/demo">Solicitar demo</NuxtLink>
