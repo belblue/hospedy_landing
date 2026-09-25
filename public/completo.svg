@@ -61,19 +61,14 @@
          dy="5.4"
          result="offset"
          id="feOffset492" />
-      <feComposite
-         in="SourceGraphic"
-         in2="offset"
-         operator="over"
-         result="composite2"
-         id="feComposite494" />
-    </filter>
+      </filter>
   </defs>
   <g
      id="layer1"
      transform="translate(-93.991098,-99.313839)">
+    <use href="#path4868" style="filter:url(#filter496)" />
     <circle
-       style="fill:url(#radialGradient7850);fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter496)"
+       style="fill:url(#radialGradient7850);fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;"
        id="path4868"
        cx="160.68428"
        cy="160.00702"

@@ -99,13 +99,7 @@
          dy="0.5"
          result="offset"
          id="feOffset14352" />
-      <feComposite
-         in="SourceGraphic"
-         in2="offset"
-         operator="over"
-         result="composite2"
-         id="feComposite14354" />
-    </filter>
+      </filter>
     <filter
        style="color-interpolation-filters:sRGB"
        id="filter14368"
@@ -134,13 +128,7 @@
          dy="0.5"
          result="offset"
          id="feOffset14364" />
-      <feComposite
-         in="SourceGraphic"
-         in2="offset"
-         operator="over"
-         result="composite2"
-         id="feComposite14366" />
-    </filter>
+      </filter>
     <filter
        style="color-interpolation-filters:sRGB"
        id="filter14392"
@@ -169,31 +157,32 @@
          dy="0.5"
          result="offset"
          id="feOffset14388" />
-      <feComposite
-         in="SourceGraphic"
-         in2="offset"
-         operator="over"
-         result="composite2"
-         id="feComposite14390" />
-    </filter>
+      </filter>
   </defs>
   <g
      id="layer1"
      transform="translate(-68.40156,-287.52423)">
-    <path
+    <g transform="matrix(4.2989028,0.08864934,-0.08864934,4.2989028,-106.6397,308.29094)">
+      <use href="#path19232-0-8" style="filter:url(#filter14356)" />
+      <path
        id="path19232-0-8"
-       transform="matrix(4.2989028,0.08864934,-0.08864934,4.2989028,-106.6397,308.29094)"
+      
        d="m 67.735056,26.900351 -13.866081,0.0044 A 1.5275726,1.5275726 59.981639 0 1 52.545324,24.61386 l 6.929193,-12.0106 a 1.5275726,1.5275726 179.98164 0 1 2.645833,-8.48e-4 l 6.936888,12.006156 a 1.5275726,1.5275726 119.98164 0 1 -1.322182,2.291783 z"
-       style="fill:url(#linearGradient75816-2-2);fill-opacity:1;stroke:#001120;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;filter:url(#filter14356)" />
-    <path
+       style="fill:url(#linearGradient75816-2-2);fill-opacity:1;stroke:#001120;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;" />
+    </g>
+    <g transform="rotate(1.1813507)">
+      <use href="#circle19234-3" style="filter:url(#filter14368)" />
+      <path
        id="circle19234-3"
-       style="fill:url(#linearGradient75818-2);stroke:#001120;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter14368)"
-       transform="rotate(1.1813507)"
+       style="fill:url(#linearGradient75818-2);stroke:#001120;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;"
+      
        d="m 132.89664,337.42133 a 24.999891,24.999886 0 0 1 -24.99989,24.99988 24.999891,24.999886 0 0 1 -24.99989,-24.99988 24.999891,24.999886 0 0 1 24.99989,-24.99989 24.999891,24.999886 0 0 1 24.99989,24.99989 z" />
+    </g>
+    <use href="#rect1798" style="filter:url(#filter14392)" />
     <path
        id="rect1798"
        d="m 190.95646,289.92511 h 56.84007 c 1.46125,0 3.89773,-0.0481 5.20598,0.57531 1.2246,0.58356 2.21504,1.57398 2.79863,2.79857 0.62347,1.30829 0.57536,3.74484 0.57536,5.20609 v 56.84006 c 0,1.46125 0.0481,3.89774 -0.57531,5.20598 -0.58356,1.2246 -1.57399,2.21505 -2.79858,2.79863 -1.30829,0.62347 -3.74483,0.57536 -5.20608,0.57536 h -56.84007 c -1.46125,0 -3.89773,0.0481 -5.20598,-0.57531 -1.2246,-0.58356 -2.21504,-1.57398 -2.79863,-2.79857 -0.62347,-1.30829 -0.57535,-3.74484 -0.57535,-5.20609 v -56.84006 c 0,-1.46125 -0.0481,-3.89774 0.5753,-5.20598 0.58357,-1.2246 1.57399,-2.21505 2.79858,-2.79863 1.30829,-0.62347 3.74483,-0.57536 5.20608,-0.57536 z"
-       style="fill:url(#linearGradient1837);fill-opacity:1;stroke:none;stroke-width:1.298;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;filter:url(#filter14392)" />
+       style="fill:url(#linearGradient1837);fill-opacity:1;stroke:none;stroke-width:1.298;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;" />
     <path
        style="fill:none;fill-opacity:1;stroke:#2667f7;stroke-width:1.298;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
        d="M 69.050561,364.3745 260.79866,363.84333"

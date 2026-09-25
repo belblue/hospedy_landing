@@ -115,10 +115,7 @@
         <feMergeNode
            in="shadow"
            id="feMergeNode1876" />
-        <feMergeNode
-           in="SourceGraphic"
-           id="feMergeNode1878" />
-      </feMerge>
+        </feMerge>
     </filter>
     <filter
        id="sh-sm"
@@ -153,10 +150,7 @@
         <feMergeNode
            in="shadow"
            id="feMergeNode1891" />
-        <feMergeNode
-           in="SourceGraphic"
-           id="feMergeNode1893" />
-      </feMerge>
+        </feMerge>
     </filter>
     <filter
        id="sh-xs"
@@ -191,10 +185,7 @@
         <feMergeNode
            in="shadow"
            id="feMergeNode1906" />
-        <feMergeNode
-           in="SourceGraphic"
-           id="feMergeNode1908" />
-      </feMerge>
+        </feMerge>
     </filter>
     <linearGradient
        inkscape:collect="always"
@@ -228,6 +219,7 @@
        gradientTransform="matrix(4.0532174,0,0,0.24671758,59.999999,65)" />
   </defs>
   <!-- ===== MAIN ENVELOPE ===== -->
+  <use href="#rect1915" style="filter:url(#sh-main)" />
   <rect
      x="60"
      y="120"
@@ -235,8 +227,9 @@
      height="180"
      rx="16"
      ry="16"
-     style="fill:#ffffff;stroke:#e2e8f0;stroke-width:0.8;filter:url(#sh-main)"
+     style="fill:#ffffff;stroke:#e2e8f0;stroke-width:0.8;"
      id="rect1915" />
+  <use href="#rect1917" style="filter:url(#sh-main)" />
   <rect
      x="60"
      y="120"
@@ -244,25 +237,29 @@
      height="180"
      rx="3"
      ry="3"
-     style="fill:#0d9488;stroke:none;filter:url(#sh-main)"
+     style="fill:#0d9488;stroke:none;"
      id="rect1917" />
+  <use href="#path1919" style="filter:url(#sh-main)" />
   <path
      d="M 62.5,124.77044 210,60 360,124"
-     style="fill:url(#linearGradient2136);stroke:none;filter:url(#sh-main)"
+     style="fill:url(#linearGradient2136);stroke:none;"
      id="path1919"
      sodipodi:nodetypes="ccc" />
+  <use href="#line1921" style="filter:url(#sh-main)" />
   <line
      x1="60"
      y1="133"
      x2="360"
      y2="133"
-     style="stroke:#0f766e;stroke-width:0.6;stroke-opacity:0.15;filter:url(#sh-main)"
+     style="stroke:#0f766e;stroke-width:0.6;stroke-opacity:0.15;"
      id="line1921" />
+  <use href="#path1923" style="filter:url(#sh-main)" />
   <path
      d="m 65,300 145,-87 144.69867,82.91656"
-     style="fill:none;stroke:#e2e8f0;stroke-width:1;filter:url(#sh-main)"
+     style="fill:none;stroke:#e2e8f0;stroke-width:1;"
      id="path1923"
      sodipodi:nodetypes="ccc" />
+  <use href="#rect1925" style="filter:url(#sh-xs)" />
   <rect
      x="149.23056"
      y="105.814"
@@ -270,8 +267,9 @@
      height="150"
      rx="10"
      ry="10"
-     style="fill:#ffffff;stroke:#e2e8f0;stroke-width:0.6;filter:url(#sh-xs)"
+     style="fill:#ffffff;stroke:#e2e8f0;stroke-width:0.6;"
      id="rect1925" />
+  <use href="#rect1927" style="filter:url(#sh-xs)" />
   <rect
      x="149.23056"
      y="105.814"
@@ -279,26 +277,30 @@
      height="36"
      rx="10"
      ry="10"
-     style="fill:url(#linearGradient2138);stroke:none;filter:url(#sh-xs)"
+     style="fill:url(#linearGradient2138);stroke:none;"
      id="rect1927" />
+  <use href="#rect1929" style="filter:url(#sh-xs)" />
   <rect
      x="149.23056"
      y="127.814"
      width="230"
      height="14"
-     style="fill:url(#linearGradient2140);stroke:none;filter:url(#sh-xs)"
+     style="fill:url(#linearGradient2140);stroke:none;"
      id="rect1929" />
+  <use href="#circle1931" style="filter:url(#sh-xs)" />
   <circle
      cx="176.23056"
      cy="123.814"
      r="10"
-     style="fill:#ffffff;fill-opacity:0.2;stroke:none;filter:url(#sh-xs)"
+     style="fill:#ffffff;fill-opacity:0.2;stroke:none;"
      id="circle1931" />
+  <use href="#text1933" style="filter:url(#sh-xs)" />
   <text
      x="176.23056"
      y="128.814"
-     style="font-weight:800;font-size:12px;font-family:Nunito, sans-serif;text-anchor:middle;fill:#ffffff;fill-opacity:0.65;filter:url(#sh-xs)"
+     style="font-weight:800;font-size:12px;font-family:Nunito, sans-serif;text-anchor:middle;fill:#ffffff;fill-opacity:0.65;"
      id="text1933">H</text>
+  <use href="#rect1935" style="filter:url(#sh-xs)" />
   <rect
      x="196.23056"
      y="117.814"
@@ -306,8 +308,9 @@
      height="5"
      rx="2.5"
      ry="2.5"
-     style="fill:#ffffff;fill-opacity:0.7;stroke:none;filter:url(#sh-xs)"
+     style="fill:#ffffff;fill-opacity:0.7;stroke:none;"
      id="rect1935" />
+  <use href="#rect1937" style="filter:url(#sh-xs)" />
   <rect
      x="196.23056"
      y="127.814"
@@ -315,8 +318,9 @@
      height="3.5"
      rx="1.75"
      ry="1.75"
-     style="fill:#ffffff;fill-opacity:0.35;stroke:none;filter:url(#sh-xs)"
+     style="fill:#ffffff;fill-opacity:0.35;stroke:none;"
      id="rect1937" />
+  <use href="#rect1939" style="filter:url(#sh-xs)" />
   <rect
      x="169.23056"
      y="155.814"
@@ -324,8 +328,9 @@
      height="5"
      rx="2.5"
      ry="2.5"
-     style="fill:#1a1a2e;fill-opacity:0.35;stroke:none;filter:url(#sh-xs)"
+     style="fill:#1a1a2e;fill-opacity:0.35;stroke:none;"
      id="rect1939" />
+  <use href="#rect1941" style="filter:url(#sh-xs)" />
   <rect
      x="169.23056"
      y="167.814"
@@ -333,8 +338,9 @@
      height="4"
      rx="2"
      ry="2"
-     style="fill:#94a3b8;fill-opacity:0.22;stroke:none;filter:url(#sh-xs)"
+     style="fill:#94a3b8;fill-opacity:0.22;stroke:none;"
      id="rect1941" />
+  <use href="#rect1943" style="filter:url(#sh-xs)" />
   <rect
      x="169.23056"
      y="177.814"
@@ -342,8 +348,9 @@
      height="4"
      rx="2"
      ry="2"
-     style="fill:#94a3b8;fill-opacity:0.18;stroke:none;filter:url(#sh-xs)"
+     style="fill:#94a3b8;fill-opacity:0.18;stroke:none;"
      id="rect1943" />
+  <use href="#rect1945" style="filter:url(#sh-xs)" />
   <rect
      x="169.23056"
      y="187.814"
@@ -351,8 +358,9 @@
      height="4"
      rx="2"
      ry="2"
-     style="fill:#94a3b8;fill-opacity:0.15;stroke:none;filter:url(#sh-xs)"
+     style="fill:#94a3b8;fill-opacity:0.15;stroke:none;"
      id="rect1945" />
+  <use href="#rect1947" style="filter:url(#sh-xs)" />
   <rect
      x="169.23056"
      y="197.814"
@@ -360,15 +368,17 @@
      height="4"
      rx="2"
      ry="2"
-     style="fill:#94a3b8;fill-opacity:0.12;stroke:none;filter:url(#sh-xs)"
+     style="fill:#94a3b8;fill-opacity:0.12;stroke:none;"
      id="rect1947" />
+  <use href="#line1949" style="filter:url(#sh-xs)" />
   <line
      x1="169.23056"
      y1="213.814"
      x2="354.23056"
      y2="213.814"
-     style="stroke:#e2e8f0;stroke-width:0.6;filter:url(#sh-xs)"
+     style="stroke:#e2e8f0;stroke-width:0.6;"
      id="line1949" />
+  <use href="#rect1951" style="filter:url(#sh-xs)" />
   <rect
      x="221.73058"
      y="226.01399"
@@ -376,17 +386,20 @@
      height="22"
      rx="8"
      ry="8"
-     style="fill:url(#env-amber);stroke:none;filter:url(#sh-xs)"
+     style="fill:url(#env-amber);stroke:none;"
      id="rect1951" />
+  <use href="#text1953" style="filter:url(#sh-xs)" />
   <text
      x="263.73056"
      y="241.01399"
-     style="font-weight:700;font-size:8px;font-family:Nunito, sans-serif;text-anchor:middle;fill:#ffffff;filter:url(#sh-xs)"
+     style="font-weight:700;font-size:8px;font-family:Nunito, sans-serif;text-anchor:middle;fill:#ffffff;"
      id="text1953">¡Recibido!</text>
   <!-- ===== @ BADGE (overlapping envelope, top-left) ===== -->
-  <g
-     style="filter:url(#sh-sm)"
-     transform="translate(42, 58)"
+  <g transform="translate(42, 58)">
+    <use href="#g1969" style="filter:url(#sh-sm)" />
+    <g
+     style=""
+    
      id="g1969">
     <circle
        cx="0"
@@ -406,10 +419,13 @@
        style="font-family:Nunito,sans-serif;font-weight:800;font-size:28px;fill:#ffffff;text-anchor:middle"
        id="text1967">@</text>
   </g>
+  </g>
   <!-- ===== PHONE BADGE (overlapping envelope, bottom-right) ===== -->
-  <g
-     style="filter:url(#sh-sm)"
-     transform="translate(62.499999,276.40625)"
+  <g transform="translate(62.499999,276.40625)">
+    <use href="#g1979" style="filter:url(#sh-sm)" />
+    <g
+     style=""
+    
      id="g1979">
     <circle
        cx="0"
@@ -434,10 +450,13 @@
     </g>
     <!-- (ring arcs built into phone icon) -->
   </g>
+  </g>
   <!-- ===== PAPER PLANE (floating, top-right) ===== -->
-  <g
-     style="filter:url(#sh-xs)"
-     transform="rotate(53.795089,113.69283,328.16834)"
+  <g transform="rotate(53.795089,113.69283,328.16834)">
+    <use href="#g1987" style="filter:url(#sh-xs)" />
+    <g
+     style=""
+    
      id="g1987">
     <path
        d="M 0,18 10,10 28,0 Z"
@@ -452,6 +471,7 @@
        style="fill:#0d9488;fill-opacity:0.45;stroke:none"
        id="path1985" />
   </g>
+  </g>
   <!-- Trail from paper plane -->
   <path
      d="m 299.80247,59.897512 q -14.72659,-3.889407 -25.42849,5.778541"
@@ -462,9 +482,11 @@
      style="fill:none;stroke:#14b8a6;stroke-width:1.2;stroke-linecap:round;stroke-dasharray:2, 4;stroke-opacity:0.1"
      id="path1991" />
   <!-- ===== AMBER NOTIFICATION DOT (top, between @ and plane) ===== -->
-  <g
-     style="filter:url(#sh-xs)"
-     transform="translate(58.776628,32.986004)"
+  <g transform="translate(58.776628,32.986004)">
+    <use href="#g1997" style="filter:url(#sh-xs)" />
+    <g
+     style=""
+    
      id="g1997">
     <circle
        cx="0"
@@ -477,6 +499,7 @@
        y="4"
        style="font-weight:800;font-size:10px;font-family:Nunito, sans-serif;text-anchor:middle;fill:#ffffff"
        id="text1995">1</text>
+  </g>
   </g>
   <!-- ===== Decorative dots ===== -->
   <circle

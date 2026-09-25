@@ -87,22 +87,17 @@
          dy="3.27103"
          result="offset"
          id="feOffset11693" />
-      <feComposite
-         in="SourceGraphic"
-         in2="offset"
-         operator="over"
-         result="composite2"
-         id="feComposite11695" />
-    </filter>
+      </filter>
   </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-392.19029,-55.183072)">
+    <use href="#path19232-0-8-0" style="filter:url(#filter11697)" />
     <path
        id="path19232-0-8-0"
-       style="fill:url(#linearGradient75816-2-2-2);fill-opacity:1;stroke:#001120;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;filter:url(#filter11697)"
+       style="fill:url(#linearGradient75816-2-2-2);fill-opacity:1;stroke:#001120;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;"
        inkscape:transform-center-x="-0.49996786"
        inkscape:transform-center-y="2.278418"
        d="m 406.57669,149.98307 a 6.5660504,4.902001 0 0 1 -5.70212,-7.34622 l 29.0106,-37.65397 -29.0106,-37.65397 a 6.5660504,4.902001 0 0 1 5.70211,-7.345828 l 59.60143,0.07174 a 6.5660504,4.902001 0 0 1 5.67006,7.35971 l -29.16142,37.568348 29.16142,37.56874 a 6.5660504,4.902001 0 0 1 -5.67006,7.35971 z"

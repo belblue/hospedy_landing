@@ -105,13 +105,7 @@
          dy="-1"
          result="offset"
          id="feOffset13692" />
-      <feComposite
-         in="SourceGraphic"
-         in2="offset"
-         operator="over"
-         result="composite2"
-         id="feComposite13694" />
-    </filter>
+      </filter>
     <filter
        style="color-interpolation-filters:sRGB"
        id="filter13708"
@@ -140,28 +134,28 @@
          dy="-1"
          result="offset"
          id="feOffset13704" />
-      <feComposite
-         in="SourceGraphic"
-         in2="offset"
-         operator="over"
-         result="composite2"
-         id="feComposite13706" />
-    </filter>
+      </filter>
   </defs>
   <g
      id="layer1"
      transform="translate(-82.329524,-52.048741)">
-    <path
+    <g transform="matrix(4.2989028,0.08864934,-0.08864934,4.2989028,-133.21337,42.751037)">
+      <use href="#path19232" style="filter:url(#filter13696)" />
+      <path
        id="path19232"
-       transform="matrix(4.2989028,0.08864934,-0.08864934,4.2989028,-133.21337,42.751037)"
+      
        d="m 67.735056,26.900351 -13.866081,0.0044 A 1.5275726,1.5275726 59.981639 0 1 52.545324,24.61386 l 6.929193,-12.0106 a 1.5275726,1.5275726 179.98164 0 1 2.645833,-8.48e-4 l 6.936888,12.006156 a 1.5275726,1.5275726 119.98164 0 1 -1.322182,2.291783 z"
-       style="fill:url(#linearGradient75816);fill-opacity:1;stroke:#001120;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;filter:url(#filter13696)"
+       style="fill:url(#linearGradient75816);fill-opacity:1;stroke:#001120;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;"
        clip-path="url(#clipPath13490)" />
-    <path
+    </g>
+    <g transform="rotate(1.181351)">
+      <use href="#circle19234" style="filter:url(#filter13708)" />
+      <path
        id="circle19234"
-       style="fill:url(#linearGradient75818);stroke:#001120;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter13708)"
-       transform="rotate(1.181351)"
+       style="fill:url(#linearGradient75818);stroke:#001120;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;"
+      
        d="M 157.73141,81.137939 A 27.727417,27.727417 0 0 1 130.004,108.86536 27.727417,27.727417 0 0 1 102.27658,81.137939 27.727417,27.727417 0 0 1 130.004,53.410522 27.727417,27.727417 0 0 1 157.73141,81.137939 Z"
        clip-path="url(#clipPath13486)" />
+    </g>
   </g>
 </svg>

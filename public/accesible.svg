@@ -93,22 +93,19 @@
          dy="1.8"
          result="offset"
          id="feOffset2521" />
-      <feComposite
-         in="SourceGraphic"
-         in2="offset"
-         operator="over"
-         result="composite2"
-         id="feComposite2523" />
-    </filter>
+      </filter>
   </defs>
-  <g
+  <g transform="translate(-54.091764,-148.00725)">
+    <use href="#layer2" style="filter:url(#filter2525)" />
+    <g
      id="layer2"
-     style="display:inline;filter:url(#filter2525)"
-     transform="translate(-54.091764,-148.00725)">
+     style="display:inline;"
+    >
     <path
        style="opacity:1;fill:url(#linearGradient3962);fill-opacity:1;stroke:url(#linearGradient14746);stroke-width:0.1;stroke-linecap:butt;stroke-dasharray:none;stroke-opacity:1"
        id="path199"
        transform="rotate(-175.48045,59.120076,148.0289)"
        d="m 54.339613,145.10829 -15.132409,-7.21 L 9.7433922,123.85992 A 4.5827178,4.5827178 85.475992 0 1 9.1173074,115.94715 L 22.927561,106.4471 49.817048,87.949878 a 4.5827178,4.5827178 25.475992 0 1 7.165702,3.414179 l 1.322155,16.710053 2.574325,32.53559 a 4.5827178,4.5827178 145.47599 0 1 -6.539617,4.49859 z" />
+  </g>
   </g>
 </svg>

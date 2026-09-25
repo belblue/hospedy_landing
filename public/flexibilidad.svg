@@ -78,13 +78,7 @@
          dy="0"
          result="offset"
          id="feOffset4534" />
-      <feComposite
-         in="SourceGraphic"
-         in2="offset"
-         operator="over"
-         result="composite2"
-         id="feComposite4536" />
-    </filter>
+      </filter>
     <filter
        style="color-interpolation-filters:sRGB"
        id="filter5276"
@@ -113,24 +107,20 @@
          dy="0"
          result="offset"
          id="feOffset5272" />
-      <feComposite
-         in="SourceGraphic"
-         in2="offset"
-         operator="over"
-         result="composite2"
-         id="feComposite5274" />
-    </filter>
+      </filter>
   </defs>
   <g
      id="layer1"
      transform="translate(-50.235475,-47.042906)">
+    <use href="#path438" style="filter:url(#filter4538)" />
     <path
-       style="fill:url(#linearGradient2475);fill-opacity:1;stroke-width:0.0927;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter4538)"
+       style="fill:url(#linearGradient2475);fill-opacity:1;stroke-width:0.0927;stroke-linecap:round;stroke-linejoin:round;"
        d="M 99.491085,50.642904 A 40.5,40.5 0 0 0 59.171582,87.494918 h 0.646989 l 10.022127,-11.325407 3.787883,11.325407 h 0.640787 A 25.515,25.515 0 0 1 99.491085,65.628035 25.515,25.515 0 0 1 124.39034,85.773059 l -6.09265,-0.001 13.45654,14.480251 13.4705,-14.475084 -5.62757,-0.001 A 40.5,40.5 0 0 0 99.491085,50.642904 Z"
        id="path438" />
+    <use href="#path1704" style="filter:url(#filter5276)" />
     <path
        id="path1704"
-       style="fill:url(#linearGradient2485);fill-opacity:1;stroke-width:0.0927;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter5276)"
+       style="fill:url(#linearGradient2485);fill-opacity:1;stroke-width:0.0927;stroke-linecap:round;stroke-linejoin:round;"
        d="m 67.305969,84.883708 -13.470495,14.474568 5.627563,10e-4 A 40.5,40.5 0 0 0 99.569116,134.49305 40.5,40.5 0 0 0 139.88862,97.641035 h -0.64699 L 129.2195,108.96648 125.43162,97.641069 h -0.64079 A 25.515,25.515 0 0 1 99.569116,119.50795 25.515,25.515 0 0 1 74.669861,99.36241 l 6.092651,0.001 z" />
   </g>
 </svg>
