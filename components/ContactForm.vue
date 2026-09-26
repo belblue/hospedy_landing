@@ -198,7 +198,7 @@
         </p>
       </div>
       <!-- Éxito: el texto que devuelve el panel -->
-      <p v-else class="text-xl text-primary text-center my-6">
+      <p v-else ref="bloqueExito" class="text-xl text-primary text-center my-6">
         {{ mensajeExito }}
       </p>
     </div>
@@ -221,6 +221,7 @@ const quiere_novedades = ref(false);
 const trampa = ref("");
 const message_sent = ref(false);
 const mensajeExito = ref("");
+const bloqueExito = ref<HTMLElement | null>(null);
 const errorEnvio = ref("");
 const showEmail = ref(false);
 const toast = useToast();
@@ -277,6 +278,9 @@ async function enviar() {
     removeCaptcha();
     message_sent.value = true;
     aviso("Mensaje enviado correctamente", TYPE.SUCCESS);
+    // El mensaje de éxito sustituye al formulario: se lleva a la vista
+    await nextTick();
+    bloqueExito.value?.scrollIntoView({ behavior: "smooth", block: "center" });
   } catch (e: unknown) {
     // El texto ya viene listo para enseñar: el del panel o el que invita a escribirnos
     errorEnvio.value = (e as Error).message;

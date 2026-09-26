@@ -175,7 +175,7 @@
                         </div>
 
                         <!-- Success Message -->
-                        <div v-else class="text-center py-8">
+                        <div v-else ref="bloqueExito" class="text-center py-8">
                             <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -211,6 +211,7 @@ const trampa = ref('')
 const sending = ref(false)
 const formSent = ref(false)
 const mensajeExito = ref('')
+const bloqueExito = ref<HTMLElement | null>(null)
 const errorEnvio = ref('')
 const turnstileEl = ref<HTMLElement | null>(null)
 const { token: captchaToken, error: captchaError, disponible: captchaDisponible, render: renderCaptcha, reset: resetCaptcha, remove: removeCaptcha } = useTurnstile('demo_asistida')
@@ -258,6 +259,9 @@ async function submitForm() {
         removeCaptcha()
         formSent.value = true
         aviso('Solicitud enviada correctamente', TYPE.SUCCESS)
+        // El formulario es alto: sin esto, el mensaje de éxito queda fuera de la vista
+        await nextTick()
+        bloqueExito.value?.scrollIntoView({ behavior: 'smooth', block: 'center' })
     } catch (e) {
         // El texto ya viene listo para enseñar: el del panel o el que invita a escribirnos
         errorEnvio.value = (e as Error).message
