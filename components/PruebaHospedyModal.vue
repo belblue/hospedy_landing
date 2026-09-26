@@ -35,7 +35,7 @@
 
           <!-- flex-none en los botones: .btn trae flex 1 1 auto y en una tarjeta en columna se estira -->
           <div class="grid gap-4 md:grid-cols-3">
-            <!-- Demo asistida: el formulario de /demo, que llega al equipo por email -->
+            <!-- Demo asistida: el formulario de /demo, que llega a la Bandeja del admin panel -->
             <div class="border border-gray-200 rounded-xl p-5 flex flex-col">
               <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3">
                 <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -1,10 +1,11 @@
 <template>
   <!-- Cuestionario de la cuenta de demo (demo bajo demanda): con él, el admin panel prepara un
        entorno de pruebas parecido al alojamiento, con datos ficticios, y envía el enlace por
-       email. Sin NUXT_PUBLIC_DEMO_API_BASE (la demo aún no está montada) enseña las otras dos
-       formas de probar Hospedy. Portado del DemoRequestForm de la landing de RidID. -->
+       email. Sin NUXT_PUBLIC_DEMO_ENABLED=true o sin NUXT_PUBLIC_PANEL_API_BASE (la demo aún no
+       está montada) enseña las otras dos formas de probar Hospedy. Portado del DemoRequestForm de
+       la landing de RidID. -->
   <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-    <div v-if="!demoApiBase" class="text-center py-4">
+    <div v-if="!demoLista" class="text-center py-4">
       <h2 class="text-xl font-semibold text-gray-900 mb-2">La cuenta de demo estará disponible muy pronto</h2>
       <p class="text-gray-600 mb-6">
         Mientras tanto, pide una demo asistida con una persona del equipo o crea tu cuenta: el asistente de
@@ -81,12 +82,19 @@
         </label>
       </div>
 
-      <div ref="turnstileEl" class="flex justify-center"></div>
-      <p v-if="captchaError" class="text-red-600">
-        No se ha podido cargar la verificación antispam. Recarga la página e inténtalo de nuevo.
-      </p>
+      <AvisoFormularioNoDisponible v-if="!captchaDisponible" />
+      <template v-else>
+        <div ref="turnstileEl" class="flex justify-center"></div>
+        <p v-if="captchaError" class="text-red-600">
+          No se ha podido cargar la verificación antispam. Recarga la página e inténtalo de nuevo.
+        </p>
+      </template>
 
-      <button :disabled="enviando" class="w-full btn btn-grad py-3 text-lg" @click="solicitar">
+      <button
+        :disabled="enviando || !captchaDisponible"
+        class="w-full btn btn-grad py-3 text-lg disabled:opacity-60 disabled:cursor-not-allowed"
+        @click="solicitar"
+      >
         {{ enviando ? 'Preparando...' : 'Quiero mi cuenta de demo' }}
       </button>
 
@@ -110,8 +118,9 @@
 <script setup lang="ts">
 import { useToast, POSITION, TYPE } from 'vue-toastification/dist/index.mjs'
 
-const config = useRuntimeConfig()
-const demoApiBase = String(config.public.demoApiBase || '').replace(/\/+$/, '')
+// El cuestionario va al admin panel; solo se enseña con la demo activada y el panel configurado
+const panelApiBase = usePanelApiBase()
+const { demoLista } = usePruebaHospedy()
 const { appUrl } = useReferral()
 const toast = useToast()
 
@@ -125,12 +134,13 @@ const consentimiento = ref(false)
 const enviando = ref(false)
 const enviado = ref(false)
 
-// La sitekey sale del backend (/api/public_config); el token lo comprueba el admin panel.
+// La sitekey sale de la configuración pública (NUXT_PUBLIC_TURNSTILE_SITE_KEY); el token lo
+// comprueba el admin panel. Sin sitekey no hay widget y el formulario da el correo.
 const turnstileEl = ref<HTMLElement | null>(null)
-const { token: captchaToken, error: captchaError, render: renderCaptcha, reset: resetCaptcha, remove: removeCaptcha } = useTurnstile('demo')
+const { token: captchaToken, error: captchaError, disponible: captchaDisponible, render: renderCaptcha, reset: resetCaptcha, remove: removeCaptcha } = useTurnstile('demo')
 
 onMounted(() => {
-  if (demoApiBase && turnstileEl.value) renderCaptcha(turnstileEl.value)
+  if (demoLista.value && turnstileEl.value) renderCaptcha(turnstileEl.value)
 })
 
 function aviso(mensaje: string, tipo: TYPE = TYPE.ERROR) {
@@ -152,7 +162,7 @@ async function solicitar() {
   }
   enviando.value = true
   try {
-    await $fetch(`${demoApiBase}/api/demo/request`, {
+    await $fetch(`${panelApiBase}/api/demo/request`, {
       method: 'POST',
       body: {
         email: email.value.trim(),

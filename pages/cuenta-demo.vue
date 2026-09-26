@@ -21,15 +21,16 @@
 </template>
 
 <script setup lang="ts">
-// Mientras la demo bajo demanda no esté montada (NUXT_PUBLIC_DEMO_API_BASE vacía) la página solo
-// remite a las otras dos formas de probar Hospedy: no se indexa.
-const config = useRuntimeConfig()
+// Mientras la demo bajo demanda no esté montada (sin NUXT_PUBLIC_DEMO_ENABLED=true o sin
+// NUXT_PUBLIC_PANEL_API_BASE) la página solo remite a las otras dos formas de probar Hospedy: no
+// se indexa.
+const { demoLista } = usePruebaHospedy()
 
 useHead({
     title: 'Cuenta de demo - Prueba Hospedy con datos de ejemplo',
     meta: [
         { name: 'description', content: 'Responde un breve cuestionario y prueba Hospedy en un entorno de demo con datos ficticios parecido a tu alojamiento. Sin tarjeta y sin compromiso.' },
-        ...(config.public.demoApiBase ? [] : [{ name: 'robots', content: 'noindex, follow' }]),
+        ...(demoLista.value ? [] : [{ name: 'robots', content: 'noindex, follow' }]),
     ],
 })
 </script>

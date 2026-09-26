@@ -102,16 +102,22 @@ export default defineNuxtConfig({
     },
     runtimeConfig: {
       public: {
-        // API del backend (formularios). Se sobrescribe por entorno con NUXT_PUBLIC_BASE_URL.
-        baseURL: "https://api.hospedy.app",
         // App de Hospedy (inicio de sesión y registro). Se sobrescribe por entorno con
         // NUXT_PUBLIC_CLIENT_APP_URL: en dev, el panel de dev; en prod, app.ridid.me hasta que el
         // panel se mude a app.hospedy.app.
         clientAppUrl: "https://app.ridid.me",
-        // Orquestador de la demo bajo demanda (admin panel), que recibe el cuestionario de
-        // /cuenta-demo. Se pone por entorno con NUXT_PUBLIC_DEMO_API_BASE; vacío, la cuenta de
-        // demo sale como "Muy pronto" y /cuenta-demo ofrece las otras dos formas de probar.
-        demoApiBase: "",
+        // API del admin panel, que recibe los formularios de la web: contacto y demo asistida
+        // (/api/public/solicitudes) y el cuestionario de la cuenta de demo (/api/demo/request). Por
+        // entorno con NUXT_PUBLIC_PANEL_API_BASE (en dev, https://rididadminapi.silatek.net); vacía,
+        // los formularios no se pueden enviar e invitan a escribir a hola@hospedy.app.
+        panelApiBase: "",
+        // Sitekey de Cloudflare Turnstile de los formularios, con NUXT_PUBLIC_TURNSTILE_SITE_KEY;
+        // vacía, no se pinta el widget y los formularios enseñan el mismo aviso.
+        turnstileSiteKey: "",
+        // Cuenta de demo bajo demanda: se ofrece con NUXT_PUBLIC_DEMO_ENABLED=true y el panel
+        // configurado; si no, sale como "Muy pronto" y /cuenta-demo remite a las otras dos formas
+        // de probar.
+        demoEnabled: false,
       },
     },
     routeRules: {

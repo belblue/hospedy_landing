@@ -9,33 +9,33 @@
         <a
           class="mx-4 p-2.5"
           href="https://www.facebook.com/Ridid-122157706306005/?modal=admin_todo_tour"
-          title="cuenta de facebook de Hospedy"
+          title="cuenta de Facebook de Hospedy"
           target="_blank"
-          aria-label="facebook"
+          aria-label="Facebook"
         >
           <img
             class="bg-white rounded-md"
             width="50px"
             src="/facebook.svg"
-            alt="cuenta de facebook Hospedy"
+            alt="cuenta de Facebook de Hospedy"
           />
         </a>
         <a
           href="https://www.instagram.com/ridid.me/"
           class="mx-4 p-2.5"
-          title="cuenta de instagram de Hospedy"
-          aria-label="instagram"
+          title="cuenta de Instagram de Hospedy"
+          aria-label="Instagram"
           target="_blank"
         >
           <img
             class="bg-white rounded-sm"
             width="50px"
             src="/instagram.svg"
-            alt="cuenta de instagram Hospedy"
+            alt="cuenta de Instagram de Hospedy"
           />
         </a>
         <a
-          title="Envíanos un mensaje por whatsapp"
+          title="Envíanos un mensaje por WhatsApp"
           target="_blank"
           href="https://wa.me/376619224"
           class="mx-4 p-2"
@@ -44,7 +44,7 @@
             class=""
             width="60px"
             src="/whatsapp.svg"
-            alt="cuenta de whatsapp de Hospedy"
+            alt="cuenta de WhatsApp de Hospedy"
           />
         </a>
       </div>
@@ -105,23 +105,39 @@
         </a>
       </div>
     </div>
-    <!-- Form section (right) -->
+    <!-- Form section (right): llega a la Bandeja del admin panel (useSolicitudWeb) -->
     <div>
       <div class="grid lg:grid-cols-2">
         <div class="lg:mr-4">
-          <p class="text-primary text-xl my-4">Nombre</p>
-          <input type="text" v-model="name" class="form-input" />
+          <label for="contacto-nombre" class="block text-primary text-xl my-4">Nombre</label>
+          <input
+            id="contacto-nombre"
+            v-model="name"
+            type="text"
+            maxlength="100"
+            autocomplete="name"
+            class="form-input"
+          />
         </div>
         <div class="">
-          <p class="text-primary text-xl my-4">Email</p>
-          <input type="text" v-model="email" class="form-input" />
+          <label for="contacto-email" class="block text-primary text-xl my-4">Email</label>
+          <input
+            id="contacto-email"
+            v-model="email"
+            type="email"
+            maxlength="254"
+            autocomplete="email"
+            class="form-input"
+          />
         </div>
       </div>
-      <p class="text-primary text-xl my-4">Mensaje</p>
+      <label for="contacto-mensaje" class="block text-primary text-xl my-4">Mensaje</label>
       <textarea
+        id="contacto-mensaje"
         v-model="message"
         cols="10"
         rows="4"
+        maxlength="3000"
         class="form-input"
       ></textarea>
 
@@ -132,21 +148,41 @@
           cuando quiera).</span
         >
       </label>
-      <div class="text-center my-6" v-if="message_sent == false">
-        <div ref="turnstileEl" class="flex justify-center mb-4"></div>
-        <p v-if="captchaError" class="text-red-600 mb-4">
-          No se ha podido cargar la verificación antispam. Recarga la página e
-          inténtalo de nuevo.
+
+      <!-- Trampa antispam: los robots rellenan todos los campos; una persona ni lo ve ni llega a
+           él con el tabulador. Si llega relleno, el panel responde que todo ha ido bien y no
+           hace nada. -->
+      <div class="campo-trampa" aria-hidden="true">
+        <label for="contacto-asunto">Deja este campo vacío</label>
+        <input
+          id="contacto-asunto"
+          v-model="trampa"
+          type="text"
+          name="asunto"
+          tabindex="-1"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="text-center my-6" v-if="!message_sent">
+        <AvisoFormularioNoDisponible v-if="!disponible" class="mb-4" />
+        <template v-else>
+          <div ref="turnstileEl" class="flex justify-center mb-4"></div>
+          <p v-if="captchaError" class="text-red-600 mb-4">
+            No se ha podido cargar la verificación antispam. Recarga la página e
+            inténtalo de nuevo.
+          </p>
+        </template>
+        <p v-if="errorEnvio" class="text-red-600 mb-4" role="alert">
+          {{ errorEnvio }}
         </p>
-        <button v-if="sending_form == true" class="btn btn-grad disabled">
-          Enviando...
-        </button>
         <button
-          v-else
-          class="btn bg-gradient-to-r from-secondary to-primary text-white font-bold"
+          type="button"
+          class="btn bg-gradient-to-r from-secondary to-primary text-white font-bold disabled:opacity-60 disabled:cursor-not-allowed"
+          :disabled="sending_form || !disponible"
           @click="enviar"
         >
-          Enviar
+          {{ sending_form ? "Enviando..." : "Enviar" }}
         </button>
         <p class="mt-4 text-left">
           Responsable: Silatek, S.L.U. (Hospedy). Finalidad: responder a tu
@@ -161,21 +197,31 @@
           Este formulario usa Cloudflare Turnstile contra el spam.
         </p>
       </div>
-      <div v-else>Mensaje enviado</div>
+      <!-- Éxito: el texto que devuelve el panel -->
+      <p v-else class="text-xl text-primary text-center my-6">
+        {{ mensajeExito }}
+      </p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useToast, POSITION, TYPE } from "vue-toastification/dist/index.mjs";
-const config = useRuntimeConfig();
-const baseURL = config.public.baseURL;
+const route = useRoute();
+const {
+  disponible: panelDisponible,
+  emailValido,
+  enviarSolicitud,
+} = useSolicitudWeb();
 const name = ref("");
 const email = ref("");
 const message = ref("");
 const sending_form = ref(false);
 const quiere_novedades = ref(false);
+const trampa = ref("");
 const message_sent = ref(false);
+const mensajeExito = ref("");
+const errorEnvio = ref("");
 const showEmail = ref(false);
 const toast = useToast();
 
@@ -183,13 +229,16 @@ const turnstileEl = ref<HTMLElement | null>(null);
 const {
   token: captchaToken,
   error: captchaError,
+  disponible: captchaDisponible,
   render: renderCaptcha,
   reset: resetCaptcha,
   remove: removeCaptcha,
-} = useTurnstile("contact");
+} = useTurnstile("contacto");
+// Sin sitekey o sin la dirección del panel, el formulario no se puede enviar: se da el correo
+const disponible = captchaDisponible && panelDisponible;
 
 onMounted(() => {
-  if (turnstileEl.value) renderCaptcha(turnstileEl.value);
+  if (disponible && turnstileEl.value) renderCaptcha(turnstileEl.value);
 });
 
 function aviso(texto: string, tipo: TYPE) {
@@ -197,8 +246,13 @@ function aviso(texto: string, tipo: TYPE) {
 }
 
 async function enviar() {
+  errorEnvio.value = "";
   if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
     aviso("Rellena nombre, email y mensaje", TYPE.ERROR);
+    return;
+  }
+  if (!emailValido(email.value)) {
+    aviso("Escribe un email válido", TYPE.ERROR);
     return;
   }
   if (!captchaToken.value) {
@@ -209,34 +263,24 @@ async function enviar() {
     return;
   }
   sending_form.value = true;
-  const texto = quiere_novedades.value
-    ? `${message.value}\n\nQuiere recibir novedades de Hospedy por email: sí`
-    : message.value;
-  // El backend responde 200 también en los errores, con resultado "Error" y un mensaje.
-  let mensajeError = "";
   try {
-    const resp: any = await $fetch(`${baseURL}/api/contact/send_message`, {
-      method: "post",
-      body: {
-        contact_email: email.value,
-        name: name.value,
-        message: texto,
-        captcha_token: captchaToken.value,
-      },
+    mensajeExito.value = await enviarSolicitud({
+      tipo: "contacto",
+      nombre: name.value,
+      email: email.value,
+      mensaje: message.value,
+      novedades: quiere_novedades.value,
+      pagina: route.path,
+      captcha_token: captchaToken.value,
+      web: trampa.value,
     });
-    if (resp && resp.resultado === "Error") {
-      mensajeError = resp.mensaje || "";
-      throw new Error("backend");
-    }
     removeCaptcha();
     message_sent.value = true;
     aviso("Mensaje enviado correctamente", TYPE.SUCCESS);
   } catch (e: unknown) {
-    aviso(
-      mensajeError || "No se ha podido enviar el mensaje. Inténtalo de nuevo.",
-      TYPE.ERROR
-    );
-    // El token es de un solo uso: si el envío falla, hay que reponer el widget.
+    // El texto ya viene listo para enseñar: el del panel o el que invita a escribirnos
+    errorEnvio.value = (e as Error).message;
+    // El token es de un solo uso: tras cualquier error del envío hay que pedir otro al widget.
     resetCaptcha();
   } finally {
     sending_form.value = false;

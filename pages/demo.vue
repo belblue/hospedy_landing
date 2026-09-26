@@ -93,29 +93,30 @@
                         </div>
                     </div>
 
-                    <!-- Right: Form -->
+                    <!-- Right: Form. Llega a la Bandeja del admin panel (useSolicitudWeb) -->
                     <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
                         <h2 class="text-xl font-semibold text-gray-900 mb-6">Solicita tu demo gratuita</h2>
 
                         <div v-if="!formSent" class="space-y-4">
                             <div>
-                                <label class="block text-lg font-medium text-gray-700 mb-1">Nombre *</label>
-                                <input type="text" v-model="name" class="form-input" placeholder="Tu nombre">
+                                <label for="asistida-nombre" class="block text-lg font-medium text-gray-700 mb-1">Nombre *</label>
+                                <input id="asistida-nombre" v-model="name" type="text" maxlength="100" autocomplete="name" class="form-input" placeholder="Tu nombre">
                             </div>
 
                             <div>
-                                <label class="block text-lg font-medium text-gray-700 mb-1">Email *</label>
-                                <input type="email" v-model="email" class="form-input" placeholder="tu@email.com">
+                                <label for="asistida-email" class="block text-lg font-medium text-gray-700 mb-1">Email *</label>
+                                <input id="asistida-email" v-model="email" type="email" maxlength="254" autocomplete="email" class="form-input" placeholder="tu@email.com">
                             </div>
 
                             <div>
-                                <label class="block text-lg font-medium text-gray-700 mb-1">Nombre del alojamiento *</label>
-                                <input type="text" v-model="propertyName" class="form-input" placeholder="Hotel, casa rural, apartamentos...">
+                                <label for="asistida-alojamiento" class="block text-lg font-medium text-gray-700 mb-1">Nombre del alojamiento *</label>
+                                <input id="asistida-alojamiento" v-model="propertyName" type="text" maxlength="150" autocomplete="organization" class="form-input" placeholder="Hotel, casa rural, apartamentos...">
                             </div>
 
                             <div>
-                                <label class="block text-lg font-medium text-gray-700 mb-1">Número de unidades de alojamiento</label>
-                                <select v-model="propertyCount" class="form-input">
+                                <label for="asistida-unidades" class="block text-lg font-medium text-gray-700 mb-1">Número de unidades de alojamiento</label>
+                                <!-- Los valores van tal cual al panel, que admite hasta 10 caracteres -->
+                                <select id="asistida-unidades" v-model="propertyCount" class="form-input">
                                     <option value="">Selecciona...</option>
                                     <option value="1-5">1-5 habitaciones/apartamentos</option>
                                     <option value="6-10">6-10 habitaciones/apartamentos</option>
@@ -126,13 +127,13 @@
                             </div>
 
                             <div>
-                                <label class="block text-lg font-medium text-gray-700 mb-1">Teléfono (opcional)</label>
-                                <input type="tel" v-model="phone" class="form-input" placeholder="+34 600 000 000">
+                                <label for="asistida-telefono" class="block text-lg font-medium text-gray-700 mb-1">Teléfono (opcional)</label>
+                                <input id="asistida-telefono" v-model="phone" type="tel" maxlength="30" autocomplete="tel" class="form-input" placeholder="+34 600 000 000">
                             </div>
 
                             <div>
-                                <label class="block text-lg font-medium text-gray-700 mb-1">Mensaje (opcional)</label>
-                                <textarea v-model="message" rows="3" class="form-input" placeholder="Cuéntanos qué te gustaría ver en la demo..."></textarea>
+                                <label for="asistida-mensaje" class="block text-lg font-medium text-gray-700 mb-1">Mensaje (opcional)</label>
+                                <textarea id="asistida-mensaje" v-model="message" rows="3" maxlength="3000" class="form-input" placeholder="Cuéntanos qué te gustaría ver en la demo..."></textarea>
                             </div>
 
                             <div class="flex items-start gap-2">
@@ -142,14 +143,27 @@
                                 </label>
                             </div>
 
-                            <div ref="turnstileEl" class="flex justify-center"></div>
-                            <p v-if="captchaError" class="text-red-600">
-                                No se ha podido cargar la verificación antispam. Recarga la página e inténtalo de nuevo.
-                            </p>
+                            <!-- Trampa antispam: los robots rellenan todos los campos; una persona ni lo ve ni
+                                 llega a él con el tabulador. Si llega relleno, el panel responde que todo ha ido
+                                 bien y no hace nada. -->
+                            <div class="campo-trampa" aria-hidden="true">
+                                <label for="asistida-asunto">Deja este campo vacío</label>
+                                <input id="asistida-asunto" v-model="trampa" type="text" name="asunto" tabindex="-1" autocomplete="off">
+                            </div>
+
+                            <AvisoFormularioNoDisponible v-if="!disponible" />
+                            <template v-else>
+                                <div ref="turnstileEl" class="flex justify-center"></div>
+                                <p v-if="captchaError" class="text-red-600">
+                                    No se ha podido cargar la verificación antispam. Recarga la página e inténtalo de nuevo.
+                                </p>
+                            </template>
+                            <p v-if="errorEnvio" class="text-red-600" role="alert">{{ errorEnvio }}</p>
 
                             <button
-                                :disabled="sending"
-                                class="w-full btn btn-grad py-3 text-lg"
+                                type="button"
+                                :disabled="sending || !disponible"
+                                class="w-full btn btn-grad py-3 text-lg disabled:opacity-60 disabled:cursor-not-allowed"
                                 @click="submitForm"
                             >
                                 {{ sending ? 'Enviando...' : 'Solicitar demo gratuita' }}
@@ -168,7 +182,8 @@
                                 </svg>
                             </div>
                             <h3 class="text-xl font-semibold text-gray-900 mb-2">Solicitud enviada</h3>
-                            <p class="text-gray-600">Nos pondremos en contacto contigo pronto para programar tu demo personalizada.</p>
+                            <!-- El texto que devuelve el panel -->
+                            <p class="text-gray-600">{{ mensajeExito }}</p>
                         </div>
                     </div>
                 </div>
@@ -181,9 +196,9 @@
 <script setup lang="ts">
 import { useToast, POSITION, TYPE } from 'vue-toastification/dist/index.mjs'
 
-const config = useRuntimeConfig()
-const baseURL = config.public.baseURL
+const route = useRoute()
 const toast = useToast()
+const { disponible: panelDisponible, emailValido, enviarSolicitud } = useSolicitudWeb()
 
 const name = ref('')
 const email = ref('')
@@ -192,81 +207,61 @@ const propertyCount = ref('')
 const phone = ref('')
 const message = ref('')
 const quiereNovedades = ref(false)
+const trampa = ref('')
 const sending = ref(false)
 const formSent = ref(false)
+const mensajeExito = ref('')
+const errorEnvio = ref('')
 const turnstileEl = ref<HTMLElement | null>(null)
-const { token: captchaToken, error: captchaError, render: renderCaptcha, reset: resetCaptcha, remove: removeCaptcha } = useTurnstile('contact')
+const { token: captchaToken, error: captchaError, disponible: captchaDisponible, render: renderCaptcha, reset: resetCaptcha, remove: removeCaptcha } = useTurnstile('demo_asistida')
+// Sin sitekey o sin la dirección del panel, el formulario no se puede enviar: se da el correo
+const disponible = captchaDisponible && panelDisponible
 
 onMounted(() => {
-    if (turnstileEl.value) renderCaptcha(turnstileEl.value)
+    if (disponible && turnstileEl.value) renderCaptcha(turnstileEl.value)
 })
 
+function aviso(texto: string, tipo: TYPE = TYPE.ERROR) {
+    toast(texto, { position: POSITION.TOP_CENTER, type: tipo, timeout: 3000 })
+}
+
 async function submitForm() {
-    if (!captchaToken.value) {
-        toast("Espera a que termine la comprobación antispam e inténtalo de nuevo", {
-            position: POSITION.TOP_CENTER,
-            type: TYPE.ERROR,
-            timeout: 3000
-        })
+    errorEnvio.value = ''
+    if (!name.value.trim() || !email.value.trim() || !propertyName.value.trim()) {
+        aviso('Por favor, completa los campos obligatorios')
         return
     }
-
-    if (!name.value || !email.value || !propertyName.value) {
-        toast("Por favor completa los campos obligatorios", {
-            position: POSITION.TOP_CENTER,
-            type: TYPE.ERROR,
-            timeout: 3000
-        })
+    if (!emailValido(email.value)) {
+        aviso('Escribe un email válido')
+        return
+    }
+    if (!captchaToken.value) {
+        aviso('Espera a que termine la comprobación antispam e inténtalo de nuevo')
         return
     }
 
     sending.value = true
-
-    // El backend responde 200 también en los errores, con resultado "Error" y un mensaje.
-    let mensajeError = ''
     try {
-        const demoMessage = `
-SOLICITUD DE DEMO
------------------
-Nombre: ${name.value}
-Email: ${email.value}
-Alojamiento: ${propertyName.value}
-Unidades: ${propertyCount.value || 'No especificado'}
-Teléfono: ${phone.value || 'No especificado'}
-Quiere recibir novedades por email: ${quiereNovedades.value ? 'sí' : 'no'}
-
-Mensaje: ${message.value || 'Sin mensaje adicional'}
-        `.trim()
-
-        const resp: any = await $fetch(`${baseURL}/api/contact/send_message`, {
-            method: 'post',
-            body: {
-                contact_email: email.value,
-                name: name.value,
-                message: demoMessage,
-                captcha_token: captchaToken.value
-            }
+        mensajeExito.value = await enviarSolicitud({
+            tipo: 'demo',
+            nombre: name.value,
+            email: email.value,
+            alojamiento: propertyName.value,
+            unidades: propertyCount.value,
+            telefono: phone.value,
+            mensaje: message.value,
+            novedades: quiereNovedades.value,
+            pagina: route.path,
+            captcha_token: captchaToken.value,
+            web: trampa.value,
         })
-        if (resp && resp.resultado === 'Error') {
-            mensajeError = resp.mensaje || ''
-            throw new Error('backend')
-        }
-
         removeCaptcha()
         formSent.value = true
-        toast("Solicitud enviada correctamente", {
-            position: POSITION.TOP_CENTER,
-            type: TYPE.SUCCESS,
-            timeout: 3000
-        })
+        aviso('Solicitud enviada correctamente', TYPE.SUCCESS)
     } catch (e) {
-        console.error('Error sending demo request:', e)
-        toast(mensajeError || "Error al enviar la solicitud. Inténtalo de nuevo.", {
-            position: POSITION.TOP_CENTER,
-            type: TYPE.ERROR,
-            timeout: 3000
-        })
-        // El token es de un solo uso: si el envío falla, hay que reponer el widget.
+        // El texto ya viene listo para enseñar: el del panel o el que invita a escribirnos
+        errorEnvio.value = (e as Error).message
+        // El token es de un solo uso: tras cualquier error del envío hay que pedir otro al widget.
         resetCaptcha()
     } finally {
         sending.value = false

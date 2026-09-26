@@ -1,10 +1,13 @@
 // Cloudflare Turnstile en los formularios de la web: carga del script oficial (sin dependencia
-// npm) y sitekey servida por el backend en /api/public_config, de modo que cambiar de clave no
-// obliga a recompilar la web.
+// npm) y sitekey de la configuración pública (NUXT_PUBLIC_TURNSTILE_SITE_KEY), que se lee al
+// arrancar el servidor: cambiar de clave no obliga a recompilar la web. El token lo comprueba el
+// admin panel, que es quien recibe los formularios.
+//
+// Sin sitekey no se pinta el widget (disponible = false): el formulario no podría pasar la
+// comprobación, así que en su lugar invita a escribir a hola@hospedy.app.
 const SCRIPT_URL = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
 
 let scriptPromise: Promise<any> | null = null
-let siteKeyPromise: Promise<string> | null = null
 
 function loadScript(): Promise<any> {
   if (scriptPromise) return scriptPromise
@@ -36,29 +39,20 @@ function loadScript(): Promise<any> {
   return scriptPromise
 }
 
-function fetchSiteKey(baseURL: string): Promise<string> {
-  if (!siteKeyPromise) {
-    siteKeyPromise = $fetch<{ turnstile_site_key?: string }>(`${baseURL}/api/public_config`)
-      .then((r) => (r && r.turnstile_site_key) || '')
-      .catch((e) => {
-        siteKeyPromise = null
-        throw e
-      })
-  }
-  return siteKeyPromise
-}
-
 export function useTurnstile(action: string) {
-  const config = useRuntimeConfig()
+  const siteKey = String(useRuntimeConfig().public.turnstileSiteKey || '').trim()
+  const disponible = Boolean(siteKey)
   const token = ref('')
   const error = ref(false)
   let widgetId: string | null = null
+  let montado = true
 
   async function render(el: HTMLElement) {
+    if (!disponible) return
     try {
-      const siteKey = await fetchSiteKey(config.public.baseURL as string)
-      if (!siteKey) throw new Error('Turnstile sin sitekey')
       const turnstile = await loadScript()
+      // Si el formulario ha desaparecido mientras cargaba el script, no se pinta en el vacío
+      if (!montado) return
       widgetId = turnstile.render(el, {
         sitekey: siteKey,
         action,
@@ -66,6 +60,8 @@ export function useTurnstile(action: string) {
           token.value = t
           error.value = false
         },
+        // El token caduca a los 300 s: se descarta y el widget saca otro solo (refresh-expired)
+        'refresh-expired': 'auto',
         'expired-callback': () => {
           token.value = ''
         },
@@ -79,7 +75,7 @@ export function useTurnstile(action: string) {
     }
   }
 
-  // El token es de un solo uso y caduca a los 300 s: reponerlo cuando un envío falla.
+  // El token es de un solo uso: reponerlo cuando un envío falla, sea cual sea el error.
   function reset() {
     token.value = ''
     const w = window as any
@@ -101,7 +97,10 @@ export function useTurnstile(action: string) {
     widgetId = null
   }
 
-  onBeforeUnmount(remove)
+  onBeforeUnmount(() => {
+    montado = false
+    remove()
+  })
 
-  return { token, error, render, reset, remove }
+  return { token, error, disponible, render, reset, remove }
 }

@@ -52,6 +52,19 @@
     width: 20px;
     color: #0D9488 !important;
   }
+
+  /* Trampa antispam de los formularios: un campo que solo rellenan los robots. Va fuera de la
+     pantalla y no con display:none, que algunos robots detectan; el tabulador no llega a él
+     (tabindex="-1") y el contenedor lleva aria-hidden para los lectores de pantalla. */
+  .campo-trampa {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
   .btn {
     flex: 1 1 auto;
     text-align: center;
