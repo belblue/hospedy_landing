@@ -27,7 +27,7 @@
                             <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Channel Manager con +50 OTAs</span>
+                            <span>Channel Manager con +150 OTAs</span>
                         </li>
                         <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="200">
                             <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -132,7 +132,7 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Channel Manager</h3>
-                            <p class="text-gray-600">Conecta Booking, Airbnb, Vrbo, Expedia y +50 OTAs. Cuando entra una reserva, se bloquea en todas las demás.</p>
+                            <p class="text-gray-600">Conecta Booking, Airbnb, Vrbo, Expedia y +150 OTAs. Cuando entra una reserva, se bloquea en todas las demás.</p>
                             <NuxtLink to="/funciones/channel-manager" class="text-primary hover:underline text-lg mt-2 inline-block">Ver agencias →</NuxtLink>
                         </div>
                     </div>

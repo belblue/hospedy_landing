@@ -33,12 +33,12 @@
 /* posicion (x, y) y ancho en % de la composicion, como en el dibujo original */
 const LOGOS = [
   { src: "booking.svg", x: 0, y: 20.9, w: 14, forma: "vector" },
-  { src: "agencia-esqui.webp", x: 16.6, y: 0, w: 13.9, forma: "cuadro" },
+  { src: "esquiades.webp", x: 16.6, y: 0, w: 13.9, forma: "cuadro" },
   { src: "airbnb.webp", x: 39.3, y: 16.5, w: 14.4, forma: "circulo" },
-  { src: "agencia-cuadrados.webp", x: 60.4, y: 1.8, w: 14, forma: "cuadro-redondo" },
+  { src: "edreams.webp", x: 60.4, y: 1.8, w: 14, forma: "cuadro-redondo" },
   { src: "lastminute.webp", x: 85.4, y: 21, w: 14.6, forma: "circulo-blanco" },
   { src: "expedia.webp", x: 80.7, y: 50.7, w: 14, forma: "cuadro" },
-  { src: "agencia-h.webp", x: 4.8, y: 50.6, w: 13.5, forma: "cuadro-borde" },
+  { src: "hotelbeds.webp", x: 4.8, y: 50.6, w: 13.5, forma: "cuadro-borde" },
 ];
 </script>
 

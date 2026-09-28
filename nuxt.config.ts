@@ -101,6 +101,10 @@ export default defineNuxtConfig({
       },
     },
     runtimeConfig: {
+      // API del PMS de la que sale la lista de agencias del Channel Manager (/api/public/agencias). Solo
+      // la usa el servidor de la web: el navegador nunca la llama. Por entorno con NUXT_RIDID_API_BASE;
+      // vacía, la web enseña la copia de server/data/agencias-respaldo.json.
+      rididApiBase: "",
       public: {
         // App de Hospedy (inicio de sesión y registro). Se sobrescribe por entorno con
         // NUXT_PUBLIC_CLIENT_APP_URL: en dev, el panel de dev; en prod, app.ridid.me hasta que el

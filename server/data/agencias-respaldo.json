@@ -1,0 +1,678 @@
+{
+ "fecha": "2026-09-28",
+ "nota": "Copia de la lista de agencias del PMS para cuando la web arranca sin poder pedirla. Solo nombres y canal.",
+ "agencias": [
+  {
+   "canal": 218,
+   "nombre": "101Hotels.com"
+  },
+  {
+   "canal": 128,
+   "nombre": "Acase.ru"
+  },
+  {
+   "canal": 19,
+   "nombre": "Agoda"
+  },
+  {
+   "canal": 108,
+   "nombre": "Agriturismo.net"
+  },
+  {
+   "canal": 180,
+   "nombre": "AIC Travel Group"
+  },
+  {
+   "canal": 43,
+   "nombre": "Airbnb"
+  },
+  {
+   "canal": 93,
+   "nombre": "Aja"
+  },
+  {
+   "canal": 61,
+   "nombre": "AllHotelsMarket"
+  },
+  {
+   "canal": 204,
+   "nombre": "Alliance Resaux"
+  },
+  {
+   "canal": 141,
+   "nombre": "AMK"
+  },
+  {
+   "canal": 273,
+   "nombre": "Apa Hotels Pesaro"
+  },
+  {
+   "canal": 282,
+   "nombre": "Arcadia"
+  },
+  {
+   "canal": 258,
+   "nombre": "Arena Tourist"
+  },
+  {
+   "canal": 13,
+   "nombre": "Atrapalo"
+  },
+  {
+   "canal": 289,
+   "nombre": "Avi Travel"
+  },
+  {
+   "canal": 138,
+   "nombre": "Avia-centr.ru"
+  },
+  {
+   "canal": 228,
+   "nombre": "B2B.Ostrovok"
+  },
+  {
+   "canal": 276,
+   "nombre": "Bakuun"
+  },
+  {
+   "canal": 287,
+   "nombre": "Bauking"
+  },
+  {
+   "canal": 65,
+   "nombre": "Bed-And-Breakfast.it"
+  },
+  {
+   "canal": 62,
+   "nombre": "BedAndBreakfast.eu"
+  },
+  {
+   "canal": 201,
+   "nombre": "BedAndBreakfast.nl"
+  },
+  {
+   "canal": 246,
+   "nombre": "Beds4Travel"
+  },
+  {
+   "canal": 225,
+   "nombre": "Best Holidays in Italy"
+  },
+  {
+   "canal": 226,
+   "nombre": "Best of Ischia"
+  },
+  {
+   "canal": 280,
+   "nombre": "Bibione.com"
+  },
+  {
+   "canal": 249,
+   "nombre": "Bluwelcometravel"
+  },
+  {
+   "canal": 191,
+   "nombre": "BMS Travelminds"
+  },
+  {
+   "canal": 241,
+   "nombre": "Booking Alto Adige"
+  },
+  {
+   "canal": 157,
+   "nombre": "Booking Piemonte"
+  },
+  {
+   "canal": 2,
+   "nombre": "Booking.com"
+  },
+  {
+   "canal": 263,
+   "nombre": "Bookonlinenow"
+  },
+  {
+   "canal": 66,
+   "nombre": "Bronevik"
+  },
+  {
+   "canal": 235,
+   "nombre": "Caorle.it"
+  },
+  {
+   "canal": 64,
+   "nombre": "Capri Online"
+  },
+  {
+   "canal": 70,
+   "nombre": "Capri.it (Caprionline)"
+  },
+  {
+   "canal": 71,
+   "nombre": "Capri.net (Caprionline)"
+  },
+  {
+   "canal": 244,
+   "nombre": "CasasRurales.net"
+  },
+  {
+   "canal": 104,
+   "nombre": "CBooking"
+  },
+  {
+   "canal": 159,
+   "nombre": "CharmingItaly / Portale Sardegna"
+  },
+  {
+   "canal": 176,
+   "nombre": "ConilHospeda"
+  },
+  {
+   "canal": 99,
+   "nombre": "Despegar"
+  },
+  {
+   "canal": 145,
+   "nombre": "Destination Florence"
+  },
+  {
+   "canal": 281,
+   "nombre": "Destination Italia"
+  },
+  {
+   "canal": 200,
+   "nombre": "DMS Aia Palas"
+  },
+  {
+   "canal": 196,
+   "nombre": "DMS Valdichiana Living"
+  },
+  {
+   "canal": 60,
+   "nombre": "Dnata Travel Group"
+  },
+  {
+   "canal": 126,
+   "nombre": "Dobovo.com"
+  },
+  {
+   "canal": 236,
+   "nombre": "Doge of Venice"
+  },
+  {
+   "canal": 112,
+   "nombre": "Dolomiti.org"
+  },
+  {
+   "canal": 95,
+   "nombre": "Dorms.com"
+  },
+  {
+   "canal": 123,
+   "nombre": "Dtt.Travel"
+  },
+  {
+   "canal": 39,
+   "nombre": "Easytobook"
+  },
+  {
+   "canal": 163,
+   "nombre": "eDreams"
+  },
+  {
+   "canal": 114,
+   "nombre": "Elba Promotion"
+  },
+  {
+   "canal": 58,
+   "nombre": "eLong (Expedia)"
+  },
+  {
+   "canal": 171,
+   "nombre": "Els Ports"
+  },
+  {
+   "canal": 41,
+   "nombre": "Emerging Travel Group"
+  },
+  {
+   "canal": 202,
+   "nombre": "Esquiades"
+  },
+  {
+   "canal": 264,
+   "nombre": "Estiber"
+  },
+  {
+   "canal": 221,
+   "nombre": "ETS - Executive Travel"
+  },
+  {
+   "canal": 185,
+   "nombre": "Evadirte.com"
+  },
+  {
+   "canal": 1,
+   "nombre": "Expedia"
+  },
+  {
+   "canal": 35,
+   "nombre": "Feratel"
+  },
+  {
+   "canal": 177,
+   "nombre": "Fincahotels"
+  },
+  {
+   "canal": 262,
+   "nombre": "Firmatour"
+  },
+  {
+   "canal": 256,
+   "nombre": "FreeGoo"
+  },
+  {
+   "canal": 277,
+   "nombre": "Gardasee.it"
+  },
+  {
+   "canal": 165,
+   "nombre": "GO Voyages"
+  },
+  {
+   "canal": 29,
+   "nombre": "HostelBookers (HostelWorld Group)"
+  },
+  {
+   "canal": 20,
+   "nombre": "HostelsClub"
+  },
+  {
+   "canal": 28,
+   "nombre": "HostelWorld Group"
+  },
+  {
+   "canal": 3,
+   "nombre": "Hotel.de/Hotel.info"
+  },
+  {
+   "canal": 9,
+   "nombre": "HotelBeds"
+  },
+  {
+   "canal": 97,
+   "nombre": "Hotelbook"
+  },
+  {
+   "canal": 186,
+   "nombre": "HotelNet"
+  },
+  {
+   "canal": 6,
+   "nombre": "Hotels.com (Expedia)"
+  },
+  {
+   "canal": 160,
+   "nombre": "HotelsClick"
+  },
+  {
+   "canal": 161,
+   "nombre": "HotelsCorse"
+  },
+  {
+   "canal": 11,
+   "nombre": "Hrs.com"
+  },
+  {
+   "canal": 215,
+   "nombre": "Hubcore.travel"
+  },
+  {
+   "canal": 255,
+   "nombre": "Hyper Guest"
+  },
+  {
+   "canal": 31,
+   "nombre": "I Castelli"
+  },
+  {
+   "canal": 279,
+   "nombre": "i-escape"
+  },
+  {
+   "canal": 242,
+   "nombre": "Ignas Tour"
+  },
+  {
+   "canal": 288,
+   "nombre": "Imperatore Travel (by Juniper)"
+  },
+  {
+   "canal": 214,
+   "nombre": "Interrias"
+  },
+  {
+   "canal": 208,
+   "nombre": "Ionian Travel"
+  },
+  {
+   "canal": 83,
+   "nombre": "Italcamel"
+  },
+  {
+   "canal": 178,
+   "nombre": "Italy Hotels Umbria"
+  },
+  {
+   "canal": 63,
+   "nombre": "ItalyHotels (Federalberghi)"
+  },
+  {
+   "canal": 69,
+   "nombre": "ItalyTraveller (Caprionline)"
+  },
+  {
+   "canal": 213,
+   "nombre": "IVH Group"
+  },
+  {
+   "canal": 81,
+   "nombre": "JacTravel"
+  },
+  {
+   "canal": 270,
+   "nombre": "Kalivah"
+  },
+  {
+   "canal": 42,
+   "nombre": "Keytel"
+  },
+  {
+   "canal": 113,
+   "nombre": "LanghePass"
+  },
+  {
+   "canal": 23,
+   "nombre": "Lastminute"
+  },
+  {
+   "canal": 184,
+   "nombre": "Livigno.eu"
+  },
+  {
+   "canal": 90,
+   "nombre": "Lovevda"
+  },
+  {
+   "canal": 274,
+   "nombre": "Madeep"
+  },
+  {
+   "canal": 237,
+   "nombre": "Mamberto"
+  },
+  {
+   "canal": 253,
+   "nombre": "Matera Collection"
+  },
+  {
+   "canal": 86,
+   "nombre": "MaxMind"
+  },
+  {
+   "canal": 239,
+   "nombre": "Medintur"
+  },
+  {
+   "canal": 197,
+   "nombre": "Mirai"
+  },
+  {
+   "canal": 73,
+   "nombre": "Mr and Mrs Smith"
+  },
+  {
+   "canal": 189,
+   "nombre": "MRS Tour"
+  },
+  {
+   "canal": 217,
+   "nombre": "My Italy Selection"
+  },
+  {
+   "canal": 259,
+   "nombre": "Nomolesten"
+  },
+  {
+   "canal": 148,
+   "nombre": "Odigeo Connect"
+  },
+  {
+   "canal": 275,
+   "nombre": "Offer Beds"
+  },
+  {
+   "canal": 222,
+   "nombre": "One Up Travel"
+  },
+  {
+   "canal": 144,
+   "nombre": "OneTwoTrip!"
+  },
+  {
+   "canal": 216,
+   "nombre": "OpenGDS"
+  },
+  {
+   "canal": 164,
+   "nombre": "Opodo"
+  },
+  {
+   "canal": 220,
+   "nombre": "Ospitalità Natura"
+  },
+  {
+   "canal": 227,
+   "nombre": "Ostrovok"
+  },
+  {
+   "canal": 285,
+   "nombre": "OTS Globe"
+  },
+  {
+   "canal": 68,
+   "nombre": "Positano.com (Caprionline)"
+  },
+  {
+   "canal": 209,
+   "nombre": "Promobellagio"
+  },
+  {
+   "canal": 229,
+   "nombre": "RateHawk"
+  },
+  {
+   "canal": 117,
+   "nombre": "Restel (Hotusa)"
+  },
+  {
+   "canal": 284,
+   "nombre": "Retevacanze - 1way2Italy"
+  },
+  {
+   "canal": 238,
+   "nombre": "Riviera Incoming"
+  },
+  {
+   "canal": 243,
+   "nombre": "Roibos"
+  },
+  {
+   "canal": 211,
+   "nombre": "RoomBeast"
+  },
+  {
+   "canal": 125,
+   "nombre": "Roomlink"
+  },
+  {
+   "canal": 278,
+   "nombre": "Sardex Travel"
+  },
+  {
+   "canal": 212,
+   "nombre": "Simplex - LTD"
+  },
+  {
+   "canal": 250,
+   "nombre": "Sireon tours"
+  },
+  {
+   "canal": 33,
+   "nombre": "SleepingIn"
+  },
+  {
+   "canal": 195,
+   "nombre": "Smartbox"
+  },
+  {
+   "canal": 232,
+   "nombre": "Snowit"
+  },
+  {
+   "canal": 107,
+   "nombre": "Specialhotels.nl (MaxMind)"
+  },
+  {
+   "canal": 106,
+   "nombre": "SpeedyBooker"
+  },
+  {
+   "canal": 102,
+   "nombre": "SunHotels"
+  },
+  {
+   "canal": 271,
+   "nombre": "Sunlux Viaggi"
+  },
+  {
+   "canal": 129,
+   "nombre": "Svoy Hotel"
+  },
+  {
+   "canal": 254,
+   "nombre": "Synergy"
+  },
+  {
+   "canal": 38,
+   "nombre": "Tablethotels"
+  },
+  {
+   "canal": 231,
+   "nombre": "Tales Collection"
+  },
+  {
+   "canal": 75,
+   "nombre": "TheBestSpaHotels"
+  },
+  {
+   "canal": 146,
+   "nombre": "Travel-click.ru"
+  },
+  {
+   "canal": 166,
+   "nombre": "Travellink"
+  },
+  {
+   "canal": 210,
+   "nombre": "Traveloka"
+  },
+  {
+   "canal": 167,
+   "nombre": "Traveltino"
+  },
+  {
+   "canal": 182,
+   "nombre": "Trentino Booking"
+  },
+  {
+   "canal": 155,
+   "nombre": "Trip.com"
+  },
+  {
+   "canal": 32,
+   "nombre": "Vashotel"
+  },
+  {
+   "canal": 111,
+   "nombre": "VeronaBooking"
+  },
+  {
+   "canal": 269,
+   "nombre": "Via con Noi"
+  },
+  {
+   "canal": 234,
+   "nombre": "Viaggitalia / CLiCKiT"
+  },
+  {
+   "canal": 265,
+   "nombre": "Viajes Aramon"
+  },
+  {
+   "canal": 257,
+   "nombre": "Visit West Sicily"
+  },
+  {
+   "canal": 192,
+   "nombre": "VRBO"
+  },
+  {
+   "canal": 135,
+   "nombre": "Waytostay"
+  },
+  {
+   "canal": 286,
+   "nombre": "WebBeds"
+  },
+  {
+   "canal": 248,
+   "nombre": "Weekend4Two"
+  },
+  {
+   "canal": 174,
+   "nombre": "Welcomebeds / Avoris"
+  },
+  {
+   "canal": 143,
+   "nombre": "WinBooking"
+  },
+  {
+   "canal": 198,
+   "nombre": "World2Meet"
+  },
+  {
+   "canal": 240,
+   "nombre": "Worldwide Hotel Link (WHL)"
+  },
+  {
+   "canal": 199,
+   "nombre": "Xenia"
+  },
+  {
+   "canal": 283,
+   "nombre": "Xenia DS"
+  },
+  {
+   "canal": 206,
+   "nombre": "YesAlps"
+  },
+  {
+   "canal": 230,
+   "nombre": "ZenHotels"
+  },
+  {
+   "canal": 207,
+   "nombre": "ZimerTop"
+  }
+ ]
+}

@@ -191,7 +191,7 @@
               </div>
               <div class="text-center" data-aos="fade-up" data-aos-delay="200">
                 <p class="text-3xl lg:text-4xl font-bold text-primary">
-                  {{ statOtas }}+
+                  {{ statOtas }}
                 </p>
                 <p class="text-gray-600 text-lg lg:text-base mt-4">
                   OTAs conectadas
@@ -757,7 +757,7 @@
             Channel Manager: todo sincronizado
           </p>
           <p class="text-xl mt-8">
-            Conecta con más de 50 OTAs y
+            Conecta con más de 150 OTAs y
             <span class="font-semibold text-black"
               >olvídate de los overbookings</span
             >. Booking, Expedia, Airbnb... todas sincronizadas con tu calendario
@@ -947,9 +947,9 @@
                 <div class="grid lg:grid-cols-2 gap-8 items-center bg-gray-50 rounded-2xl p-8">
                     <div>
                         <h2 class="text-3xl mb-4 text-secondary">Channel Manager (opcional)</h2>
-                        <p class="text-xl">Conecta con Booking, Expedia, Airbnb y más de 50 OTAs. Servicio ofrecido por WuBook.</p>
+                        <p class="text-xl">Conecta con Booking, Expedia, Airbnb y más de 150 OTAs. Servicio ofrecido por WuBook.</p>
                         <p class="text-lg mt-4 text-gray-600">Precio: <span class="font-semibold">10€/mes por agencia</span> (+ IVA)</p>
-                        <a class="inline-block mt-4 text-xl text-primary font-semibold hover:underline" target="_blank" href="https://es.wubook.net/s-pgs/partners-ota/Canales-con-conexin-XML-4.html">Ver agencias disponibles →</a>
+                        <NuxtLink class="inline-block mt-4 text-xl text-primary font-semibold hover:underline" to="/funciones/channel-manager">Ver agencias disponibles →</NuxtLink>
                     </div>
                     <div class="text-center">
                         <div class="card card-blue bg-white p-6">
@@ -1022,6 +1022,11 @@ const showScrollIndicator = ref(true);
 const activeCheckInTab = ref(0);
 
 // Animated counters
+// las OTAs, la cifra real: las agencias del channel manager (server/api/agencias.get.ts)
+const { data: agenciasDelChannel } = await useFetch("/api/agencias", {
+  key: "agencias-total",
+  pick: ["total"],
+});
 const statsRef = ref<HTMLElement | null>(null);
 const statCommissions = ref(0);
 const statOtas = ref(0);
@@ -1041,7 +1046,7 @@ function animateStats() {
     const easeOutCubic = 1 - Math.pow(1 - progress, 3);
 
     statCommissions.value = Math.round(0 * easeOutCubic); // stays 0
-    statOtas.value = Math.round(50 * easeOutCubic);
+    statOtas.value = Math.round((agenciasDelChannel.value?.total || 150) * easeOutCubic);
     statHours.value = Math.round(14 * easeOutCubic);
 
     if (progress < 1) {

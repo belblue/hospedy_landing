@@ -110,7 +110,7 @@
               <div class="p-6">
                 <span class="text-lg text-orange-600 font-medium">Consejos</span>
                 <h2 class="text-xl font-bold mt-2 group-hover:text-primary transition-colors">Cómo conectar tu casa rural a Booking.com sin overbooking</h2>
-                <p class="text-gray-600 mt-2">Sincronización bidireccional en tiempo real con más de 50 OTAs para evitar dobles reservas.</p>
+                <p class="text-gray-600 mt-2">Sincronización bidireccional en tiempo real con más de 150 OTAs para evitar dobles reservas.</p>
                 <div class="mt-4 flex items-center text-lg text-gray-500">
                   <span>7 min lectura</span>
                   <span class="mx-2">·</span>

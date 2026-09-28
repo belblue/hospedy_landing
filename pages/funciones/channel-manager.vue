@@ -9,37 +9,15 @@
                     Channel Manager: adiós a los overbookings
                 </h1>
                 <p class="text-xl text-gray-600 mb-8">
-                    Conecta con Booking, Airbnb, Expedia y más de 50 OTAs. Actualiza precios y disponibilidad desde un solo lugar.
+                    Conecta con Booking, Airbnb, Expedia y más de 150 OTAs. Actualiza precios y disponibilidad desde un solo lugar.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <PruebaHospedyButton class="btn btn-grad" />
                 </div>
             </div>
 
-            <!-- OTA logos -->
-            <div class="max-w-4xl mx-auto px-6 mt-16">
-                <p class="text-center text-gray-500 mb-8">Conecta con las principales agencias</p>
-                <div class="flex flex-wrap justify-center items-center gap-8">
-                    <div class="bg-gray-100 px-6 py-3 rounded-lg">
-                        <span class="text-xl font-semibold text-gray-700">Booking.com</span>
-                    </div>
-                    <div class="bg-gray-100 px-6 py-3 rounded-lg">
-                        <span class="text-xl font-semibold text-gray-700">Airbnb</span>
-                    </div>
-                    <div class="bg-gray-100 px-6 py-3 rounded-lg">
-                        <span class="text-xl font-semibold text-gray-700">Expedia</span>
-                    </div>
-                    <div class="bg-gray-100 px-6 py-3 rounded-lg">
-                        <span class="text-xl font-semibold text-gray-700">Hotels.com</span>
-                    </div>
-                    <div class="bg-gray-100 px-6 py-3 rounded-lg">
-                        <span class="text-xl font-semibold text-gray-700">Vrbo</span>
-                    </div>
-                </div>
-                <p class="text-center mt-6">
-                    <a class="text-primary hover:underline" target="_blank" href="https://es.wubook.net/s-pgs/partners-ota/Canales-con-conexin-XML-4.html">Ver todas las agencias disponibles →</a>
-                </p>
-            </div>
+            <!-- Las agencias con las que conecta: la lista real, con buscador -->
+            <ListaAgencias />
 
             <!-- How it works -->
             <div class="max-w-5xl mx-auto px-6 mt-20">
@@ -177,7 +155,7 @@
 useHead({
     title: 'Channel Manager - Conecta con Booking, Airbnb y más - Hospedy',
     meta: [
-        { name: 'description', content: 'Channel Manager para conectar tu alojamiento con Booking, Airbnb, Expedia y más de 50 OTAs. Evita overbookings y ahorra tiempo.' }
+        { name: 'description', content: 'Channel Manager para conectar tu alojamiento con Booking, Airbnb, Expedia y más de 150 OTAs. Evita overbookings y ahorra tiempo.' }
     ]
 })
 </script>

@@ -82,7 +82,7 @@ const faqItems = [
   {
     question: "¿Funciona con Booking, Airbnb y otras OTAs?",
     answer:
-      "Sí, nuestro Channel Manager conecta con más de 50 OTAs incluyendo Booking.com, Airbnb, Expedia, Hotels.com y muchas más. Según tu plan, tienes 1-3 OTAs incluidas o ilimitadas (Enterprise). Puedes añadir OTAs extra pagando un suplemento. Las reservas se sincronizan automáticamente evitando overbookings.",
+      "Sí, nuestro Channel Manager conecta con más de 150 OTAs incluyendo Booking.com, Airbnb, Expedia, Hotels.com y muchas más. Según tu plan, tienes 1-3 OTAs incluidas o ilimitadas (Enterprise). Puedes añadir OTAs extra pagando un suplemento. Las reservas se sincronizan automáticamente evitando overbookings.",
   },
   {
     question: "¿Necesito instalar algo en mi ordenador?",

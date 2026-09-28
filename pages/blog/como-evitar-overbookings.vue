@@ -144,7 +144,7 @@
         <div class="bg-primary/5 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4">Channel Manager de Hospedy</h3>
           <p class="text-gray-700 mb-4">
-            Hospedy se conecta con más de 50 OTAs incluyendo:
+            Hospedy se conecta con más de 150 OTAs incluyendo:
           </p>
           <ul class="space-y-2">
             <li class="flex items-center gap-2">
@@ -193,7 +193,7 @@
 
         <h3>¿Funciona con Airbnb, Expedia y otras plataformas?</h3>
         <p>
-          Sí, Hospedy se conecta con más de 50 OTAs incluyendo Booking.com, Airbnb, Expedia, Vrbo y muchas más.
+          Sí, Hospedy se conecta con más de 150 OTAs incluyendo Booking.com, Airbnb, Expedia, Vrbo y muchas más.
         </p>
 
         <h3>¿Y si ya tengo un overbooking?</h3>
@@ -232,7 +232,7 @@ useHead({
   meta: [
     {
       name: "description",
-      content: "Conecta tu alojamiento a Booking.com sin riesgo de overbooking. Hospedy sincroniza en tiempo real de forma bidireccional con más de 50 OTAs.",
+      content: "Conecta tu alojamiento a Booking.com sin riesgo de overbooking. Hospedy sincroniza en tiempo real de forma bidireccional con más de 150 OTAs.",
     },
   ],
 });
