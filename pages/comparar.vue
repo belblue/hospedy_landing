@@ -509,7 +509,7 @@
                 <td
                   class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary text-lg"
                 >
-                  1-3 OTAs incl.
+                  1-5 OTAs incl.
                 </td>
                 <td class="p-4 border-b border-gray-100 text-center text-lg">
                   Incluido

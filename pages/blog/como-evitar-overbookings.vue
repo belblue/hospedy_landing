@@ -134,8 +134,8 @@
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700 font-medium">Enterprise</td>
-                <td class="px-4 py-3 text-sm text-gray-700 font-medium">Ilimitadas</td>
-                <td class="px-4 py-3 text-sm text-gray-700">Incluidas</td>
+                <td class="px-4 py-3 text-sm text-gray-700 font-medium">5</td>
+                <td class="px-4 py-3 text-sm text-gray-700">29&nbsp;€ + 10&nbsp;€/mes</td>
               </tr>
             </tbody>
           </table>

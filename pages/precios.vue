@@ -163,7 +163,7 @@
                                 <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
-                                <span>OTAs ilimitadas</span>
+                                <span>5 OTAs incluidas</span>
                             </li>
                             <li class="flex items-start gap-2 text-sm">
                                 <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -178,7 +178,7 @@
                                 <span>Onboarding dedicado</span>
                             </li>
                         </ul>
-                        <p class="text-xs text-gray-400 text-center mb-4">Sin coste extra por OTAs</p>
+                        <p class="text-xs text-gray-400 text-center mb-4">OTA extra: 29&nbsp;€ setup + 10&nbsp;€/mes</p>
                         <PruebaHospedyButton class="btn btn-outline w-full block text-center" />
                     </div>
                 </div>

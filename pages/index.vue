@@ -891,7 +891,7 @@
       >
         <div class="flex items-center justify-center gap-2 text-gray-600">
           <span class="text-primary font-semibold">+</span>
-          <span>OTAs incluidas según plan (1-3 o ilimitadas)</span>
+          <span>OTAs incluidas según plan (de 1 a 5)</span>
         </div>
         <NuxtLink
           to="/comparar"
