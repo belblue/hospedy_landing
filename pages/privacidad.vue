@@ -5,7 +5,7 @@
             <p class="text-4xl text-primary text-center px-4">POLÍTICA DE PRIVACIDAD</p>
         </div>
         <div class="m-10">
-            <p class="text-xl">Última actualización: 25 de septiembre de 2026.</p>
+            <p class="text-xl">Última actualización: 3 de octubre de 2026.</p>
             <p class="text-xl mt-4">Hospedy es un servicio de <span class="blue font-semibold">Silatek, S.L.U.</span> En esta política te explicamos qué datos personales tratamos, para qué, con qué base jurídica, a quién se los comunicamos, cuánto tiempo los conservamos y cómo puedes ejercer tus derechos. Se aplica a esta web (gethospedy.com) y a los servicios de Hospedy en hospedy.app.</p>
             <p class="text-xl mt-4">Tratamos los datos conforme a la ley andorrana de protección de datos (Llei 29/2021, del 28 d'octubre, qualificada de protecció de dades personals) y al Reglamento (UE) 2016/679, general de protección de datos (RGPD), en lo que resulte aplicable a nuestra actividad en España.</p>
 
@@ -21,7 +21,7 @@
             <p class="text-xl">Según de quién sean los datos, actuamos en uno de estos dos papeles:</p>
             <ul class="mt-2">
                 <li class="text-xl list-disc"><strong>Responsables del tratamiento</strong> de los datos de quienes visitan esta web, nos escriben o piden una demostración, así como de nuestros clientes y sus personas de contacto. A estos datos se refiere esta política.</li>
-                <li class="text-xl list-disc"><strong>Encargados del tratamiento</strong> de los datos de los huéspedes que cada alojamiento gestiona en Hospedy: reservas, datos de identidad para el registro de viajeros, facturas o comunicaciones, entre otros. El responsable de esos datos es el alojamiento. Nosotros los tratamos solo por su cuenta y siguiendo sus instrucciones, conforme al contrato de encargo que forma parte de las condiciones del servicio.</li>
+                <li class="text-xl list-disc"><strong>Encargados del tratamiento</strong> de los datos de los huéspedes que cada alojamiento gestiona en Hospedy: reservas, datos de identidad para el registro de viajeros, facturas o comunicaciones, entre otros. El responsable de esos datos es el alojamiento. Nosotros los tratamos solo por su cuenta y siguiendo sus instrucciones, conforme al <NuxtLink to="/encargo-tratamiento" class="text-primary">contrato de encargo del tratamiento</NuxtLink>, que el alojamiento acepta al crear su cuenta.</li>
             </ul>
             <p class="text-xl mt-4">Los partes de viajeros que se envían a las autoridades (por ejemplo, a SES Hospedajes o a la Ertzaintza) y las encuestas del INE son obligaciones legales del alojamiento. Hospedy solo los transmite en su nombre y por su cuenta.</p>
             <p class="text-xl mt-4">Si eres o has sido huésped de un alojamiento que usa Hospedy y quieres ejercer tus derechos sobre esos datos, dirígete al alojamiento. Si nos escribes a nosotros, le trasladaremos tu solicitud.</p>
@@ -34,7 +34,7 @@
                 <li class="text-xl list-disc"><strong>En el formulario de contacto:</strong> tu nombre, tu correo electrónico, tu mensaje y, si marcas la casilla, que quieres recibir novedades de Hospedy.</li>
                 <li class="text-xl list-disc"><strong>En la solicitud de demo:</strong> tu nombre, tu correo electrónico, el nombre de tu alojamiento, su número de unidades, si quieres recibir novedades de Hospedy y, si decides darlos, tu teléfono y un mensaje.</li>
                 <li class="text-xl list-disc"><strong>Si nos escribes por correo electrónico o por WhatsApp:</strong> tu dirección de correo o tu número de teléfono y lo que nos cuentes en el mensaje.</li>
-                <li class="text-xl list-disc"><strong>Si eres cliente:</strong> los datos de tu empresa o actividad profesional y los de las personas de contacto y de quienes usan la cuenta (nombre, correo electrónico y teléfono), los datos fiscales y de facturación, los necesarios para cobrar la suscripción, tus solicitudes de soporte y los registros técnicos de acceso al servicio. Si participas en el Programa Amigos, también qué cliente ha recomendado a quién.</li>
+                <li class="text-xl list-disc"><strong>Si eres cliente:</strong> los datos de tu empresa o actividad profesional y los de las personas de contacto y de quienes usan la cuenta (nombre, correo electrónico y teléfono), los datos fiscales y de facturación, los necesarios para cobrar la suscripción, tus solicitudes de soporte, los registros técnicos de acceso al servicio y tus conversaciones con Hugo, el asistente, y con el agente de Mi Web. Si participas en el Programa Amigos, también qué cliente ha recomendado a quién.</li>
             </ul>
             <p class="text-xl mt-4">Estos datos nos los facilitas tú o, en el caso de los clientes, la empresa o el profesional al que representas. Los datos técnicos se generan automáticamente al navegar o al usar el servicio.</p>
             <p class="text-xl mt-4">En los formularios, los datos obligatorios son los necesarios para atender tu solicitud: si no nos los das, no podremos hacerlo. Para contratar Hospedy necesitamos los datos de alta y de facturación.</p>
@@ -73,6 +73,16 @@
                             <td class="block md:table-cell text-xl md:p-3 align-top mt-2 md:mt-0"><span class="md:hidden font-semibold">Plazo: </span>Mientras dure el contrato y cinco años más, que es el plazo de prescripción de las acciones que puedan derivarse de él.</td>
                         </tr>
                         <tr class="block md:table-row border-b border-gray-200 py-4 md:py-0">
+                            <td class="block md:table-cell text-xl md:p-3 align-top"><strong>Que Hugo, el asistente, recuerde lo que habéis hablado</strong> y mejorar sus respuestas.</td>
+                            <td class="block md:table-cell text-xl md:p-3 align-top mt-2 md:mt-0"><span class="md:hidden font-semibold">Base jurídica: </span>La ejecución del contrato y nuestro interés legítimo en mejorar el asistente.</td>
+                            <td class="block md:table-cell text-xl md:p-3 align-top mt-2 md:mt-0"><span class="md:hidden font-semibold">Plazo: </span>Un año desde la última vez que usas la conversación; en las que sigues usando, los mensajes de más de un año se borran.</td>
+                        </tr>
+                        <tr class="block md:table-row border-b border-gray-200 py-4 md:py-0">
+                            <td class="block md:table-cell text-xl md:p-3 align-top"><strong>Editar tu web con el agente de Mi Web</strong>, que recuerda los cambios que le has pedido.</td>
+                            <td class="block md:table-cell text-xl md:p-3 align-top mt-2 md:mt-0"><span class="md:hidden font-semibold">Base jurídica: </span>La ejecución del contrato.</td>
+                            <td class="block md:table-cell text-xl md:p-3 align-top mt-2 md:mt-0"><span class="md:hidden font-semibold">Plazo: </span>Mientras exista tu web.</td>
+                        </tr>
+                        <tr class="block md:table-row border-b border-gray-200 py-4 md:py-0">
                             <td class="block md:table-cell text-xl md:p-3 align-top"><strong>Emitir facturas y llevar la contabilidad.</strong></td>
                             <td class="block md:table-cell text-xl md:p-3 align-top mt-2 md:mt-0"><span class="md:hidden font-semibold">Base jurídica: </span>El cumplimiento de nuestras obligaciones legales, fiscales y contables.</td>
                             <td class="block md:table-cell text-xl md:p-3 align-top mt-2 md:mt-0"><span class="md:hidden font-semibold">Plazo: </span>Los plazos que exija la normativa fiscal y contable.</td>
@@ -103,6 +113,8 @@
                 <li class="text-xl list-disc"><strong>Correo electrónico:</strong> Proton (Suiza), que presta nuestros buzones de correo.</li>
                 <li class="text-xl list-disc"><strong>Cobro de la suscripción:</strong> nuestra entidad bancaria y Redsys, la pasarela de pago con tarjeta.</li>
                 <li class="text-xl list-disc"><strong>Facturación:</strong> nuestra plataforma de facturación.</li>
+                <li class="text-xl list-disc"><strong>Pagos de tus huéspedes:</strong> Stripe (Irlanda), si conectas tu cuenta de pagos: le pasamos los datos de tu negocio para darla de alta.</li>
+                <li class="text-xl list-disc"><strong>Channel manager:</strong> WuBook (Italia), si lo activas: le pasamos los datos del alojamiento y de contacto para crear su cuenta.</li>
                 <li class="text-xl list-disc"><strong>Administraciones públicas, juzgados y tribunales</strong>, solo cuando una ley nos obligue a comunicárselos.</li>
             </ul>
             <p class="text-xl mt-4">Los proveedores que tratan datos por nuestra cuenta lo hacen como encargados del tratamiento: solo pueden usarlos para prestarnos su servicio y deben protegerlos. Las entidades bancarias y de pago y las administraciones públicas los tratan conforme a su propia normativa.</p>

@@ -91,6 +91,7 @@
                     <li><NuxtLink class="text-white hover:text-white transition-colors" to="/privacidad">Política de privacidad</NuxtLink></li>
                     <li><NuxtLink class="text-white hover:text-white transition-colors" to="/aviso_legal">Aviso legal</NuxtLink></li>
                     <li><NuxtLink class="text-white hover:text-white transition-colors" to="/cookies">Política de cookies</NuxtLink></li>
+                    <li><NuxtLink class="text-white hover:text-white transition-colors" to="/encargo-tratamiento">Contrato de encargo</NuxtLink></li>
                 </ul>
             </div>
         </div>
