@@ -114,7 +114,7 @@
                  asistida (02-10). -->
             <div class="max-w-4xl mx-auto px-6 mt-20">
                 <h2 class="text-3xl font-bold text-center mb-8">Precio transparente</h2>
-                <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 max-w-xl mx-auto text-center">
+                <div class="bg-white rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-100 max-w-xl mx-auto text-center">
                     <p class="text-gray-600 mb-6">
                         Tu plan de Hospedy ya incluye de 1 a 5 OTAs, según las unidades de tu alojamiento.
                     </p>
@@ -122,31 +122,31 @@
                         <table class="min-w-full border border-gray-200 rounded-lg text-left">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th class="px-4 py-3 text-sm font-semibold text-gray-900">Plan</th>
-                                    <th class="px-4 py-3 text-sm font-semibold text-gray-900">OTAs incluidas</th>
-                                    <th class="px-4 py-3 text-sm font-semibold text-gray-900">Setup de cada OTA extra</th>
+                                    <th class="px-3 sm:px-4 py-3 text-sm font-semibold text-gray-900">Plan</th>
+                                    <th class="px-3 sm:px-4 py-3 text-sm font-semibold text-gray-900">Incluidas</th>
+                                    <th class="px-3 sm:px-4 py-3 text-sm font-semibold text-gray-900">Setup por OTA extra</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200">
                                 <tr>
-                                    <td class="px-4 py-3 text-sm text-gray-700">Esencial</td>
-                                    <td class="px-4 py-3 text-sm text-gray-700">1</td>
-                                    <td class="px-4 py-3 text-sm text-gray-700">79&nbsp;€</td>
+                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">Esencial</td>
+                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">1</td>
+                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">79&nbsp;€</td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-3 text-sm text-gray-700">Profesional</td>
-                                    <td class="px-4 py-3 text-sm text-gray-700">2</td>
-                                    <td class="px-4 py-3 text-sm text-gray-700">49&nbsp;€</td>
+                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">Profesional</td>
+                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">2</td>
+                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">49&nbsp;€</td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-3 text-sm text-gray-700">Business</td>
-                                    <td class="px-4 py-3 text-sm text-gray-700">3</td>
-                                    <td class="px-4 py-3 text-sm text-gray-700">29&nbsp;€</td>
+                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">Business</td>
+                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">3</td>
+                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">29&nbsp;€</td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-3 text-sm text-gray-700">Enterprise</td>
-                                    <td class="px-4 py-3 text-sm text-gray-700">5</td>
-                                    <td class="px-4 py-3 text-sm text-gray-700">29&nbsp;€</td>
+                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">Enterprise</td>
+                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">5</td>
+                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">29&nbsp;€</td>
                                 </tr>
                             </tbody>
                         </table>
