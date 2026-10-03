@@ -108,12 +108,55 @@
                 </div>
             </div>
 
-            <!-- Pricing -->
+            <!-- Pricing: las OTAs que incluye cada plan y lo que cuesta cada OTA extra. Los mismos datos que
+                 /precios y la tabla del artículo de overbookings: si cambian allí, cambian aquí. Cada
+                 establecimiento cuenta aparte (decisión de Arturo del 30-09) y el setup incluye la configuración
+                 asistida (02-10). -->
             <div class="max-w-4xl mx-auto px-6 mt-20">
                 <h2 class="text-3xl font-bold text-center mb-8">Precio transparente</h2>
-                <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 max-w-md mx-auto text-center">
+                <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 max-w-xl mx-auto text-center">
+                    <p class="text-gray-600 mb-6">
+                        Tu plan de Hospedy ya incluye de 1 a 5 OTAs, según las unidades de tu alojamiento.
+                    </p>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="min-w-full border border-gray-200 rounded-lg text-left">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-4 py-3 text-sm font-semibold text-gray-900">Plan</th>
+                                    <th class="px-4 py-3 text-sm font-semibold text-gray-900">OTAs incluidas</th>
+                                    <th class="px-4 py-3 text-sm font-semibold text-gray-900">Setup de cada OTA extra</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-4 py-3 text-sm text-gray-700">Esencial</td>
+                                    <td class="px-4 py-3 text-sm text-gray-700">1</td>
+                                    <td class="px-4 py-3 text-sm text-gray-700">79&nbsp;€</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-sm text-gray-700">Profesional</td>
+                                    <td class="px-4 py-3 text-sm text-gray-700">2</td>
+                                    <td class="px-4 py-3 text-sm text-gray-700">49&nbsp;€</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-sm text-gray-700">Business</td>
+                                    <td class="px-4 py-3 text-sm text-gray-700">3</td>
+                                    <td class="px-4 py-3 text-sm text-gray-700">29&nbsp;€</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-sm text-gray-700">Enterprise</td>
+                                    <td class="px-4 py-3 text-sm text-gray-700">5</td>
+                                    <td class="px-4 py-3 text-sm text-gray-700">29&nbsp;€</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <p class="text-5xl font-bold text-primary mb-2">10&nbsp;€<span class="text-xl text-gray-500">/mes</span></p>
-                    <p class="text-gray-600 mb-4">por agencia conectada (+ IVA)</p>
+                    <p class="text-gray-600 mb-2">por cada OTA extra, en todos los planes (+ IVA)</p>
+                    <p class="text-sm text-gray-500 mb-6">
+                        El setup se paga una sola vez por OTA e incluye la configuración asistida. Cada establecimiento
+                        cuenta aparte: dos alojamientos con su propio perfil de Booking son dos OTAs.
+                    </p>
                     <ul class="text-left space-y-3 mb-6">
                         <li class="flex items-center gap-2">
                             <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -134,7 +177,8 @@
                             <span>Sin permanencia</span>
                         </li>
                     </ul>
-                    <p class="text-lg text-gray-500">Servicio ofrecido en colaboración con WuBook</p>
+                    <NuxtLink class="btn btn-outline" to="/precios">Ver precios</NuxtLink>
+                    <p class="text-lg text-gray-500 mt-6">Servicio ofrecido en colaboración con WuBook</p>
                 </div>
             </div>
 
