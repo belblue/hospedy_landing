@@ -125,6 +125,16 @@ export default defineNuxtConfig({
       },
     },
     routeRules: {
+      // Cabeceras de seguridad de todas las respuestas, también de los estáticos (hardening, tanda 5.2). Sin
+      // X-Frame-Options, cualquier web podía meter la página en un iframe. El «X-Powered-By» lo quita
+      // server/plugins/seguridad.ts.
+      '/**': {
+        headers: {
+          'X-Content-Type-Options': 'nosniff',
+          'X-Frame-Options': 'SAMEORIGIN',
+          'Referrer-Policy': 'strict-origin-when-cross-origin',
+        },
+      },
       // atajo del Programa Amigos: solo redirige, nunca se indexa
       '/r/**': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
     },

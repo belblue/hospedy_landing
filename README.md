@@ -27,6 +27,8 @@ Traefik ni DNS. Se trabaja en `develop`; a `main` se llega por PR.
 El `.env` de cada entorno vive en la VM (`~/apps/<app>/.env`) y se edita desde el
 CI/CD Manager, nunca en el repo. Plantilla de referencia: `.env.example`.
 
+Las cabeceras de seguridad de todas las respuestas van en las `routeRules` de `nuxt.config.ts`, y `server/plugins/seguridad.ts` quita el `X-Powered-By` de las páginas (hardening, tanda 5).
+
 Los workflows esperan los secrets `DEPLOY_HOST` y `DEPLOY_USER` del repo.
 
 ## Formularios
