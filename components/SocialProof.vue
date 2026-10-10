@@ -79,14 +79,15 @@
         </p>
       </div>
 
-      <!-- Business Benefits -->
+      <!-- Lo esencial: cada píldora lleva a su función o a su pregunta -->
       <div class="border-t border-[#7f591736] pt-8 mt-8">
         <div
           class="flex flex-nowrap justify-center items-center gap-4 lg:gap-6 overflow-x-auto"
         >
           <!-- Reservas directas -->
-          <div
-            class="flex items-center gap-2 bg-white/45 px-4 py-2 rounded-lg shadow-sm whitespace-nowrap shrink-0"
+          <NuxtLink
+            to="/funciones/motor-reservas"
+            class="flex items-center gap-2 bg-white/45 px-4 py-2 rounded-lg shadow-sm whitespace-nowrap shrink-0 hover:bg-white/80 transition-colors"
           >
             <svg
               class="w-6 h-6 text-green-600"
@@ -101,13 +102,12 @@
                 d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
               ></path>
             </svg>
-            <span class="text-lg font-medium text-gray-700"
-              >Reservas directas</span
-            >
-          </div>
-          <!-- Facturación automática -->
-          <div
-            class="flex items-center gap-2 bg-white/45 px-4 py-2 rounded-lg shadow-sm whitespace-nowrap shrink-0"
+            <span class="text-lg font-medium text-gray-700">Reservas directas</span>
+          </NuxtLink>
+          <!-- Facturación con un clic -->
+          <NuxtLink
+            to="/funciones/facturacion"
+            class="flex items-center gap-2 bg-white/45 px-4 py-2 rounded-lg shadow-sm whitespace-nowrap shrink-0 hover:bg-white/80 transition-colors"
           >
             <svg
               class="w-6 h-6 text-orange-500"
@@ -122,13 +122,12 @@
                 d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
               ></path>
             </svg>
-            <span class="text-lg font-medium text-gray-700"
-              >Facturación automática</span
-            >
-          </div>
-          <!-- Multi-alojamiento -->
-          <div
-            class="flex items-center gap-2 bg-white/45 px-4 py-2 rounded-lg shadow-sm whitespace-nowrap shrink-0"
+            <span class="text-lg font-medium text-gray-700">Facturación con un clic</span>
+          </NuxtLink>
+          <!-- Varios alojamientos -->
+          <NuxtLink
+            to="/faq#varios-alojamientos"
+            class="flex items-center gap-2 bg-white/45 px-4 py-2 rounded-lg shadow-sm whitespace-nowrap shrink-0 hover:bg-white/80 transition-colors"
           >
             <svg
               class="w-6 h-6 text-blue-600"
@@ -143,13 +142,12 @@
                 d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
               ></path>
             </svg>
-            <span class="text-lg font-medium text-gray-700"
-              >Multi-alojamiento</span
-            >
-          </div>
+            <span class="text-lg font-medium text-gray-700">Varios alojamientos</span>
+          </NuxtLink>
           <!-- Sin instalación -->
-          <div
-            class="flex items-center gap-2 bg-white/45 px-4 py-2 rounded-lg shadow-sm whitespace-nowrap shrink-0"
+          <NuxtLink
+            to="/faq#instalar"
+            class="flex items-center gap-2 bg-white/45 px-4 py-2 rounded-lg shadow-sm whitespace-nowrap shrink-0 hover:bg-white/80 transition-colors"
           >
             <svg
               class="w-6 h-6 text-purple-600"
@@ -165,10 +163,11 @@
               ></path>
             </svg>
             <span class="text-lg font-medium text-gray-700">Sin instalación</span>
-          </div>
-          <!-- Pasarela de pago -->
-          <div
-            class="flex items-center gap-2 bg-white/45 px-4 py-2 rounded-lg shadow-sm whitespace-nowrap shrink-0"
+          </NuxtLink>
+          <!-- Cobros online -->
+          <NuxtLink
+            to="/funciones/cobros"
+            class="flex items-center gap-2 bg-white/45 px-4 py-2 rounded-lg shadow-sm whitespace-nowrap shrink-0 hover:bg-white/80 transition-colors"
           >
             <svg
               class="w-6 h-6 text-yellow-500"
@@ -183,8 +182,8 @@
                 d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
               ></path>
             </svg>
-            <span class="text-lg font-medium text-gray-700">Pasarela de pago</span>
-          </div>
+            <span class="text-lg font-medium text-gray-700">Cobros online</span>
+          </NuxtLink>
         </div>
       </div>
     </div>

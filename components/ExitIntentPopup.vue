@@ -89,7 +89,7 @@
                 title="Crea tu cuenta de Hospedy y empieza la prueba gratis"
                 @click="closePopup"
               >
-                Crear mi cuenta
+                Crear mi cuenta – 30 días gratis
               </a>
               <PruebaHospedyButton
                 class="block w-full btn btn-outline py-3"
@@ -112,27 +112,31 @@ const showPopup = ref(false);
 const hasShownPopup = useState("exitPopupShown", () => false);
 const { appUrl } = useReferral();
 
+// Si el ratón sale por arriba de la página (hacia las pestañas o la barra de direcciones), una sola vez por visita
+function handleMouseLeave(e: MouseEvent) {
+  if (e.clientY <= 0 && !hasShownPopup.value) {
+    showPopup.value = true;
+    hasShownPopup.value = true;
+    document.removeEventListener("mouseleave", handleMouseLeave);
+  }
+}
+let espera: ReturnType<typeof setTimeout> | null = null;
+
 onMounted(() => {
   // Ya se ha mostrado en esta visita: estado en memoria, sin escribir nada en el navegador.
   if (hasShownPopup.value) return;
-
-  // Only show on desktop (exit intent doesn't work well on mobile)
+  // Solo en escritorio: en el móvil no hay ratón que salga de la página
   if (window.innerWidth < 1024) return;
-
-  // Detect exit intent
-  const handleMouseLeave = (e: MouseEvent) => {
-    // Check if mouse is leaving through the top of the page
-    if (e.clientY <= 0 && !hasShownPopup.value) {
-      showPopup.value = true;
-      hasShownPopup.value = true;
-      document.removeEventListener("mouseleave", handleMouseLeave);
-    }
-  };
-
-  // Wait a bit before enabling exit intent (don't show immediately)
-  setTimeout(() => {
+  // No nada más llegar: a partir de los 5 segundos
+  espera = setTimeout(() => {
     document.addEventListener("mouseleave", handleMouseLeave);
-  }, 5000); // Wait 5 seconds before enabling
+  }, 5000);
+});
+
+// Al cambiar de página, fuera el temporizador y el escuchador: el aviso es solo de la portada
+onBeforeUnmount(() => {
+  if (espera) clearTimeout(espera);
+  document.removeEventListener("mouseleave", handleMouseLeave);
 });
 
 function closePopup() {

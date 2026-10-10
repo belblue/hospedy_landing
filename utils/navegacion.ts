@@ -20,7 +20,7 @@ export interface GrupoDeFunciones {
   items: PaginaWeb[]
 }
 
-export const PORTADA: PaginaWeb = { nombre: 'Inicio', ruta: '/', actualizado: '2026-10-02' }
+export const PORTADA: PaginaWeb = { nombre: 'Inicio', ruta: '/', actualizado: '2026-10-10' }
 
 export const FUNCIONES: GrupoDeFunciones[] = [
   {

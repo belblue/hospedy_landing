@@ -61,21 +61,21 @@
                 </div>
             </div>
 
-            <!-- Principles badges -->
+            <!-- Los principios: cada uno lleva a su pregunta de la FAQ -->
             <div class="flex flex-wrap justify-center gap-3 mt-10" data-aos="fade-up" data-aos-delay="300">
-                <NuxtLink to="/faq" class="bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
+                <NuxtLink to="/faq#permanencia" class="bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
                     <img src="/permanencia.svg" alt="" class="w-4 h-4 icon-teal" />Sin permanencia
                 </NuxtLink>
-                <NuxtLink to="/faq" class="bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
+                <NuxtLink to="/faq#letra-pequena" class="bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
                     <span class="text-lg font-bold text-secondary">A</span>Sin letra pequeña
                 </NuxtLink>
-                <NuxtLink to="/faq" class="bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
+                <NuxtLink to="/faq#si-algo-falla" class="bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
                     <img src="/humanos.svg" alt="" class="w-4 h-4 icon-teal" />Asumimos errores
                 </NuxtLink>
-                <NuxtLink to="/faq" class="bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
+                <NuxtLink to="/faq#igualdad" class="bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
                     <img src="/igualdad.svg" alt="" class="w-4 h-4 icon-teal" />Igualdad
                 </NuxtLink>
-                <NuxtLink to="/faq" class="bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
+                <NuxtLink to="/faq#sugerencias" class="bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
                     <img src="/flexibilidad.svg" alt="" class="w-4 h-4 icon-teal" />Flexibilidad
                 </NuxtLink>
             </div>
