@@ -1,201 +1,144 @@
 <template>
-    <div>
-        <div class="mt-24 mb-16">
-            <!-- Hero -->
-            <div class="text-center max-w-4xl mx-auto px-6">
-                <p class="text-secondary font-semibold text-lg mb-4">Todas tus OTAs sincronizadas</p>
-                <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                    Channel Manager: adiós a los overbookings
-                </h1>
-                <p class="text-xl text-gray-600 mb-8">
-                    Conecta con Booking, Airbnb, Expedia y más de 150 OTAs. Actualiza precios y disponibilidad desde un solo lugar.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <PruebaHospedyButton class="btn btn-grad" />
-                </div>
-            </div>
+  <PaginaFuncion
+    clave="channel-manager"
+    nombre="Channel Manager"
+    grupo="Vende sin intermediarios"
+    h1="Un calendario para todas tus agencias. Y tu motor de reservas, incluido"
+    entradilla="Precios, disponibilidad y restricciones de todas tus agencias en un solo calendario, día a día. Y desde el primer día, tu motor de reservas para vender en tu web, conectes agencias o no."
+    :descripcion="DESCRIPCION"
+    :secciones="SECCIONES"
+    :preguntas="PREGUNTAS"
+  >
+    <template #visual>
+      <div class="w-3/4 max-w-[440px]"><MockCanales /></div>
+    </template>
 
-            <!-- Las agencias con las que conecta: la lista real, con buscador -->
-            <ListaAgencias />
+    <!-- Las agencias con las que conecta: la lista real, con buscador -->
+    <ListaAgencias />
 
-            <!-- How it works -->
-            <div class="max-w-5xl mx-auto px-6 mt-20">
-                <h2 class="text-3xl font-bold text-center mb-12">Cómo funciona</h2>
-                <div class="grid lg:grid-cols-3 gap-8">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-primary">1</span>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Conecta tus cuentas</h3>
-                        <p class="text-gray-600">Vincula tus perfiles de Booking, Airbnb y otras OTAs a Hospedy.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-primary">2</span>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Gestiona desde Hospedy</h3>
-                        <p class="text-gray-600">Cambia precios, bloquea fechas, todo desde tu calendario de Hospedy.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-primary">3</span>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Todo sincronizado</h3>
-                        <p class="text-gray-600">Los cambios se reflejan en todas las agencias en tiempo real.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Benefits -->
-            <div class="bg-gray-50 py-16 mt-20">
-                <div class="max-w-5xl mx-auto px-6">
-                    <h2 class="text-3xl font-bold text-center mb-12">Ventajas del Channel Manager</h2>
-                    <div class="grid lg:grid-cols-2 gap-8">
-                        <div class="bg-white p-6 rounded-xl shadow-sm">
-                            <div class="flex gap-4">
-                                <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-lg mb-2">Cero overbookings</h3>
-                                    <p class="text-gray-600">Cuando entra una reserva en una OTA, se bloquea automáticamente en las demás.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm">
-                            <div class="flex gap-4">
-                                <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-lg mb-2">Ahorra tiempo</h3>
-                                    <p class="text-gray-600">Un solo lugar para actualizar precios en lugar de entrar en cada OTA.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm">
-                            <div class="flex gap-4">
-                                <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-lg mb-2">Maximiza tu ocupación</h3>
-                                    <p class="text-gray-600">Estás presente en más agencias, llegas a más viajeros potenciales.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm">
-                            <div class="flex gap-4">
-                                <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-lg mb-2">Reservas centralizadas</h3>
-                                    <p class="text-gray-600">Todas las reservas de todas las OTAs aparecen en tu calendario de Hospedy.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pricing: las OTAs que incluye cada plan y lo que cuesta cada OTA extra. Los mismos datos que
-                 /precios y la tabla del artículo de overbookings: si cambian allí, cambian aquí. Cada
-                 establecimiento cuenta aparte (decisión de Arturo del 30-09) y el setup incluye la configuración
-                 asistida (02-10). -->
-            <div class="max-w-4xl mx-auto px-6 mt-20">
-                <h2 class="text-3xl font-bold text-center mb-8">Precio transparente</h2>
-                <div class="bg-white rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-100 max-w-xl mx-auto text-center">
-                    <p class="text-gray-600 mb-6">
-                        Tu plan de Hospedy ya incluye de 1 a 5 OTAs, según las unidades de tu alojamiento.
-                    </p>
-                    <div class="overflow-x-auto mb-6">
-                        <table class="min-w-full border border-gray-200 rounded-lg text-left">
-                            <thead class="bg-gray-50">
-                                <tr>
-                                    <th class="px-3 sm:px-4 py-3 text-sm font-semibold text-gray-900">Plan</th>
-                                    <th class="px-3 sm:px-4 py-3 text-sm font-semibold text-gray-900">Incluidas</th>
-                                    <th class="px-3 sm:px-4 py-3 text-sm font-semibold text-gray-900">Setup por OTA extra</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200">
-                                <tr>
-                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">Esencial</td>
-                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">1</td>
-                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">79&nbsp;€</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">Profesional</td>
-                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">2</td>
-                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">49&nbsp;€</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">Business</td>
-                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">3</td>
-                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">29&nbsp;€</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">Enterprise</td>
-                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">5</td>
-                                    <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">29&nbsp;€</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <p class="text-5xl font-bold text-primary mb-2">10&nbsp;€<span class="text-xl text-gray-500">/mes</span></p>
-                    <p class="text-gray-600 mb-2">por cada OTA extra, en todos los planes (+ IVA)</p>
-                    <p class="text-sm text-gray-500 mb-6">
-                        El setup se paga una sola vez por OTA e incluye la configuración asistida. Cada establecimiento
-                        cuenta aparte: dos alojamientos con su propio perfil de Booking son dos OTAs.
-                    </p>
-                    <ul class="text-left space-y-3 mb-6">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Sincronización en tiempo real</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>30 días de prueba gratis</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Sin permanencia</span>
-                        </li>
-                    </ul>
-                    <NuxtLink class="btn btn-outline" to="/precios">Ver precios</NuxtLink>
-                    <p class="text-lg text-gray-500 mt-6">Servicio ofrecido en colaboración con WuBook</p>
-                </div>
-            </div>
-
-            <!-- CTA -->
-            <div class="text-center mt-20 px-6">
-                <h2 class="text-3xl font-bold mb-4">Sincroniza todas tus OTAs</h2>
-                <p class="text-xl text-gray-600 mb-8">Crea tu cuenta y prueba el Channel Manager 30 días gratis.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <PruebaHospedyButton class="btn btn-grad" />
-                </div>
-            </div>
+    <!-- Precio: las agencias que incluye cada plan y lo que cuesta cada una de más, con los datos de /precios
+         (utils/precios.ts). Cada establecimiento cuenta aparte (decisión de Arturo del 30-09) y el alta de cada
+         agencia de más incluye la configuración asistida (02-10). -->
+    <section class="max-w-4xl mx-auto px-6 mt-20" aria-labelledby="precio-channel">
+      <h2 id="precio-channel" class="text-3xl font-bold text-center text-gray-900 mb-8">Lo que cuesta</h2>
+      <div class="bg-white rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-100 max-w-xl mx-auto text-center">
+        <p class="text-gray-600 mb-6">
+          El calendario y el motor de reservas van en todos los planes. Y cada plan incluye de 1 a 5 agencias,
+          según las unidades de tu alojamiento.
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="min-w-full border border-gray-200 rounded-lg text-left">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-3 sm:px-4 py-3 text-sm font-semibold text-gray-900">Plan</th>
+                <th scope="col" class="px-3 sm:px-4 py-3 text-sm font-semibold text-gray-900">Agencias incluidas</th>
+                <th scope="col" class="px-3 sm:px-4 py-3 text-sm font-semibold text-gray-900">Alta de cada agencia de más</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <tr v-for="plan in PLANES" :key="plan.nombre">
+                <th scope="row" class="px-3 sm:px-4 py-3 text-sm font-normal text-gray-700">{{ plan.nombre }} <span class="text-gray-500">({{ plan.unidades }})</span></th>
+                <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">{{ plan.otasIncluidas }}</td>
+                <td class="px-3 sm:px-4 py-3 text-sm text-gray-700">{{ plan.altaOtaExtra }}&nbsp;€</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-    </div>
+        <p class="text-5xl font-bold text-primary mb-2">{{ CUOTA_OTA_EXTRA }}&nbsp;€<span class="text-xl text-gray-500">/mes</span></p>
+        <p class="text-gray-600 mb-2">por cada agencia de más, en todos los planes (sin IVA)</p>
+        <p class="text-sm text-gray-500 mb-6">
+          El alta se paga una sola vez por agencia e incluye la configuración asistida. Cada establecimiento cuenta
+          aparte: dos alojamientos con su propio perfil de Booking son dos agencias.
+        </p>
+        <NuxtLink class="btn btn-outline inline-block px-6" to="/precios">Ver los planes</NuxtLink>
+        <p class="text-base text-gray-500 mt-6">Servicio ofrecido en colaboración con WuBook</p>
+      </div>
+    </section>
+  </PaginaFuncion>
 </template>
 
 <script setup lang="ts">
+import type { PreguntaFaq, SeccionFuncion } from '~/utils/contenido'
+import { CUOTA_OTA_EXTRA, PLANES } from '~/utils/precios'
+
+const DESCRIPCION = 'Conecta Booking, Airbnb y más agencias y lleva sus precios y disponibilidad en un calendario, con tu motor de reservas incluido aunque no conectes ninguna.'
+
 useSeoPagina({
-    titulo: 'Channel manager para Booking, Airbnb y más',
-    descripcion: 'Conecta Booking, Airbnb, Expedia y más agencias: precios, disponibilidad y restricciones de todas en un calendario, con tu motor de reservas incluido.',
+  titulo: 'Channel manager con motor de reservas incluido',
+  descripcion: DESCRIPCION,
 })
+
+const SECCIONES: SeccionFuncion[] = [
+  {
+    titulo: 'Empieza sin agencias, si quieres',
+    texto: 'El calendario de precios y disponibilidad, tu motor de reservas y Hugo funcionan sin conectar ninguna agencia y sin pagar nada más. Si después conectas Booking o Airbnb, se conserva todo lo que ya tenías.',
+  },
+  {
+    titulo: 'Precios y disponibilidad, día a día',
+    texto: 'Cada día de cada tipo de habitación, de un vistazo: su precio, cuántas quedan libres, cuántas anuncias y cuántas has vendido.',
+    puntos: [
+      'Te avisa si tienes habitaciones libres que no estás poniendo a la venta',
+      'También desde el móvil',
+    ],
+  },
+  {
+    titulo: 'Muchos días de golpe',
+    texto: 'Cambia precios, cupos o restricciones de hasta dos años en una sola operación, por días de la semana y en varios tipos de habitación a la vez. Antes de aplicar, ves un resumen de lo que va a cambiar.',
+  },
+  {
+    titulo: 'Agencias o venta directa: tú repartes',
+    texto: 'De cada tipo de habitación decides, día a día, cuántas pones en las agencias y cuántas te guardas para vender tú directamente.',
+  },
+  {
+    titulo: 'Restricciones',
+    texto: 'Estancia mínima y máxima, estancia mínima según el día de llegada, y abrir o cerrar la venta de un día. Con varios planes de restricciones si los necesitas.',
+  },
+  {
+    titulo: 'Planes y tarifas',
+    texto: 'Crea tus planes de precios, y planes que siguen a otro con un más o un menos en euros o en porcentaje: cambias el principal y los demás se mueven solos. También con precio para uso individual.',
+  },
+  {
+    titulo: 'Regímenes',
+    texto: 'Desayuno, media pensión, pensión completa o todo incluido: el que va en el precio y los demás, con su suplemento o con descuento.',
+  },
+  {
+    titulo: 'Habitaciones bien presentadas',
+    texto: 'Las fotos y la descripción de cada tipo de habitación, en cada idioma, para tu motor de reservas y algunas agencias.',
+  },
+  {
+    titulo: 'Siempre sabes si está al día',
+    texto: 'Un indicador te dice si todo lo que has cambiado ya está enviado a las agencias. Y con las notificaciones instantáneas, que se activan solas al conectar, las reservas de las agencias entran en tu planning nada más producirse.',
+  },
+  {
+    titulo: 'Ninguna reserva se pierde',
+    texto: 'Si entra una reserva y no queda hueco para todas sus noches, espera en una bandeja hasta que la colocas, y Hospedy la coloca sola en cuanto se libera una habitación del tipo que pide.',
+  },
+  {
+    titulo: 'Tu motor de reservas',
+    texto: 'Eliges qué planes de precios vendes en tu web y te damos la dirección de tu motor de reservas, para enlazarla desde tu web o tus redes. Sin comisión por reserva.',
+  },
+]
+
+const PREGUNTAS: PreguntaFaq[] = [
+  {
+    pregunta: '¿Tengo que conectar Booking para usar el motor de reservas?',
+    respuesta: 'No. El motor de reservas y su calendario de precios y disponibilidad funcionan sin conectar ninguna agencia, y van incluidos en todos los planes.',
+  },
+  {
+    pregunta: '¿Pierdo algo si conecto las agencias más adelante?',
+    respuesta: 'No. Tus precios, tu disponibilidad y tus reservas se quedan como estaban, y desde ese momento se sincronizan también con las agencias que conectes.',
+  },
+  {
+    pregunta: '¿Puedo guardar habitaciones para la venta directa?',
+    respuesta: 'Sí. De cada tipo de habitación decides cuántas anuncias en las agencias y cuántas te guardas en exclusiva para vender tú.',
+  },
+  {
+    pregunta: '¿Qué pasa si llega una reserva y no tengo hueco?',
+    respuesta: 'Entra igualmente, sin habitación asignada, y espera en una bandeja hasta que la colocas. Si se libera una habitación del tipo que pide, Hospedy la coloca sola.',
+  },
+  {
+    pregunta: '¿Cuánto cuesta el channel manager?',
+    respuesta: `Va incluido en tu plan, con 1, 2, 3 o 5 agencias según las unidades de tu alojamiento. Cada agencia de más cuesta ${CUOTA_OTA_EXTRA} €/mes sin IVA, más un alta única que incluye la configuración asistida.`,
+  },
+]
 </script>

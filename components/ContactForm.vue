@@ -1,7 +1,7 @@
 <template>
-  <div class="grid lg:grid-cols-2 gap-8 items-center">
-    <!-- Picture section (left) -->
-    <div class="text-center">
+  <div :class="soloFormulario ? '' : 'grid lg:grid-cols-2 gap-8 items-center'">
+    <!-- Picture section (left); en /contacto, solo el formulario: la página pone su propia columna -->
+    <div v-if="!soloFormulario" class="text-center">
       <div class="flex justify-center mb-4">
         <img class="w-1/2" src="/contacto.svg" alt="" />
       </div>
@@ -207,6 +207,7 @@
 
 <script setup lang="ts">
 import { useToast, POSITION, TYPE } from "vue-toastification/dist/index.mjs";
+defineProps<{ soloFormulario?: boolean }>();
 const route = useRoute();
 const {
   disponible: panelDisponible,

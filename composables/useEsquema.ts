@@ -3,7 +3,7 @@
 //
 // Organization y WebSite van en todas las páginas (el layout); SoftwareApplication, solo en la portada y en /precios.
 import { CONTACTO, DEFINICION, SITIO_URL, urlAbsoluta } from '~/utils/sitio'
-import { FUNCIONES } from '~/utils/navegacion'
+import { TODAS_LAS_FUNCIONES } from '~/utils/navegacion'
 import { PLANES } from '~/utils/precios'
 
 type Esquema = Record<string, unknown>
@@ -58,7 +58,7 @@ export function esquemaSoftware(): Esquema {
       '@type': 'BusinessAudience',
       audienceType: 'Hoteles, hostales, casas rurales y apartamentos turísticos en España',
     },
-    featureList: FUNCIONES.flatMap(grupo => grupo.items.map(item => item.nombre)),
+    featureList: TODAS_LAS_FUNCIONES.map(funcion => funcion.nombre),
     offers: PLANES.map(plan => ({
       '@type': 'Offer',
       name: `Plan ${plan.nombre}`,
@@ -89,6 +89,26 @@ export function esquemaSoftware(): Esquema {
         },
       ],
     })),
+  }
+}
+
+// Una página de la web y de qué trata. En las funciones, de Hospedy: se nombra aquí mismo para que la página se
+// entienda sola, sin depender de que el buscador haya leído la portada.
+export function esquemaPagina(
+  tipo: 'WebPage' | 'ContactPage' | 'AboutPage' | 'CollectionPage',
+  pagina: { nombre: string, descripcion: string, ruta: string, sobreHospedy?: boolean },
+): Esquema {
+  const url = urlAbsoluta(pagina.ruta)
+  return {
+    '@type': tipo,
+    '@id': `${url}#pagina`,
+    url,
+    name: pagina.nombre,
+    description: pagina.descripcion,
+    inLanguage: 'es-ES',
+    isPartOf: { '@id': ID_WEB },
+    ...(pagina.sobreHospedy ? { about: { '@type': 'SoftwareApplication', '@id': ID_SOFTWARE, name: 'Hospedy' } } : {}),
+    ...(tipo === 'AboutPage' || tipo === 'ContactPage' ? { mainEntity: { '@id': ID_ORGANIZACION } } : {}),
   }
 }
 

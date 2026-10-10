@@ -92,6 +92,8 @@ export default defineNuxtConfig({
       },
       // atajo del Programa Amigos: solo redirige, nunca se indexa
       '/r/**': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
+      // la página de contacto de la web anterior
+      '/contact': { redirect: { to: '/contacto', statusCode: 301 } },
     },
     nitro: {
       preset: 'node-server',

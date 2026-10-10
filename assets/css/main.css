@@ -116,6 +116,32 @@ html {
     background-position: right bottom;
   }
 
+  /* Botón principal («Prueba gratis 30 días»): teal oscuro con una ola suave. Texto blanco sobre #0F766E y #0D9488
+     (5,5:1 y 3,7:1); la versión anterior pasaba por #14B8A6, donde el blanco se queda en 2,5:1 */
+  .btn-principal {
+    background: linear-gradient(to top right, #0f766e 0%, #0d9488 25%, #0f766e 50%, #0d9488 75%, #0f766e 100%);
+    background-size: 200% 200%;
+    animation: ola-boton 6s ease-in-out infinite;
+    color: #ffffff;
+  }
+
+  .btn-principal:hover {
+    background: #115e59;
+  }
+
+  @keyframes ola-boton {
+    0% { background-position: 0% 100%; }
+    50% { background-position: 100% 0%; }
+    100% { background-position: 0% 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-principal,
+    .btn-shimmer::before {
+      animation: none;
+    }
+  }
+
   .btn-grad-gold {
     background-image: linear-gradient(
       to bottom left,

@@ -33,3 +33,12 @@ export const DIAS_DE_PRUEBA = 30
 
 // Comisión de los cobros online (solo si se usan), IVA incluido y con la de Stripe dentro
 export const COMISION_COBROS = { porcentaje: 3.9, fijo: 0.4 }
+
+// El mensaje de los planes (decisión de Arturo del 10-10): va en /precios, en el resumen de precios de la portada, en
+// /funciones, en /comparar y en la FAQ (MensajePlanes.vue), y en llms.txt
+export const MENSAJE_PLANES = {
+  titulo: 'Todas las funciones, en todos los planes',
+  texto: 'No escondemos herramientas para los alojamientos pequeños ni cobramos cada función por separado. Un negocio ' +
+    'pequeño no puede pagar lo mismo que un gran hotel, pero necesita las mismas herramientas: por eso pagas según el ' +
+    'tamaño de tu alojamiento y tienes todo Hospedy, lo de hoy y todo lo que vayamos añadiendo.',
+}
