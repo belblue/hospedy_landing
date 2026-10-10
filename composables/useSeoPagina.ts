@@ -36,5 +36,12 @@ export function useSeoPagina(seo: SeoPagina) {
     ...(seo.publicado ? { articlePublishedTime: seo.publicado } : {}),
     ...(seo.actualizado ? { articleModifiedTime: seo.actualizado } : {}),
   })
-  useHead({ link: [{ rel: 'canonical', href: canonical, key: 'canonical' }] })
+  const ruta = useRoute().path.replace(/\/+$/, '') || '/'
+  useHead({
+    link: [
+      { rel: 'canonical', href: canonical, key: 'canonical' },
+      // la misma página en Markdown, para asistentes de IA (server/middleware/markdown.ts); solo las indexables
+      ...(seo.indexar === false ? [] : [{ rel: 'alternate', type: 'text/markdown', href: ruta === '/' ? '/index.md' : `${ruta}.md`, key: 'markdown' }]),
+    ],
+  })
 }

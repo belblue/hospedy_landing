@@ -40,6 +40,8 @@ export default defineNuxtConfig({
           { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png' },
           { rel: 'mask-icon', color: '#0D9488', href: '/favicon/safari-pinned-tab.svg' },
           { rel: 'manifest', href: '/favicon/site.webmanifest' },
+          // qué es Hospedy y sus páginas, para asistentes de IA (llmstxt.org)
+          { rel: 'describedby', type: 'text/plain', href: '/llms.txt' },
         ],
       }
     },

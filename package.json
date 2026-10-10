@@ -20,6 +20,8 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/vue-fontawesome": "^2.0.9",
     "aos": "^2.3.4",
+    "turndown": "7.2.4",
+    "turndown-plugin-gfm": "1.0.2",
     "vue-toastification": "^2.0.0-rc.5"
   }
 }

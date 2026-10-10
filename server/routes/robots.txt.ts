@@ -22,6 +22,7 @@ const REGLAS = [
 
 const PRODUCCION = [
   '# Hospedy: programa de gestión para hoteles, casas rurales y apartamentos turísticos.',
+  `# Resumen para asistentes de IA: ${SITIO_URL}/llms.txt (cada página tiene su versión en Markdown: /ruta.md)`,
   '',
   ...BOTS_CON_NOMBRE.map(bot => `User-agent: ${bot}`),
   ...REGLAS,
