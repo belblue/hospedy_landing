@@ -1,8 +1,11 @@
 <template>
     <div>
-        <div class="mt-24 mb-16">
+        <div class="pt-24">
+            <div class="max-w-6xl mx-auto px-6">
+                <MigasDePan :migas="[{ nombre: 'Programa Amigos', ruta: '/programa-amigos' }]" />
+            </div>
             <!-- Hero -->
-            <div class="text-center max-w-4xl mx-auto px-6">
+            <div class="text-center max-w-4xl mx-auto px-6 mt-8">
                 <div class="inline-block bg-gold/20 text-gold font-semibold px-4 py-2 rounded-full mb-4">
                     Programa de referidos
                 </div>
@@ -130,49 +133,42 @@
                 </div>
             </div>
 
-            <!-- FAQ -->
-            <div class="max-w-4xl mx-auto px-6 mt-20">
-                <h2 class="text-3xl font-bold text-center mb-12">Preguntas frecuentes</h2>
-                <div class="space-y-6">
-                    <div class="border-b border-gray-200 pb-6">
-                        <h3 class="font-semibold text-lg mb-2">¿Cómo consigo mi código?</h3>
-                        <p class="text-gray-600">Se crea solo con el nombre de la empresa que tienes en tu perfil, con guiones entre palabras y sin coletillas como SL: si tu empresa es "Juan García, SL", tu código sería HOSPEDY-JUAN-GARCIA. Lo ves en tu Panel de usuario, en el bloque "Programa Amigos", junto al botón para copiar tu enlace de invitación.</p>
-                    </div>
-                    <div class="border-b border-gray-200 pb-6">
-                        <h3 class="font-semibold text-lg mb-2">¿Cuándo recibo los meses gratis?</h3>
-                        <p class="text-gray-600">Cuando tu amigo paga su primera cuota. Los meses se añaden solos a tu suscripción y retrasan tu próximo cobro.</p>
-                    </div>
-                    <div class="border-b border-gray-200 pb-6">
-                        <h3 class="font-semibold text-lg mb-2">¿Hay límite de referidos?</h3>
-                        <p class="text-gray-600">No, puedes referir a tantos amigos como quieras. Los meses se van acumulando sin límite.</p>
-                    </div>
-                    <div class="border-b border-gray-200 pb-6">
-                        <h3 class="font-semibold text-lg mb-2">¿Caduca mi código?</h3>
-                        <p class="text-gray-600">No, tu código no caduca mientras seas cliente de Hospedy.</p>
-                    </div>
-                    <div class="border-b border-gray-200 pb-6">
-                        <h3 class="font-semibold text-lg mb-2">¿Te ha invitado otro alojamiento?</h3>
-                        <p class="text-gray-600">Escribe su código al crear tu cuenta; si llegas con su enlace, ya viene puesto. Si se te olvida, puedes añadirlo en tu perfil durante tus primeros 30 días. Quien te invitó verá el nombre de tu alojamiento.</p>
-                    </div>
-                </div>
-            </div>
+            <!-- FAQ, con su FAQPage -->
+            <FaqLista :preguntas="PREGUNTAS" class="max-w-4xl mx-auto px-6 mt-20" />
 
-            <!-- CTA -->
-            <div class="text-center mt-20 px-6">
-                <h2 class="text-3xl font-bold mb-4">¿Aún no eres cliente?</h2>
-                <p class="text-xl text-gray-600 mb-8">Crea tu cuenta, prueba Hospedy 30 días gratis y empieza a invitar a tus amigos.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <PruebaHospedyButton class="btn btn-grad" />
-                    <NuxtLink class="btn btn-outline" to="/precios">Ver precios</NuxtLink>
-                </div>
-            </div>
+            <CtaFinal titulo="¿Aún no eres cliente?" texto="Crea tu cuenta, prueba Hospedy 30 días gratis y empieza a invitar a tus amigos." />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import type { PreguntaFaq } from '~/utils/contenido'
+
 useSeoPagina({
     titulo: 'Programa Amigos: meses gratis por recomendar',
     descripcion: 'Gana hasta 4 meses gratis de Hospedy por cada amigo que pague su primera cuota, sin límite. Con 5 amigos eres Embajador: 10 % de descuento al renovar.',
 })
+
+const PREGUNTAS: PreguntaFaq[] = [
+    {
+        pregunta: '¿Cómo consigo mi código?',
+        respuesta: 'Se crea solo con el nombre de la empresa que tienes en tu perfil, con guiones entre palabras y sin coletillas como SL: si tu empresa es «Juan García, SL», tu código sería HOSPEDY-JUAN-GARCIA. Lo ves en tu Panel de usuario, en el bloque «Programa Amigos», junto al botón para copiar tu enlace de invitación.',
+    },
+    {
+        pregunta: '¿Cuándo recibo los meses gratis?',
+        respuesta: 'Cuando tu amigo paga su primera cuota. Los meses se añaden solos a tu suscripción y retrasan tu próximo cobro.',
+    },
+    {
+        pregunta: '¿Hay límite de referidos?',
+        respuesta: 'No, puedes referir a tantos amigos como quieras. Los meses se van acumulando sin límite.',
+    },
+    {
+        pregunta: '¿Caduca mi código?',
+        respuesta: 'No, tu código no caduca mientras seas cliente de Hospedy.',
+    },
+    {
+        pregunta: '¿Te ha invitado otro alojamiento?',
+        respuesta: 'Escribe su código al crear tu cuenta; si llegas con su enlace, ya viene puesto. Si se te olvida, puedes añadirlo en tu perfil durante tus primeros 30 días. Quien te invitó verá el nombre de tu alojamiento.',
+    },
+]
 </script>

@@ -141,13 +141,13 @@ export const PARA_QUIEN: PaginaWeb[] = [
 ]
 
 export const RECURSOS: PaginaWeb[] = [
-  { nombre: 'Blog y guías', ruta: '/blog', descripcion: 'Normativa, ventas y gestión del día a día', actualizado: '2026-09-28' },
-  { nombre: 'Comparativa de PMS', ruta: '/comparar', descripcion: 'Hospedy frente a otros programas', actualizado: '2026-10-02' },
-  { nombre: 'Preguntas frecuentes', ruta: '/faq', descripcion: 'Las dudas de antes de empezar', actualizado: '2026-10-02' },
+  { nombre: 'Blog y guías', ruta: '/blog', descripcion: 'Normativa, ventas y gestión del día a día', actualizado: '2026-10-10' },
+  { nombre: 'Comparativa de PMS', ruta: '/comparar', descripcion: 'Hospedy frente a otros programas', actualizado: '2026-10-10' },
+  { nombre: 'Preguntas frecuentes', ruta: '/faq', descripcion: 'Las dudas de antes de empezar', actualizado: '2026-10-10' },
 ]
 
 export const EMPRESA: PaginaWeb[] = [
-  { nombre: 'Precios', ruta: '/precios', actualizado: '2026-10-02' },
+  { nombre: 'Precios', ruta: '/precios', actualizado: '2026-10-10' },
   { nombre: 'Contacto', ruta: '/contacto', actualizado: '2026-10-10' },
   { nombre: 'Ver una demo', ruta: '/demo', actualizado: '2026-09-26' },
   { nombre: 'Quiénes somos', ruta: '/quienes-somos', actualizado: '2026-10-10' },

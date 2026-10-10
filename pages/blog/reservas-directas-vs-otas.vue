@@ -1,16 +1,8 @@
 <template>
   <div>
-    <article class="mt-24 mb-16">
+    <article class="pt-24">
       <!-- Header -->
-      <header class="max-w-3xl mx-auto px-6">
-        <NuxtLink
-          to="/blog"
-          class="text-primary hover:underline mb-4 inline-block"
-          >← Volver al blog</NuxtLink
-        >
-        <span class="block text-lg text-green-600 font-medium mb-2"
-          >Rentabilidad</span
-        >
+      <ArticuloCabecera :articulo="articulo">
         <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
           Reservas directas vs OTAs: qué es más rentable
         </h1>
@@ -18,14 +10,7 @@
           Análisis de costes y beneficios de cada canal. Calcula cuánto puedes
           ahorrar con reservas directas.
         </p>
-        <div
-          class="flex items-center text-lg text-gray-500 border-b border-gray-200 pb-6"
-        >
-          <span>7 min lectura</span>
-          <span class="mx-2">·</span>
-          <span>Actualizado febrero de 2026</span>
-        </div>
-      </header>
+        </ArticuloCabecera>
 
       <!-- Content -->
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
@@ -304,8 +289,8 @@
         <div class="bg-primary/5 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4">Motor de reservas de Hospedy</h3>
           <p class="text-gray-700 mb-4">
-            Hospedy incluye un motor de reservas sin comisiones que puedes
-            integrar en cualquier web:
+            Hospedy incluye un motor de reservas sin comisión por reserva que
+            puedes enlazar desde tu web o tus redes:
           </p>
           <ul class="space-y-2">
             <li class="flex items-center gap-2">
@@ -338,7 +323,7 @@
                   d="M5 13l4 4L19 7"
                 ></path>
               </svg>
-              <span>Cobro de depósitos con Stripe</span>
+              <span>Cobro del total o de un depósito con tarjeta: 3,9&nbsp;% + 0,40&nbsp;€ por cobro, IVA incluido, solo si lo usas</span>
             </li>
             <li class="flex items-center gap-2">
               <svg
@@ -389,36 +374,18 @@
         </p>
       </div>
 
-      <!-- CTA -->
-      <div class="max-w-3xl mx-auto px-6 mt-16">
-        <div class="bg-green-50 rounded-2xl p-8 text-center">
-          <h2 class="text-2xl font-bold mb-4">
-            ¿Quieres aumentar tus reservas directas?
-          </h2>
-          <p class="text-gray-600 mb-6">
-            Hospedy incluye motor de reservas sin comisiones. Crea tu cuenta y pruébalo gratis durante 30 días.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <PruebaHospedyButton class="btn btn-grad" />
-            <NuxtLink class="btn btn-outline" to="/funciones/motor-reservas"
-              >Ver motor de reservas</NuxtLink
-            >
-          </div>
-        </div>
-      </div>
     </article>
+    <!-- La función de la que habla, más guías y la banda de cierre -->
+    <ArticuloPie
+      :articulo="articulo"
+      titulo="¿Quieres aumentar tus reservas directas?"
+      texto="Hospedy incluye motor de reservas sin comisión por reserva. Crea tu cuenta y pruébalo gratis durante 30 días."
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-const articulo = articuloDelBlog('reservas-directas-vs-otas')
-useSeoPagina({
-  titulo: articulo.tituloSeo,
-  descripcion: articulo.descripcion,
-  tipo: 'article',
-  publicado: articulo.publicado,
-  actualizado: articulo.actualizado,
-})
+const articulo = useArticulo('reservas-directas-vs-otas')
 </script>
 
 <style scoped>

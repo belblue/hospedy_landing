@@ -1,8 +1,11 @@
 <template>
   <div>
-    <div class="mt-24 mb-16">
+    <div class="pt-24">
+      <div class="max-w-6xl mx-auto px-6">
+        <MigasDePan :migas="[{ nombre: 'Comparativa de PMS', ruta: '/comparar' }]" />
+      </div>
       <!-- Hero -->
-      <div class="text-center max-w-4xl mx-auto px-6">
+      <div class="text-center max-w-4xl mx-auto px-6 mt-8">
         <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
           Hospedy vs otros PMS
         </h1>
@@ -12,8 +15,14 @@
         </p>
       </div>
 
-      <!-- Main comparison table -->
+      <!-- Main comparison table. El aviso, encima: los precios de otros son una referencia -->
       <div class="max-w-6xl mx-auto px-6 mt-12">
+        <p class="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 text-lg text-amber-900 mb-6">
+          <svg class="w-6 h-6 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <span>Precios de referencia aproximados, tomados de información pública en febrero de 2025. Pueden haber cambiado: consulta a cada proveedor.</span>
+        </p>
         <div class="overflow-x-auto">
           <table class="w-full border-collapse">
             <thead>
@@ -45,7 +54,8 @@
               </tr>
               <tr>
                 <td class="p-4 border-b border-gray-100">
-                  Precio base (6 habitaciones)
+                  Precio base, 6 habitaciones
+                  <span class="block text-sm text-gray-500">referencia aproximada</span>
                 </td>
                 <td
                   class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary font-bold text-green-600"
@@ -823,10 +833,6 @@
             </tbody>
           </table>
         </div>
-        <p class="text-lg text-gray-500 mt-4">
-          * Precios aproximados basados en información pública. Consulta cada
-          proveedor para precios actualizados. Febrero de 2025.
-        </p>
       </div>
 
       <!-- Spanish competitors -->
@@ -837,7 +843,7 @@
             <thead>
               <tr class="bg-gray-50">
                 <th class="text-left p-4 border-b border-gray-200">PMS</th>
-                <th class="text-center p-4 border-b border-gray-200">Precio/año</th>
+                <th class="text-center p-4 border-b border-gray-200">Precio/año <span class="block text-sm font-normal text-gray-500">referencia aproximada</span></th>
                 <th class="text-center p-4 border-b border-gray-200">Channel Manager</th>
                 <th class="text-center p-4 border-b border-gray-200">Partes auto</th>
                 <th class="text-center p-4 border-b border-gray-200">Notas</th>
@@ -857,7 +863,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                 </td>
-                <td class="p-4 border-b border-gray-100 text-center text-sm text-gray-600">Todo incluido</td>
+                <td class="p-4 border-b border-gray-100 text-center text-sm text-gray-600">Todas las funciones</td>
               </tr>
               <tr>
                 <td class="p-4 border-b border-gray-100 font-medium">RuralGest (apts)</td>
@@ -923,11 +929,11 @@
             </li>
             <li class="flex items-start gap-2">
               <IconoMarca tipo="si" class="mt-1" />
-              <span>ÚNICO PMS con cumplimiento nativo español (partes SES + INE + regionales)</span>
+              <span>Cumplimiento español de serie: partes a SES Hospedajes y Ertzaintza, encuestas del INE y documentos autonómicos</span>
             </li>
             <li class="flex items-start gap-2">
               <IconoMarca tipo="si" class="mt-1" />
-              <span>Sin comisiones en reservas directas (Avaibook cobra 2-4&nbsp;%)</span>
+              <span>Sin comisión por reserva en las reservas directas (Avaibook cobra un 2-4&nbsp;%)</span>
             </li>
             <li class="flex items-start gap-2">
               <IconoMarca tipo="si" class="mt-1" />
@@ -943,7 +949,7 @@
           <h2 class="text-3xl font-bold text-center mb-12">
             Por qué elegir Hospedy
           </h2>
-          <div class="grid lg:grid-cols-3 gap-8">
+          <div class="grid md:grid-cols-2 gap-8">
             <div class="text-center">
               <div
                 class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm"
@@ -1013,104 +1019,58 @@
               </div>
               <h3 class="font-semibold text-lg mb-2">Soporte humano real</h3>
               <p class="text-gray-600">
-                Teléfono, email y WhatsApp con personas reales que hablan
-                español.
+                Email y videollamada, con personas reales que hablan español.
+              </p>
+            </div>
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm"
+              >
+                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-lg mb-2">Todas las funciones en todos los planes</h3>
+              <p class="text-gray-600">
+                No escondemos herramientas para los alojamientos pequeños ni cobramos cada función por separado.
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- CTA -->
-      <div class="text-center mt-20 px-6">
-        <h2 class="text-3xl font-bold mb-4">
-          ¿Quieres saber cuánto te costaría?
-        </h2>
-        <p class="text-xl text-gray-600 mb-8">
-          Solicita un presupuesto personalizado sin compromiso.
+      <!-- Más comparativas, en el blog -->
+      <section class="max-w-5xl mx-auto px-6 mt-20" aria-labelledby="titulo-mas-comparativas">
+        <h2 id="titulo-mas-comparativas" class="text-3xl font-bold text-center mb-8">Más comparativas</h2>
+        <ul class="grid md:grid-cols-3 gap-6">
+          <li v-for="articulo in COMPARATIVAS" :key="articulo.slug">
+            <NuxtLink :to="`/blog/${articulo.slug}`" class="group block h-full bg-white rounded-2xl border border-gray-100 shadow-sm p-6 hover:shadow-md transition">
+              <span class="font-semibold text-gray-900 group-hover:text-secondary">{{ articulo.titulo }}</span>
+              <span class="block text-gray-600 mt-2">{{ articulo.extracto }}</span>
+            </NuxtLink>
+          </li>
+        </ul>
+        <p class="text-center mt-8">
+          <NuxtLink to="/precios" class="btn btn-principal sm:flex-none inline-block px-8 py-3 font-semibold">Ver los precios de Hospedy</NuxtLink>
         </p>
-        <NuxtLink class="btn btn-grad" to="/demo"
-          >Solicitar presupuesto</NuxtLink
-        >
-      </div>
+      </section>
 
-      <!-- COMMENTED OUT: Price calculator
-            <div class="max-w-4xl mx-auto px-6 mt-20">
-                <h2 class="text-3xl font-bold text-center mb-8">Calcula cuanto te ahorras</h2>
-                <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-                    <div class="grid lg:grid-cols-2 gap-8 items-center">
-                        <div>
-                            <label class="block text-lg font-medium text-gray-700 mb-2">Numero de habitaciones:</label>
-                            <input
-                                type="number"
-                                v-model="rooms"
-                                @input="calculateSavings"
-                                class="form-input text-center text-2xl w-32"
-                                min="1"
-                            >
-                        </div>
-                        <div class="text-center lg:text-left">
-                            <p class="text-gray-600 mb-2">Ahorro anual estimado vs competencia:</p>
-                            <p class="text-4xl font-bold text-green-600">{{ savings.toLocaleString() }}€</p>
-                        </div>
-                    </div>
-                    <div class="mt-8 grid lg:grid-cols-3 gap-4 text-center">
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <p class="text-lg text-gray-500">Hospedy</p>
-                            <p class="text-xl font-bold text-primary">{{ rididPrice }}€/año</p>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <p class="text-lg text-gray-500">Media competencia</p>
-                            <p class="text-xl font-bold text-gray-600">{{ competitorPrice.toLocaleString() }}€/año</p>
-                        </div>
-                        <div class="bg-green-50 p-4 rounded-lg">
-                            <p class="text-lg text-gray-500">Tu ahorro</p>
-                            <p class="text-xl font-bold text-green-600">{{ savings.toLocaleString() }}€/año</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            -->
+      <CtaFinal />
+
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ARTICULOS } from '~/utils/blog'
+
 useSeoPagina({
     titulo: 'Comparativa de PMS para alojamientos en España',
     descripcion: 'Hospedy frente a Cloudbeds, Mews, Amenitiz y Little Hotelier: precios de referencia, funciones y cumplimiento de la normativa española.',
 })
 
-const rooms = ref(6);
-const rididPrice = ref(120);
-const competitorPrice = ref(1200);
-const savings = ref(1080);
-
-function calculateSavings() {
-  // Hospedy pricing logic
-  const r = rooms.value || 0;
-  if (r <= 0) {
-    rididPrice.value = 0;
-  } else if (r <= 6) {
-    rididPrice.value = 120;
-  } else if (r <= 10) {
-    rididPrice.value = r * 25;
-  } else if (r <= 20) {
-    rididPrice.value = 250 + (r - 10) * 23;
-  } else if (r <= 30) {
-    rididPrice.value = 480 + (r - 20) * 21;
-  } else if (r <= 40) {
-    rididPrice.value = 690 + (r - 30) * 18;
-  } else if (r <= 50) {
-    rididPrice.value = 870 + (r - 40) * 15;
-  } else {
-    rididPrice.value = 1020 + (r - 50) * 12;
-  }
-
-  // Competitor average estimate (simplified)
-  competitorPrice.value = Math.max(1200, r * 150);
-
-  // Calculate savings
-  savings.value = Math.max(0, competitorPrice.value - rididPrice.value);
-}
+// los artículos del blog que comparan PMS
+const COMPARATIVAS = ['mejores-pms-casas-rurales', 'hospedy-vs-ruralgest', 'cuanto-cuesta-pms-hotel']
+  .map(slug => ARTICULOS.find(articulo => articulo.slug === slug))
+  .filter((articulo): articulo is NonNullable<typeof articulo> => Boolean(articulo))
 </script>

@@ -1,35 +1,20 @@
 <template>
   <div>
-    <article class="mt-24 mb-16">
+    <article class="pt-24">
       <!-- Header -->
-      <header class="max-w-3xl mx-auto px-6">
-        <NuxtLink
-          to="/blog"
-          class="text-primary hover:underline mb-4 inline-block"
-          >← Volver al blog</NuxtLink
-        >
-        <span class="block text-lg text-orange-600 font-medium mb-2"
-          >Consejos</span
-        >
+      <ArticuloCabecera :articulo="articulo">
         <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
           Cómo conectar tu casa rural a Booking.com sin overbooking
         </h1>
         <p class="text-xl text-gray-600 mb-6">
-          Para conectar tu alojamiento a Booking.com sin riesgo de overbooking necesitas un channel manager con sincronización bidireccional en tiempo real.
+          Para conectar tu alojamiento a Booking.com con el menor riesgo de overbooking necesitas un channel manager que lleve la disponibilidad de todas tus agencias en un solo calendario y la actualice en cada una cuando vendes.
         </p>
-        <div
-          class="flex items-center text-lg text-gray-500 border-b border-gray-200 pb-6"
-        >
-          <span>7 min lectura</span>
-          <span class="mx-2">·</span>
-          <span>Actualizado febrero de 2026</span>
-        </div>
-      </header>
+        </ArticuloCabecera>
 
       <!-- Content -->
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
         <p class="lead">
-          Hospedy sincroniza automáticamente cada vez que hay un cambio en cualquier canal, no cada 15 o 30 minutos. El sistema también optimiza la disponibilidad para maximizar reservas sin conflictos.
+          En Hospedy, cada cambio de precio o disponibilidad sale solo hacia tus agencias, con un indicador que te dice si ya ha salido, y las reservas de las agencias entran en tu planning nada más producirse.
         </p>
 
         <h2>El problema del overbooking</h2>
@@ -68,12 +53,12 @@
           </ul>
         </div>
 
-        <h2>La solución: sincronización en tiempo real</h2>
+        <h2>La solución: un solo calendario para todas tus agencias</h2>
         <p>
-          Hospedy utiliza <strong>sincronización bidireccional</strong> que se activa cada vez que hay un cambio. No hay intervalos de 15 o 30 minutos esperando: cuando entra una reserva, se actualiza todo instantáneamente.
+          Hospedy lleva <strong>un solo calendario para todas tus agencias</strong>: cada cambio de precio o de disponibilidad sale solo de Hospedy hacia ellas, y con las notificaciones instantáneas, que se activan solas en las horas siguientes a conectar, sus reservas entran en tu planning nada más producirse.
         </p>
         <p>
-          <strong>Bidireccional</strong> significa que funciona en ambas direcciones:
+          <strong>Un solo calendario</strong> significa que lo que vendes en una agencia deja de estar a la venta en las demás:
         </p>
         <ul>
           <li>Reserva en Booking → se actualiza Hospedy → se actualiza Airbnb</li>
@@ -86,7 +71,7 @@
 
         <h2>Sistema inteligente de disponibilidad</h2>
         <p>
-          Hospedy no solo sincroniza, también optimiza. Si tienes varias habitaciones del mismo tipo, el sistema las gestiona para admitir el máximo número de reservas sin conflictos.
+          Si tienes varias habitaciones del mismo tipo, Hospedy las vende por tipo y a cada reserva le busca una habitación libre todas las noches. Si no la hay, entra igual en una bandeja para que la coloques tú, y se coloca sola si se libera sitio.
         </p>
         <p>
           Por ejemplo: si tienes 3 habitaciones dobles y recibes una reserva para una de ellas, el sistema mantiene las otras 2 disponibles en todos los canales. Si el huésped modifica las fechas, se recalcula automáticamente.
@@ -97,10 +82,10 @@
         <ul>
           <li><strong>Habitaciones por tipo:</strong> agrupa habitaciones similares para gestión eficiente</li>
           <li><strong>Tarifas por tipo y fecha:</strong> diferentes precios según temporada o día de la semana</li>
-          <li><strong>Cambios manuales:</strong> puedes modificar valores para unidades específicas cuando lo necesites</li>
+          <li><strong>Cierres por habitación:</strong> si bloqueas una habitación concreta (obras, avería, uso propio), se descuenta también de lo que vendes en las agencias</li>
         </ul>
         <p>
-          Cualquier cambio manual se sincroniza inmediatamente con todos los canales conectados.
+          Cualquier cambio que hagas sale solo hacia todos los canales conectados.
         </p>
 
         <h2>¿Cuántas OTAs puedo conectar?</h2>
@@ -156,7 +141,7 @@
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span>Sincronización bidireccional en tiempo real</span>
+              <span>Precios y disponibilidad salen de Hospedy; las reservas entran solas</span>
             </li>
             <li class="flex items-center gap-2">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -177,12 +162,12 @@
 
         <h3>¿Cuánto tiempo tarda en conectarse Booking.com?</h3>
         <p>
-          La conexión inicial suele completarse en unas horas. Necesitas tener una cuenta de Booking.com activa y seguir el proceso de vinculación desde Hospedy.
+          Depende también de Booking. Nos lo pides, nuestro equipo lo conecta contigo y te explica los pasos (conviene tener ya creadas tus habitaciones, con su tipo). Necesitas una cuenta de Booking.com activa.
         </p>
 
         <h3>¿Qué pasa si cambio un precio en Booking.com directamente?</h3>
         <p>
-          El cambio se sincroniza automáticamente a Hospedy y a cualquier otro canal conectado. La sincronización es bidireccional.
+          Mejor no hacerlo: los precios van de Hospedy a las agencias, no al revés. Un cambio hecho directamente en Booking.com no llega a Hospedy ni a tus otras agencias. Cambia los precios siempre desde Hospedy y salen hacia todas.
         </p>
 
         <h3>¿Puedo bloquear fechas para uso personal?</h3>
@@ -205,34 +190,18 @@
         </ol>
       </div>
 
-      <!-- CTA -->
-      <div class="max-w-3xl mx-auto px-6 mt-16">
-        <div class="bg-primary/5 rounded-2xl p-8 text-center">
-          <h2 class="text-2xl font-bold mb-4">¿Quieres olvidarte de los overbookings?</h2>
-          <p class="text-gray-600 mb-6">
-            Crea tu cuenta, prueba Hospedy gratis 30 días con Channel Manager y sincroniza todas tus OTAs en tiempo real.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <PruebaHospedyButton class="btn btn-grad" />
-            <NuxtLink class="btn btn-outline" to="/funciones/channel-manager"
-              >Ver Channel Manager</NuxtLink
-            >
-          </div>
-        </div>
-      </div>
     </article>
+    <!-- La función de la que habla, más guías y la banda de cierre -->
+    <ArticuloPie
+      :articulo="articulo"
+      titulo="¿Quieres evitar los overbookings?"
+      texto="Crea tu cuenta y prueba Hospedy gratis 30 días, con el channel manager y todas tus agencias en un solo calendario."
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-const articulo = articuloDelBlog('como-evitar-overbookings')
-useSeoPagina({
-  titulo: articulo.tituloSeo,
-  descripcion: articulo.descripcion,
-  tipo: 'article',
-  publicado: articulo.publicado,
-  actualizado: articulo.actualizado,
-})
+const articulo = useArticulo('como-evitar-overbookings')
 </script>
 
 <style scoped>

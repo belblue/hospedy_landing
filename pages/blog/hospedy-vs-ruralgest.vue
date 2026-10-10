@@ -1,30 +1,15 @@
 <template>
   <div>
-    <article class="mt-24 mb-16">
+    <article class="pt-24">
       <!-- Header -->
-      <header class="max-w-3xl mx-auto px-6">
-        <NuxtLink
-          to="/blog"
-          class="text-primary hover:underline mb-4 inline-block"
-          >← Volver al blog</NuxtLink
-        >
-        <span class="block text-lg text-blue-600 font-medium mb-2"
-          >Comparativas</span
-        >
+      <ArticuloCabecera :articulo="articulo">
         <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
           Hospedy vs RuralGest: Comparativa completa 2026
         </h1>
         <p class="text-xl text-gray-600 mb-6">
-          Hospedy y RuralGest son los dos principales PMS españoles para casas rurales. Analizamos las diferencias clave para ayudarte a elegir.
+          Hospedy y RuralGest son dos PMS pensados para casas rurales en España. Analizamos las diferencias clave para ayudarte a elegir.
         </p>
-        <div
-          class="flex items-center text-lg text-gray-500 border-b border-gray-200 pb-6"
-        >
-          <span>10 min lectura</span>
-          <span class="mx-2">·</span>
-          <span>Actualizado febrero de 2026</span>
-        </div>
-      </header>
+        </ArticuloCabecera>
 
       <!-- Content -->
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
@@ -46,7 +31,7 @@
             <tbody class="divide-y divide-gray-200">
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Años en el mercado</td>
-                <td class="px-4 py-3 text-sm text-gray-700">Desde 2020</td>
+                <td class="px-4 py-3 text-sm text-gray-700">Más reciente</td>
                 <td class="px-4 py-3 text-sm text-gray-700">20+ años</td>
               </tr>
               <tr>
@@ -66,12 +51,12 @@
               </tr>
               <tr class="bg-green-50">
                 <td class="px-4 py-3 text-sm text-gray-700 font-medium">Encuesta INE</td>
-                <td class="px-4 py-3 text-sm text-green-600 font-medium"><IconoMarca tipo="si" /> Rellena y lista (envío automático en hoteles y apartamentos)</td>
+                <td class="px-4 py-3 text-sm text-green-600 font-medium"><IconoMarca tipo="si" /> Rellena y lista (envío con un clic en hoteles y apartamentos)</td>
                 <td class="px-4 py-3 text-sm text-orange-600"><IconoMarca tipo="no" /> Solo genera XML</td>
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">App móvil</td>
-                <td class="px-4 py-3 text-sm text-orange-600"><IconoMarca tipo="no" /> No disponible</td>
+                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="parcial" /> Web en el móvil, sin app de las tiendas</td>
                 <td class="px-4 py-3 text-sm text-green-600"><IconoMarca tipo="si" /> Sí</td>
               </tr>
               <tr>
@@ -98,15 +83,15 @@
           </table>
         </div>
 
-        <h2>Por qué los clientes cambian de RuralGest a Hospedy</h2>
-        <p>Basándonos en el feedback de usuarios que han hecho el cambio, estos son los tres motivos principales:</p>
+        <h2>Por qué elegir Hospedy si vienes de RuralGest</h2>
+        <p>Estos son los tres motivos por los que Hospedy puede encajarte mejor:</p>
 
-        <h3>1. Encuesta INE sin rellenar nada</h3>
+        <h3>1. Encuesta del INE rellena con tus reservas</h3>
         <p>
           Con RuralGest, cada mes tienes que descargar un archivo XML y subirlo manualmente a la plataforma ARCE del INE. Con Hospedy, la encuesta de turismo rural sale rellena con tus datos, lista para presentar; y si tienes un hotel o apartamentos, la envías al INE con un clic. <strong>El ahorro de tiempo es significativo</strong>, especialmente si gestionas varios alojamientos.
         </p>
 
-        <h3>2. Precio más accesible</h3>
+        <h3>2. Precios públicos</h3>
         <p>
           Hospedy tiene precios públicos desde 350&nbsp;€/año. RuralGest no publica sus tarifas y los costes adicionales pueden sumar: diseño web (150-1.200&nbsp;€), packs SEO (220-800&nbsp;€), mantenimiento SEO mensual (90&nbsp;€/mes). Al final, <strong>el coste total de RuralGest puede ser considerablemente mayor</strong>.
         </p>
@@ -121,7 +106,7 @@
           <p class="text-blue-900 mb-4">No todo son ventajas para Hospedy. RuralGest tiene puntos fuertes importantes:</p>
           <ul class="space-y-2 text-blue-900">
             <li><strong>20+ años de experiencia:</strong> han visto y resuelto prácticamente cualquier problema que pueda surgir</li>
-            <li><strong>App móvil nativa:</strong> puedes gestionar tu alojamiento desde el teléfono, algo que Hospedy no ofrece actualmente</li>
+            <li><strong>App móvil nativa:</strong> tiene app en las tiendas de aplicaciones; Hospedy se usa desde el navegador del móvil y se puede añadir a la pantalla de inicio, pero no está en las tiendas</li>
             <li><strong>Servicios integrados:</strong> si necesitas diseño web y posicionamiento SEO, RuralGest te lo ofrece todo en un mismo proveedor</li>
             <li><strong>Base de clientes consolidada:</strong> hay una gran comunidad de usuarios con experiencia</li>
           </ul>
@@ -132,17 +117,17 @@
         <div class="bg-green-50 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4 text-green-800">Elige Hospedy si:</h3>
           <ul class="space-y-2 text-green-900">
-            <li>Quieres la encuesta del INE rellena sin tocar nada</li>
+            <li>Quieres la encuesta del INE rellena con tus reservas</li>
             <li>Valoras los precios claros y transparentes</li>
             <li>Prefieres una interfaz moderna e intuitiva</li>
-            <li>No necesitas app móvil para gestionar el alojamiento</li>
+            <li>Te basta con gestionar desde el navegador del móvil o del ordenador</li>
           </ul>
         </div>
 
         <div class="bg-gray-50 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4 text-gray-800">Elige RuralGest si:</h3>
           <ul class="space-y-2 text-gray-700">
-            <li>Necesitas app móvil para gestionar sobre la marcha</li>
+            <li>Prefieres una app nativa de las tiendas de aplicaciones</li>
             <li>Quieres servicios de diseño web y SEO del mismo proveedor</li>
             <li>Valoras la experiencia de 20+ años en el sector</li>
             <li>No te importa subir el XML del INE manualmente cada mes</li>
@@ -153,7 +138,7 @@
 
         <h3>¿Es difícil migrar de RuralGest a Hospedy?</h3>
         <p>
-          No especialmente. Hospedy ofrece ayuda en la configuración inicial durante los 30 días de prueba gratis. Los datos de reservas futuras se pueden introducir fácilmente y las conexiones con OTAs se configuran en pocas horas.
+          No especialmente. Hospedy ofrece ayuda en la configuración inicial durante los 30 días de prueba gratis. Los datos de reservas futuras se pueden introducir fácilmente y las conexiones con las agencias las configura nuestro equipo contigo.
         </p>
 
         <h3>¿Puedo probar Hospedy sin compromiso?</h3>
@@ -161,45 +146,29 @@
           Sí, Hospedy ofrece 30 días de prueba gratis sin necesidad de tarjeta de crédito. Puedes probarlo en paralelo con tu sistema actual antes de decidir.
         </p>
 
-        <h3>¿Hospedy tendrá app móvil en el futuro?</h3>
+        <h3>¿Puedo usar Hospedy desde el móvil?</h3>
         <p>
-          No podemos confirmar planes futuros de desarrollo, pero la interfaz web de Hospedy está optimizada para móvil y funciona bien desde el navegador del teléfono.
+          Sí. Hospedy funciona en el navegador del teléfono y se puede añadir a la pantalla de inicio para entrar con un toque, como una app. Lo que no tiene es app en las tiendas de aplicaciones.
         </p>
 
         <h3>¿Qué pasa con mis datos si cambio de sistema?</h3>
         <p>
-          Tus datos siempre son tuyos. Puedes exportar toda tu información (reservas, facturas, libro de viajeros) de cualquier sistema. Hospedy te ayuda con la migración durante el período de prueba.
+          Tus datos siempre son tuyos. En Hospedy descargas cuando quieras el listado de huéspedes (PDF o CSV), el libro de viajeros, tus facturas (una a una o en Excel), las encuestas del INE y los documentos de admisión. Y te ayudamos con la migración durante el período de prueba.
         </p>
       </div>
 
-      <!-- CTA -->
-      <div class="max-w-3xl mx-auto px-6 mt-16">
-        <div class="bg-primary/5 rounded-2xl p-8 text-center">
-          <h2 class="text-2xl font-bold mb-4">
-            ¿Quieres probar Hospedy sin compromiso?
-          </h2>
-          <p class="text-gray-600 mb-6">
-            Crea tu cuenta: 30 días de prueba gratis y sin tarjeta de crédito. Puedes probarlo en paralelo con tu sistema actual.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <PruebaHospedyButton class="btn btn-grad" />
-            <NuxtLink class="btn btn-outline" to="/comparar">Ver comparativa completa</NuxtLink>
-          </div>
-        </div>
-      </div>
     </article>
+    <!-- La función de la que habla, más guías y la banda de cierre -->
+    <ArticuloPie
+      :articulo="articulo"
+      titulo="¿Quieres probar Hospedy sin compromiso?"
+      texto="Crea tu cuenta: 30 días de prueba gratis y sin tarjeta de crédito. Puedes probarlo en paralelo con tu sistema actual."
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-const articulo = articuloDelBlog('hospedy-vs-ruralgest')
-useSeoPagina({
-  titulo: articulo.tituloSeo,
-  descripcion: articulo.descripcion,
-  tipo: 'article',
-  publicado: articulo.publicado,
-  actualizado: articulo.actualizado,
-})
+const articulo = useArticulo('hospedy-vs-ruralgest')
 </script>
 
 <style scoped>

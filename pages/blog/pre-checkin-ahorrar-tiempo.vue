@@ -1,35 +1,20 @@
 <template>
   <div>
-    <article class="mt-24 mb-16">
+    <article class="pt-24">
       <!-- Header -->
-      <header class="max-w-3xl mx-auto px-6">
-        <NuxtLink
-          to="/blog"
-          class="text-primary hover:underline mb-4 inline-block"
-          >← Volver al blog</NuxtLink
-        >
-        <span class="block text-lg text-orange-600 font-medium mb-2"
-          >Consejos</span
-        >
+      <ArticuloCabecera :articulo="articulo">
         <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
           Pre check-in: Cómo ahorrar tiempo en la recepción
         </h1>
         <p class="text-xl text-gray-600 mb-6">
           El pre check-in de Hospedy permite que los huéspedes completen su registro antes de llegar. Al llegar, el propietario solo hace un clic y el parte de viajeros se envía automáticamente.
         </p>
-        <div
-          class="flex items-center text-lg text-gray-500 border-b border-gray-200 pb-6"
-        >
-          <span>6 min lectura</span>
-          <span class="mx-2">·</span>
-          <span>Actualizado febrero de 2026</span>
-        </div>
-      </header>
+        </ArticuloCabecera>
 
       <!-- Content -->
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
         <p class="lead">
-          Los huéspedes pueden escanear o subir una foto de su documento (DNI, pasaporte, NIE) desde su móvil antes de llegar. El ahorro de tiempo es prácticamente total: de 5-10 minutos por reserva a menos de 30 segundos.
+          Los huéspedes pueden escanear o subir una foto de su documento (DNI, pasaporte, NIE) desde su móvil antes de llegar. En recepción ya no tienes que teclear nada: solo comprobar los datos y entregar la llave.
         </p>
 
         <h2>¿Qué es el pre check-in?</h2>
@@ -48,8 +33,8 @@
           <li>Nacionalidad</li>
           <li>Número de documento</li>
           <li>Tipo de documento</li>
-          <li>Fecha de expedición y caducidad</li>
-          <li>Dirección (para documentos españoles)</li>
+          <li>Fecha de caducidad y, con DNI o NIE, número de soporte</li>
+          <li>Dirección, teléfono y correo electrónico</li>
         </ul>
         <p>
           Toda esta información se necesita para el parte de viajeros, así que el pre check-in <strong>mata dos pájaros de un tiro</strong>: ahorra tiempo y cumple la normativa.
@@ -60,7 +45,7 @@
           <li>Generas un enlace de pre check-in en la web de Hospedy</li>
           <li>Envías el enlace al huésped (hay un botón para email, o puedes copiar el enlace para WhatsApp)</li>
           <li>El huésped abre el enlace en su móvil</li>
-          <li>Rellena los datos de todos los huéspedes mayores de 14 años</li>
+          <li>Rellena los datos de cada ocupante, también de los menores (con su adulto responsable)</li>
           <li>Escanea o sube una foto de cada documento</li>
           <li>Envía el formulario</li>
           <li>Cuando llega al alojamiento, tú marcas 'Check-in' con un clic</li>
@@ -70,7 +55,7 @@
         <div class="bg-green-50 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4 text-green-800">Dato importante para reservas de Booking.com</h3>
           <p class="text-green-900">
-            El email que genera Booking automáticamente es suficiente para enviar el enlace de pre check-in. No necesitas pedir el email personal del huésped.
+            Puedes enviar el enlace al email que da Booking, sin pedir el personal. Si en su extranet tienes activada la seguridad de mensajes, autoriza allí la dirección de Hospedy y el enlace del pre check-in.
           </p>
         </div>
 
@@ -81,7 +66,7 @@
           <li><strong>Subir una foto del documento</strong> desde su galería (si ya la tienen)</li>
         </ul>
         <p>
-          El sistema lee automáticamente la zona MRZ del documento y extrae todos los datos. El huésped solo tiene que verificar que está todo correcto.
+          El sistema lee la zona MRZ del documento y rellena sus datos (y el domicilio, si es un DNI español). El huésped los revisa, completa lo que falte y firma.
         </p>
 
         <h2>¿Cuánto tiempo ahorro?</h2>
@@ -108,7 +93,7 @@
             <li>Hacer clic en 'Check-in'</li>
             <li>Entregar llaves</li>
           </ol>
-          <p class="mt-4 font-semibold text-green-900">Tiempo estimado: 30 segundos</p>
+          <p class="mt-4 font-semibold text-green-900">Sin teclear nada</p>
         </div>
 
         <h2>¿Y si el huésped no completa el pre check-in?</h2>
@@ -133,7 +118,7 @@
 
         <h3>¿Funciona para grupos grandes?</h3>
         <p>
-          Sí, el huésped puede añadir los datos de todos los ocupantes mayores de 14 años en el mismo formulario.
+          Sí: con un solo enlace, el huésped rellena los datos de cada ocupante de la reserva, también los de los menores.
         </p>
 
         <h3>¿Los datos se guardan de forma segura?</h3>
@@ -143,38 +128,22 @@
 
         <h3>¿Qué tipos de documento acepta?</h3>
         <p>
-          Cualquier documento con zona MRZ: DNI español, pasaportes de cualquier país, NIE, documentos de identidad europeos, carnets de conducir...
+          El DNI, el NIE, los pasaportes y los documentos de identidad europeos, por su zona MRZ, y el QR de MiDNI. Si alguno no se lee, se escriben los datos a mano.
         </p>
       </div>
 
-      <!-- CTA -->
-      <div class="max-w-3xl mx-auto px-6 mt-16">
-        <div class="bg-primary/5 rounded-2xl p-8 text-center">
-          <h2 class="text-2xl font-bold mb-4">
-            ¿Quieres ahorrar tiempo con el pre check-in?
-          </h2>
-          <p class="text-gray-600 mb-6">
-            El pre check-in está incluido en todos los planes de Hospedy. Crea tu cuenta y pruébalo gratis durante 30 días.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <PruebaHospedyButton class="btn btn-grad" />
-            <NuxtLink class="btn btn-outline" to="/precios">Ver precios</NuxtLink>
-          </div>
-        </div>
-      </div>
     </article>
+    <!-- La función de la que habla, más guías y la banda de cierre -->
+    <ArticuloPie
+      :articulo="articulo"
+      titulo="¿Quieres ahorrar tiempo con el pre check-in?"
+      texto="El pre check-in está incluido en todos los planes de Hospedy. Crea tu cuenta y pruébalo gratis durante 30 días."
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-const articulo = articuloDelBlog('pre-checkin-ahorrar-tiempo')
-useSeoPagina({
-  titulo: articulo.tituloSeo,
-  descripcion: articulo.descripcion,
-  tipo: 'article',
-  publicado: articulo.publicado,
-  actualizado: articulo.actualizado,
-})
+const articulo = useArticulo('pre-checkin-ahorrar-tiempo')
 </script>
 
 <style scoped>

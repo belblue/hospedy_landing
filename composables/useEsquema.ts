@@ -5,6 +5,7 @@
 import { CONTACTO, DEFINICION, SITIO_URL, urlAbsoluta } from '~/utils/sitio'
 import { TODAS_LAS_FUNCIONES } from '~/utils/navegacion'
 import { PLANES } from '~/utils/precios'
+import type { ArticuloBlog } from '~/utils/blog'
 
 type Esquema = Record<string, unknown>
 
@@ -109,6 +110,29 @@ export function esquemaPagina(
     isPartOf: { '@id': ID_WEB },
     ...(pagina.sobreHospedy ? { about: { '@type': 'SoftwareApplication', '@id': ID_SOFTWARE, name: 'Hospedy' } } : {}),
     ...(tipo === 'AboutPage' || tipo === 'ContactPage' ? { mainEntity: { '@id': ID_ORGANIZACION } } : {}),
+  }
+}
+
+// Un artículo del blog. El autor y el editor son Hospedy, la organización: no firma una persona.
+export function esquemaArticulo(articulo: ArticuloBlog): Esquema {
+  const url = urlAbsoluta(`/blog/${articulo.slug}`)
+  const hospedy = { '@type': 'Organization', '@id': ID_ORGANIZACION, name: 'Hospedy', url: `${SITIO_URL}/` }
+  return {
+    '@type': 'BlogPosting',
+    '@id': `${url}#articulo`,
+    mainEntityOfPage: url,
+    url,
+    headline: articulo.titulo,
+    description: articulo.descripcion,
+    inLanguage: 'es-ES',
+    datePublished: articulo.publicado,
+    dateModified: articulo.actualizado,
+    articleSection: articulo.categoria,
+    timeRequired: `PT${articulo.minutos}M`,
+    image: `${SITIO_URL}/og-image.png`,
+    author: hospedy,
+    publisher: hospedy,
+    isPartOf: { '@id': ID_WEB },
   }
 }
 

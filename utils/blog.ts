@@ -18,7 +18,7 @@ export interface ArticuloBlog {
   // AAAA-MM-DD
   publicado: string
   actualizado: string
-  // la página del producto con la que se relaciona
+  // la página del producto con la que se relaciona (una función, un tipo de alojamiento o /precios)
   funcion?: string
 }
 
@@ -32,19 +32,19 @@ export const ARTICULOS: ArticuloBlog[] = [
     categoria: 'Normativa',
     minutos: 10,
     publicado: '2026-06-03',
-    actualizado: '2026-09-25',
+    actualizado: '2026-10-10',
     funcion: '/funciones/partes-viajeros',
   },
   {
     slug: 'encuestas-ine-alojamientos-turisticos',
     titulo: 'Guía completa: Encuesta INE para alojamientos turísticos 2026',
     tituloSeo: 'Encuesta del INE para alojamientos: guía 2026',
-    descripcion: 'Plazos, datos y cómo cumplir con la encuesta de ocupación del INE. Con Hospedy la tienes rellena con tus reservas y la envías con un clic.',
-    extracto: 'Plazos, datos que pide y cómo tenerla rellena con tus reservas para enviarla con un clic.',
+    descripcion: 'Plazos, datos y cómo cumplir con la encuesta de ocupación del INE. Con Hospedy sale rellena con tus reservas y, en hoteles y apartamentos, va con un clic.',
+    extracto: 'Plazos, datos que pide y cómo tenerla rellena con tus reservas; en hoteles y apartamentos, se envía con un clic.',
     categoria: 'Normativa',
     minutos: 8,
     publicado: '2026-06-03',
-    actualizado: '2026-09-25',
+    actualizado: '2026-10-10',
     funcion: '/funciones/encuestas-ine',
   },
   {
@@ -56,18 +56,20 @@ export const ARTICULOS: ArticuloBlog[] = [
     categoria: 'Elegir un PMS',
     minutos: 12,
     publicado: '2026-06-03',
-    actualizado: '2026-09-25',
+    actualizado: '2026-10-10',
+    funcion: '/casas-rurales',
   },
   {
     slug: 'hospedy-vs-ruralgest',
     titulo: 'Hospedy vs RuralGest: Comparativa completa 2026',
     tituloSeo: 'Hospedy vs RuralGest: comparativa 2026',
     descripcion: 'Hospedy y RuralGest, frente a frente: encuesta del INE, precios públicos, channel manager y servicios. Qué ofrece cada uno y para quién encaja mejor.',
-    extracto: 'Diferencias entre dos PMS españoles para casas rurales y hoteles pequeños: INE, precios y servicios.',
+    extracto: 'Diferencias entre dos PMS para casas rurales y hoteles pequeños en España: INE, precios y servicios.',
     categoria: 'Elegir un PMS',
     minutos: 10,
     publicado: '2026-06-03',
-    actualizado: '2026-09-25',
+    actualizado: '2026-10-10',
+    funcion: '/casas-rurales',
   },
   {
     slug: 'como-evitar-overbookings',
@@ -78,7 +80,7 @@ export const ARTICULOS: ArticuloBlog[] = [
     categoria: 'Ventas y canales',
     minutos: 7,
     publicado: '2026-06-03',
-    actualizado: '2026-10-02',
+    actualizado: '2026-10-10',
     funcion: '/funciones/channel-manager',
   },
   {
@@ -90,7 +92,8 @@ export const ARTICULOS: ArticuloBlog[] = [
     categoria: 'Gestión diaria',
     minutos: 6,
     publicado: '2026-06-03',
-    actualizado: '2026-09-25',
+    actualizado: '2026-10-10',
+    funcion: '/funciones/check-in',
   },
   {
     slug: 'reservas-directas-vs-otas',
@@ -101,7 +104,7 @@ export const ARTICULOS: ArticuloBlog[] = [
     categoria: 'Ventas y canales',
     minutos: 7,
     publicado: '2026-06-03',
-    actualizado: '2026-09-25',
+    actualizado: '2026-10-10',
     funcion: '/funciones/motor-reservas',
   },
   {
@@ -109,11 +112,12 @@ export const ARTICULOS: ArticuloBlog[] = [
     titulo: '¿Cuánto cuesta un PMS para hotel pequeño en 2026?',
     tituloSeo: '¿Cuánto cuesta un PMS para hotel pequeño en 2026?',
     descripcion: 'Un PMS para un hotel pequeño cuesta entre 120 € y 1.500 € al año. Qué entra en el precio, los costes que no se ven y por qué Hospedy empieza en 350 €/año.',
-    extracto: 'Rango de precios del mercado, costes ocultos y retorno. Hospedy, desde 350 €/año con todo incluido.',
+    extracto: 'Rango de precios del mercado, costes ocultos y retorno. Hospedy, desde 350 €/año con todas las funciones.',
     categoria: 'Elegir un PMS',
     minutos: 8,
     publicado: '2026-06-03',
-    actualizado: '2026-09-25',
+    actualizado: '2026-10-10',
+    funcion: '/precios',
   },
 ]
 

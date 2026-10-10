@@ -1,35 +1,20 @@
 <template>
   <div>
-    <article class="mt-24 mb-16">
+    <article class="pt-24">
       <!-- Header -->
-      <header class="max-w-3xl mx-auto px-6">
-        <NuxtLink
-          to="/blog"
-          class="text-primary hover:underline mb-4 inline-block"
-          >← Volver al blog</NuxtLink
-        >
-        <span class="block text-lg text-blue-600 font-medium mb-2"
-          >Comparativas</span
-        >
+      <ArticuloCabecera :articulo="articulo">
         <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
           Los 5 mejores PMS para casas rurales en España [2026]
         </h1>
         <p class="text-xl text-gray-600 mb-6">
           Comparativa de los principales sistemas de gestión para casas rurales: funcionalidades, precios y automatización del cumplimiento normativo español.
         </p>
-        <div
-          class="flex items-center text-lg text-gray-500 border-b border-gray-200 pb-6"
-        >
-          <span>12 min lectura</span>
-          <span class="mx-2">·</span>
-          <span>Actualizado febrero de 2026</span>
-        </div>
-      </header>
+        </ArticuloCabecera>
 
       <!-- Content -->
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
         <p class="lead">
-          Los 5 mejores PMS para casas rurales en España son: Hospedy (desde 350&nbsp;€/año, único con envío INE automático), RuralGest (veterano del sector, sin precios públicos), AvaiBook (desde 204&nbsp;€/año pero con comisiones del 2-4&nbsp;%), Amenitiz (desde 504&nbsp;€/año) y Cloudbeds (desde 1.200&nbsp;€/año).
+          Los 5 mejores PMS para casas rurales en España son: Hospedy (desde 350&nbsp;€/año, con la encuesta del INE de turismo rural rellena con tus reservas), RuralGest (veterano del sector, sin precios públicos), AvaiBook (desde 204&nbsp;€/año pero con comisiones del 2-4&nbsp;%), Amenitiz (desde 504&nbsp;€/año) y Cloudbeds (desde 1.200&nbsp;€/año).
         </p>
 
         <h2>Comparativa rápida</h2>
@@ -53,7 +38,7 @@
                 <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /> Auto</td>
                 <td class="px-3 py-3 text-center text-green-600 font-medium"><IconoMarca tipo="si" /> Rellena y lista</td>
                 <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /><span class="sr-only">Sí</span></td>
-                <td class="px-3 py-3 text-center text-green-600">0&nbsp;%</td>
+                <td class="px-3 py-3 text-center text-green-600">0&nbsp;% por reserva (cobros con tarjeta: 3,9&nbsp;% + 0,40&nbsp;€)</td>
               </tr>
               <tr>
                 <td class="px-3 py-3 font-medium text-gray-900">RuralGest</td>
@@ -92,23 +77,22 @@
         </div>
 
         <h2>1. Hospedy</h2>
-        <p><strong>Ideal para:</strong> casas rurales y hoteles pequeños que quieren automatización total</p>
+        <p><strong>Ideal para:</strong> casas rurales y hoteles pequeños que quieren quitarse papeleo</p>
         <p>
-          Hospedy es un PMS español lanzado en 2020 y recientemente rebautizado. Su punto fuerte es la automatización del cumplimiento normativo español: envía los partes de viajeros a SES Hospedajes automáticamente y te deja la encuesta del INE rellena con tus datos: la de turismo rural, lista para presentar; en hoteles y apartamentos, <strong>enviada al INE con un clic</strong>.
+          Hospedy es un PMS hecho para alojamientos turísticos en España. Su punto fuerte es la automatización del cumplimiento normativo español: envía los partes de viajeros a SES Hospedajes automáticamente y te deja la encuesta del INE rellena con tus datos: la de turismo rural, lista para presentar; en hoteles y apartamentos, <strong>enviada al INE con un clic</strong>.
         </p>
 
         <h3>Puntos fuertes</h3>
         <ul>
-          <li>Único con envío INE automático completo</li>
+          <li>La encuesta del INE, rellena con tus reservas</li>
           <li>Partes de viajeros automáticos a SES y Ertzaintza</li>
           <li>Precios públicos y transparentes</li>
           <li>Channel manager incluido en todos los planes</li>
-          <li>0&nbsp;% comisiones en reservas directas</li>
+          <li>Sin comisión por reserva en las reservas directas</li>
         </ul>
 
         <h3>Puntos débiles</h3>
         <ul>
-          <li>No tiene app móvil</li>
           <li>Empresa más joven que competidores veteranos</li>
         </ul>
 
@@ -131,7 +115,7 @@
         <h3>Puntos débiles</h3>
         <ul>
           <li>No publica precios (hay que pedir presupuesto)</li>
-          <li>Solo genera XML para el INE (no envío automático)</li>
+          <li>Solo genera XML para el INE (no lo envía)</li>
           <li>Costes adicionales: web 150-1.200&nbsp;€, SEO 220-800&nbsp;€, mantenimiento SEO 90&nbsp;€/mes</li>
         </ul>
 
@@ -207,7 +191,7 @@
         <div class="bg-green-50 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4 text-green-800">¿Cuál elegir?</h3>
           <ul class="space-y-2 text-green-900">
-            <li><strong>Si quieres automatización total del INE →</strong> Hospedy (único que lo ofrece)</li>
+            <li><strong>Si quieres la encuesta del INE hecha con tus reservas →</strong> Hospedy</li>
             <li><strong>Si valoras la experiencia y quieres servicios de web →</strong> RuralGest</li>
             <li><strong>Si buscas el precio más bajo de entrada →</strong> AvaiBook</li>
             <li><strong>Si tienes un hotel boutique y valoras el diseño →</strong> Amenitiz</li>
@@ -219,7 +203,7 @@
 
         <h3>¿Cuál tiene mejor soporte en español?</h3>
         <p>
-          Hospedy y RuralGest son empresas españolas con soporte nativo. AvaiBook también tiene buen soporte en español al ser parte de Idealista. Amenitiz y Cloudbeds tienen soporte en español pero desde equipos internacionales.
+          Hospedy y RuralGest dan soporte nativo en español. AvaiBook también tiene buen soporte en español al ser parte de Idealista. Amenitiz y Cloudbeds tienen soporte en español pero desde equipos internacionales.
         </p>
 
         <h3>¿Puedo cambiar de un PMS a otro fácilmente?</h3>
@@ -233,34 +217,18 @@
         </p>
       </div>
 
-      <!-- CTA -->
-      <div class="max-w-3xl mx-auto px-6 mt-16">
-        <div class="bg-primary/5 rounded-2xl p-8 text-center">
-          <h2 class="text-2xl font-bold mb-4">
-            ¿Quieres probar el único PMS con INE automático?
-          </h2>
-          <p class="text-gray-600 mb-6">
-            Crea tu cuenta y prueba Hospedy gratis durante 30 días. Sin tarjeta de crédito, sin compromiso.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <PruebaHospedyButton class="btn btn-grad" />
-            <NuxtLink class="btn btn-outline" to="/precios">Ver precios</NuxtLink>
-          </div>
-        </div>
-      </div>
     </article>
+    <!-- La función de la que habla, más guías y la banda de cierre -->
+    <ArticuloPie
+      :articulo="articulo"
+      titulo="¿Quieres probar Hospedy en tu casa rural?"
+      texto="Crea tu cuenta y prueba Hospedy gratis durante 30 días. Sin tarjeta de crédito, sin compromiso."
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-const articulo = articuloDelBlog('mejores-pms-casas-rurales')
-useSeoPagina({
-  titulo: articulo.tituloSeo,
-  descripcion: articulo.descripcion,
-  tipo: 'article',
-  publicado: articulo.publicado,
-  actualizado: articulo.actualizado,
-})
+const articulo = useArticulo('mejores-pms-casas-rurales')
 </script>
 
 <style scoped>

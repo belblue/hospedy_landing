@@ -1,35 +1,20 @@
 <template>
   <div>
-    <article class="mt-24 mb-16">
+    <article class="pt-24">
       <!-- Header -->
-      <header class="max-w-3xl mx-auto px-6">
-        <NuxtLink
-          to="/blog"
-          class="text-primary hover:underline mb-4 inline-block"
-          >← Volver al blog</NuxtLink
-        >
-        <span class="block text-lg text-primary font-medium mb-2"
-          >Normativa</span
-        >
+      <ArticuloCabecera :articulo="articulo">
         <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
           Cómo enviar partes de viajeros a SES Hospedajes automáticamente
         </h1>
         <p class="text-xl text-gray-600 mb-6">
-          Hospedy envía los partes de viajeros a SES Hospedajes automáticamente en solo 4 clics. El parte se transmite instantáneamente al Ministerio del Interior.
+          Hospedy envía los partes de viajeros a SES Hospedajes por ti: escaneas el documento, guardas al huésped y el parte sale solo, sin entrar en el portal.
         </p>
-        <div
-          class="flex items-center text-lg text-gray-500 border-b border-gray-200 pb-6"
-        >
-          <span>10 min lectura</span>
-          <span class="mx-2">·</span>
-          <span>Actualizado febrero de 2026</span>
-        </div>
-      </header>
+        </ArticuloCabecera>
 
       <!-- Content -->
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
         <p class="lead">
-          Desde el 2 de diciembre de 2024, el Real Decreto 933/2021 obliga a todos los alojamientos turísticos en España a enviar los partes de viajeros a través de SES Hospedajes. Con Hospedy, el proceso se reduce a 4 clics: escanear el documento, asignar habitación, guardar y marcar check-in.
+          Desde el 2 de diciembre de 2024, el Real Decreto 933/2021 obliga a todos los alojamientos turísticos en España a enviar los partes de viajeros a través de SES Hospedajes. Con Hospedy, escaneas el documento, eliges la habitación, el huésped firma en la pantalla y el parte sale solo, sin entrar en el portal.
         </p>
 
         <h2>El problema: multas de hasta 30.000&nbsp;€</h2>
@@ -38,22 +23,22 @@
         </p>
         <ul>
           <li><strong>Infracciones leves (100-600&nbsp;€):</strong> envío fuera de plazo, datos incompletos</li>
-          <li><strong>Infracciones graves (601-30.000&nbsp;€):</strong> no enviar, no registrar, incumplimiento reiterado</li>
+          <li><strong>Infracciones graves (601-30.000&nbsp;€):</strong> no enviar, no registrar</li>
         </ul>
         <p>
           El proceso manual consume tiempo valioso: entrar en la web de SES, teclear todos los datos del huésped, revisar errores, enviar... Y repetir con cada huésped. En temporada alta, esto puede suponer horas de trabajo administrativo.
         </p>
 
-        <h2>La solución: envío automático en 4 clics</h2>
-        <p>Con Hospedy, el proceso completo se reduce a 4 acciones:</p>
+        <h2>La solución: el parte sale solo al registrar al huésped</h2>
+        <p>Con Hospedy, en el mostrador solo tienes que:</p>
         <ol>
           <li><strong>Escanear el documento</strong> del huésped (DNI, pasaporte, NIE o cualquier documento con zona MRZ)</li>
           <li><strong>Asignar la habitación</strong></li>
-          <li><strong>Guardar los datos</strong></li>
-          <li><strong>Marcar 'Check-in'</strong> en el calendario</li>
+          <li><strong>Firmar y enviar los datos</strong></li>
+          <li>Si la reserva entra hoy, <strong>el check-in se marca solo</strong></li>
         </ol>
         <p>
-          En el momento en que marcas el check-in, el parte se envía automáticamente a SES Hospedajes. No tienes que hacer nada más.
+          Con el huésped registrado, el parte sale solo hacia SES Hospedajes en pocos minutos. No tienes que hacer nada más.
         </p>
 
         <div class="bg-green-50 p-6 rounded-xl my-8 not-prose">
@@ -61,29 +46,29 @@
             Dato importante
           </h3>
           <p class="text-green-900">
-            Los documentos españoles (DNI y NIE) capturan la <strong>dirección del huésped automáticamente</strong>. Muchos sistemas del mercado no hacen esto.
+            Con el DNI español, Hospedy rellena también la <strong>dirección del huésped</strong>. Muchos sistemas del mercado no hacen esto.
           </p>
         </div>
 
         <h2>¿Y si hay un error?</h2>
         <p>
-          Si SES Hospedajes devuelve un error, verás una <strong>alerta roja</strong> en el Planning o en la ficha del huésped. Además, recibirás un email directamente de SES con los detalles del problema.
+          Si SES Hospedajes devuelve un error, verás un <strong>aviso</strong> en el planning, en el listado de huéspedes y en la ficha del huésped, con el motivo cuando se conoce. Corriges el dato y pulsas «Reenviar parte».
         </p>
         <p>Los errores más comunes son:</p>
         <ul>
-          <li>Credenciales de SES incorrectas (se configuran una sola vez en el perfil)</li>
+          <li>Datos de acceso a SES incorrectos (se ponen una sola vez en la ficha de tu alojamiento)</li>
           <li>Datos incompletos del huésped</li>
           <li>Problemas temporales en la plataforma de SES</li>
         </ul>
 
         <h2>Medida de seguridad: sin partes de no-shows</h2>
         <p>
-          El parte solo se envía cuando marcas el check-in. Esta es una medida de seguridad importante: si un huésped no aparece (no-show), no marcas check-in y no se envía ningún parte. Así evitas problemas con registros de personas que nunca llegaron.
+          El parte solo sale de los huéspedes que registras, y los datos del pre check-in no pasan a huéspedes hasta que marcas el check-in. Es una medida de seguridad importante: si alguien no aparece (no-show), no se envía ningún parte. Así evitas problemas con registros de personas que nunca llegaron.
         </p>
 
         <h2>¿Y el País Vasco?</h2>
         <p>
-          En País Vasco, los partes se envían a <strong>Ertzaintza</strong> en lugar de a SES Hospedajes. Con Hospedy, el proceso es exactamente el mismo: los 4 clics funcionan igual, solo cambia el destino del envío.
+          En País Vasco, los partes se envían a <strong>Ertzaintza</strong> en lugar de a SES Hospedajes. Con Hospedy, el proceso es exactamente el mismo: solo cambia el destino del envío.
         </p>
 
         <div class="bg-primary/5 p-6 rounded-xl my-8 not-prose">
@@ -100,13 +85,13 @@
 
         <h2>Pre check-in: que el huésped haga el trabajo</h2>
         <p>
-          Si quieres ahorrar aún más tiempo, puedes usar el <strong>pre check-in</strong>. Generas un enlace en Hospedy y se lo envías al huésped por email o WhatsApp. El huésped rellena sus datos y escanea o sube una foto de su documento desde su móvil.
+          Si quieres ahorrar aún más tiempo, puedes usar el <strong>pre check-in</strong>. Generas un enlace en Hospedy y se lo envías al huésped por email, o copiando el enlace para mandarlo por WhatsApp. El huésped rellena sus datos y escanea o sube una foto de su documento desde su móvil.
         </p>
         <p>
           Cuando llega al alojamiento, tú solo tienes que hacer un clic en 'Check-in' y el parte se envía automáticamente.
         </p>
         <p>
-          <strong>Para reservas de Booking.com:</strong> el email que genera Booking es suficiente para enviar el enlace de pre check-in.
+          <strong>Para reservas de Booking.com:</strong> el enlace puede ir al email que da Booking; si en su extranet tienes activada la seguridad de mensajes, autoriza allí la dirección de Hospedy y el enlace del pre check-in.
         </p>
 
         <h2>Normativa: Real Decreto 933/2021</h2>
@@ -131,7 +116,7 @@
         <p>El plazo máximo para enviar el parte es de <strong>24 horas</strong> desde el inicio del hospedaje.</p>
         <ul>
           <li>La comunicación debe ser inmediata o en las siguientes 24 horas</li>
-          <li>Solo se registran huéspedes mayores de 14 años</li>
+          <li>Se registra a todos los viajeros; los menores, con su parentesco y su adulto responsable</li>
           <li>Los datos deben conservarse durante 3 años</li>
           <li>Las estancias superiores a 30 días (no turísticas) pueden estar exentas</li>
         </ul>
@@ -172,65 +157,47 @@
 
         <h3>¿Funciona con todos los tipos de documento?</h3>
         <p>
-          Sí, con cualquier documento que tenga zona MRZ: DNI español, pasaportes de cualquier país, NIE, documentos de identidad europeos, carnets de conducir...
+          Lee la zona MRZ del DNI, el NIE, los pasaportes y los documentos de identidad europeos, y el QR de MiDNI. Si un documento no se lee, escribes los datos a mano.
         </p>
 
         <h3>¿Cuánto tiempo ahorro respecto al proceso manual?</h3>
         <p>
-          El proceso manual puede llevar 5-10 minutos por huésped entre entrar en SES, teclear datos y revisar. Con Hospedy son 4 clics en <strong>menos de 30 segundos</strong>.
+          El proceso manual puede llevar 5-10 minutos por huésped entre entrar en SES, teclear datos y revisar. Con Hospedy escaneas el documento y <strong>no tecleas sus datos</strong>; si el huésped hizo el pre check-in, ni eso.
         </p>
 
         <h3>¿Necesito configurar algo antes de empezar?</h3>
         <p>
-          Solo una vez: introduces tus credenciales de SES Hospedajes en tu perfil de Hospedy. A partir de ahí, todo es automático.
+          Solo una vez: tus datos de acceso a SES Hospedajes van en la ficha de tu alojamiento, y lo configuramos contigo. A partir de ahí, los partes salen solos.
         </p>
 
         <h3>¿Qué pasa si SES Hospedajes está caído?</h3>
         <p>
-          Verás una alerta en el Planning y recibirás un email de SES cuando el servicio se restablezca. Hospedy reintentará el envío automáticamente.
+          Los partes se quedan como «Procesando, pendiente de envío» y Hospedy los reintenta solo hasta que SES vuelve a responder. No tienes que hacer nada.
         </p>
 
         <h3>¿Qué pasa si no envío los partes?</h3>
         <p>
-          Las multas por no comunicar viajeros pueden ir de 100 a 30.000 euros dependiendo de la gravedad. Además, en caso de inspección, podrías tener problemas con tu licencia de actividad.
+          No comunicar a tus viajeros es una infracción grave: multas de 601 a 30.000 € (Ley Orgánica 4/2015).
         </p>
 
         <h3>¿Tengo que guardar los datos de los viajeros?</h3>
         <p>
-          Sí. Debes mantener un libro de viajeros con todos los registros durante al menos 3 años. Con Hospedy, este libro se genera automáticamente y puedes consultarlo o descargarlo cuando lo necesites.
+          Sí. Debes mantener un libro de viajeros con todos los registros durante al menos 3 años. Con Hospedy, el libro sale de los huéspedes que registras: lo descargas cuando lo necesites y te llega por email.
         </p>
       </div>
 
-      <!-- CTA -->
-      <div class="max-w-3xl mx-auto px-6 mt-16">
-        <div class="bg-primary/5 rounded-2xl p-8 text-center">
-          <h2 class="text-2xl font-bold mb-4">
-            ¿Quieres automatizar tus partes de viajeros?
-          </h2>
-          <p class="text-gray-600 mb-6">
-            Crea tu cuenta, prueba Hospedy gratis durante 30 días y olvídate del papeleo.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <PruebaHospedyButton class="btn btn-grad" />
-            <NuxtLink class="btn btn-outline" to="/funciones/partes-viajeros"
-              >Saber más</NuxtLink
-            >
-          </div>
-        </div>
-      </div>
     </article>
+    <!-- La función de la que habla, más guías y la banda de cierre -->
+    <ArticuloPie
+      :articulo="articulo"
+      titulo="¿Quieres automatizar tus partes de viajeros?"
+      texto="Crea tu cuenta, prueba Hospedy gratis durante 30 días y olvídate del papeleo."
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-const articulo = articuloDelBlog('como-enviar-partes-viajeros-ses-hospedajes')
-useSeoPagina({
-  titulo: articulo.tituloSeo,
-  descripcion: articulo.descripcion,
-  tipo: 'article',
-  publicado: articulo.publicado,
-  actualizado: articulo.actualizado,
-})
+const articulo = useArticulo('como-enviar-partes-viajeros-ses-hospedajes')
 </script>
 
 <style scoped>

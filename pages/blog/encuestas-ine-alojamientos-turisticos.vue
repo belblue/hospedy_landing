@@ -1,35 +1,20 @@
 <template>
   <div>
-    <article class="mt-24 mb-16">
+    <article class="pt-24">
       <!-- Header -->
-      <header class="max-w-3xl mx-auto px-6">
-        <NuxtLink
-          to="/blog"
-          class="text-primary hover:underline mb-4 inline-block"
-          >← Volver al blog</NuxtLink
-        >
-        <span class="block text-lg text-secondary font-medium mb-2"
-          >Normativa</span
-        >
+      <ArticuloCabecera :articulo="articulo">
         <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
           Guía completa: Encuesta INE para alojamientos turísticos 2026
         </h1>
         <p class="text-xl text-gray-600 mb-6">
-          Hospedy rellena la encuesta del INE con los datos de tus reservas. En hoteles y apartamentos solo tienes que actualizar el código de control cada mes y enviarla con un clic; la de turismo rural la descargas lista para presentar.
+          Hospedy rellena la encuesta del INE con los datos de tus reservas. En hoteles y apartamentos solo tienes que poner al día los datos del mes (mes de referencia, días de apertura, personal y código de control) y enviarla con un clic; la de turismo rural la descargas lista para presentar.
         </p>
-        <div
-          class="flex items-center text-lg text-gray-500 border-b border-gray-200 pb-6"
-        >
-          <span>8 min lectura</span>
-          <span class="mx-2">·</span>
-          <span>Actualizado febrero de 2026</span>
-        </div>
-      </header>
+        </ArticuloCabecera>
 
       <!-- Content -->
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
         <p class="lead">
-          La encuesta de ocupación hotelera del Instituto Nacional de Estadística (INE) recoge datos sobre la actividad de los alojamientos turísticos en España. Si has sido seleccionado, es obligatorio cumplir. Con Hospedy, ahorras hasta 2 horas mensuales de trabajo manual.
+          La encuesta de ocupación hotelera del Instituto Nacional de Estadística (INE) recoge datos sobre la actividad de los alojamientos turísticos en España. Si has sido seleccionado, es obligatorio cumplir. Con Hospedy, la encuesta sale de tus reservas y no la rellenas a mano.
         </p>
 
         <h2>¿Qué es la encuesta del INE?</h2>
@@ -55,11 +40,11 @@
         <p>La encuesta se envía mensualmente con estos plazos:</p>
         <ul>
           <li><strong>Fecha de referencia:</strong> último día del mes</li>
-          <li><strong>Plazo de envío:</strong> entre el día 1 y el día 10 del mes siguiente</li>
+          <li><strong>Plazo de envío:</strong> entre el día 1 y el día 5 del mes siguiente</li>
           <li><strong>Frecuencia:</strong> solo puede enviarse una vez por mes</li>
         </ul>
         <p>
-          <strong>Ejemplo:</strong> para los datos de marzo, tienes hasta el 10 de abril para enviar la encuesta.
+          <strong>Ejemplo:</strong> para los datos de marzo, tienes hasta el 5 de abril para enviar la encuesta.
         </p>
 
         <h2>El problema del proceso manual</h2>
@@ -77,13 +62,13 @@
 
         <div class="bg-green-50 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4 text-green-800">
-            Hospedy: el ÚNICO PMS con envío automático
+            Hospedy: la encuesta, enviada con un clic
           </h3>
           <p class="text-green-900 mb-4">
             Aquí está la diferencia clave que debes conocer:
           </p>
           <p class="text-green-900 font-semibold mb-4">
-            Hospedy envía la encuesta de ocupación hotelera y la de apartamentos turísticos al INE de forma automática, por su servicio web.
+            Hospedy envía la encuesta de ocupación hotelera y la de apartamentos turísticos directamente al INE, con un clic.
           </p>
           <p class="text-green-900">
             Otros sistemas como RuralGest, AvaiBook, Amenitiz o Cloudbeds solo generan un archivo XML. Tú tienes que descargar ese archivo y subirlo manualmente a la plataforma ARCE del INE cada mes.
@@ -94,12 +79,12 @@
         <p>Con Hospedy, el proceso es mucho más sencillo:</p>
         <ol>
           <li>Los datos se recopilan automáticamente de tus reservas</li>
-          <li>Actualizas el código de control mensual (te lo proporciona el INE)</li>
+          <li>Pones al día los datos del mes: mes de referencia, días de apertura, personal y el código de control que te manda el INE</li>
           <li>Haces clic en enviar</li>
           <li>Listo</li>
         </ol>
         <p>
-          Sin descargar archivos XML, sin entrar en la plataforma ARCE, sin verificaciones manuales.
+          Sin descargar archivos XML ni entrar en la plataforma ARCE; solo repasas los datos antes de enviar.
         </p>
 
         <h2>La importancia del check-out</h2>
@@ -112,7 +97,7 @@
           <li>Los estados de limpieza automáticos</li>
         </ul>
         <p>
-          Si olvidas marcar el check-out, el sistema lo marca automáticamente pasadas unas horas, pero es mejor hacerlo manualmente para mayor precisión.
+          Si olvidas marcar el check-out, la salida se cierra sola a la hora de cortesía que fijas en tu alojamiento, pero es mejor hacerlo manualmente para mayor precisión.
         </p>
 
         <h2>Tipos de encuestas según tu alojamiento</h2>
@@ -134,7 +119,7 @@
         </p>
 
         <div class="bg-secondary/5 p-6 rounded-xl my-8 not-prose">
-          <h3 class="text-xl font-bold mb-4">Hospedy genera automáticamente:</h3>
+          <h3 class="text-xl font-bold mb-4">Hospedy te prepara:</h3>
           <ul class="space-y-2">
             <li class="flex items-center gap-2">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -158,16 +143,15 @@
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span>Documentos autonómicos (Castilla y León, Andalucía...)</span>
+              <span>Encuesta de Castilla y León (se descarga rellena)</span>
             </li>
           </ul>
         </div>
 
         <h2>Encuestas regionales</h2>
-        <p>Además de la encuesta nacional del INE, algunas comunidades autónomas tienen sus propias encuestas de ocupación. Hospedy también las soporta:</p>
+        <p>Además de la encuesta nacional del INE, algunas comunidades autónomas tienen sus propias encuestas de ocupación. Hospedy te deja rellena, para que la presentes tú, la de Castilla y León:</p>
         <ul>
           <li><strong>Castilla y León:</strong> encuesta regional de turismo</li>
-          <li><strong>Andalucía:</strong> encuesta de ocupación andaluza</li>
         </ul>
 
         <h2>Preguntas frecuentes</h2>
@@ -184,12 +168,12 @@
 
         <h3>¿Qué pasa si envío la encuesta con errores?</h3>
         <p>
-          Como solo puedes enviar una vez al mes, es importante revisar los datos antes. Hospedy te muestra un resumen para que lo verifiques.
+          Como solo puedes enviar una vez al mes, es importante revisar los datos antes. Si algún dato no cuadra, Hospedy te enseña la lista de problemas para que los corrijas, y puedes descargar antes el XML para revisarlo.
         </p>
 
         <h3>¿Puedo ver un histórico de las encuestas enviadas?</h3>
         <p>
-          Sí, Hospedy guarda un registro de todas las encuestas enviadas para tu referencia.
+          No hay un listado, pero Hospedy recuerda qué meses has enviado: si intentas mandar otra vez uno, te dice el día y la hora en que salió.
         </p>
 
         <h3>¿Cuánto tiempo ahorro con Hospedy?</h3>
@@ -203,36 +187,18 @@
         </p>
       </div>
 
-      <!-- CTA -->
-      <div class="max-w-3xl mx-auto px-6 mt-16">
-        <div class="bg-primary/5 rounded-2xl p-8 text-center">
-          <h2 class="text-2xl font-bold mb-4">
-            ¿Quieres automatizar tus encuestas del INE?
-          </h2>
-          <p class="text-gray-600 mb-6">
-            Crea tu cuenta y prueba Hospedy gratis durante 30 días. Somos el único PMS con envío automático completo.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <PruebaHospedyButton class="btn btn-grad" />
-            <NuxtLink class="btn btn-outline" to="/funciones/encuestas-ine"
-              >Saber más</NuxtLink
-            >
-          </div>
-        </div>
-      </div>
     </article>
+    <!-- La función de la que habla, más guías y la banda de cierre -->
+    <ArticuloPie
+      :articulo="articulo"
+      titulo="¿Quieres automatizar tus encuestas del INE?"
+      texto="Crea tu cuenta y prueba Hospedy gratis durante 30 días: la encuesta del INE, rellena con tus reservas y, en hoteles y apartamentos, enviada con un clic."
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-const articulo = articuloDelBlog('encuestas-ine-alojamientos-turisticos')
-useSeoPagina({
-  titulo: articulo.tituloSeo,
-  descripcion: articulo.descripcion,
-  tipo: 'article',
-  publicado: articulo.publicado,
-  actualizado: articulo.actualizado,
-})
+const articulo = useArticulo('encuestas-ine-alojamientos-turisticos')
 </script>
 
 <style scoped>

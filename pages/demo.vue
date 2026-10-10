@@ -61,8 +61,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-gray-900">Facturación automática</h3>
-                                <p class="text-gray-600">Las facturas se generan solas cuando cierras una reserva.</p>
+                                <h3 class="font-semibold text-gray-900">Facturación con un clic</h3>
+                                <p class="text-gray-600">La factura de cada reserva sale con un clic, con todos los datos.</p>
                             </div>
                         </div>
 

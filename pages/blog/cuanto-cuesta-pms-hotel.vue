@@ -1,35 +1,20 @@
 <template>
   <div>
-    <article class="mt-24 mb-16">
+    <article class="pt-24">
       <!-- Header -->
-      <header class="max-w-3xl mx-auto px-6">
-        <NuxtLink
-          to="/blog"
-          class="text-primary hover:underline mb-4 inline-block"
-          >← Volver al blog</NuxtLink
-        >
-        <span class="block text-lg text-yellow-600 font-medium mb-2"
-          >Precios</span
-        >
+      <ArticuloCabecera :articulo="articulo">
         <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
           ¿Cuánto cuesta un PMS para hotel pequeño en 2026?
         </h1>
         <p class="text-xl text-gray-600 mb-6">
           Un PMS para hotel pequeño o casa rural en España cuesta entre 120&nbsp;€ y 1.500&nbsp;€ al año. La media del mercado está en 50-70&nbsp;€ al mes para soluciones completas con channel manager incluido.
         </p>
-        <div
-          class="flex items-center text-lg text-gray-500 border-b border-gray-200 pb-6"
-        >
-          <span>8 min lectura</span>
-          <span class="mx-2">·</span>
-          <span>Actualizado febrero de 2026</span>
-        </div>
-      </header>
+        </ArticuloCabecera>
 
       <!-- Content -->
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
         <p class="lead">
-          Hospedy ofrece todo incluido desde 350&nbsp;€/año. El retorno de inversión típico es recuperar el coste en 1-6 meses gracias al ahorro de tiempo y reducción de errores.
+          Hospedy tiene todas las funciones en todos los planes, desde 350&nbsp;€/año sin IVA, y te quita trabajo en partes, encuesta del INE y calendarios.
         </p>
 
         <h2>Rango de precios del mercado</h2>
@@ -60,8 +45,8 @@
                 <td class="px-4 py-3 text-sm text-gray-700">1.200&nbsp;€+</td>
               </tr>
               <tr class="bg-green-50">
-                <td class="px-4 py-3 text-sm font-medium text-gray-900">Hospedy (todo incluido)</td>
-                <td class="px-4 py-3 text-sm text-gray-700">29-129&nbsp;€</td>
+                <td class="px-4 py-3 text-sm font-medium text-gray-900">Hospedy (todas las funciones)</td>
+                <td class="px-4 py-3 text-sm text-gray-700">35-129&nbsp;€</td>
                 <td class="px-4 py-3 text-sm font-medium text-green-600">350-1.290&nbsp;€</td>
               </tr>
             </tbody>
@@ -82,6 +67,7 @@
         <ul>
           <li>Algunos sistemas cobran un porcentaje de cada reserva (2-4&nbsp;%)</li>
           <li>AvaiBook, por ejemplo, tiene comisiones en su pasarela de pagos</li>
+          <li>En Hospedy el motor no cobra comisión por reserva; los cobros con tarjeta cuestan 3,9&nbsp;% + 0,40&nbsp;€ por cobro, IVA incluido, solo si los usas</li>
           <li>Con muchas reservas, estas comisiones pueden superar el coste del software</li>
         </ul>
 
@@ -112,8 +98,8 @@
         <h3>¿De dónde viene el ahorro?</h3>
         <ul>
           <li><strong>Menos tiempo en tareas manuales:</strong> partes de viajeros, INE, sincronización de calendarios</li>
-          <li><strong>Más reservas directas:</strong> motor de reservas sin comisiones vs 15-30&nbsp;% de OTAs</li>
-          <li><strong>Menos errores:</strong> sin overbookings, sin multas por partes tardíos</li>
+          <li><strong>Más reservas directas:</strong> motor de reservas sin comisión por reserva frente al 15-30&nbsp;% de las agencias</li>
+          <li><strong>Menos errores:</strong> menos overbookings y partes que salen solos, sin olvidos</li>
           <li><strong>Mejor gestión:</strong> informes, estadísticas, control de ocupación</li>
         </ul>
 
@@ -149,7 +135,7 @@
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span>Motor de reservas sin comisiones</span>
+              <span>Motor de reservas sin comisión por reserva</span>
             </li>
             <li class="flex items-center gap-2">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -161,13 +147,13 @@
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span>Encuesta INE automática (único en el mercado)</span>
+              <span>Encuesta del INE rellena (con envío en un clic en hoteles y apartamentos)</span>
             </li>
             <li class="flex items-center gap-2">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span>Escáner de documentos</span>
+              <span>Escaneo del documento con el móvil</span>
             </li>
             <li class="flex items-center gap-2">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -184,7 +170,7 @@
           </ul>
         </div>
 
-        <p>Los planes superiores añaden más OTAs, más unidades de alojamiento y funcionalidades adicionales.</p>
+        <p>Los planes superiores admiten más unidades e incluyen más agencias (y Enterprise, soporte prioritario y onboarding dedicado); las funciones son las mismas en todos.</p>
 
         <h2>Preguntas frecuentes</h2>
 
@@ -200,43 +186,27 @@
 
         <h3>¿Puedo cambiar de plan después?</h3>
         <p>
-          Sí, puedes subir o bajar de plan según tus necesidades. El cambio se aplica en el siguiente período de facturación.
+          Sí. El plan va por el número de unidades: si cambian, pasas al plan que te corresponde y se aplica en la siguiente cuota.
         </p>
 
         <h3>¿El IVA está incluido?</h3>
         <p>
-          Los precios de Hospedy son sin IVA, como es habitual en software B2B. El IVA se añade en la factura.
+          Los precios de los planes de Hospedy son sin IVA, como es habitual en software B2B. La comisión de los cobros con tarjeta sí lo lleva incluido.
         </p>
       </div>
 
-      <!-- CTA -->
-      <div class="max-w-3xl mx-auto px-6 mt-16">
-        <div class="bg-primary/5 rounded-2xl p-8 text-center">
-          <h2 class="text-2xl font-bold mb-4">
-            ¿Quieres saber cuánto pagarías con Hospedy?
-          </h2>
-          <p class="text-gray-600 mb-6">
-            Consulta nuestros precios públicos y transparentes. Sin sorpresas, sin letra pequeña.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <NuxtLink class="btn btn-grad" to="/precios">Ver precios</NuxtLink>
-            <PruebaHospedyButton class="btn btn-outline" />
-          </div>
-        </div>
-      </div>
     </article>
+    <!-- La función de la que habla, más guías y la banda de cierre -->
+    <ArticuloPie
+      :articulo="articulo"
+      titulo="¿Quieres saber cuánto pagarías con Hospedy?"
+      texto="Consulta nuestros precios públicos y transparentes. Sin sorpresas, sin letra pequeña."
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-const articulo = articuloDelBlog('cuanto-cuesta-pms-hotel')
-useSeoPagina({
-  titulo: articulo.tituloSeo,
-  descripcion: articulo.descripcion,
-  tipo: 'article',
-  publicado: articulo.publicado,
-  actualizado: articulo.actualizado,
-})
+const articulo = useArticulo('cuanto-cuesta-pms-hotel')
 </script>
 
 <style scoped>
