@@ -191,7 +191,7 @@
           que los tratan por nuestra cuenta; no cedemos tus datos salvo
           obligación legal. Derechos: acceso,
           rectificación, supresión, oposición, limitación y portabilidad en
-          hola@hospedy.app; puedes reclamar ante la APDA o la AEPD. Más
+          hola@hospedy.app; puedes reclamar ante la AEPD. Más
           información en la
           <a href="/privacidad" class="text-primary">política de privacidad</a>.
           Este formulario usa Cloudflare Turnstile contra el spam.

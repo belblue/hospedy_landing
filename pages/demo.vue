@@ -169,7 +169,7 @@
                             </button>
 
                             <p class="text-sm text-gray-500">
-                                Responsable: Silatek, S.L.U. (Hospedy). Finalidad: organizar la demostración que solicitas y contactarte para ello. Legitimación: medidas precontractuales a petición tuya. Destinatarios: los proveedores de red, seguridad y correo que los tratan por nuestra cuenta; no cedemos tus datos salvo obligación legal. Derechos: acceso, rectificación, supresión, oposición, limitación y portabilidad en hola@hospedy.app; puedes reclamar ante la APDA o la AEPD. Más información en la <NuxtLink to="/privacidad" class="text-primary hover:underline">política de privacidad</NuxtLink>. Este formulario usa Cloudflare Turnstile contra el spam.
+                                Responsable: Silatek, S.L.U. (Hospedy). Finalidad: organizar la demostración que solicitas y contactarte para ello. Legitimación: medidas precontractuales a petición tuya. Destinatarios: los proveedores de red, seguridad y correo que los tratan por nuestra cuenta; no cedemos tus datos salvo obligación legal. Derechos: acceso, rectificación, supresión, oposición, limitación y portabilidad en hola@hospedy.app; puedes reclamar ante la AEPD. Más información en la <NuxtLink to="/privacidad" class="text-primary hover:underline">política de privacidad</NuxtLink>. Este formulario usa Cloudflare Turnstile contra el spam.
                             </p>
                         </div>
 

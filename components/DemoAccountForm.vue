@@ -107,7 +107,7 @@
         usas para mejorarla y contactarte sobre ella. Legitimación: tu consentimiento. Destinatarios: los proveedores de
         red, seguridad y correo que los tratan por nuestra cuenta; no cedemos tus datos salvo obligación legal.
         Derechos: acceso, rectificación, supresión, oposición, limitación y portabilidad en hola@hospedy.app; puedes
-        reclamar ante la APDA o la AEPD. Más información en la
+        reclamar ante la AEPD. Más información en la
         <NuxtLink to="/privacidad" class="text-primary hover:underline">política de privacidad</NuxtLink>. Este formulario
         usa Cloudflare Turnstile contra el spam.
       </p>

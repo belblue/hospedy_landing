@@ -5,7 +5,7 @@
         </div>
         <div class="m-10">
             <p class="text-xl">Versión de octubre de 2026.</p>
-            <p class="text-xl mt-4">Este contrato regula el tratamiento de datos personales que <span class="blue font-semibold">Silatek, S.L.U.</span> (Hospedy), sociedad andorrana con NRT <span class="blue font-semibold">L-713544-Y</span> («Hospedy»), hace por cuenta de cada establecimiento que usa Hospedy («el alojamiento»). Cumple el artículo 28 del Reglamento (UE) 2016/679, general de protección de datos (RGPD), el artículo 33 de la Ley Orgánica 3/2018, de protección de datos personales y garantía de los derechos digitales, y la ley andorrana de protección de datos (Llei 29/2021, del 28 d'octubre). El alojamiento lo acepta al crear su cuenta.</p>
+            <p class="text-xl mt-4">Este contrato regula el tratamiento de datos personales que <span class="blue font-semibold">Silatek, S.L.U.</span> (Hospedy), con NRT <span class="blue font-semibold">L-713544-Y</span> («Hospedy»), hace por cuenta de cada establecimiento que usa Hospedy («el alojamiento»). Cumple el artículo 28 del Reglamento (UE) 2016/679, general de protección de datos (RGPD), y el artículo 33 de la Ley Orgánica 3/2018, de protección de datos personales y garantía de los derechos digitales. El alojamiento lo acepta al crear su cuenta.</p>
 
             <div class="flex justify-center my-8">
                 <h2 class="text-2xl text-secondary">1. Objeto</h2>
@@ -65,7 +65,7 @@
             <div class="flex justify-center my-8">
                 <h2 class="text-2xl text-secondary">7. Transferencias internacionales</h2>
             </div>
-            <p class="text-xl">Hospedy está establecida en Andorra, que cuenta con una decisión de adecuación de la Comisión Europea (Decisión 2010/625/UE). Los subencargados fuera del Espacio Económico Europeo están en Suiza, que también cuenta con decisión de adecuación, y en Estados Unidos, adheridos al Marco de Privacidad de Datos UE-EE. UU. (Decisión de Ejecución (UE) 2023/1795) o, en su defecto, con cláusulas contractuales tipo aprobadas por la Comisión Europea.</p>
+            <p class="text-xl">Hospedy está establecida en Andorra, país con decisión de adecuación de la Comisión Europea (Decisión 2010/625/UE), y trata allí los datos, en servidores propios. Los subencargados fuera del Espacio Económico Europeo están en Suiza, que también cuenta con decisión de adecuación, y en Estados Unidos, adheridos al Marco de Privacidad de Datos UE-EE. UU. (Decisión de Ejecución (UE) 2023/1795) o, en su defecto, con cláusulas contractuales tipo aprobadas por la Comisión Europea.</p>
 
             <div class="flex justify-center my-8">
                 <h2 class="text-2xl text-secondary">8. Responsabilidad</h2>
@@ -118,7 +118,7 @@
                     </tbody>
                 </table>
             </div>
-            <p class="text-xl mt-4">Los servidores en los que Hospedy guarda los datos y en los que funcionan la lectura automática de documentos y el asistente Hugo son propios y están en Andorra.</p>
+            <p class="text-xl mt-4">Los servidores en los que Hospedy guarda los datos y en los que funcionan la lectura automática de documentos y el asistente Hugo son propios (ver apartado 7).</p>
             <p class="text-xl mt-4">Si el alojamiento conecta su cuenta de pagos, Stripe trata los datos de los pagos de sus huéspedes según su propio contrato con el alojamiento.</p>
 
             <div class="flex justify-center my-8">

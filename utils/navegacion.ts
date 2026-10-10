@@ -149,17 +149,17 @@ export const RECURSOS: PaginaWeb[] = [
 export const EMPRESA: PaginaWeb[] = [
   { nombre: 'Precios', ruta: '/precios', actualizado: '2026-10-10' },
   { nombre: 'Contacto', ruta: '/contacto', actualizado: '2026-10-10' },
-  { nombre: 'Ver una demo', ruta: '/demo', actualizado: '2026-09-26' },
+  { nombre: 'Ver una demo', ruta: '/demo', actualizado: '2026-10-10' },
   { nombre: 'Quiénes somos', ruta: '/quienes-somos', actualizado: '2026-10-10' },
   { nombre: 'Programa Amigos', ruta: '/programa-amigos', actualizado: '2026-09-25' },
 ]
 
 export const LEGAL: PaginaWeb[] = [
   // el domicilio tiene que estar publicado, pero no hace falta que lo recojan los buscadores
-  { nombre: 'Aviso legal', ruta: '/aviso_legal', actualizado: '2026-09-24', indexar: false },
-  { nombre: 'Privacidad', ruta: '/privacidad', actualizado: '2026-10-04' },
+  { nombre: 'Aviso legal', ruta: '/aviso_legal', actualizado: '2026-10-10', indexar: false },
+  { nombre: 'Privacidad', ruta: '/privacidad', actualizado: '2026-10-10' },
   { nombre: 'Cookies', ruta: '/cookies', actualizado: '2026-09-23' },
-  { nombre: 'Encargo del tratamiento', ruta: '/encargo-tratamiento', actualizado: '2026-10-04' },
+  { nombre: 'Encargo del tratamiento', ruta: '/encargo-tratamiento', actualizado: '2026-10-10' },
 ]
 
 // Solo se indexa con la cuenta de demo activada; mientras tanto la página remite a las otras formas de probar

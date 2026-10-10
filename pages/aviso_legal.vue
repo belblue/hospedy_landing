@@ -5,17 +5,17 @@
         </div>
         <div class="">
             <div class="m-10">
-                <p class="text-xl">Última actualización: 23 de septiembre de 2026.</p>
+                <p class="text-xl">Última actualización: 10 de octubre de 2026.</p>
 
                 <div class="flex justify-center my-8">
                     <h2 class="text-2xl text-secondary">Datos del titular</h2>
                 </div>
-                <p class="text-xl">En cumplimiento de la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico (LSSI), y de la Llei 20/2014 del Principat d'Andorra, te informamos de que el titular de esta web y de los servicios de Hospedy es:</p>
+                <p class="text-xl">En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico (LSSI), te informamos de que el titular de esta web y de los servicios de Hospedy es:</p>
                 <ul class="mt-2">
-                    <li class="text-xl list-disc">Denominación social: <span class="blue font-semibold">Silatek, S.L.U.</span>, sociedad andorrana.</li>
-                    <li class="text-xl list-disc">NRT (número de registro tributario de Andorra): <span class="blue font-semibold">L-713544-Y</span>.</li>
+                    <li class="text-xl list-disc">Denominación social: <span class="blue font-semibold">Silatek, S.L.U.</span></li>
+                    <li class="text-xl list-disc">Número de identificación fiscal (NRT): <span class="blue font-semibold">L-713544-Y</span>.</li>
                     <li v-if="domicilio" class="text-xl list-disc" data-nosnippet>Domicilio social: {{ domicilio }}.</li>
-                    <li class="text-xl list-disc">Correo electrónico: <a href="mailto:hola@hospedy.app" class="text-primary">hola@hospedy.app</a>. También puedes escribirnos desde el <NuxtLink to="/#contacto" class="text-primary">formulario de contacto</NuxtLink>.</li>
+                    <li class="text-xl list-disc">Correo electrónico: <a href="mailto:hola@hospedy.app" class="text-primary">hola@hospedy.app</a>. También puedes escribirnos desde el <NuxtLink to="/contacto" class="text-primary">formulario de contacto</NuxtLink>.</li>
                 </ul>
                 <p class="text-xl mt-4">Hospedy es la marca con la que <span class="blue font-semibold">Silatek, S.L.U.</span> comercializa su software de gestión para alojamientos turísticos.</p>
 
