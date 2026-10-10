@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <article class="mt-24 mb-16">
       <!-- Header -->
       <header class="max-w-3xl mx-auto px-6">
@@ -226,20 +225,18 @@
         </div>
       </div>
     </article>
-    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: "¿Cuánto cuesta un PMS para hotel pequeño en 2026?",
-  meta: [
-    {
-      name: "description",
-      content: "Un PMS para hotel pequeño cuesta entre 120 € y 1.500 € al año. Hospedy ofrece todo incluido desde 350 €/año. Análisis de precios, costes ocultos y ROI.",
-    },
-  ],
-});
+const articulo = articuloDelBlog('cuanto-cuesta-pms-hotel')
+useSeoPagina({
+  titulo: articulo.tituloSeo,
+  descripcion: articulo.descripcion,
+  tipo: 'article',
+  publicado: articulo.publicado,
+  actualizado: articulo.actualizado,
+})
 </script>
 
 <style scoped>

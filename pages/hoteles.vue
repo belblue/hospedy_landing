@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <!-- Hero with gradient -->
         <div class="subpage-hero pt-24 pb-16 relative overflow-hidden">
             <!-- Decorative Stars -->
@@ -157,16 +156,13 @@
                 </div>
             </div>
         </div>
-        <Footer />
     </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-    title: 'PMS para Hoteles - Software de gestión hotelera - Hospedy',
-    meta: [
-        { name: 'description', content: 'Software PMS para hoteles con partes de viajeros automáticos, check-in rápido y encuestas INE. Gestiona tu hotel sin complicaciones.' }
-    ]
+useSeoPagina({
+    titulo: 'PMS para hoteles pequeños y hostales',
+    descripcion: 'Programa de gestión para hoteles y hostales: check-in con escáner, partes de viajeros a SES Hospedajes, encuesta del INE, planning y channel manager.',
 })
 </script>
 

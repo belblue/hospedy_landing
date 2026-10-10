@@ -1,8 +1,7 @@
 <template>
     <div id="cookies">
-        <EmptyNavbar/>
         <div class="text-center mt-20">
-            <p class="text-4xl text-primary">POLÍTICA DE COOKIES</p>
+            <h1 class="text-4xl text-primary uppercase px-4">Política de cookies</h1>
         </div>
         <div class="m-10">
             <p class="text-xl">Última actualización: 23 de septiembre de 2026.</p>
@@ -10,12 +9,12 @@
             <p class="text-xl mt-4">Solo utiliza los elementos técnicos que se describen a continuación, necesarios para que la web funcione de forma segura y exentos de consentimiento.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">¿Qué son las cookies?</p>
+                <h2 class="text-2xl text-secondary">¿Qué son las cookies?</h2>
             </div>
             <p class="text-xl">Las cookies son pequeños archivos que una web guarda en tu navegador para recordar información sobre tu visita. Hay otras tecnologías similares, como el almacenamiento local del navegador o los scripts que leen datos de tu dispositivo, a las que se aplican las mismas reglas.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">¿Qué utiliza esta web?</p>
+                <h2 class="text-2xl text-secondary">¿Qué utiliza esta web?</h2>
             </div>
             <p class="text-xl"><strong>Cloudflare Turnstile en los formularios.</strong> Los formularios de contacto y de solicitud de demo usan Cloudflare Turnstile para distinguir a las personas de los programas automáticos (bots) y frenar el spam. Turnstile no instala cookies: hace unas comprobaciones técnicas en tu navegador y, para ello, Cloudflare recibe tu dirección IP y datos técnicos de tu navegador y de la conexión. Cloudflare trata esos datos por nuestra cuenta, como encargado del tratamiento, y, según su <a href="https://www.cloudflare.com/turnstile-privacy-policy/" class="text-primary" target="_blank" rel="noopener">anexo de privacidad de Turnstile</a>, también los usa por su cuenta para mejorar ese servicio.</p>
             <p class="text-xl mt-4"><strong>Posibles cookies técnicas de seguridad de Cloudflare.</strong> La web se sirve a través de la red de Cloudflare. Si están activas sus protecciones contra bots o contra el exceso de peticiones, Cloudflare puede instalar estas cookies:</p>
@@ -28,29 +27,28 @@
             <p class="text-xl mt-4"><strong>Enlaces a redes sociales y WhatsApp.</strong> Son enlaces normales: no cargan nada de esas plataformas hasta que haces clic en ellos. A partir de ahí, se aplican sus propias políticas de cookies y de privacidad.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">Panel de clientes</p>
+                <h2 class="text-2xl text-secondary">Panel de clientes</h2>
             </div>
             <p class="text-xl">El panel de clientes, en hospedy.app, usa sus propias cookies técnicas de sesión, que se explican allí.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">¿Cómo puedes gestionar las cookies?</p>
+                <h2 class="text-2xl text-secondary">¿Cómo puedes gestionar las cookies?</h2>
             </div>
             <p class="text-xl">Puedes ver, bloquear o borrar las cookies desde la configuración de tu navegador; en su ayuda encontrarás cómo hacerlo.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">Cambios y contacto</p>
+                <h2 class="text-2xl text-secondary">Cambios y contacto</h2>
             </div>
             <p class="text-xl">Si en el futuro usamos otras cookies o tecnologías similares, actualizaremos esta política y, cuando la ley lo exija, te pediremos antes tu consentimiento.</p>
             <p class="text-xl mt-4">Para cualquier duda, escríbenos a <a href="mailto:hola@hospedy.app" class="text-primary">hola@hospedy.app</a>. Cómo tratamos los datos personales se explica en la <NuxtLink to="/privacidad" class="text-primary">Política de privacidad</NuxtLink>.</p>
         </div>
-        <Footer />
     </div>
 
 </template>
 
 <script setup lang="ts">
-useHead({
-    title: 'Política de cookies',
-    meta: [{ name: 'description', content: 'Esta web no utiliza cookies analíticas ni publicitarias; solo los elementos técnicos necesarios.' }],
+useSeoPagina({
+    titulo: 'Política de cookies',
+    descripcion: 'Esta web no utiliza cookies analíticas ni publicitarias; solo los elementos técnicos necesarios.',
 })
 </script>

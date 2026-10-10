@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <article class="mt-24 mb-16">
       <!-- Header -->
       <header class="max-w-3xl mx-auto px-6">
@@ -222,20 +221,18 @@
         </div>
       </div>
     </article>
-    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: "Cómo conectar tu casa rural a Booking.com sin overbooking",
-  meta: [
-    {
-      name: "description",
-      content: "Conecta tu alojamiento a Booking.com sin riesgo de overbooking. Hospedy sincroniza en tiempo real de forma bidireccional con más de 150 OTAs.",
-    },
-  ],
-});
+const articulo = articuloDelBlog('como-evitar-overbookings')
+useSeoPagina({
+  titulo: articulo.tituloSeo,
+  descripcion: articulo.descripcion,
+  tipo: 'article',
+  publicado: articulo.publicado,
+  actualizado: articulo.actualizado,
+})
 </script>
 
 <style scoped>

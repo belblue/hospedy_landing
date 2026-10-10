@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <div class="mt-24 mb-16">
             <!-- Hero -->
             <div class="text-center max-w-4xl mx-auto px-6">
@@ -172,15 +171,12 @@
                 </div>
             </div>
         </div>
-        <Footer />
     </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-    title: 'Partes de viajeros automáticos a SES Hospedajes y Ertzaintza - Hospedy',
-    meta: [
-        { name: 'description', content: 'Envío automático de partes de viajeros a SES Hospedajes y Ertzaintza (País Vasco). Escanea el DNI y Hospedy genera y envía el parte automáticamente.' }
-    ]
+useSeoPagina({
+    titulo: 'Partes de viajeros a SES Hospedajes y Ertzaintza',
+    descripcion: 'Hospedy envía los partes de viajeros a SES Hospedajes o a la Ertzaintza sin entrar en ningún portal: escaneas el documento y el parte sale solo.',
 })
 </script>

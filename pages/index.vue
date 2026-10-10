@@ -1,6 +1,5 @@
 <template>
   <div class="overflow-x-hidden">
-    <Navbar />
     <ExitIntentPopup />
 
     <!-- Floating Demo Button: abre el modal "¡Prueba Hospedy en 5 minutos!" -->
@@ -821,7 +820,7 @@
         :opacity="0.6"
         :delay="0.4"
       />
-      <h1 class="text-6xl text-gray-900">Precios claros</h1>
+      <h2 class="text-6xl text-gray-900">Precios claros</h2>
       <p class="text-xl mt-4 text-gray-600">
         Elige el plan que se adapta a tu alojamiento. Sin permanencia, sin letra
         pequeña.
@@ -976,7 +975,7 @@
         :opacity="0.5"
         :delay="0.8"
       />
-      <h1 class="text-6xl text-gray-900">Contacto</h1>
+      <h2 class="text-6xl text-gray-900">Contacto</h2>
       <StarAccent
         class="top-6 right-1/3 hidden lg:block"
         size="xs"
@@ -988,7 +987,6 @@
     <div class="text-left m-10">
       <ContactForm />
     </div>
-    <Footer />
 
     <!-- Scroll to Top Button -->
     <button
@@ -1015,6 +1013,12 @@
   </div>
 </template>
 <script setup lang="ts">
+useSeoPagina({
+  titulo: "Programa de gestión para alojamientos turísticos",
+  descripcion: DEFINICION,
+});
+useEsquema("software", esquemaSoftware());
+
 // enlaces a la app (registro) con el código de amigo si se llegó con uno
 const { appUrl } = useReferral();
 const showScrollTop = ref(false);

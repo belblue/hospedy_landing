@@ -1,26 +1,25 @@
 <template>
     <div id="encargo">
-        <EmptyNavbar/>
         <div class="flex justify-center mt-20">
-            <p class="text-4xl text-primary text-center px-4">CONTRATO DE ENCARGO DEL TRATAMIENTO</p>
+            <h1 class="text-4xl text-primary uppercase text-center px-4">Contrato de encargo del tratamiento</h1>
         </div>
         <div class="m-10">
             <p class="text-xl">Versión de octubre de 2026.</p>
             <p class="text-xl mt-4">Este contrato regula el tratamiento de datos personales que <span class="blue font-semibold">Silatek, S.L.U.</span> (Hospedy), sociedad andorrana con NRT <span class="blue font-semibold">L-713544-Y</span> («Hospedy»), hace por cuenta de cada establecimiento que usa Hospedy («el alojamiento»). Cumple el artículo 28 del Reglamento (UE) 2016/679, general de protección de datos (RGPD), el artículo 33 de la Ley Orgánica 3/2018, de protección de datos personales y garantía de los derechos digitales, y la ley andorrana de protección de datos (Llei 29/2021, del 28 d'octubre). El alojamiento lo acepta al crear su cuenta.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">1. Objeto</p>
+                <h2 class="text-2xl text-secondary">1. Objeto</h2>
             </div>
             <p class="text-xl">Hospedy trata, por cuenta del alojamiento, los datos personales necesarios para prestarle el servicio que ha contratado: la gestión de las reservas y de los huéspedes, el registro de viajeros y su comunicación a las autoridades, las encuestas del INE, la facturación, las comunicaciones con los huéspedes, el cobro de las reservas, el channel manager, la web del alojamiento y el asistente Hugo, según las funciones que use.</p>
             <p class="text-xl mt-4">El alojamiento es el responsable del tratamiento: decide para qué y cómo se tratan esos datos. Hospedy es el encargado: solo los trata para prestarle el servicio.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">2. Duración</p>
+                <h2 class="text-2xl text-secondary">2. Duración</h2>
             </div>
             <p class="text-xl">Mientras el alojamiento tenga una cuenta en Hospedy. Al terminar, se aplica el apartado 9.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">3. Datos y personas afectadas</p>
+                <h2 class="text-2xl text-secondary">3. Datos y personas afectadas</h2>
             </div>
             <ul>
                 <li class="text-xl list-disc"><strong>Huéspedes y acompañantes:</strong> datos identificativos y de contacto, documento de identidad y número de soporte, sexo, fecha de nacimiento, nacionalidad, residencia y dirección, firma, parentesco de los menores con el adulto responsable, datos de la reserva y del pago y, cuando se usa la lectura automática del documento, su imagen.</li>
@@ -30,7 +29,7 @@
             <p class="text-xl mt-4">No se tratan categorías especiales de datos.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">4. Obligaciones de Hospedy</p>
+                <h2 class="text-2xl text-secondary">4. Obligaciones de Hospedy</h2>
             </div>
             <p class="text-xl">Hospedy se compromete a:</p>
             <ul class="mt-2">
@@ -47,7 +46,7 @@
             </ul>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">5. Obligaciones del alojamiento</p>
+                <h2 class="text-2xl text-secondary">5. Obligaciones del alojamiento</h2>
             </div>
             <p class="text-xl">El alojamiento se compromete a:</p>
             <ul class="mt-2">
@@ -58,33 +57,33 @@
             </ul>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">6. Subencargados</p>
+                <h2 class="text-2xl text-secondary">6. Subencargados</h2>
             </div>
             <p class="text-xl">El alojamiento autoriza a Hospedy, con carácter general, a recurrir a los subencargados del anexo I para prestar el servicio. Hospedy les impondrá por contrato las mismas obligaciones de protección de datos que asume en este contrato y responderá ante el alojamiento de su cumplimiento.</p>
             <p class="text-xl mt-4">Hospedy avisará de cualquier cambio en la lista con al menos quince días de antelación, en esta página y por correo electrónico. El alojamiento podrá oponerse por motivos razonables; si no se encuentra una solución, podrá dar de baja el servicio.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">7. Transferencias internacionales</p>
+                <h2 class="text-2xl text-secondary">7. Transferencias internacionales</h2>
             </div>
             <p class="text-xl">Hospedy está establecida en Andorra, que cuenta con una decisión de adecuación de la Comisión Europea (Decisión 2010/625/UE). Los subencargados fuera del Espacio Económico Europeo están en Suiza, que también cuenta con decisión de adecuación, y en Estados Unidos, adheridos al Marco de Privacidad de Datos UE-EE. UU. (Decisión de Ejecución (UE) 2023/1795) o, en su defecto, con cláusulas contractuales tipo aprobadas por la Comisión Europea.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">8. Responsabilidad</p>
+                <h2 class="text-2xl text-secondary">8. Responsabilidad</h2>
             </div>
             <p class="text-xl">Si Hospedy tratara los datos para otros fines o incumpliera este contrato, sería considerada responsable de ese tratamiento y respondería de las infracciones en que hubiera incurrido.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">9. Fin del encargo</p>
+                <h2 class="text-2xl text-secondary">9. Fin del encargo</h2>
             </div>
             <p class="text-xl">Al terminar la relación, Hospedy entregará al alojamiento, si lo pide en los treinta días siguientes, una copia de sus datos en un formato de uso común, y después los suprimirá, con sus copias. Solo conservará bloqueados los datos que deba guardar por ley o para atender posibles responsabilidades, mientras puedan exigirse.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">10. Contacto</p>
+                <h2 class="text-2xl text-secondary">10. Contacto</h2>
             </div>
             <p class="text-xl">Para cualquier cuestión sobre este contrato o sobre los datos que Hospedy trata por cuenta del alojamiento: <a href="mailto:hola@hospedy.app" class="text-primary">hola@hospedy.app</a>.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">Anexo I. Subencargados</p>
+                <h2 class="text-2xl text-secondary">Anexo I. Subencargados</h2>
             </div>
             <div class="my-4">
                 <table class="w-full text-left border-collapse">
@@ -123,7 +122,7 @@
             <p class="text-xl mt-4">Si el alojamiento conecta su cuenta de pagos, Stripe trata los datos de los pagos de sus huéspedes según su propio contrato con el alojamiento.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">Anexo II. Medidas de seguridad</p>
+                <h2 class="text-2xl text-secondary">Anexo II. Medidas de seguridad</h2>
             </div>
             <ul>
                 <li class="text-xl list-disc">Cifrado de las comunicaciones (HTTPS).</li>
@@ -137,14 +136,13 @@
                 <li class="text-xl list-disc">Actualizaciones de seguridad del software.</li>
             </ul>
         </div>
-        <Footer />
     </div>
 
 </template>
 
 <script setup lang="ts">
-useHead({
-    title: 'Contrato de encargo del tratamiento',
-    meta: [{ name: 'description', content: 'Cómo trata Hospedy, por cuenta de cada alojamiento, los datos de sus huéspedes: obligaciones, subencargados y medidas de seguridad.' }],
+useSeoPagina({
+    titulo: 'Contrato de encargo del tratamiento',
+    descripcion: 'Cómo trata Hospedy, por cuenta de cada alojamiento, los datos de sus huéspedes: obligaciones, subencargados y medidas de seguridad.',
 })
 </script>

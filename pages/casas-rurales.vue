@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <!-- Hero with gradient -->
         <div class="subpage-hero pt-24 pb-16 relative overflow-hidden">
             <!-- Decorative Stars -->
@@ -208,16 +207,13 @@
                 </div>
             </div>
         </div>
-        <Footer />
     </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-    title: 'Software para Casas Rurales - Gestión y partes automáticos - Hospedy',
-    meta: [
-        { name: 'description', content: 'Software de gestión para casas rurales con auto check-in, partes de viajeros automáticos y encuestas INE. Gestiona tu casa rural desde cualquier lugar.' }
-    ]
+useSeoPagina({
+    titulo: 'Programa de gestión para casas rurales',
+    descripcion: 'Gestiona tu casa rural desde el móvil: auto check-in del huésped, partes de viajeros que se envían solos, encuesta del INE y channel manager.',
 })
 </script>
 

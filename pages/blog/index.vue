@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <div class="mt-24 mb-16">
       <!-- Hero -->
       <div class="text-center max-w-4xl mx-auto px-6">
@@ -196,15 +195,12 @@
         </div>
       </div>
     </div>
-    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: 'Blog - Guías para gestión hotelera',
-  meta: [
-    { name: 'description', content: 'Blog de Hospedy con guías prácticas sobre partes de viajeros, encuestas INE, channel manager y consejos para gestionar tu alojamiento turístico en España.' }
-  ]
+useSeoPagina({
+    titulo: 'Blog y guías para alojamientos turísticos',
+    descripcion: 'Guías prácticas sobre partes de viajeros, la encuesta del INE, channel manager, reservas directas y cómo elegir un PMS para tu alojamiento en España.',
 })
 </script>

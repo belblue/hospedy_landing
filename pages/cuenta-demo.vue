@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <div class="mt-24 mb-16">
             <div class="text-center max-w-3xl mx-auto px-6">
                 <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -16,7 +15,6 @@
                 <DemoAccountForm />
             </div>
         </div>
-        <Footer />
     </div>
 </template>
 
@@ -26,11 +24,9 @@
 // se indexa.
 const { demoLista } = usePruebaHospedy()
 
-useHead({
-    title: 'Cuenta de demo - Prueba Hospedy con datos de ejemplo',
-    meta: [
-        { name: 'description', content: 'Responde un breve cuestionario y prueba Hospedy en un entorno de demo con datos ficticios parecido a tu alojamiento. Sin tarjeta y sin compromiso.' },
-        ...(demoLista.value ? [] : [{ name: 'robots', content: 'noindex, follow' }]),
-    ],
+useSeoPagina({
+    titulo: 'Cuenta de demo con datos de ejemplo',
+    descripcion: 'Responde un breve cuestionario y prueba Hospedy en un entorno de demo con datos ficticios parecido a tu alojamiento. Sin tarjeta y sin compromiso.',
+    indexar: demoLista.value,
 })
 </script>

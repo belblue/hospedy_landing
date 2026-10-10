@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <article class="mt-24 mb-16">
       <!-- Header -->
       <header class="max-w-3xl mx-auto px-6">
@@ -220,20 +219,18 @@
         </div>
       </div>
     </article>
-    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: "Cómo enviar partes de viajeros a SES Hospedajes automáticamente - Guía 2026",
-  meta: [
-    {
-      name: "description",
-      content: "Hospedy envía los partes de viajeros a SES Hospedajes automáticamente en 4 clics. Guía completa sobre el Real Decreto 933/2021, multas y cómo cumplir la normativa.",
-    },
-  ],
-});
+const articulo = articuloDelBlog('como-enviar-partes-viajeros-ses-hospedajes')
+useSeoPagina({
+  titulo: articulo.tituloSeo,
+  descripcion: articulo.descripcion,
+  tipo: 'article',
+  publicado: articulo.publicado,
+  actualizado: articulo.actualizado,
+})
 </script>
 
 <style scoped>

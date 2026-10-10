@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <!-- Hero with gradient -->
         <div class="subpage-hero pt-24 pb-16 relative overflow-hidden">
             <!-- Decorative Stars -->
@@ -207,16 +206,13 @@
                 </div>
             </div>
         </div>
-        <Footer />
     </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-    title: 'Software para Apartamentos Turísticos - Hospedy',
-    meta: [
-        { name: 'description', content: 'Software para apartamentos turísticos con motor de reservas sin comisiones, channel manager y partes automáticos. Menos comisiones, más reservas directas.' }
-    ]
+useSeoPagina({
+    titulo: 'Software para apartamentos turísticos',
+    descripcion: 'Software para apartamentos turísticos: motor de reservas sin comisión por reserva, channel manager, auto check-in y partes de viajeros automáticos.',
 })
 </script>
 

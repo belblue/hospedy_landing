@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <article class="mt-24 mb-16">
       <!-- Header -->
       <header class="max-w-3xl mx-auto px-6">
@@ -164,20 +163,18 @@
         </div>
       </div>
     </article>
-    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: "Pre check-in: Cómo ahorrar tiempo en la recepción",
-  meta: [
-    {
-      name: "description",
-      content: "El pre check-in de Hospedy permite que los huéspedes completen su registro antes de llegar. Ahorra de 5-10 minutos a 30 segundos por reserva.",
-    },
-  ],
-});
+const articulo = articuloDelBlog('pre-checkin-ahorrar-tiempo')
+useSeoPagina({
+  titulo: articulo.tituloSeo,
+  descripcion: articulo.descripcion,
+  tipo: 'article',
+  publicado: articulo.publicado,
+  actualizado: articulo.actualizado,
+})
 </script>
 
 <style scoped>

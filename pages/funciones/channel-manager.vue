@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <div class="mt-24 mb-16">
             <!-- Hero -->
             <div class="text-center max-w-4xl mx-auto px-6">
@@ -191,15 +190,12 @@
                 </div>
             </div>
         </div>
-        <Footer />
     </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-    title: 'Channel Manager - Conecta con Booking, Airbnb y más - Hospedy',
-    meta: [
-        { name: 'description', content: 'Channel Manager para conectar tu alojamiento con Booking, Airbnb, Expedia y más de 150 OTAs. Evita overbookings y ahorra tiempo.' }
-    ]
+useSeoPagina({
+    titulo: 'Channel manager para Booking, Airbnb y más',
+    descripcion: 'Conecta Booking, Airbnb, Expedia y más agencias: precios, disponibilidad y restricciones de todas en un calendario, con tu motor de reservas incluido.',
 })
 </script>

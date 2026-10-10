@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <div class="mt-24 mb-16">
             <!-- Hero -->
             <div class="text-center max-w-4xl mx-auto px-6">
@@ -292,15 +291,13 @@
                 </div>
             </div>
         </div>
-        <Footer />
     </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-    title: 'Precios - Software de gestión hotelera - Hospedy',
-    meta: [
-        { name: 'description', content: 'Precios claros de Hospedy: desde 35 €/mes. PMS completo con partes de viajeros automáticos, channel manager, motor de reservas y más. Sin permanencia.' }
-    ]
+useSeoPagina({
+    titulo: 'Precios: PMS para hotel desde 35 €/mes',
+    descripcion: 'Planes de Hospedy desde 35 €/mes sin IVA, según el tamaño de tu alojamiento y con todas las funciones en todos. 30 días gratis y sin permanencia.',
 })
+useEsquema('software', esquemaSoftware())
 </script>

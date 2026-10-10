@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <article class="mt-24 mb-16">
       <!-- Header -->
       <header class="max-w-3xl mx-auto px-6">
@@ -189,20 +188,18 @@
         </div>
       </div>
     </article>
-    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: "Hospedy vs RuralGest: Comparativa completa 2026",
-  meta: [
-    {
-      name: "description",
-      content: "Comparativa detallada entre Hospedy y RuralGest. Hospedy te deja la encuesta del INE rellena y tiene precios públicos. RuralGest ofrece app móvil y servicios de web/SEO.",
-    },
-  ],
-});
+const articulo = articuloDelBlog('hospedy-vs-ruralgest')
+useSeoPagina({
+  titulo: articulo.tituloSeo,
+  descripcion: articulo.descripcion,
+  tipo: 'article',
+  publicado: articulo.publicado,
+  actualizado: articulo.actualizado,
+})
 </script>
 
 <style scoped>

@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <div class="mt-24 mb-16">
             <!-- Hero -->
             <div class="text-center max-w-4xl mx-auto px-6">
@@ -189,15 +188,12 @@
                 </div>
             </div>
         </div>
-        <Footer />
     </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-    title: 'Envío INE automático - Hospedy',
-    meta: [
-        { name: 'description', content: 'Hospedy envía la encuesta de ocupación hotelera o de apartamentos al INE con un clic, sin entrar en ARCE, y te deja rellenas la de turismo rural y los documentos autonómicos.' }
-    ]
+useSeoPagina({
+    titulo: 'Encuesta de ocupación del INE con un clic',
+    descripcion: 'La encuesta de ocupación hotelera o de apartamentos, al INE con un clic y sin entrar en ARCE; la de turismo rural y los documentos autonómicos, rellenos.',
 })
 </script>

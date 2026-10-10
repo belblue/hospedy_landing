@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <div class="mt-24 mb-16">
       <!-- Hero -->
       <div class="text-center max-w-4xl mx-auto px-6">
@@ -1073,21 +1072,14 @@
             </div>
             -->
     </div>
-    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: "Comparativa PMS: Hospedy vs Cloudbeds, Mews, Amenitiz - Hospedy",
-  meta: [
-    {
-      name: "description",
-      content:
-        "Compara Hospedy con otros PMS como Cloudbeds, Mews, Amenitiz y Little Hotelier. Precios, funcionalidades y cumplimiento normativo español.",
-    },
-  ],
-});
+useSeoPagina({
+    titulo: 'Comparativa de PMS para alojamientos en España',
+    descripcion: 'Hospedy frente a Cloudbeds, Mews, Amenitiz y Little Hotelier: precios de referencia, funciones y cumplimiento de la normativa española.',
+})
 
 const rooms = ref(6);
 const rididPrice = ref(120);

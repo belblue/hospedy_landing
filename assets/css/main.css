@@ -4,6 +4,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Las anclas (#cumple, cada pregunta de la FAQ) no quedan debajo de la barra fija */
+html {
+  scroll-padding-top: 5rem;
+}
+
+/* «Saltar al contenido»: fuera de la pantalla hasta que le llega el tabulador; por encima de la barra */
+.saltar-al-contenido {
+  position: absolute;
+  left: -10000px;
+  top: 0.75rem;
+  z-index: 60;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  color: #0F766E;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.saltar-al-contenido:focus {
+  left: 1rem;
+}
+
 /* Page Transitions */
 .page-enter-active,
 .page-leave-active {

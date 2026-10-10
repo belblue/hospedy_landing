@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <div class="mt-24 mb-16">
             <!-- Hero -->
             <div class="text-center max-w-4xl mx-auto px-6">
@@ -136,15 +135,12 @@
                 </div>
             </div>
         </div>
-        <Footer />
     </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-    title: 'Motor de reservas sin comisiones - Hospedy',
-    meta: [
-        { name: 'description', content: 'Recibe reservas directas en tu web sin pagar comisiones. Motor de reservas incluido en Hospedy con pagos Stripe integrados.' }
-    ]
+useSeoPagina({
+    titulo: 'Motor de reservas sin comisión por reserva',
+    descripcion: 'Recibe reservas directas en tu web sin pagar comisión por reserva: el motor de reservas va incluido en Hospedy, con su calendario de precios por día.',
 })
 </script>

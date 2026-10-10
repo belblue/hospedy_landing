@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <article class="mt-24 mb-16">
       <!-- Header -->
       <header class="max-w-3xl mx-auto px-6">
@@ -222,20 +221,18 @@
         </div>
       </div>
     </article>
-    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: "Guía completa: Encuesta INE para alojamientos turísticos 2026",
-  meta: [
-    {
-      name: "description",
-      content: "Hospedy es el único PMS que envía la encuesta INE automáticamente. Guía completa sobre plazos, datos requeridos y cómo automatizar el envío mensual.",
-    },
-  ],
-});
+const articulo = articuloDelBlog('encuestas-ine-alojamientos-turisticos')
+useSeoPagina({
+  titulo: articulo.tituloSeo,
+  descripcion: articulo.descripcion,
+  tipo: 'article',
+  publicado: articulo.publicado,
+  actualizado: articulo.actualizado,
+})
 </script>
 
 <style scoped>

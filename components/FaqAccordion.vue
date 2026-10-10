@@ -1,9 +1,9 @@
 <template>
   <div class="max-w-4xl mx-auto">
     <div class="text-center mb-12">
-      <h2 class="text-4xl lg:text-5xl font-bold text-primary mb-4">
+      <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-4">
         Preguntas frecuentes
-      </h2>
+      </h1>
       <p class="text-xl text-gray-600">
         Todo lo que necesitas saber sobre Hospedy
       </p>

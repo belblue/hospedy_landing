@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <div class="mt-24 mb-16">
             <!-- Hero Section -->
             <div class="text-center max-w-3xl mx-auto px-6">
@@ -189,12 +188,16 @@
                 </div>
             </div>
         </div>
-        <Footer />
     </div>
 </template>
 
 <script setup lang="ts">
 import { useToast, POSITION, TYPE } from 'vue-toastification/dist/index.mjs'
+
+useSeoPagina({
+    titulo: 'Demo de Hospedy por videollamada',
+    descripcion: 'Te enseñamos Hospedy con tu caso en una videollamada de unos 20 minutos: partes de viajeros, encuesta del INE, check-in y channel manager. Sin compromiso.',
+})
 
 const route = useRoute()
 const toast = useToast()

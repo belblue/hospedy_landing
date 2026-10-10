@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <div class="mt-24 mb-16">
             <!-- Hero -->
             <div class="text-center max-w-4xl mx-auto px-6">
@@ -168,15 +167,12 @@
                 </div>
             </div>
         </div>
-        <Footer />
     </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-    title: 'Programa Amigos - Gana meses gratis recomendando Hospedy',
-    meta: [
-        { name: 'description', content: 'Gana hasta 4 meses gratis de Hospedy por cada amigo que pague su primera cuota, sin límite. Con 5 amigos eres Embajador: 10 % de descuento en tu renovación.' }
-    ]
+useSeoPagina({
+    titulo: 'Programa Amigos: meses gratis por recomendar',
+    descripcion: 'Gana hasta 4 meses gratis de Hospedy por cada amigo que pague su primera cuota, sin límite. Con 5 amigos eres Embajador: 10 % de descuento al renovar.',
 })
 </script>

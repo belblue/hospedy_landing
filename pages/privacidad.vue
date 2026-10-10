@@ -1,8 +1,7 @@
 <template>
     <div id="privacy">
-        <EmptyNavbar/>
         <div class="flex justify-center mt-20">
-            <p class="text-4xl text-primary text-center px-4">POLÍTICA DE PRIVACIDAD</p>
+            <h1 class="text-4xl text-primary uppercase text-center px-4">Política de privacidad</h1>
         </div>
         <div class="m-10">
             <p class="text-xl">Última actualización: 3 de octubre de 2026.</p>
@@ -10,13 +9,13 @@
             <p class="text-xl mt-4">Tratamos los datos conforme a la ley andorrana de protección de datos (Llei 29/2021, del 28 d'octubre, qualificada de protecció de dades personals) y al Reglamento (UE) 2016/679, general de protección de datos (RGPD), en lo que resulte aplicable a nuestra actividad en España.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">¿Quién es el responsable del tratamiento?</p>
+                <h2 class="text-2xl text-secondary">¿Quién es el responsable del tratamiento?</h2>
             </div>
             <p class="text-xl"><span class="blue font-semibold">Silatek, S.L.U.</span>, sociedad andorrana con NRT <span class="blue font-semibold">L-713544-Y</span> y domicilio social en Andorra (ver <NuxtLink to="/aviso_legal" class="text-primary">Aviso legal</NuxtLink>).</p>
             <p class="text-xl mt-4">Para cualquier cuestión sobre tus datos, escríbenos a <a href="mailto:hola@hospedy.app" class="text-primary">hola@hospedy.app</a>.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">¿Cuándo somos responsables y cuándo encargados?</p>
+                <h2 class="text-2xl text-secondary">¿Cuándo somos responsables y cuándo encargados?</h2>
             </div>
             <p class="text-xl">Según de quién sean los datos, actuamos en uno de estos dos papeles:</p>
             <ul class="mt-2">
@@ -27,7 +26,7 @@
             <p class="text-xl mt-4">Si eres o has sido huésped de un alojamiento que usa Hospedy y quieres ejercer tus derechos sobre esos datos, dirígete al alojamiento. Si nos escribes a nosotros, le trasladaremos tu solicitud.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">¿Qué datos tratamos y de dónde vienen?</p>
+                <h2 class="text-2xl text-secondary">¿Qué datos tratamos y de dónde vienen?</h2>
             </div>
             <ul>
                 <li class="text-xl list-disc"><strong>Al visitar la web:</strong> datos técnicos de la conexión, como la dirección IP, el navegador y el dispositivo que usas, la página que solicitas y la fecha y hora. Los reciben nuestros servidores y la red de Cloudflare, a través de la que se sirve la web. Lo relativo a las cookies se explica en la <NuxtLink to="/cookies" class="text-primary">Política de cookies</NuxtLink>.</li>
@@ -40,7 +39,7 @@
             <p class="text-xl mt-4">En los formularios, los datos obligatorios son los necesarios para atender tu solicitud: si no nos los das, no podremos hacerlo. Para contratar Hospedy necesitamos los datos de alta y de facturación.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">¿Para qué usamos tus datos y con qué base jurídica?</p>
+                <h2 class="text-2xl text-secondary">¿Para qué usamos tus datos y con qué base jurídica?</h2>
             </div>
             <div class="my-4">
                 <table class="w-full text-left border-collapse">
@@ -104,7 +103,7 @@
             <p class="text-xl mt-4">No enviamos comunicaciones comerciales a quien no las ha pedido: si nos escribes, te respondemos y nada más. Solo te enviaremos novedades de Hospedy por correo electrónico si lo pides marcando la casilla correspondiente de los formularios, y en cada envío podrás darte de baja.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">¿A quién comunicamos tus datos?</p>
+                <h2 class="text-2xl text-secondary">¿A quién comunicamos tus datos?</h2>
             </div>
             <p class="text-xl">No vendemos tus datos. Solo los comunicamos a los proveedores y entidades que necesitamos para funcionar, y únicamente los imprescindibles para su tarea:</p>
             <ul class="mt-2">
@@ -122,7 +121,7 @@
             <p class="text-xl mt-4">Además, según su <a href="https://www.cloudflare.com/turnstile-privacy-policy/" class="text-primary" target="_blank" rel="noopener">anexo de privacidad de Turnstile</a>, Cloudflare usa por su cuenta los datos técnicos que recoge Turnstile para mejorar ese servicio. Y si nos escribes por WhatsApp, ese servicio lo presta un tercero con sus propias condiciones y su propia política de privacidad.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">¿Se transfieren tus datos fuera del Espacio Económico Europeo?</p>
+                <h2 class="text-2xl text-secondary">¿Se transfieren tus datos fuera del Espacio Económico Europeo?</h2>
             </div>
             <p class="text-xl">En algunos casos sí, y siempre con garantías reconocidas por la Comisión Europea:</p>
             <ul class="mt-2">
@@ -132,14 +131,14 @@
             </ul>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">¿Cuánto tiempo conservamos tus datos?</p>
+                <h2 class="text-2xl text-secondary">¿Cuánto tiempo conservamos tus datos?</h2>
             </div>
             <p class="text-xl">Solo el tiempo necesario para la finalidad para la que los recogimos, con los plazos que figuran en la tabla anterior. Cuando termina el plazo, los suprimimos o los anonimizamos.</p>
             <p class="text-xl mt-4">Si una ley nos obliga a conservarlos durante más tiempo, o los necesitamos para formular reclamaciones o defendernos de ellas, los mantenemos bloqueados, con el acceso restringido, solo mientras dure esa obligación o ese plazo.</p>
             <p class="text-xl mt-4">Los datos que tratamos como encargados por cuenta de un alojamiento se conservan según las instrucciones de ese alojamiento.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">¿Qué derechos tienes y cómo puedes ejercerlos?</p>
+                <h2 class="text-2xl text-secondary">¿Qué derechos tienes y cómo puedes ejercerlos?</h2>
             </div>
             <p class="text-xl">Puedes pedirnos en cualquier momento:</p>
             <ul class="mt-2">
@@ -154,7 +153,7 @@
             <p class="text-xl mt-4">Para ejercer tus derechos, escríbenos a <a href="mailto:hola@hospedy.app" class="text-primary">hola@hospedy.app</a> indicando qué derecho quieres ejercer. Si tenemos dudas razonables sobre tu identidad, podremos pedirte información adicional para confirmarla. Ejercer tus derechos es gratuito. Te responderemos en el plazo de un mes desde que recibamos tu solicitud; si es especialmente compleja, ese plazo podrá ampliarse en los casos que prevé la ley, y te avisaremos dentro del primer mes.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">¿Dónde puedes presentar una reclamación?</p>
+                <h2 class="text-2xl text-secondary">¿Dónde puedes presentar una reclamación?</h2>
             </div>
             <p class="text-xl">Si crees que no hemos tratado bien tus datos, puedes reclamar ante:</p>
             <ul class="mt-2">
@@ -164,24 +163,23 @@
             <p class="text-xl mt-4">Antes, si quieres, puedes escribirnos a <a href="mailto:hola@hospedy.app" class="text-primary">hola@hospedy.app</a> e intentaremos resolverlo.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">¿Cómo protegemos tus datos?</p>
+                <h2 class="text-2xl text-secondary">¿Cómo protegemos tus datos?</h2>
             </div>
             <p class="text-xl">Aplicamos medidas técnicas y organizativas adecuadas al riesgo para proteger los datos frente a pérdidas, accesos no autorizados y alteraciones, como el cifrado de las comunicaciones (HTTPS), el control de accesos y los registros de seguridad. Solo acceden a los datos las personas que los necesitan para su trabajo, sujetas a un deber de confidencialidad.</p>
             <p class="text-xl mt-4">Si se produjera una brecha de seguridad que afectara a tus datos, actuaríamos como exige la ley: avisaríamos a la autoridad de control y, cuando corresponda, a las personas afectadas o, si se trata de datos que tratamos por cuenta de un alojamiento, a ese alojamiento.</p>
 
             <div class="flex justify-center my-8">
-                <p class="text-2xl text-secondary">Cambios en esta política</p>
+                <h2 class="text-2xl text-secondary">Cambios en esta política</h2>
             </div>
             <p class="text-xl">Podemos actualizar esta política cuando cambien nuestros tratamientos o la normativa. La versión vigente es siempre la publicada en esta página, con su fecha de última actualización. Si un cambio afecta de forma importante a cómo tratamos los datos de nuestros clientes, se lo comunicaremos por correo electrónico.</p>
         </div>
-        <Footer />
     </div>
 
 </template>
 
 <script setup lang="ts">
-useHead({
-    title: 'Política de privacidad',
-    meta: [{ name: 'description', content: 'Cómo trata Silatek, S.L.U. (Hospedy) los datos personales, con qué base y cómo ejercer tus derechos.' }],
+useSeoPagina({
+    titulo: 'Política de privacidad',
+    descripcion: 'Cómo trata Silatek, S.L.U. (Hospedy) los datos personales, con qué base y cómo ejercer tus derechos.',
 })
 </script>

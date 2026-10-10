@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <article class="mt-24 mb-16">
       <!-- Header -->
       <header class="max-w-3xl mx-auto px-6">
@@ -408,21 +407,18 @@
         </div>
       </div>
     </article>
-    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: "Reservas directas vs OTAs: qué es más rentable - Análisis completo",
-  meta: [
-    {
-      name: "description",
-      content:
-        "Compara el coste de las comisiones de Booking, Airbnb y otras OTAs vs reservas directas. Calcula cuánto puedes ahorrar y cómo captar más reservas directas.",
-    },
-  ],
-});
+const articulo = articuloDelBlog('reservas-directas-vs-otas')
+useSeoPagina({
+  titulo: articulo.tituloSeo,
+  descripcion: articulo.descripcion,
+  tipo: 'article',
+  publicado: articulo.publicado,
+  actualizado: articulo.actualizado,
+})
 </script>
 
 <style scoped>
