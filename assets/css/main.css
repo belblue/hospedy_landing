@@ -266,16 +266,6 @@ html {
     -moz-box-shadow: 0 0 15px 4px rgba(13, 148, 136, 0.3);
     box-shadow: 0 0 15px 4px rgba(13, 148, 136, 0.3);
   }
-  .footer {
-    background-image: linear-gradient(
-      #ffffff,
-      #0D9488
-    ); /* Standard syntax (must be last) */
-    justify-content: center;
-    padding-top: 80px;
-    margin-top: 50px;
-  }
-
   /* Shimmer effect for primary CTA */
   .btn-shimmer {
     position: relative;

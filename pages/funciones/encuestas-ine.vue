@@ -1,10 +1,13 @@
 <template>
     <div>
-        <div class="mt-24 mb-16">
+        <div class="pt-24">
+            <div class="max-w-6xl mx-auto px-6">
+                <MigasDePan :migas="[{ nombre: 'Funciones', ruta: '/funciones' }, { nombre: 'Encuestas INE', ruta: '/funciones/encuestas-ine' }]" />
+            </div>
             <!-- Hero -->
-            <div class="text-center max-w-4xl mx-auto px-6">
+            <div class="text-center max-w-4xl mx-auto px-6 mt-8">
                 <div class="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-                    Envío INE automático incluido
+                    Envío al INE con un clic, incluido
                 </div>
                 <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                     Encuestas INE enviadas con un clic
@@ -12,9 +15,7 @@
                 <p class="text-xl text-gray-600 mb-8">
                     Otros sistemas solo generan un archivo XML que tú debes subir manualmente. Hospedy envía la encuesta directamente al INE con un solo clic.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <PruebaHospedyButton class="btn btn-grad" />
-                </div>
+                <BotonesPrueba centrados />
             </div>
 
             <!-- Why different -->
@@ -69,7 +70,7 @@
                                     <span class="font-semibold">¡Listo! Nosotros nos encargamos</span>
                                 </li>
                             </ol>
-                            <p class="mt-4 text-green-800 font-medium text-sm">Sin descargas, sin ARCE, sin errores.</p>
+                            <p class="mt-4 text-green-800 font-medium text-sm">Sin descargas y sin entrar en ARCE.</p>
                         </div>
                     </div>
                 </div>
@@ -125,7 +126,7 @@
                             <p class="text-gray-600">Documento de admisión y parte de entrada del viajero para Andalucía, Aragón, Canarias, Cantabria, Castilla-La Mancha, Ceuta, Comunitat Valenciana, La Rioja, Navarra, País Vasco y Región de Murcia. Se genera desde la ficha de la reserva y desde el listado de huéspedes.</p>
                         </div>
                     </div>
-                    <p class="text-center text-gray-500 mt-8">¿Tu comunidad tiene requisitos específicos? <NuxtLink to="/demo" class="text-primary hover:underline">Contáctanos</NuxtLink> y lo implementamos.</p>
+                    <p class="text-center text-gray-500 mt-8">¿Tu comunidad pide algo más? <NuxtLink to="/contacto" class="text-secondary font-semibold hover:underline">Escríbenos</NuxtLink> y lo vemos contigo.</p>
                 </div>
             </div>
 
@@ -165,35 +166,34 @@
             <div class="max-w-5xl mx-auto px-6 mt-20">
                 <div class="grid lg:grid-cols-3 gap-8 text-center">
                     <div>
-                        <div class="text-4xl font-bold text-primary mb-2">2h</div>
-                        <p class="text-gray-600">Tiempo ahorrado cada mes</p>
+                        <div class="text-4xl font-bold text-primary mb-2">1 clic</div>
+                        <p class="text-gray-600">Para enviar la encuesta de hoteles o de apartamentos</p>
                     </div>
                     <div>
                         <div class="text-4xl font-bold text-primary mb-2">0</div>
-                        <p class="text-gray-600">Errores de cálculo</p>
+                        <p class="text-gray-600">Archivos que subir a ARCE</p>
                     </div>
                     <div>
-                        <div class="text-4xl font-bold text-primary mb-2">100&nbsp;%</div>
-                        <p class="text-gray-600">Cumplimiento garantizado</p>
+                        <div class="text-4xl font-bold text-primary mb-2">11</div>
+                        <p class="text-gray-600">Comunidades con su documento de admisión</p>
                     </div>
                 </div>
             </div>
 
-            <!-- CTA -->
-            <div class="text-center mt-20 px-6">
-                <h2 class="text-3xl font-bold mb-4">Olvídate del INE para siempre</h2>
-                <p class="text-xl text-gray-600 mb-8">Crea tu cuenta y prueba Hospedy gratis durante 30 días.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <PruebaHospedyButton class="btn btn-grad" />
-                </div>
-            </div>
+            <!-- El paso siguiente: funciones, guías y tipos de alojamiento relacionados -->
+            <RelacionesPagina clave="encuestas-ine" />
+
+            <CtaFinal />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+const DESCRIPCION = 'La encuesta de ocupación hotelera o de apartamentos, al INE con un clic y sin entrar en ARCE; la de turismo rural y los documentos autonómicos, rellenos.'
+
 useSeoPagina({
     titulo: 'Encuesta de ocupación del INE con un clic',
-    descripcion: 'La encuesta de ocupación hotelera o de apartamentos, al INE con un clic y sin entrar en ARCE; la de turismo rural y los documentos autonómicos, rellenos.',
+    descripcion: DESCRIPCION,
 })
+useEsquema('pagina', esquemaPagina('WebPage', { nombre: 'Encuestas INE enviadas con un clic', descripcion: DESCRIPCION, ruta: '/funciones/encuestas-ine', sobreHospedy: true }))
 </script>

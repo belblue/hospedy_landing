@@ -48,7 +48,7 @@
     <!-- CTA -->
     <div class="text-center mt-10">
       <p class="text-gray-600 mb-4">¿Tienes más preguntas?</p>
-      <NuxtLink to="/#contacto" class="text-primary font-semibold hover:underline"
+      <NuxtLink to="/contacto" class="text-primary font-semibold hover:underline"
         >Contáctanos →</NuxtLink
       >
     </div>

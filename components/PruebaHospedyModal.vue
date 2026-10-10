@@ -1,7 +1,7 @@
 <template>
-  <!-- "¡Prueba Hospedy en 5 minutos!": las tres formas de probar Hospedy. Lo abre cualquier
-       PruebaHospedyButton; vive una sola vez en el layout. Se cierra con la X, con Escape o
-       pulsando fuera. -->
+  <!-- «Ver una demo»: las dos formas de ver Hospedy antes de crear la cuenta. Lo abre cualquier
+       PruebaHospedyButton, y solo con la cuenta de demo activada (si no, el botón lleva directo a
+       /demo); vive una sola vez en el layout. Se cierra con la X, con Escape o pulsando fuera. -->
   <Teleport to="body">
     <Transition name="fade">
       <div v-if="abierto" class="fixed inset-0 z-[60] flex items-center justify-center p-4">
@@ -13,7 +13,7 @@
           aria-modal="true"
           aria-labelledby="prueba-hospedy-titulo"
           tabindex="-1"
-          class="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 lg:p-8 outline-none"
+          class="relative bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 lg:p-8 outline-none"
         >
           <button
             type="button"
@@ -27,14 +27,15 @@
           </button>
 
           <h2 id="prueba-hospedy-titulo" class="text-2xl lg:text-3xl font-bold text-gray-900 text-center mb-2 pr-6">
-            ¿Cómo quieres probar Hospedy?
+            ¿Cómo quieres ver Hospedy?
           </h2>
           <p class="text-lg text-gray-600 text-center mb-6">
-            Elige lo que mejor te encaje. Sin tarjeta de crédito y sin compromiso.
+            Elige lo que mejor te encaje, sin compromiso. Y si ya lo tienes claro,
+            <a :href="appUrl('/register')" class="text-secondary font-semibold underline underline-offset-4">crea tu cuenta: 30 días gratis</a>.
           </p>
 
           <!-- flex-none en los botones: .btn trae flex 1 1 auto y en una tarjeta en columna se estira -->
-          <div class="grid gap-4 md:grid-cols-3">
+          <div class="grid gap-4 md:grid-cols-2">
             <!-- Demo asistida: el formulario de /demo, que llega a la Bandeja del admin panel -->
             <div class="border border-gray-200 rounded-xl p-5 flex flex-col">
               <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3">
@@ -66,20 +67,6 @@
               <NuxtLink to="/cuenta-demo" class="btn btn-outline flex-none text-center" @click="cerrar">Quiero mi cuenta de demo</NuxtLink>
             </div>
 
-            <!-- Cuenta propia: el registro de la app, con el código de amigo si lo hay -->
-            <div class="border-2 border-primary rounded-xl p-5 flex flex-col bg-primary/5">
-              <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3">
-                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">Crear mi cuenta</h3>
-              <p class="text-gray-600 mb-4 flex-1">
-                ¿Ya lo has probado y lo tienes claro? Crea tu cuenta y nuestro asistente de configuración te ayuda a dejarlo todo listo, como en la demo, en menos de 15 minutos.
-              </p>
-              <a :href="appUrl('/register')" class="btn btn-grad flex-none text-center" title="Crea tu cuenta de Hospedy y empieza la prueba gratis">Crear mi cuenta</a>
-              <p class="text-sm text-gray-500 text-center mt-2">30 días gratis</p>
-            </div>
           </div>
         </div>
       </div>

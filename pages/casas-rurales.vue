@@ -6,6 +6,9 @@
             <StarAccent class="top-36 left-[12%] hidden lg:block" size="md" animation="float" :opacity="0.45" :delay="0.3" />
             <StarAccent class="top-28 right-[10%] hidden lg:block" size="sm" animation="twinkle" :opacity="0.5" :delay="0.9" />
 
+            <div class="max-w-6xl mx-auto px-6 mb-6">
+                <MigasDePan :migas="[{ nombre: 'Casas rurales', ruta: '/casas-rurales' }]" />
+            </div>
             <div class="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto px-6">
                 <div class="lg:mt-12" data-aos="fade-right">
                     <p class="text-secondary font-semibold text-lg mb-4">Software para casas rurales</p>
@@ -41,8 +44,8 @@
                             <span>Gestión remota desde el móvil</span>
                         </li>
                     </ul>
-                    <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="300">
-                        <PruebaHospedyButton class="btn btn-grad btn-shimmer" />
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <BotonesPrueba />
                     </div>
                 </div>
                 <div class="flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
@@ -54,7 +57,7 @@
             </div>
         </div>
 
-        <div class="mb-16">
+        <div>
             <!-- Pain points -->
             <div class="section-gradient-alt py-16">
                 <div class="max-w-5xl mx-auto px-6">
@@ -69,7 +72,7 @@
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="100">
                             <IconoReto nombre="papeleo" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"El papeleo me quita tiempo"</h3>
-                            <p class="text-gray-600">Partes de viajeros, INE, facturas... Con Hospedy todo se genera automáticamente.</p>
+                            <p class="text-gray-600">Partes de viajeros, INE, facturas... Con Hospedy los partes se envían solos, la encuesta del INE sale rellena y cada factura, con un clic.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="200">
                             <IconoReto nombre="disponibilidad" class="mb-4" />
@@ -93,7 +96,7 @@
                                 <span class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">1</span>
                                 <div>
                                     <p class="font-semibold">El huésped recibe un enlace</p>
-                                    <p class="text-gray-600">Por email o SMS antes de llegar</p>
+                                    <p class="text-gray-600">Por email o con un enlace, antes de llegar</p>
                                 </div>
                             </li>
                             <li class="flex gap-4" data-aos="fade-up" data-aos-delay="200">
@@ -111,6 +114,7 @@
                                 </div>
                             </li>
                         </ol>
+                        <NuxtLink to="/funciones/check-in" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Todo sobre el check-in →</NuxtLink>
                     </div>
                     <div class="feature-image-card p-8 rounded-2xl glow-hover" data-aos="fade-left">
                         <!-- El auto check-in que recibe el huesped, en un movil y usable: foto del
@@ -133,6 +137,7 @@
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Gestión desde el móvil</h3>
                             <p class="text-gray-600">Controla reservas, check-ins y facturación desde tu smartphone. Como tener la recepción en el bolsillo.</p>
+                            <NuxtLink to="/funciones/planning-reservas" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="100">
@@ -143,7 +148,8 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Precios por temporada</h3>
-                            <p class="text-gray-600">Configura tarifas diferentes para Semana Santa, verano, puentes... Se aplican automáticamente.</p>
+                            <p class="text-gray-600">Pon precios distintos para Semana Santa, el verano o los puentes en tu calendario, de una vez para muchos días.</p>
+                            <NuxtLink to="/funciones/channel-manager" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="200">
@@ -155,6 +161,7 @@
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Encuesta de Turismo Rural</h3>
                             <p class="text-gray-600">Hospedy rellena cada mes la encuesta del INE de turismo rural con los datos de tus reservas. La descargas lista para presentar.</p>
+                            <NuxtLink to="/funciones/encuestas-ine" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="300">
@@ -166,6 +173,7 @@
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Gestión de varias casas</h3>
                             <p class="text-gray-600">¿Tienes más de una casa rural? Gestiónalas todas desde una sola cuenta con calendarios separados.</p>
+                            <NuxtLink to="/funciones/planning-reservas" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
                 </div>
@@ -190,22 +198,19 @@
                 <h2 class="text-3xl font-bold mb-4">Precios para casas rurales</h2>
                 <p class="text-xl text-gray-600 mb-8">
                     Desde <span class="text-primary font-bold">35&nbsp;€/mes</span> para una casa rural.
-                    Precio según número de unidades, sin comisiones.
+                    Precio según número de unidades, sin comisión por reserva.
                 </p>
+                <p class="text-lg font-semibold text-secondary -mt-4 mb-8">Todas las funciones, en todos los planes.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <NuxtLink class="btn btn-grad btn-shimmer" to="/#precios">Ver precios</NuxtLink>
-                    <NuxtLink class="btn btn-outline-gradient" to="/comparar"><span>Comparar con otros PMS</span></NuxtLink>
+                    <NuxtLink class="btn btn-principal sm:flex-none px-6" to="/precios">Ver precios</NuxtLink>
+                    <NuxtLink class="btn btn-outline-gradient sm:flex-none px-6" to="/comparar"><span>Comparar con otros PMS</span></NuxtLink>
                 </div>
             </div>
 
-            <!-- CTA -->
-            <div class="cta-gradient text-center mt-20 py-16 px-6">
-                <h2 class="text-3xl font-bold mb-4 text-white" data-aos="fade-up">Prueba Hospedy en tu casa rural</h2>
-                <p class="text-xl text-white/90 mb-8" data-aos="fade-up" data-aos-delay="100">Crea tu cuenta: 30 días gratis, sin tarjeta de crédito y sin compromiso.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
-                    <PruebaHospedyButton class="btn bg-white text-primary hover:bg-gray-100 font-semibold" />
-                </div>
-            </div>
+            <!-- El paso siguiente: funciones, guías y otros tipos de alojamiento -->
+            <RelacionesPagina clave="casas-rurales" />
+
+            <CtaFinal />
         </div>
     </div>
 </template>
@@ -233,17 +238,7 @@ useSeoPagina({
     background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(13, 148, 136, 0.1) 100%);
 }
 
-.cta-gradient {
-    background: linear-gradient(135deg, #0D9488 0%, #0f766e 50%, #0D9488 100%);
-    background-size: 200% 200%;
-    animation: gradient-shift 6s ease infinite;
-}
 
-@keyframes gradient-shift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
 
 .feature-image-card {
     background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);

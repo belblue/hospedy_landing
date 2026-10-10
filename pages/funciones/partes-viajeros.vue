@@ -1,8 +1,11 @@
 <template>
     <div>
-        <div class="mt-24 mb-16">
+        <div class="pt-24">
+            <div class="max-w-6xl mx-auto px-6">
+                <MigasDePan :migas="[{ nombre: 'Funciones', ruta: '/funciones' }, { nombre: 'Partes de viajeros', ruta: '/funciones/partes-viajeros' }]" />
+            </div>
             <!-- Hero -->
-            <div class="text-center max-w-4xl mx-auto px-6">
+            <div class="text-center max-w-4xl mx-auto px-6 mt-8">
                 <p class="text-secondary font-semibold text-lg mb-4">Cumplimiento normativo automático</p>
                 <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                     Partes de viajeros que se envían solos
@@ -10,9 +13,7 @@
                 <p class="text-xl text-gray-600 mb-8">
                     Olvida las multas y el papeleo. Hospedy genera y envía los partes automáticamente a SES Hospedajes y Ertzaintza cada vez que haces un check-in.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <PruebaHospedyButton class="btn btn-grad" />
-                </div>
+                <BotonesPrueba centrados />
             </div>
 
             <!-- How it works -->
@@ -38,7 +39,7 @@
                             <span class="text-2xl font-bold text-primary">3</span>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Envío automático</h3>
-                        <p class="text-gray-600">El parte se envía al cuerpo policial que corresponda. Tu libro de viajeros queda actualizado.</p>
+                        <p class="text-gray-600">El parte sale al cuerpo policial que tengas activado. Tu libro de viajeros queda al día.</p>
                     </div>
                 </div>
             </div>
@@ -56,8 +57,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-lg mb-2">Ahorra 2 horas al día</h3>
-                                    <p class="text-gray-600">Un check-in manual lleva 5-10 minutos. Con Hospedy, 30 segundos.</p>
+                                    <h3 class="font-semibold text-lg mb-2">Menos tiempo en recepción</h3>
+                                    <p class="text-gray-600">Sin teclear los datos del huésped: escaneas el documento y el formulario se rellena solo.</p>
                                 </div>
                             </div>
                         </div>
@@ -69,8 +70,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-lg mb-2">Cero errores</h3>
-                                    <p class="text-gray-600">Sin teclear datos manualmente, no hay errores de transcripción.</p>
+                                    <h3 class="font-semibold text-lg mb-2">Menos errores al teclear</h3>
+                                    <p class="text-gray-600">Los datos se leen del documento, así que te ahorras las erratas de copiarlos a mano.</p>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +84,7 @@
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-lg mb-2">Evita multas</h3>
-                                    <p class="text-gray-600">Las multas por no enviar partes pueden superar los 600&nbsp;€. Con el envío automático, cumples siempre.</p>
+                                    <p class="text-gray-600">No comunicar a tus viajeros es una infracción grave: multas de 601 a 30.000&nbsp;€ (Ley Orgánica 4/2015). Con el envío automático, cada parte sale solo.</p>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +98,7 @@
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-lg mb-2">Envío automático a SES y Ertzaintza</h3>
-                                    <p class="text-gray-600">Hospedy envía a SES Hospedajes (Policía Nacional y Guardia Civil) y Ertzaintza (País Vasco) según tu ubicación.</p>
+                                    <p class="text-gray-600">Lo envía solo a SES Hospedajes (Policía Nacional y Guardia Civil) o a la Ertzaintza, según lo que tengas activado en la ficha de tu alojamiento. Lo configuramos contigo una sola vez.</p>
                                 </div>
                             </div>
                         </div>
@@ -162,21 +163,20 @@
                 </div>
             </div>
 
-            <!-- CTA -->
-            <div class="text-center mt-20 px-6">
-                <h2 class="text-3xl font-bold mb-4">Empieza a automatizar tus partes hoy</h2>
-                <p class="text-xl text-gray-600 mb-8">Crea tu cuenta: 30 días gratis y sin tarjeta de crédito.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <PruebaHospedyButton class="btn btn-grad" />
-                </div>
-            </div>
+            <!-- El paso siguiente: funciones, guías y tipos de alojamiento relacionados -->
+            <RelacionesPagina clave="partes-viajeros" />
+
+            <CtaFinal />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+const DESCRIPCION = 'Hospedy envía los partes de viajeros a SES Hospedajes o a la Ertzaintza sin entrar en ningún portal: escaneas el documento y el parte sale solo.'
+
 useSeoPagina({
     titulo: 'Partes de viajeros a SES Hospedajes y Ertzaintza',
-    descripcion: 'Hospedy envía los partes de viajeros a SES Hospedajes o a la Ertzaintza sin entrar en ningún portal: escaneas el documento y el parte sale solo.',
+    descripcion: DESCRIPCION,
 })
+useEsquema('pagina', esquemaPagina('WebPage', { nombre: 'Partes de viajeros que se envían solos', descripcion: DESCRIPCION, ruta: '/funciones/partes-viajeros', sobreHospedy: true }))
 </script>

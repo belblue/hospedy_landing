@@ -6,6 +6,9 @@
             <StarAccent class="top-32 left-[8%] hidden lg:block" size="lg" animation="float" :opacity="0.4" :delay="0.2" />
             <StarAccent class="top-44 right-[15%] hidden lg:block" size="sm" animation="twinkle" :opacity="0.5" :delay="1" />
 
+            <div class="max-w-6xl mx-auto px-6 mb-6">
+                <MigasDePan :migas="[{ nombre: 'Apartamentos turísticos', ruta: '/apartamentos' }]" />
+            </div>
             <div class="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto px-6">
                 <div class="lg:mt-12" data-aos="fade-right">
                     <p class="text-secondary font-semibold text-lg mb-4">Software para apartamentos turísticos</p>
@@ -13,14 +16,14 @@
                         Menos comisiones, más reservas directas
                     </h1>
                     <p class="text-xl text-gray-600 mb-6">
-                        Deja de depender solo de Airbnb y Booking. Motor de reservas sin comisiones, channel manager para evitar overbookings y partes automáticos.
+                        Deja de depender solo de Airbnb y Booking. Motor de reservas sin comisión por reserva, channel manager para evitar overbookings y partes automáticos.
                     </p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="100">
                             <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Motor de reservas sin comisiones</span>
+                            <span>Motor de reservas sin comisión por reserva</span>
                         </li>
                         <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="150">
                             <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -41,8 +44,8 @@
                             <span>Partes de viajeros automáticos</span>
                         </li>
                     </ul>
-                    <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="300">
-                        <PruebaHospedyButton class="btn btn-grad btn-shimmer" />
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <BotonesPrueba />
                     </div>
                 </div>
                 <div class="flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
@@ -54,7 +57,7 @@
             </div>
         </div>
 
-        <div class="mb-16">
+        <div>
             <!-- Pain points -->
             <div class="section-gradient-alt py-16">
                 <div class="max-w-5xl mx-auto px-6">
@@ -94,7 +97,7 @@
                         <div class="bg-white p-6 rounded-xl border-2 border-green-200 lift-hover">
                             <h3 class="text-xl font-semibold mb-4 text-green-600">Reserva directa con Hospedy</h3>
                             <p class="text-gray-600 mb-2">Apartamento 3 noches × 100&nbsp;€/noche</p>
-                            <p class="text-gray-600 mb-4">Comisión Hospedy: 0&nbsp;%</p>
+                            <p class="text-gray-600 mb-4">Comisión por reserva: 0&nbsp;%</p>
                             <p class="text-3xl font-bold text-green-600">0&nbsp;€</p>
                         </div>
                     </div>
@@ -102,6 +105,9 @@
                         <p class="text-lg">
                             Con <span class="font-bold">10 reservas directas al mes</span> de 300&nbsp;€ de media,
                             <span class="font-bold text-primary">ahorras 450&nbsp;€/mes</span> en comisiones.
+                        </p>
+                        <p class="text-base text-gray-600 mt-2">
+                            Si además cobras la reserva con tarjeta, la pasarela de cobros cuesta 3,9&nbsp;% + 0,40&nbsp;€ por cobro, IVA incluido.
                         </p>
                     </div>
                 </div>
@@ -119,8 +125,8 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Motor de reservas para tu web</h3>
-                            <p class="text-gray-600">Un código que pegas en tu página y empiezas a recibir reservas directas. Sin comisiones, sin intermediarios.</p>
-                            <NuxtLink to="/funciones/motor-reservas" class="text-primary hover:underline text-lg mt-2 inline-block">Saber más →</NuxtLink>
+                            <p class="text-gray-600">Un enlace que pones en tu web o en tus redes, y empiezas a recibir reservas directas. Sin comisión por reserva y sin intermediarios.</p>
+                            <NuxtLink to="/funciones/motor-reservas" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="100">
@@ -132,7 +138,7 @@
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Channel Manager</h3>
                             <p class="text-gray-600">Conecta Booking, Airbnb, Vrbo, Expedia y +150 OTAs. Cuando entra una reserva, se bloquea en todas las demás.</p>
-                            <NuxtLink to="/funciones/channel-manager" class="text-primary hover:underline text-lg mt-2 inline-block">Ver agencias →</NuxtLink>
+                            <NuxtLink to="/funciones/channel-manager" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Ver las agencias →</NuxtLink>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="200">
@@ -143,7 +149,8 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Cobro de depósitos</h3>
-                            <p class="text-gray-600">Evita disgustos cobrando depósitos o la reserva completa. Integrado con Stripe, la pasarela más segura.</p>
+                            <p class="text-gray-600">Evita disgustos cobrando un depósito o la reserva completa al reservar, con la pasarela de Stripe.</p>
+                            <NuxtLink to="/funciones/cobros" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="300">
@@ -154,7 +161,8 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Gestión de varios apartamentos</h3>
-                            <p class="text-gray-600">Una cuenta, múltiples propiedades. Cada apartamento tiene su calendario, pero los ves todos juntos.</p>
+                            <p class="text-gray-600">Una cuenta, varios alojamientos. Cada apartamento tiene su calendario, pero los ves todos juntos.</p>
+                            <NuxtLink to="/funciones/planning-reservas" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="400">
@@ -166,7 +174,7 @@
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Encuesta de Apartamentos Turísticos</h3>
                             <p class="text-gray-600">Hospedy rellena la encuesta del INE de apartamentos turísticos con tus datos y la envía al INE con un clic, sin entrar en ARCE.</p>
-                            <NuxtLink to="/funciones/encuestas-ine" class="text-primary hover:underline text-lg mt-2 inline-block">Ver más →</NuxtLink>
+                            <NuxtLink to="/funciones/encuestas-ine" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="500">
@@ -178,6 +186,7 @@
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Auto check-in</h3>
                             <p class="text-gray-600">Perfecto para llegadas fuera de horario. El huésped se registra antes de llegar y tú solo entregas las llaves.</p>
+                            <NuxtLink to="/funciones/check-in" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
                 </div>
@@ -197,14 +206,24 @@
                 </div>
             </div>
 
-            <!-- CTA -->
-            <div class="cta-gradient text-center mt-20 py-16 px-6">
-                <h2 class="text-3xl font-bold mb-4 text-white" data-aos="fade-up">Prueba Hospedy en tus apartamentos</h2>
-                <p class="text-xl text-white/90 mb-8" data-aos="fade-up" data-aos-delay="100">Crea tu cuenta: 30 días gratis, sin tarjeta de crédito y sin compromiso.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
-                    <PruebaHospedyButton class="btn bg-white text-primary hover:bg-gray-100 font-semibold" />
+            <!-- Pricing teaser -->
+            <div class="max-w-4xl mx-auto px-6 mt-20 text-center" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Precios para apartamentos</h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Desde <span class="text-primary font-bold">35&nbsp;€/mes</span> para tus primeros apartamentos.
+                    Precio según número de unidades, sin comisión por reserva.
+                </p>
+                <p class="text-lg font-semibold text-secondary -mt-4 mb-8">Todas las funciones, en todos los planes.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <NuxtLink class="btn btn-principal sm:flex-none px-6" to="/precios">Ver precios</NuxtLink>
+                    <NuxtLink class="btn btn-outline-gradient sm:flex-none px-6" to="/comparar"><span>Comparar con otros PMS</span></NuxtLink>
                 </div>
             </div>
+
+            <!-- El paso siguiente: funciones, guías y otros tipos de alojamiento -->
+            <RelacionesPagina clave="apartamentos" />
+
+            <CtaFinal />
         </div>
     </div>
 </template>
@@ -232,21 +251,11 @@ useSeoPagina({
     background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(13, 148, 136, 0.1) 100%);
 }
 
-.cta-gradient {
-    background: linear-gradient(135deg, #0D9488 0%, #0f766e 50%, #0D9488 100%);
-    background-size: 200% 200%;
-    animation: gradient-shift 6s ease infinite;
-}
 
 .savings-card {
     background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(245, 158, 11, 0.15) 100%);
 }
 
-@keyframes gradient-shift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
 
 .feature-item {
     transition: transform 0.3s ease;

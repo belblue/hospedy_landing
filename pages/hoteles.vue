@@ -6,6 +6,9 @@
             <StarAccent class="top-28 left-[10%] hidden lg:block" size="md" animation="float" :opacity="0.4" :delay="0" />
             <StarAccent class="top-40 right-[12%] hidden lg:block" size="sm" animation="twinkle" :opacity="0.5" :delay="0.8" />
 
+            <div class="max-w-6xl mx-auto px-6 mb-6">
+                <MigasDePan :migas="[{ nombre: 'Hoteles y hostales', ruta: '/hoteles' }]" />
+            </div>
             <div class="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto px-6">
                 <div class="lg:mt-12" data-aos="fade-right">
                     <p class="text-secondary font-semibold text-lg mb-4">PMS para hoteles</p>
@@ -13,7 +16,7 @@
                         Gestiona tu hotel sin complicaciones
                     </h1>
                     <p class="text-xl text-gray-600 mb-6">
-                        Desde la recepción hasta el cumplimiento normativo. Check-in en 30 segundos, partes de viajeros automáticos y todo sincronizado con tus OTAs.
+                        Desde la recepción hasta el cumplimiento normativo: check-in escaneando el documento, partes de viajeros que se envían solos y todo sincronizado con tus agencias.
                     </p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="100">
@@ -41,8 +44,8 @@
                             <span>Planning visual para múltiples habitaciones</span>
                         </li>
                     </ul>
-                    <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="300">
-                        <PruebaHospedyButton class="btn btn-grad btn-shimmer" />
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <BotonesPrueba />
                     </div>
                 </div>
                 <div class="flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
@@ -54,7 +57,7 @@
             </div>
         </div>
 
-        <div class="mb-16">
+        <div>
             <!-- Pain points -->
             <div class="section-gradient-alt py-16">
                 <div class="max-w-5xl mx-auto px-6">
@@ -69,12 +72,12 @@
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="100">
                             <IconoReto nombre="parte" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"Se me olvidó enviar el parte"</h3>
-                            <p class="text-gray-600">Las multas por no comunicar viajeros son de hasta 600&nbsp;€. Con Hospedy, se envían solos.</p>
+                            <p class="text-gray-600">No comunicar a tus viajeros es una infracción grave: multas de 601 a 30.000&nbsp;€ (Ley Orgánica 4/2015). Con Hospedy, los partes se envían solos.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="200">
                             <IconoReto nombre="overbooking" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"Tengo overbooking otra vez"</h3>
-                            <p class="text-gray-600">Booking, Expedia, tu web... imposible tenerlo todo sincronizado. Con el Channel Manager, imposible fallar.</p>
+                            <p class="text-gray-600">Booking, Expedia, tu web... imposible tenerlo todo sincronizado. Con el Channel Manager, todo sincronizado.</p>
                         </div>
                     </div>
                 </div>
@@ -93,6 +96,19 @@
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Gestión de múltiples habitaciones</h3>
                             <p class="text-gray-600">Planning visual donde ves todas tus habitaciones de un vistazo. Arrastra reservas, cambia asignaciones, todo con un clic.</p>
+                            <NuxtLink to="/funciones/planning-reservas" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-xl mb-2">Check-in con escáner y auto check-in</h3>
+                            <p class="text-gray-600">Escanea el DNI o el pasaporte en recepción, o deja que cada huésped lo haga desde su móvil antes de llegar. El parte sale solo.</p>
+                            <NuxtLink to="/funciones/check-in" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="200">
@@ -104,6 +120,7 @@
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Encuesta de Ocupación Hotelera</h3>
                             <p class="text-gray-600">Hospedy rellena la Encuesta de Ocupación Hotelera con los datos que ya tienes y la envía al INE con un clic, sin entrar en ARCE.</p>
+                            <NuxtLink to="/funciones/encuestas-ine" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
                     <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="300">
@@ -114,7 +131,8 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Facturación profesional</h3>
-                            <p class="text-gray-600">Facturas automáticas con todos los conceptos: habitación, extras, tasa turística. Y Zenfisk, el programa de facturación y gastos con Verifactu, incluido en tu suscripción.</p>
+                            <p class="text-gray-600">La factura de cada reserva con un clic, con todos los conceptos: habitación, extras, tasa turística. Y Zenfisk, el programa de facturación y gastos con Verifactu, incluido en tu suscripción.</p>
+                            <NuxtLink to="/funciones/facturacion" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
                 </div>
@@ -141,20 +159,17 @@
                     Desde <span class="text-primary font-bold">35&nbsp;€/mes</span> para hoteles pequeños.
                     Precio según número de habitaciones, sin comisiones por reserva.
                 </p>
+                <p class="text-lg font-semibold text-secondary -mt-4 mb-8">Todas las funciones, en todos los planes.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <NuxtLink class="btn btn-grad btn-shimmer" to="/#precios">Ver precios</NuxtLink>
-                    <NuxtLink class="btn btn-outline-gradient" to="/comparar"><span>Comparar con otros PMS</span></NuxtLink>
+                    <NuxtLink class="btn btn-principal sm:flex-none px-6" to="/precios">Ver precios</NuxtLink>
+                    <NuxtLink class="btn btn-outline-gradient sm:flex-none px-6" to="/comparar"><span>Comparar con otros PMS</span></NuxtLink>
                 </div>
             </div>
 
-            <!-- CTA -->
-            <div class="cta-gradient text-center mt-20 py-16 px-6">
-                <h2 class="text-3xl font-bold mb-4 text-white" data-aos="fade-up">Prueba Hospedy en tu hotel</h2>
-                <p class="text-xl text-white/90 mb-8" data-aos="fade-up" data-aos-delay="100">Crea tu cuenta: 30 días gratis, sin tarjeta de crédito y sin compromiso.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
-                    <PruebaHospedyButton class="btn bg-white text-primary hover:bg-gray-100 font-semibold" />
-                </div>
-            </div>
+            <!-- El paso siguiente: funciones, guías y otros tipos de alojamiento -->
+            <RelacionesPagina clave="hoteles" />
+
+            <CtaFinal />
         </div>
     </div>
 </template>
@@ -182,17 +197,7 @@ useSeoPagina({
     background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(13, 148, 136, 0.1) 100%);
 }
 
-.cta-gradient {
-    background: linear-gradient(135deg, #0D9488 0%, #0f766e 50%, #0D9488 100%);
-    background-size: 200% 200%;
-    animation: gradient-shift 6s ease infinite;
-}
 
-@keyframes gradient-shift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
 
 .feature-item {
     transition: transform 0.3s ease;

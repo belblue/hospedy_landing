@@ -65,13 +65,13 @@ export const FUNCIONES: GrupoDeFunciones[] = [
         nombre: 'Partes de viajeros',
         ruta: '/funciones/partes-viajeros',
         descripcion: 'Se envían solos a la policía, sin entrar en ningún portal',
-        actualizado: '2026-09-25',
+        actualizado: '2026-10-10',
       },
       {
         nombre: 'Encuestas INE y documentos autonómicos',
         ruta: '/funciones/encuestas-ine',
         descripcion: 'La encuesta de ocupación, al INE con un clic; y los documentos autonómicos',
-        actualizado: '2026-09-25',
+        actualizado: '2026-10-10',
       },
     ],
   },
@@ -88,7 +88,7 @@ export const FUNCIONES: GrupoDeFunciones[] = [
         nombre: 'Motor de reservas',
         ruta: '/funciones/motor-reservas',
         descripcion: 'Reservas directas en tu web, sin comisión por reserva',
-        actualizado: '2026-09-25',
+        actualizado: '2026-10-10',
       },
       {
         nombre: 'Cobros y depósitos',
@@ -120,15 +120,30 @@ export const INDICE_FUNCIONES: PaginaWeb = {
 }
 
 export const PARA_QUIEN: PaginaWeb[] = [
-  { nombre: 'Hoteles y hostales', ruta: '/hoteles', actualizado: '2026-09-25' },
-  { nombre: 'Casas rurales', ruta: '/casas-rurales', actualizado: '2026-09-25' },
-  { nombre: 'Apartamentos turísticos', ruta: '/apartamentos', actualizado: '2026-09-28' },
+  {
+    nombre: 'Hoteles y hostales',
+    ruta: '/hoteles',
+    descripcion: 'Check-in con escáner, partes, INE y channel para muchas habitaciones',
+    actualizado: '2026-10-10',
+  },
+  {
+    nombre: 'Casas rurales',
+    ruta: '/casas-rurales',
+    descripcion: 'Desde el móvil, con auto check-in y la encuesta de turismo rural',
+    actualizado: '2026-10-10',
+  },
+  {
+    nombre: 'Apartamentos turísticos',
+    ruta: '/apartamentos',
+    descripcion: 'Reservas directas, cobros por adelantado y limpieza coordinada',
+    actualizado: '2026-10-10',
+  },
 ]
 
 export const RECURSOS: PaginaWeb[] = [
-  { nombre: 'Blog y guías', ruta: '/blog', actualizado: '2026-09-28' },
-  { nombre: 'Comparativa de PMS', ruta: '/comparar', actualizado: '2026-10-02' },
-  { nombre: 'Preguntas frecuentes', ruta: '/faq', actualizado: '2026-10-02' },
+  { nombre: 'Blog y guías', ruta: '/blog', descripcion: 'Normativa, ventas y gestión del día a día', actualizado: '2026-09-28' },
+  { nombre: 'Comparativa de PMS', ruta: '/comparar', descripcion: 'Hospedy frente a otros programas', actualizado: '2026-10-02' },
+  { nombre: 'Preguntas frecuentes', ruta: '/faq', descripcion: 'Las dudas de antes de empezar', actualizado: '2026-10-02' },
 ]
 
 export const EMPRESA: PaginaWeb[] = [

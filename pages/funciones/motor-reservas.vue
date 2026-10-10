@@ -1,18 +1,19 @@
 <template>
     <div>
-        <div class="mt-24 mb-16">
+        <div class="pt-24">
+            <div class="max-w-6xl mx-auto px-6">
+                <MigasDePan :migas="[{ nombre: 'Funciones', ruta: '/funciones' }, { nombre: 'Motor de reservas', ruta: '/funciones/motor-reservas' }]" />
+            </div>
             <!-- Hero -->
-            <div class="text-center max-w-4xl mx-auto px-6">
-                <p class="text-secondary font-semibold text-lg mb-4">Reservas directas sin comisiones</p>
+            <div class="text-center max-w-4xl mx-auto px-6 mt-8">
+                <p class="text-secondary font-semibold text-lg mb-4">Reservas directas sin comisión por reserva</p>
                 <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                     Motor de reservas que no te cobra por reserva
                 </h1>
                 <p class="text-xl text-gray-600 mb-8">
-                    Recibe reservas directamente en tu web. Sin comisiones por reserva, sin intermediarios. Cada reserva directa es dinero que no pagas a Booking.
+                    Recibe reservas directamente en tu web. Sin comisión por reserva y sin intermediarios: cada reserva directa es dinero que no pagas a Booking. El motor y su calendario de precios van incluidos en todos los planes, conectes o no agencias.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <PruebaHospedyButton class="btn btn-grad" />
-                </div>
+                <BotonesPrueba centrados />
             </div>
 
             <!-- Comparison -->
@@ -36,6 +37,9 @@
                     <p class="text-center mt-8 text-lg text-gray-700">
                         Con 10 reservas directas al mes de 100&nbsp;€, <span class="font-bold text-primary">ahorras 150&nbsp;€/mes</span> en comisiones.
                     </p>
+                    <p class="text-center mt-2 text-base text-gray-600">
+                        Si además cobras la reserva con tarjeta, la pasarela de cobros cuesta 3,9&nbsp;% + 0,40&nbsp;€ por cobro, IVA incluido.
+                    </p>
                 </div>
             </div>
 
@@ -51,7 +55,7 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-lg mb-2">Calendario de disponibilidad</h3>
-                            <p class="text-gray-600">Tus huéspedes ven en tiempo real qué fechas están disponibles.</p>
+                            <p class="text-gray-600">Tus huéspedes ven qué noches tienes libres y a qué precio.</p>
                         </div>
                     </div>
                     <div class="flex gap-4">
@@ -61,8 +65,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-semibold text-lg mb-2">Precios dinámicos</h3>
-                            <p class="text-gray-600">Configura precios por temporada, fin de semana, eventos especiales...</p>
+                            <h3 class="font-semibold text-lg mb-2">Precios por día desde tu calendario</h3>
+                            <p class="text-gray-600">Precios por temporada, para los fines de semana o para fechas especiales, día a día en tu calendario de precios.</p>
                         </div>
                     </div>
                     <div class="flex gap-4">
@@ -72,8 +76,9 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-semibold text-lg mb-2">Pagos con Stripe</h3>
-                            <p class="text-gray-600">Cobra depósitos o el total de la reserva con la pasarela más segura.</p>
+                            <h3 class="font-semibold text-lg mb-2">Cobros con tarjeta</h3>
+                            <p class="text-gray-600">Cobra un depósito o el total al reservar, con la pasarela de Stripe.</p>
+                            <NuxtLink to="/funciones/cobros" class="text-secondary font-semibold hover:underline underline-offset-4 inline-block mt-1">Saber más →</NuxtLink>
                         </div>
                     </div>
                     <div class="flex gap-4">
@@ -105,8 +110,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-semibold text-lg mb-2">Fácil de integrar</h3>
-                            <p class="text-gray-600">Un código embed que funciona en cualquier web: WordPress, Wix, tu propia página...</p>
+                            <h3 class="font-semibold text-lg mb-2">Fácil de enlazar</h3>
+                            <p class="text-gray-600">Un enlace que pones en tu web o en tus redes.</p>
                         </div>
                     </div>
                 </div>
@@ -121,26 +126,26 @@
                         la disponibilidad se actualiza automáticamente en Booking, Airbnb, Expedia y todas tus OTAs.
                     </p>
                     <p class="text-lg text-gray-700">
-                        <span class="font-semibold">Cero overbookings.</span> Todo sincronizado en tiempo real.
+                        Y si no conectas ninguna agencia, el motor funciona igual, con tu calendario de precios y disponibilidad.
+                        <NuxtLink to="/funciones/channel-manager" class="text-secondary font-semibold hover:underline underline-offset-4">Ver el Channel Manager →</NuxtLink>
                     </p>
                 </div>
             </div>
 
-            <!-- CTA -->
-            <div class="text-center mt-20 px-6">
-                <h2 class="text-3xl font-bold mb-4">Empieza a recibir reservas directas</h2>
-                <p class="text-xl text-gray-600 mb-8">El motor de reservas está incluido en tu suscripción. Sin coste adicional.</p>
-                <div class="flex flex-col gap-4 items-center">
-                    <PruebaHospedyButton class="btn btn-grad" />
-                </div>
-            </div>
+            <!-- El paso siguiente: funciones, guías y tipos de alojamiento relacionados -->
+            <RelacionesPagina clave="motor-reservas" />
+
+            <CtaFinal />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+const DESCRIPCION = 'Recibe reservas directas en tu web sin pagar comisión por reserva: el motor de reservas va incluido en Hospedy, con su calendario de precios por día.'
+
 useSeoPagina({
     titulo: 'Motor de reservas sin comisión por reserva',
-    descripcion: 'Recibe reservas directas en tu web sin pagar comisión por reserva: el motor de reservas va incluido en Hospedy, con su calendario de precios por día.',
+    descripcion: DESCRIPCION,
 })
+useEsquema('pagina', esquemaPagina('WebPage', { nombre: 'Motor de reservas que no te cobra por reserva', descripcion: DESCRIPCION, ruta: '/funciones/motor-reservas', sobreHospedy: true }))
 </script>
