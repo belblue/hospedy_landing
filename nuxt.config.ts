@@ -48,7 +48,6 @@ export default defineNuxtConfig({
     css: [
       '@fontsource-variable/nunito',
       '~/assets/css/main.css',
-      '@fortawesome/fontawesome-svg-core/styles.css',
       'vue-toastification/dist/index.css'
     ],
     postcss: {

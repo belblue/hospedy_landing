@@ -21,6 +21,9 @@
           >
             <img
               src="/logos/solar-de-quintano.webp"
+              width="330"
+              height="174"
+              loading="lazy"
               alt="Solar de Quintano"
               class="h-16 w-auto object-contain"
             />
@@ -33,6 +36,9 @@
           >
             <img
               src="/logos/posada-prado-mayor.webp"
+              width="400"
+              height="117"
+              loading="lazy"
               alt="Posada El Prado Mayor"
               class="h-12 w-auto object-contain"
             />
@@ -45,6 +51,9 @@
           >
             <img
               src="/logos/hostal-jose-luis.webp"
+              width="243"
+              height="58"
+              loading="lazy"
               alt="Hostal José Luis"
               class="h-12 w-auto object-contain"
             />
@@ -57,6 +66,9 @@
           >
             <img
               src="/logos/hotel-los-nogales.webp"
+              width="1864"
+              height="463"
+              loading="lazy"
               alt="Hotel Los Nogales"
               class="h-12 w-auto object-contain"
             />
@@ -69,6 +81,9 @@
           >
             <img
               src="/logos/casa-zalama.webp"
+              width="720"
+              height="280"
+              loading="lazy"
               alt="Casa Zalama"
               class="h-12 w-auto object-contain"
             />

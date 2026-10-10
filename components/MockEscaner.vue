@@ -1,7 +1,8 @@
 <!--
   El escaner de documentos de escritorio en funcionamiento: sobre el render del aparato
-  (/scaner.png), un DNI entra por la ranura pequenna y un pasaporte, abierto por la pagina de
-  datos, por la grande; la ranura se ilumina al leerlo y sale la marca de leido. En bucle.
+  (/scaner.webp, a 1000 px; el original es /scaner.png), un DNI entra por la ranura pequenna y
+  un pasaporte, abierto por la pagina de datos, por la grande; la ranura se ilumina al leerlo y
+  sale la marca de leido. En bucle.
 
   Parece tridimensional sin serlo: los documentos son dibujos planos puestos en la perspectiva
   del render con una transformacion afin (la direccion de cada ranura y la vertical del aparato,
@@ -20,7 +21,7 @@
     role="img"
     aria-label="Escáner de documentos de escritorio: el DNI entra por la ranura pequeña y el pasaporte por la grande, y el lector los lee al momento."
   >
-    <img class="hm-esc__aparato" src="/scaner.png" alt="" width="2000" height="1646" />
+    <img class="hm-esc__aparato" src="/scaner.webp" alt="" width="1000" height="823" loading="lazy" />
     <svg class="hm-esc__capa" viewBox="0 -220 2000 1866" aria-hidden="true">
       <defs>
         <!-- lo que queda por encima del borde de cada ranura: lo de debajo ya esta dentro -->

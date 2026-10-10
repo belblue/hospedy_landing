@@ -1067,10 +1067,19 @@ onBeforeUnmount(() => {
   aspect-ratio: 16 / 9.4;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
 }
+/* El borde de abajo de la pantalla y la base del portátil van en proporción al ancho (aspect-ratio), no en --hm-u:
+   en la versión interactiva --hm-u lo pone JS al montar y, si su alto dependiera de él, el portátil crecería o
+   menguaría al cargar y movería la página (CLS). Las proporciones son las de la foto (1 px = 0,966 / 1000 del ancho):
+   el borde, 21,7 px de alto sobre 0,966 del ancho; la base, 17 px sobre el 112 % del ancho. */
 .hm-mac__chin {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 46.08 / 1;
+  overflow: hidden;
   color: #9aa2a9;
   font-size: calc(14 * var(--hm-u));
+  line-height: 1;
   letter-spacing: 0.18em;
   font-weight: 800;
   margin: 0.9% 0 0;
@@ -1078,7 +1087,7 @@ onBeforeUnmount(() => {
   user-select: none;
 }
 .hm-mac__base {
-  height: calc(17 * var(--hm-u));
+  aspect-ratio: 68.2 / 1;
   margin: 0 auto;
   width: 112%;
   transform: translateX(-5.3%);
