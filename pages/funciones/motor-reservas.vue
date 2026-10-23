@@ -38,7 +38,7 @@
                         Con 10 reservas directas al mes de 100&nbsp;€, <span class="font-bold text-primary">ahorras 150&nbsp;€/mes</span> en comisiones.
                     </p>
                     <p class="text-center mt-2 text-base text-gray-600">
-                        Si además cobras la reserva con tarjeta, la pasarela de cobros cuesta 3,9&nbsp;% + 0,40&nbsp;€ por cobro, IVA incluido.
+                        Si además cobras la reserva con tarjeta, la pasarela de cobros cuesta {{ comision }} por cobro, IVA incluido, más las tarifas de Stripe.
                     </p>
                 </div>
             </div>
@@ -141,6 +141,9 @@
 </template>
 
 <script setup lang="ts">
+import { TEXTO_COMISION_COBROS } from '~/utils/precios'
+
+const comision = TEXTO_COMISION_COBROS
 const DESCRIPCION = 'Recibe reservas directas en tu web sin pagar comisión por reserva: el motor de reservas va incluido en Hospedy, con su calendario de precios por día.'
 
 useSeoPagina({

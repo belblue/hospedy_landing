@@ -323,7 +323,7 @@
                   d="M5 13l4 4L19 7"
                 ></path>
               </svg>
-              <span>Cobro del total o de un depósito con tarjeta: 3,9&nbsp;% + 0,40&nbsp;€ por cobro, IVA incluido, solo si lo usas</span>
+              <span>Cobro del total o de un depósito con tarjeta: {{ comision }} por cobro, IVA incluido, más las tarifas de Stripe, solo si lo usas</span>
             </li>
             <li class="flex items-center gap-2">
               <svg
@@ -385,6 +385,9 @@
 </template>
 
 <script setup lang="ts">
+import { TEXTO_COMISION_COBROS } from '~/utils/precios'
+
+const comision = TEXTO_COMISION_COBROS
 const articulo = useArticulo('reservas-directas-vs-otas')
 </script>
 

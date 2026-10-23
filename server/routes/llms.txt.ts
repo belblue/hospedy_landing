@@ -4,9 +4,9 @@ import { CONTACTO, DEFINICION, SITIO_URL } from '../../utils/sitio'
 import { EMPRESA, FUNCIONES, DESTACADO, LEGAL, PARA_QUIEN, RECURSOS, INDICE_FUNCIONES } from '../../utils/navegacion'
 import type { PaginaWeb } from '../../utils/navegacion'
 import { ARTICULOS } from '../../utils/blog'
-import { COMISION_COBROS, CUOTA_OTA_EXTRA, DIAS_DE_PRUEBA, MENSAJE_PLANES, PLANES } from '../../utils/precios'
+import { CUOTA_OTA_EXTRA, DIAS_DE_PRUEBA, MENSAJE_PLANES, PLANES, TEXTO_COMISION_COBROS } from '../../utils/precios'
 
-const COMISION = `${String(COMISION_COBROS.porcentaje).replace('.', ',')} % + ${COMISION_COBROS.fijo.toFixed(2).replace('.', ',')} €`
+const COMISION = TEXTO_COMISION_COBROS
 
 function enlace(pagina: { nombre: string, ruta: string, descripcion?: string }) {
   const md = `${SITIO_URL}${rutaMarkdown(pagina.ruta)}`
@@ -36,7 +36,7 @@ export default defineEventHandler((event) => {
     `- Precios sin IVA, según las unidades del alojamiento (habitaciones, apartamentos o casas): ${planes()}.`,
     `- ${MENSAJE_PLANES.titulo}: ${MENSAJE_PLANES.texto}`,
     `- Cada plan incluye de 1 a 5 agencias (OTAs) en el channel manager; cada agencia de más cuesta ${CUOTA_OTA_EXTRA} €/mes.`,
-    `- Cobros online con tarjeta: ${COMISION} por cobro, IVA incluido, solo si se usan. El motor de reservas no cobra comisión por reserva.`,
+    `- Cobros online con tarjeta: ${COMISION} por cobro, IVA incluido, más las tarifas de Stripe, que Stripe cobra aparte; solo si se usan. El motor de reservas no cobra comisión por reserva.`,
     `- Prueba gratis de ${DIAS_DE_PRUEBA} días con todas las funciones, sin tarjeta y sin permanencia.`,
     '- Soporte en español por email y videollamada, de lunes a viernes, con respuesta en 24-48 horas.',
     '- Normativa: partes de viajeros a SES Hospedajes (Policía Nacional y Guardia Civil) y a la Ertzaintza; encuesta de ocupación del INE (hoteles y apartamentos, enviada con un clic; turismo rural, rellena para presentar); documento de admisión de 11 comunidades autónomas.',

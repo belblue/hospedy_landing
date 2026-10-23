@@ -38,7 +38,7 @@
                 <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /> Auto</td>
                 <td class="px-3 py-3 text-center text-green-600 font-medium"><IconoMarca tipo="si" /> Rellena y lista</td>
                 <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /><span class="sr-only">Sí</span></td>
-                <td class="px-3 py-3 text-center text-green-600">0&nbsp;% por reserva (cobros con tarjeta: 3,9&nbsp;% + 0,40&nbsp;€)</td>
+                <td class="px-3 py-3 text-center text-green-600">0&nbsp;% por reserva (cobros con tarjeta: {{ comision }} más las tarifas de Stripe)</td>
               </tr>
               <tr>
                 <td class="px-3 py-3 font-medium text-gray-900">RuralGest</td>
@@ -228,6 +228,9 @@
 </template>
 
 <script setup lang="ts">
+import { TEXTO_COMISION_COBROS } from '~/utils/precios'
+
+const comision = TEXTO_COMISION_COBROS
 const articulo = useArticulo('mejores-pms-casas-rurales')
 </script>
 

@@ -56,7 +56,7 @@ export const ARTICULOS: ArticuloBlog[] = [
     categoria: 'Elegir un PMS',
     minutos: 12,
     publicado: '2026-06-03',
-    actualizado: '2026-10-10',
+    actualizado: '2026-10-23',
     funcion: '/casas-rurales',
   },
   {
@@ -104,7 +104,7 @@ export const ARTICULOS: ArticuloBlog[] = [
     categoria: 'Ventas y canales',
     minutos: 7,
     publicado: '2026-06-03',
-    actualizado: '2026-10-10',
+    actualizado: '2026-10-23',
     funcion: '/funciones/motor-reservas',
   },
   {
@@ -116,7 +116,7 @@ export const ARTICULOS: ArticuloBlog[] = [
     categoria: 'Elegir un PMS',
     minutos: 8,
     publicado: '2026-06-03',
-    actualizado: '2026-10-10',
+    actualizado: '2026-10-23',
     funcion: '/precios',
   },
 ]

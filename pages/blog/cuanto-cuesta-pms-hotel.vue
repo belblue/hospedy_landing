@@ -67,7 +67,7 @@
         <ul>
           <li>Algunos sistemas cobran un porcentaje de cada reserva (2-4&nbsp;%)</li>
           <li>AvaiBook, por ejemplo, tiene comisiones en su pasarela de pagos</li>
-          <li>En Hospedy el motor no cobra comisión por reserva; los cobros con tarjeta cuestan 3,9&nbsp;% + 0,40&nbsp;€ por cobro, IVA incluido, solo si los usas</li>
+          <li>En Hospedy el motor no cobra comisión por reserva; los cobros con tarjeta cuestan {{ comision }} por cobro, IVA incluido, más las tarifas de Stripe, solo si los usas</li>
           <li>Con muchas reservas, estas comisiones pueden superar el coste del software</li>
         </ul>
 
@@ -206,6 +206,9 @@
 </template>
 
 <script setup lang="ts">
+import { TEXTO_COMISION_COBROS } from '~/utils/precios'
+
+const comision = TEXTO_COMISION_COBROS
 const articulo = useArticulo('cuanto-cuesta-pms-hotel')
 </script>
 

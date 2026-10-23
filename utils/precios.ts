@@ -31,8 +31,14 @@ export const CUOTA_OTA_EXTRA = 10
 // Días de prueba gratis al registrarse
 export const DIAS_DE_PRUEBA = 30
 
-// Comisión de los cobros online (solo si se usan), IVA incluido y con la de Stripe dentro
-export const COMISION_COBROS = { porcentaje: 3.9, fijo: 0.4 }
+// Comisión de Hospedy por cada cobro online (solo si se usan), IVA incluido. Las tarifas de Stripe van aparte: Stripe
+// se las cobra al hotel directamente, también la de gestionar una disputa (condiciones de cobro del 12-10-2026)
+export const COMISION_COBROS = { porcentaje: 1.5, fijo: 0 }
+
+// La comisión escrita, para las páginas, la FAQ y llms.txt: «1,5 %»; con parte fija, «X % + Y €»
+export const TEXTO_COMISION_COBROS =
+  `${String(COMISION_COBROS.porcentaje).replace('.', ',')} %` +
+  (COMISION_COBROS.fijo > 0 ? ` + ${COMISION_COBROS.fijo.toFixed(2).replace('.', ',')} €` : '')
 
 // El mensaje de los planes (decisión de Arturo del 10-10): va en /precios, en el resumen de precios de la portada, en
 // /funciones, en /comparar y en la FAQ (MensajePlanes.vue), y en llms.txt

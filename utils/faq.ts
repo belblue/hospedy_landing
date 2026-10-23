@@ -1,9 +1,9 @@
 // La FAQ general (/faq), agrupada. Las anclas (id) son estables: las enlazan la portada, las opiniones y otras
 // páginas (/faq#permanencia). Las respuestas son el mismo texto para la página y para los datos estructurados.
 import type { PreguntaFaq } from './contenido'
-import { COMISION_COBROS, CUOTA_OTA_EXTRA, DIAS_DE_PRUEBA } from './precios'
+import { CUOTA_OTA_EXTRA, DIAS_DE_PRUEBA, TEXTO_COMISION_COBROS } from './precios'
 
-const COMISION = `${String(COMISION_COBROS.porcentaje).replace('.', ',')} % + ${COMISION_COBROS.fijo.toFixed(2).replace('.', ',')} €`
+const COMISION = TEXTO_COMISION_COBROS
 
 export interface GrupoFaq {
   titulo: string
@@ -67,7 +67,7 @@ export const FAQ: GrupoFaq[] = [
       {
         id: 'letra-pequena',
         pregunta: '¿Hay letra pequeña o costes ocultos?',
-        respuesta: `No. El precio de tu plan es el que ves en la página de precios, sin IVA y con las agencias que incluye, y no lo subimos sin avisarte. Si cobras a tus huéspedes con tarjeta, cada cobro lleva su comisión (${COMISION}, IVA incluido), solo si lo usas.`,
+        respuesta: `No. El precio de tu plan es el que ves en la página de precios, sin IVA y con las agencias que incluye, y no lo subimos sin avisarte. Si cobras a tus huéspedes con tarjeta, cada cobro lleva nuestra comisión (${COMISION}, IVA incluido) y las tarifas de Stripe, que Stripe te cobra aparte, solo si lo usas.`,
       },
       {
         id: 'mis-datos',

@@ -414,7 +414,7 @@
             enlace de pago, con la pasarela de Stripe.
           </p>
           <p class="text-xl mt-4">
-            {{ comision }} por cobro, IVA incluido, solo si lo usas. El dinero va a tu propia cuenta.
+            {{ comision }} por cobro, IVA incluido, más las tarifas de Stripe, solo si lo usas. El dinero va a tu propia cuenta.
           </p>
           <NuxtLink to="/funciones/cobros" class="inline-block mt-4 text-xl text-secondary font-semibold hover:underline underline-offset-4">Saber más de los cobros →</NuxtLink>
         </div>
@@ -479,7 +479,7 @@
 <script setup lang="ts">
 import { DEFINICION } from '~/utils/sitio'
 import { PARA_QUIEN, TODAS_LAS_FUNCIONES } from '~/utils/navegacion'
-import { COMISION_COBROS, MENSAJE_PLANES, PLANES } from '~/utils/precios'
+import { MENSAJE_PLANES, PLANES, TEXTO_COMISION_COBROS } from '~/utils/precios'
 
 useSeoPagina({
   titulo: 'Programa de gestión para alojamientos turísticos',
@@ -494,7 +494,7 @@ const { appUrl } = useReferral()
 const { data: agenciasDelChannel } = await useFetch('/api/agencias', { key: 'agencias-total', pick: ['total'] })
 const totalAgencias = computed(() => agenciasDelChannel.value?.total || 150)
 
-const comision = `${String(COMISION_COBROS.porcentaje).replace('.', ',')} % + ${COMISION_COBROS.fijo.toFixed(2).replace('.', ',')} €`
+const comision = TEXTO_COMISION_COBROS
 
 // Iconos de 24 × 24 con trazo (como los de Heroicons)
 const ICONO = {

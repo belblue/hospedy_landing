@@ -107,7 +107,7 @@
                             <span class="font-bold text-primary">ahorras 450&nbsp;€/mes</span> en comisiones.
                         </p>
                         <p class="text-base text-gray-600 mt-2">
-                            Si además cobras la reserva con tarjeta, la pasarela de cobros cuesta 3,9&nbsp;% + 0,40&nbsp;€ por cobro, IVA incluido.
+                            Si además cobras la reserva con tarjeta, la pasarela de cobros cuesta {{ comision }} por cobro, IVA incluido, más las tarifas de Stripe.
                         </p>
                     </div>
                 </div>
@@ -229,6 +229,9 @@
 </template>
 
 <script setup lang="ts">
+import { TEXTO_COMISION_COBROS } from '~/utils/precios'
+
+const comision = TEXTO_COMISION_COBROS
 useSeoPagina({
     titulo: 'Software para apartamentos turísticos',
     descripcion: 'Software para apartamentos turísticos: motor de reservas sin comisión por reserva, channel manager, auto check-in y partes de viajeros automáticos.',

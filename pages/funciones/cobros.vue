@@ -13,11 +13,11 @@
 
 <script setup lang="ts">
 import type { PreguntaFaq, SeccionFuncion } from '~/utils/contenido'
-import { COMISION_COBROS } from '~/utils/precios'
+import { TEXTO_COMISION_COBROS } from '~/utils/precios'
 
-const COMISION = `${String(COMISION_COBROS.porcentaje).replace('.', ',')} % + ${COMISION_COBROS.fijo.toFixed(2).replace('.', ',')} €`
+const COMISION = TEXTO_COMISION_COBROS
 
-const DESCRIPCION = `Cobra el total o un depósito con tarjeta al reservar en tu motor y envía enlaces de pago por email. ${COMISION} por cobro, IVA incluido, solo si lo usas.`
+const DESCRIPCION = `Cobra el total o un depósito con tarjeta al reservar en tu motor y envía enlaces de pago por email. ${COMISION} por cobro, IVA incluido, más las tarifas de Stripe, solo si lo usas.`
 
 useSeoPagina({
   titulo: 'Cobros online y depósitos para tu alojamiento',
@@ -59,12 +59,13 @@ const SECCIONES: SeccionFuncion[] = [
   },
   {
     titulo: 'Una comisión clara',
-    texto: 'Solo pagas si cobras, y siempre lo mismo.',
+    texto: 'Solo pagas si cobras, y nuestra comisión es siempre la misma.',
     puntos: [
-      `${COMISION} por cobro, IVA incluido, con la comisión de Stripe dentro`,
-      'Si devuelves un cobro, la comisión no se devuelve',
-      'Si pierdes una disputa con el banco del huésped, 20 € de gestión, IVA incluido',
-      'Una factura al mes con todas las comisiones, que ya van descontadas de cada cobro',
+      `${COMISION} por cobro, IVA incluido`,
+      'Stripe te cobra aparte sus propias tarifas por procesar cada pago, según sus precios',
+      'Si devuelves un cobro, ni nuestra comisión ni las tarifas de Stripe se devuelven',
+      'Si el huésped reclama un cobro a su banco, Stripe te cobra aparte su tarifa por gestionar la disputa',
+      'Una factura al mes con nuestras comisiones, que ya van descontadas de cada cobro',
       'El dinero llega a tu banco cada lunes',
     ],
     nota: 'El motor de reservas no cobra comisión por reserva: solo pagas la de los cobros con tarjeta, si los usas.',
@@ -78,15 +79,15 @@ const SECCIONES: SeccionFuncion[] = [
 const PREGUNTAS: PreguntaFaq[] = [
   {
     pregunta: '¿Cuánto cuesta cobrar con Hospedy?',
-    respuesta: `${COMISION} por cobro, IVA incluido, con la comisión de Stripe ya dentro. Solo pagas si cobras: no hay cuota aparte. Las comisiones del mes te llegan en una sola factura y ya están descontadas de cada cobro.`,
+    respuesta: `Nuestra comisión es de ${COMISION} por cobro, IVA incluido. Además, Stripe te cobra aparte sus propias tarifas por procesar cada pago, según sus precios, y las ves en tu panel de Stripe. Solo pagas si cobras: no hay cuota aparte. Nuestras comisiones del mes te llegan en una sola factura y ya están descontadas de cada cobro.`,
   },
   {
     pregunta: '¿Qué pasa si devuelvo un cobro?',
-    respuesta: 'El huésped recupera lo que pagó y recibe un email. La comisión de ese cobro no se devuelve.',
+    respuesta: 'El huésped recupera lo que pagó y recibe un email. Ni la comisión de ese cobro ni las tarifas de Stripe se devuelven.',
   },
   {
     pregunta: '¿Y si el huésped reclama el cargo a su banco?',
-    respuesta: 'Es una disputa: te avisamos por email y la respondes desde tu panel de Stripe con la reserva y vuestras comunicaciones. Son poco frecuentes y la mayoría se ganan. Solo si se pierde, el importe vuelve al huésped y se cobran 20 € de gestión, IVA incluido.',
+    respuesta: 'Es una disputa: te avisamos por email y la respondes desde tu panel de Stripe con la reserva y vuestras comunicaciones. Son poco frecuentes y la mayoría se ganan. Stripe te cobra aparte, según sus precios, su tarifa por gestionar la disputa; si se pierde, el importe vuelve al huésped.',
   },
   {
     pregunta: '¿Cuándo llega el dinero a mi cuenta?',

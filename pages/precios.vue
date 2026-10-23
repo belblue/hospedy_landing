@@ -99,7 +99,7 @@
               <NuxtLink :to="funcion.ruta" class="font-semibold text-gray-900 hover:text-secondary underline decoration-gray-300 underline-offset-4">{{ funcion.nombre }}</NuxtLink>
               <span class="block text-gray-600">{{ funcion.descripcion }}</span>
               <span v-if="funcion.ruta === '/funciones/cobros'" class="block text-sm text-gray-500 mt-1">
-                {{ comision }} por cobro, IVA incluido, solo si los usas; el motor no cobra comisión por reserva.
+                {{ comision }} por cobro, IVA incluido, más las tarifas de Stripe, solo si los usas; el motor no cobra comisión por reserva.
               </span>
             </span>
           </li>
@@ -120,8 +120,8 @@
     <section class="max-w-4xl mx-auto px-6 mt-16 text-center" aria-labelledby="titulo-cobros">
       <h2 id="titulo-cobros" class="text-3xl font-bold text-gray-900 mb-4">Si cobras online a tus huéspedes</h2>
       <p class="text-xl text-gray-600">
-        La pasarela de cobros cuesta <strong class="text-gray-900">{{ comision }} por cobro, IVA incluido</strong>, con la
-        comisión de Stripe dentro, y solo si la usas. El motor de reservas no cobra comisión por reserva.
+        La pasarela de cobros cuesta <strong class="text-gray-900">{{ comision }} por cobro, IVA incluido</strong>, más las
+        tarifas de Stripe, que Stripe te cobra aparte, y solo si la usas. El motor de reservas no cobra comisión por reserva.
       </p>
       <NuxtLink to="/funciones/cobros" class="inline-block mt-4 text-lg font-semibold text-secondary hover:underline underline-offset-4">Cómo funcionan los cobros →</NuxtLink>
     </section>
@@ -139,7 +139,7 @@
 <script setup lang="ts">
 import type { Plan } from '~/utils/precios'
 import type { PreguntaFaq } from '~/utils/contenido'
-import { COMISION_COBROS, CUOTA_OTA_EXTRA, DIAS_DE_PRUEBA, PLANES } from '~/utils/precios'
+import { CUOTA_OTA_EXTRA, DIAS_DE_PRUEBA, PLANES, TEXTO_COMISION_COBROS } from '~/utils/precios'
 import { TODAS_LAS_FUNCIONES } from '~/utils/navegacion'
 import { mesYAnio } from '~/utils/fechas'
 
@@ -154,7 +154,7 @@ useEsquema('software', esquemaSoftware())
 
 const { appUrl } = useReferral()
 
-const comision = `${String(COMISION_COBROS.porcentaje).replace('.', ',')} % + ${COMISION_COBROS.fijo.toFixed(2).replace('.', ',')} €`
+const comision = TEXTO_COMISION_COBROS
 
 // 1290 → «1.290», como el resto de la web
 function miles(numero: number) {
@@ -225,7 +225,7 @@ const PREGUNTAS: PreguntaFaq[] = [
   },
   {
     pregunta: '¿Qué cuesta cobrar a mis huéspedes con tarjeta?',
-    respuesta: `${comision} por cobro, IVA incluido, con la comisión de Stripe dentro, y solo si lo usas. El motor de reservas no cobra comisión por reserva.`,
+    respuesta: `${comision} por cobro, IVA incluido, más las tarifas de Stripe, que Stripe te cobra aparte, y solo si lo usas. El motor de reservas no cobra comisión por reserva.`,
   },
 ]
 </script>
