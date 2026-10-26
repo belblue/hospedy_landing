@@ -4,9 +4,9 @@
             <h1 class="text-4xl text-primary uppercase px-4">Política de cookies</h1>
         </div>
         <div class="m-10">
-            <p class="text-xl">Última actualización: 23 de septiembre de 2026.</p>
-            <p class="text-xl mt-4">Esta web (gethospedy.com), de <span class="blue font-semibold">Silatek, S.L.U.</span>, no utiliza cookies propias ni de terceros, ni otras tecnologías similares, con fines analíticos, publicitarios o de elaboración de perfiles. Por eso no te pedimos consentimiento.</p>
-            <p class="text-xl mt-4">Solo utiliza los elementos técnicos que se describen a continuación, necesarios para que la web funcione de forma segura y exentos de consentimiento.</p>
+            <p class="text-xl">Última actualización: 26 de octubre de 2026.</p>
+            <p class="text-xl mt-4">Esta web (gethospedy.com), de <span class="blue font-semibold">Silatek, S.L.U.</span>, no utiliza cookies propias ni de terceros, ni otras tecnologías similares, con fines publicitarios o de elaboración de perfiles. Para conocer su audiencia usa una medición estadística propia y sin cookies, dentro de las condiciones en que la Agencia Española de Protección de Datos la admite sin consentimiento. Por eso no te pedimos consentimiento.</p>
+            <p class="text-xl mt-4">Solo utiliza esa medición de audiencia y los elementos técnicos que se describen a continuación, necesarios para que la web funcione de forma segura.</p>
 
             <div class="flex justify-center my-8">
                 <h2 class="text-2xl text-secondary">¿Qué son las cookies?</h2>
@@ -16,7 +16,8 @@
             <div class="flex justify-center my-8">
                 <h2 class="text-2xl text-secondary">¿Qué utiliza esta web?</h2>
             </div>
-            <p class="text-xl"><strong>Cloudflare Turnstile en los formularios.</strong> Los formularios de contacto y de solicitud de demo usan Cloudflare Turnstile para distinguir a las personas de los programas automáticos (bots) y frenar el spam. Turnstile no instala cookies: hace unas comprobaciones técnicas en tu navegador y, para ello, Cloudflare recibe tu dirección IP y datos técnicos de tu navegador y de la conexión. Cloudflare trata esos datos por nuestra cuenta, como encargado del tratamiento, y, según su <a href="https://www.cloudflare.com/turnstile-privacy-policy/" class="text-primary" target="_blank" rel="noopener">anexo de privacidad de Turnstile</a>, también los usa por su cuenta para mejorar ese servicio.</p>
+            <p class="text-xl"><strong>Medición de audiencia.</strong> Para saber cuántas personas visitan la web, qué páginas leen y desde dónde llegan, usamos Umami, un programa de estadísticas instalado en nuestros propios servidores: los datos no pasan por ningún tercero. No usa cookies ni guarda nada en tu navegador. Con tu dirección IP y los datos de tu navegador calcula un identificador que cambia cada día y no permite identificarte; la dirección IP no se guarda. De cada visita registra la página, la página de procedencia, el navegador, el sistema, el tipo de dispositivo, el tamaño de pantalla, el país y la ciudad aproximados, los tiempos de carga y los clics en algunos botones. Solo lo usamos para obtener estadísticas agregadas con las que mejorar la web, no lo cruzamos con otros datos ni lo cedemos a nadie, y lo borramos a los 25 meses. Si tu navegador tiene activada la opción «No rastrear» (Do Not Track), no medimos tu visita.</p>
+            <p class="text-xl mt-4"><strong>Cloudflare Turnstile en los formularios.</strong> Los formularios de contacto y de solicitud de demo usan Cloudflare Turnstile para distinguir a las personas de los programas automáticos (bots) y frenar el spam. Turnstile no instala cookies: hace unas comprobaciones técnicas en tu navegador y, para ello, Cloudflare recibe tu dirección IP y datos técnicos de tu navegador y de la conexión. Cloudflare trata esos datos por nuestra cuenta, como encargado del tratamiento, y, según su <a href="https://www.cloudflare.com/turnstile-privacy-policy/" class="text-primary" target="_blank" rel="noopener">anexo de privacidad de Turnstile</a>, también los usa por su cuenta para mejorar ese servicio.</p>
             <p class="text-xl mt-4"><strong>Posibles cookies técnicas de seguridad de Cloudflare.</strong> La web se sirve a través de la red de Cloudflare. Si están activas sus protecciones contra bots o contra el exceso de peticiones, Cloudflare puede instalar estas cookies:</p>
             <ul class="mt-2">
                 <li class="text-xl list-disc"><code>__cf_bm</code>: ayuda a distinguir las visitas de personas de las de bots. Caduca tras 30 minutos de inactividad y no sirve para identificarte ni para seguirte de una web a otra.</li>
@@ -49,6 +50,6 @@
 <script setup lang="ts">
 useSeoPagina({
     titulo: 'Política de cookies',
-    descripcion: 'Esta web no utiliza cookies analíticas ni publicitarias; solo los elementos técnicos necesarios.',
+    descripcion: 'Esta web no utiliza cookies analíticas ni publicitarias: mide su audiencia sin cookies, en nuestros propios servidores.',
 })
 </script>

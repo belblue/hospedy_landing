@@ -78,6 +78,14 @@ export default defineNuxtConfig({
         // configurado; si no, sale como "Muy pronto" y /cuenta-demo remite a las otras dos formas
         // de probar.
         demoEnabled: false,
+        // Medición de audiencia con Umami en nuestros servidores (plugins/metricas.ts):
+        // NUXT_PUBLIC_METRICAS_URL (https://metricas.silatek.net), NUXT_PUBLIC_METRICAS_SITIO (el
+        // Website ID de esta web en Umami) y NUXT_PUBLIC_METRICAS_DOMINIOS (dónde puede medir,
+        // separados por comas; en prod, gethospedy.com,www.gethospedy.com). Sin URL o sin sitio, la
+        // web no carga nada de Umami.
+        metricasUrl: "",
+        metricasSitio: "",
+        metricasDominios: "",
       },
     },
     routeRules: {

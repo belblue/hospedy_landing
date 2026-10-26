@@ -4,7 +4,7 @@
             <h1 class="text-4xl text-primary uppercase text-center px-4">Política de privacidad</h1>
         </div>
         <div class="m-10">
-            <p class="text-xl">Última actualización: 10 de octubre de 2026.</p>
+            <p class="text-xl">Última actualización: 26 de octubre de 2026.</p>
             <p class="text-xl mt-4">Hospedy es un servicio de <span class="blue font-semibold">Silatek, S.L.U.</span> En esta política te explicamos qué datos personales tratamos, para qué, con qué base jurídica, a quién se los comunicamos, cuánto tiempo los conservamos y cómo puedes ejercer tus derechos. Se aplica a esta web (gethospedy.com) y a los servicios de Hospedy en hospedy.app.</p>
             <p class="text-xl mt-4">Tratamos los datos conforme al Reglamento (UE) 2016/679, general de protección de datos (RGPD), y al resto de la normativa de protección de datos aplicable.</p>
 
@@ -30,6 +30,7 @@
             </div>
             <ul>
                 <li class="text-xl list-disc"><strong>Al visitar la web:</strong> datos técnicos de la conexión, como la dirección IP, el navegador y el dispositivo que usas, la página que solicitas y la fecha y hora. Los reciben nuestros servidores y la red de Cloudflare, a través de la que se sirve la web. Lo relativo a las cookies se explica en la <NuxtLink to="/cookies" class="text-primary">Política de cookies</NuxtLink>.</li>
+                <li class="text-xl list-disc"><strong>Para medir la audiencia de la web:</strong> las páginas que visitas, la página desde la que llegas, tu navegador, sistema, tipo de dispositivo y tamaño de pantalla, tu país y tu ciudad aproximados, los tiempos de carga y los clics en algunos botones. Con tu dirección IP solo se calcula un identificador que cambia cada día; la IP no se guarda. Se explica en la <NuxtLink to="/cookies" class="text-primary">Política de cookies</NuxtLink>.</li>
                 <li class="text-xl list-disc"><strong>En el formulario de contacto:</strong> tu nombre, tu correo electrónico, tu mensaje y, si marcas la casilla, que quieres recibir novedades de Hospedy.</li>
                 <li class="text-xl list-disc"><strong>En la solicitud de demo:</strong> tu nombre, tu correo electrónico, el nombre de tu alojamiento, su número de unidades, si quieres recibir novedades de Hospedy y, si decides darlos, tu teléfono y un mensaje.</li>
                 <li class="text-xl list-disc"><strong>Si nos escribes por correo electrónico o por WhatsApp:</strong> tu dirección de correo o tu número de teléfono y lo que nos cuentes en el mensaje.</li>
@@ -90,6 +91,11 @@
                             <td class="block md:table-cell text-xl md:p-3 align-top"><strong>Proteger la web y el servicio</strong> frente a abusos, ataques y spam, mediante registros técnicos de seguridad y comprobaciones en los formularios.</td>
                             <td class="block md:table-cell text-xl md:p-3 align-top mt-2 md:mt-0"><span class="md:hidden font-semibold">Base jurídica: </span>Nuestro interés legítimo en la seguridad de la web y del servicio.</td>
                             <td class="block md:table-cell text-xl md:p-3 align-top mt-2 md:mt-0"><span class="md:hidden font-semibold">Plazo: </span>Doce meses.</td>
+                        </tr>
+                        <tr class="block md:table-row border-b border-gray-200 py-4 md:py-0">
+                            <td class="block md:table-cell text-xl md:p-3 align-top"><strong>Medir la audiencia de la web</strong> con estadísticas propias y sin cookies (Umami, en nuestros servidores).</td>
+                            <td class="block md:table-cell text-xl md:p-3 align-top mt-2 md:mt-0"><span class="md:hidden font-semibold">Base jurídica: </span>Nuestro interés legítimo en saber cómo se usa la web para mejorarla.</td>
+                            <td class="block md:table-cell text-xl md:p-3 align-top mt-2 md:mt-0"><span class="md:hidden font-semibold">Plazo: </span>25 meses.</td>
                         </tr>
                         <tr class="block md:table-row border-b border-gray-200 py-4 md:py-0">
                             <td class="block md:table-cell text-xl md:p-3 align-top"><strong>Elaborar estadísticas agregadas y anónimas</strong> a partir de los datos anteriores.</td>

@@ -122,6 +122,7 @@ import { useToast, POSITION, TYPE } from 'vue-toastification/dist/index.mjs'
 const panelApiBase = usePanelApiBase()
 const { demoLista } = usePruebaHospedy()
 const { appUrl } = useReferral()
+const { evento } = useMetricas()
 const toast = useToast()
 
 const email = ref('')
@@ -177,6 +178,7 @@ async function solicitar() {
     })
     removeCaptcha()
     enviado.value = true
+    evento('cuenta-demo')
   } catch (e: any) {
     aviso(String(e?.data?.detail || 'No se ha podido registrar la solicitud. Inténtalo de nuevo.'))
     // El token es de un solo uso: si el envío falla, hay que reponer el widget.

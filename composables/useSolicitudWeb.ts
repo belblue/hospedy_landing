@@ -40,6 +40,7 @@ export function usePanelApiBase(): string {
 
 export function useSolicitudWeb() {
   const base = usePanelApiBase()
+  const { evento } = useMetricas()
 
   function emailValido(email: string): boolean {
     const limpio = email.trim()
@@ -75,6 +76,7 @@ export function useSolicitudWeb() {
       console.error('[formulario] respuesta inesperada del panel:', respuesta)
       throw new Error(fallo)
     }
+    evento(datos.tipo === 'demo' ? 'formulario-demo' : 'formulario-contacto')
     const mensaje = typeof respuesta.mensaje === 'string' ? respuesta.mensaje.trim() : ''
     return mensaje || `¡Gracias! Hemos recibido ${que}.`
   }
