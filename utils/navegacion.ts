@@ -20,7 +20,7 @@ export interface GrupoDeFunciones {
   items: PaginaWeb[]
 }
 
-export const PORTADA: PaginaWeb = { nombre: 'Inicio', ruta: '/', actualizado: '2026-10-10' }
+export const PORTADA: PaginaWeb = { nombre: 'Inicio', ruta: '/', actualizado: '2026-11-03' }
 
 export const FUNCIONES: GrupoDeFunciones[] = [
   {
@@ -117,7 +117,7 @@ export const DESTACADO: PaginaWeb = {
   nombre: 'Hugo, tu asistente con IA',
   ruta: '/funciones/hugo',
   descripcion: 'Pídele cambios o dudas, escribiendo o con la voz; tú confirmas',
-  actualizado: '2026-10-10',
+  actualizado: '2026-11-03',
 }
 
 // Todas las funciones en una lista: los tres grupos y Hugo
@@ -242,7 +242,7 @@ export const RELACIONES: Record<string, Relaciones> = {
     tipos: LOS_TRES,
   },
   'planning-reservas': {
-    funciones: [F('channel-manager'), F('check-in'), F('limpieza'), F('hugo')],
+    funciones: [F('channel-manager'), F('check-in'), F('limpieza'), F('mensajes'), F('estadisticas'), F('hugo')],
     guias: ['como-evitar-overbookings'],
     tipos: LOS_TRES,
   },
@@ -287,7 +287,7 @@ export const RELACIONES: Record<string, Relaciones> = {
     tipos: ['/casas-rurales', '/apartamentos', '/hoteles'],
   },
   'hugo': {
-    funciones: [F('channel-manager'), F('planning-reservas'), F('comunicaciones')],
+    funciones: [F('estadisticas'), F('channel-manager'), F('planning-reservas'), F('comunicaciones')],
     guias: [],
     tipos: LOS_TRES,
   },

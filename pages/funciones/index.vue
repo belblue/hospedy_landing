@@ -22,8 +22,8 @@
           <p class="text-secondary font-semibold text-lg mb-2">Destacado</p>
           <h2 id="funcion-destacada" class="text-3xl font-bold text-gray-900 mb-4">{{ DESTACADO.nombre }}</h2>
           <p class="text-xl text-gray-700 mb-6">
-            {{ DESTACADO.descripcion }}. Cambia precios, busca reservas y responde tus dudas, y no aplica nada sin que lo
-            veas antes.
+            {{ DESTACADO.descripcion }}. Cambia precios, busca reservas, te da las cifras de tu negocio y responde tus
+            dudas, y no aplica nada sin que lo veas antes.
           </p>
           <NuxtLink :to="DESTACADO.ruta" class="btn btn-principal sm:flex-none inline-block px-6 py-3 font-semibold">Conoce a Hugo</NuxtLink>
         </div>

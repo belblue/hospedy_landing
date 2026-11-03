@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import type { PreguntaFaq, SeccionFuncion } from '~/utils/contenido'
 
-const DESCRIPCION = 'Hugo cambia precios y disponibilidad, busca reservas y responde tus dudas: se lo pides escribiendo o con la voz, y tú confirmas cada cambio.'
+const DESCRIPCION = 'Hugo cambia precios y cierres, busca reservas, te da las cifras de tu negocio y responde tus dudas, escribiendo o con la voz. Tú confirmas cada cambio.'
 
 useSeoPagina({
   titulo: 'Hugo, el asistente con IA para tu alojamiento',
@@ -52,7 +52,7 @@ const SECCIONES: SeccionFuncion[] = [
   },
   {
     titulo: 'Reservas y día a día',
-    texto: 'También te echa una mano con lo de cada día.',
+    texto: 'También te echa una mano con lo de cada día: quién llega mañana, quién desayuna hoy o qué te queda por cobrar.',
     puntos: [
       'Busca reservas por nombre, email, teléfono o fechas',
       'Crea reservas directas enseñándote antes la habitación y el precio',
@@ -63,8 +63,26 @@ const SECCIONES: SeccionFuncion[] = [
   },
   {
     titulo: 'Pregúntale cómo va el negocio',
-    texto: 'Hazle las preguntas que le harías a tu socio y te contesta con los datos de tu alojamiento.',
-    puntos: ['«¿Cómo va septiembre?»', '«¿Qué me queda por cobrar?»', '«¿Quién llega mañana?»', '«¿Quién desayuna hoy?»'],
+    texto: 'Te da las cifras de cualquier periodo, por antiguo que sea, y las compara con otro: ocupación, ingresos, precio medio por noche, estancias y huéspedes, con la diferencia en número y en porcentaje. Las cuentas las hace el programa, no Hugo: él te las lee.',
+    puntos: [
+      '«Compara agosto de este año con el del año pasado»',
+      '«¿Cómo fue 2025 mes a mes?»',
+      '«¿Qué días de la semana se me llenan más?»',
+      'Si se lo pides, te lo desglosa por mes, por semana, por tipo de habitación o por día de la semana',
+    ],
+    nota: 'Su respuesta acaba con el enlace «Ver estos gráficos en Estadísticas», que abre esa pantalla con el mismo periodo y los mismos filtros.',
+    enlace: { texto: 'Conoce las estadísticas de Hospedy', ruta: '/funciones/estadisticas' },
+  },
+  {
+    titulo: 'Pregúntale por tus datos',
+    texto: 'Además de los totales, Hugo consulta los datos de todos tus alojamientos (reservas, huéspedes, agencias y extras) y te contesta con las cifras y los nombres que encuentra. Consultar no cambia nada.',
+    puntos: [
+      '«¿Qué agencia me trajo más reservas este año?»',
+      '«¿Qué huéspedes han repetido conmigo?»',
+      '«¿De qué países vienen mis huéspedes?»',
+      '«¿Cuántas cunas vendí en agosto?»',
+    ],
+    nota: 'No enseña documentos de identidad, fechas de nacimiento, direcciones, teléfonos ni correos de tus huéspedes.',
   },
   {
     titulo: 'Sabe cómo funciona Hospedy',
@@ -100,6 +118,10 @@ const PREGUNTAS: PreguntaFaq[] = [
   {
     pregunta: '¿Qué no hace Hugo?',
     respuesta: 'No registra huéspedes, no emite facturas, no cobra ni envía emails sueltos a tus huéspedes, y no pone los precios por su cuenta: los cambios los decides tú. Para todo eso tienes sus pantallas en Hospedy, y Hugo te explica cómo se hace.',
+  },
+  {
+    pregunta: '¿Qué datos ve Hugo?',
+    respuesta: 'Solo los de tu cuenta: tus reservas, huéspedes, agencias y extras. Para responder a tus preguntas ve las reservas con salida en los dos últimos años y todas las futuras; si preguntas por algo anterior, dile el año y lo incluye. Las estadísticas te las da de cualquier periodo.\n\nNo enseña documentos de identidad, fechas de nacimiento, direcciones, teléfonos ni correos de tus huéspedes. Sí puedes darle un teléfono o un correo para que te diga de qué reserva es, y no lo repite. Lo que pone en las notas de una reserva lo lee como información: nunca sigue instrucciones que haya ahí.',
   },
   {
     pregunta: '¿Qué pasa con mis conversaciones?',

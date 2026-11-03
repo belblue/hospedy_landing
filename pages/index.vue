@@ -269,6 +269,18 @@
               </span>
             </li>
           </ul>
+          <!-- y lo que contesta el huésped, de vuelta: en ámbar, como lo pendiente en Mensajes -->
+          <NuxtLink to="/funciones/mensajes" class="group mt-3 flex items-center gap-3 bg-amber-50 rounded-xl px-4 py-3 shadow-sm hover:bg-white transition-colors">
+            <span class="w-9 h-9 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="ICONO.responder"></path>
+              </svg>
+            </span>
+            <span class="min-w-0">
+              <span class="block font-semibold text-gray-900 group-hover:underline underline-offset-4">Si el huésped contesta, lo ves en Mensajes →</span>
+              <span class="block text-sm text-gray-600">En la conversación de su reserva, y le respondes desde Hospedy</span>
+            </span>
+          </NuxtLink>
         </div>
       </div>
     </section>
@@ -280,8 +292,9 @@
           <p class="text-secondary font-semibold text-lg mb-3">Asistente con IA, incluido en todos los planes</p>
           <h2 id="titulo-hugo" class="text-4xl font-bold text-gray-900 mb-5">Hugo: se lo pides y lo prepara él</h2>
           <p class="text-xl text-gray-700 mb-6">
-            Pídele los cambios como a una persona, escribiendo o con la voz: «baja la Doble a 90 € del 1 al 7 de julio»,
-            «¿quién llega mañana?», «¿qué me queda por cobrar?». Hugo te enseña el cambio y decides tú.
+            Pídeselo como a una persona, escribiendo o con la voz: «baja la Doble a 90 € del 1 al 7 de julio», «compara
+            agosto con el del año pasado» o «¿quién llega mañana?». Te contesta con tus datos y, antes de cambiar nada, te
+            enseña el cambio para que decidas tú.
           </p>
           <ul class="space-y-2 mb-8">
             <li v-for="punto in PUNTOS_HUGO" :key="punto" class="flex items-start gap-2 text-lg text-gray-700">
@@ -506,6 +519,7 @@ const ICONO = {
   movil: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z',
   sobre: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
   pantalla: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+  responder: 'M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6',
 }
 
 const PILDORAS = [
@@ -558,7 +572,8 @@ const EMAILS_EJEMPLO = [
 
 const PUNTOS_HUGO = [
   'Cambia precios, cierres y estancias mínimas de muchos días en una frase',
-  'Busca reservas y te responde cómo va el negocio',
+  'Te da las cifras de cualquier periodo y las compara con el año anterior',
+  'Busca reservas y responde por tus agencias, huéspedes y extras',
   'En el día a día, no aplica nada sin enseñártelo antes',
 ]
 

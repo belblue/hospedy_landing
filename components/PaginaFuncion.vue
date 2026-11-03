@@ -57,6 +57,11 @@
             </li>
           </ul>
           <p v-if="seccion.nota" class="mt-4 text-base text-gray-500">{{ seccion.nota }}</p>
+          <NuxtLink
+            v-if="seccion.enlace"
+            :to="seccion.enlace.ruta"
+            class="inline-block mt-4 text-lg font-semibold text-secondary hover:underline underline-offset-4"
+          >{{ seccion.enlace.texto }} →</NuxtLink>
         </section>
       </div>
     </div>

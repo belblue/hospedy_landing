@@ -14,4 +14,6 @@ export interface SeccionFuncion {
   puntos?: string[]
   // una línea pequeña al final del bloque: un matiz o un requisito
   nota?: string
+  // el paso siguiente, al pie del bloque: otra página de la web que lo cuenta entero
+  enlace?: { texto: string, ruta: string }
 }
