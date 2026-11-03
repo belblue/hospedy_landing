@@ -48,7 +48,7 @@ export const FUNCIONES: GrupoDeFunciones[] = [
         nombre: 'Comunicaciones con el huésped',
         ruta: '/funciones/comunicaciones',
         descripcion: 'Emails automáticos a tus huéspedes, cuando tú decidas',
-        actualizado: '2026-10-10',
+        actualizado: '2026-11-03',
       },
       {
         nombre: 'Limpieza',
@@ -88,7 +88,7 @@ export const FUNCIONES: GrupoDeFunciones[] = [
         nombre: 'Motor de reservas',
         ruta: '/funciones/motor-reservas',
         descripcion: 'Reservas directas en tu web, sin comisión por reserva',
-        actualizado: '2026-10-10',
+        actualizado: '2026-11-03',
       },
       {
         nombre: 'Cobros y depósitos',

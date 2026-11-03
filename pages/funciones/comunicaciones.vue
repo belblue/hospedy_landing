@@ -61,8 +61,18 @@ const SECCIONES: SeccionFuncion[] = [
       'Nombre, fechas, noches, habitación, precio y demás datos de la reserva',
       'El enlace a su auto check-in y, con los cobros activados, el de pago',
       'Botones para abrir Google Maps, escribirte por WhatsApp o dejar una opinión en TripAdvisor',
-      'En español y en inglés, en el mismo email',
+      'En español y en inglés: a cada huésped le llega el de su idioma',
       'Tu pie de email común y, si quieres, copia a tu correo',
+    ],
+  },
+  {
+    titulo: 'Con la imagen de tu alojamiento',
+    texto: 'Los emails que reciben tus huéspedes, los tuyos y los que envía Hospedy, salen en nombre de tu alojamiento y con su aspecto.',
+    puntos: [
+      'Tu logo arriba; si no tienes, el nombre de tu alojamiento',
+      'Desde una dirección propia de tu alojamiento, con su nombre como remitente',
+      'El botón «Cómo llegar», si pones el enlace de tu alojamiento en Google Maps',
+      'Si el huésped contesta, lo ves en Mensajes, en la conversación de su reserva',
     ],
   },
   {
@@ -86,7 +96,11 @@ const SECCIONES: SeccionFuncion[] = [
 const PREGUNTAS: PreguntaFaq[] = [
   {
     pregunta: '¿En qué idioma reciben los emails mis huéspedes?',
-    respuesta: 'Escribes cada email en español y, si quieres, también en inglés. El huésped recibe un solo email con los dos textos, primero el español y debajo el inglés. Si dejas un idioma vacío, ese no sale.',
+    respuesta: 'Escribes cada email en español y, si quieres, también en inglés. Si Hospedy sabe el idioma del huésped, porque se lo dice la agencia o su navegador al reservar en tu motor o al hacer el check-in, le llega solo el suyo: el español si habla español, catalán, euskera o gallego, y el inglés en cualquier otro caso. Si no lo sabe, recibe un solo email con los dos textos, primero el español. Si dejas un idioma vacío, ese no sale.',
+  },
+  {
+    pregunta: '¿Desde qué dirección salen los emails?',
+    respuesta: 'Desde una dirección propia de tu alojamiento, con su nombre como remitente: no tienes que configurar ningún correo. Si el huésped contesta, su respuesta entra en Mensajes, en la conversación de su reserva, y le respondes desde ahí sin que vea tu correo personal.',
   },
   {
     pregunta: '¿Puedo ver cómo queda un email antes de activarlo?',

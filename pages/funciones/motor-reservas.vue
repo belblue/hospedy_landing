@@ -89,7 +89,7 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-lg mb-2">Confirmación automática</h3>
-                            <p class="text-gray-600">El huésped recibe un email de confirmación con todos los detalles.</p>
+                            <p class="text-gray-600">El huésped recibe un email de confirmación con todos los detalles y, si tú lo permites, un enlace para cancelar él mismo con la antelación que decidas.</p>
                         </div>
                     </div>
                     <div class="flex gap-4">
