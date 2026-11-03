@@ -33,6 +33,11 @@
       </div>
     </section>
 
+    <!-- una pantalla del panel que no cabe en media columna (Mensajes, Estadísticas): a todo el ancho, debajo -->
+    <div v-if="$slots.maqueta" class="max-w-6xl mx-auto px-6 mt-12" data-nosnippet>
+      <slot name="maqueta" />
+    </div>
+
     <!-- Lo que resuelve -->
     <div class="bg-gray-50 py-16 mt-16">
       <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-6">

@@ -51,6 +51,12 @@ export const FUNCIONES: GrupoDeFunciones[] = [
         actualizado: '2026-11-03',
       },
       {
+        nombre: 'Mensajes con huéspedes',
+        ruta: '/funciones/mensajes',
+        descripcion: 'Sus respuestas, en la conversación de su reserva; contestas desde Hospedy',
+        actualizado: '2026-11-03',
+      },
+      {
         nombre: 'Limpieza',
         ruta: '/funciones/limpieza',
         descripcion: 'Tu equipo marca las habitaciones desde el móvil y tú lo ves en el planning',
@@ -108,7 +114,7 @@ export const DESTACADO: PaginaWeb = {
   actualizado: '2026-10-10',
 }
 
-// Las once funciones en una lista: los tres grupos y Hugo
+// Todas las funciones en una lista: los tres grupos y Hugo
 export const TODAS_LAS_FUNCIONES: PaginaWeb[] = [...FUNCIONES.flatMap(grupo => grupo.items), DESTACADO]
 
 // El índice de todas las funciones, que es también la miga de pan de cada una
@@ -116,7 +122,7 @@ export const INDICE_FUNCIONES: PaginaWeb = {
   nombre: 'Funciones',
   ruta: '/funciones',
   descripcion: 'Todo lo que hace Hospedy, agrupado',
-  actualizado: '2026-10-10',
+  actualizado: '2026-11-03',
 }
 
 export const PARA_QUIEN: PaginaWeb[] = [
@@ -147,7 +153,7 @@ export const RECURSOS: PaginaWeb[] = [
 ]
 
 export const EMPRESA: PaginaWeb[] = [
-  { nombre: 'Precios', ruta: '/precios', actualizado: '2026-10-10' },
+  { nombre: 'Precios', ruta: '/precios', actualizado: '2026-11-03' },
   { nombre: 'Contacto', ruta: '/contacto', actualizado: '2026-10-10' },
   { nombre: 'Ver una demo', ruta: '/demo', actualizado: '2026-10-10' },
   { nombre: 'Quiénes somos', ruta: '/quienes-somos', actualizado: '2026-10-10' },
@@ -240,9 +246,14 @@ export const RELACIONES: Record<string, Relaciones> = {
     tipos: LOS_TRES,
   },
   'comunicaciones': {
-    funciones: [F('check-in'), F('cobros'), F('hugo'), F('motor-reservas')],
+    funciones: [F('mensajes'), F('check-in'), F('cobros'), F('hugo'), F('motor-reservas')],
     guias: ['pre-checkin-ahorrar-tiempo'],
     tipos: ['/apartamentos', '/casas-rurales', '/hoteles'],
+  },
+  'mensajes': {
+    funciones: [F('comunicaciones'), F('check-in'), F('planning-reservas')],
+    guias: ['pre-checkin-ahorrar-tiempo'],
+    tipos: LOS_TRES,
   },
   'limpieza': {
     funciones: [F('planning-reservas')],
