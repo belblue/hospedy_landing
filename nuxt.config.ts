@@ -63,9 +63,9 @@ export default defineNuxtConfig({
       rididApiBase: "",
       public: {
         // App de Hospedy (inicio de sesión y registro). Se sobrescribe por entorno con
-        // NUXT_PUBLIC_CLIENT_APP_URL: en dev, el panel de dev; en prod, app.ridid.me hasta que el
-        // panel se mude a app.hospedy.app.
-        clientAppUrl: "https://app.ridid.me",
+        // NUXT_PUBLIC_CLIENT_APP_URL: en dev, el panel de dev; en prod, panel.hospedy.app, donde está
+        // el panel desde el 27-10-2026 (app.ridid.me redirige allí).
+        clientAppUrl: "https://panel.hospedy.app",
         // API del admin panel, que recibe los formularios de la web: contacto y demo asistida
         // (/api/public/solicitudes) y el cuestionario de la cuenta de demo (/api/demo/request). Por
         // entorno con NUXT_PUBLIC_PANEL_API_BASE (en dev, https://rididadminapi.silatek.net); vacía,

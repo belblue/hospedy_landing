@@ -4,7 +4,7 @@
 // app lo vuelve a recordar y lo pone en el registro, donde se puede corregir o quitar.
 const COOKIE = 'hospedy_ref'
 const MAX_AGE = 60 * 60 * 24 * 30
-const APP_POR_DEFECTO = 'https://app.ridid.me'
+const APP_POR_DEFECTO = 'https://panel.hospedy.app'
 
 export function normalizarCodigo (raw: unknown): string {
   const texto = Array.isArray(raw) ? raw[0] : raw
