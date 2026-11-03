@@ -15,13 +15,15 @@
   conversacion. Todas las medidas van en --hm-u, 1 px del panel real: en el portatil la pone el
   marco y en el movil vale lo mismo que --p.
 
-  La rueda no se captura: ni la lista ni la conversacion tienen scroll propio. Lo que no cabe en
-  la conversacion queda arriba y, al llegar un mensaje, baja hasta el desde JS (scrollTop sobre
-  overflow:hidden), como el auto check-in.
+  La rueda no se captura: ni la lista ni la conversacion tienen scroll propio. Lo que no cabe se
+  mueve con scrollTop sobre overflow:hidden, como el auto check-in, y se recorre arrastrando, con
+  el teclado o tocando (composables/useRecorrido): en la lista, lo que asoma; en la conversacion,
+  arriba o abajo. La conversacion se abre por el final y, al llegar un mensaje, baja hasta el.
 -->
 <template>
   <component :is="movil ? MockPhoneFrame : MockPortatilFrame" v-bind="movil ? {} : { alto: ALTO_PANTALLA }">
     <div
+      ref="raizEl"
       class="hm-msj"
       :class="{ 'hm-msj--movil': movil, 'is-conversacion': movil && abierto }"
       role="region"
@@ -73,7 +75,16 @@
           </div>
 
           <div class="hm-msj__cuerpo">
-            <div v-show="!movil || !abierto" class="hm-msj__lista">
+            <div
+              v-show="!movil || !abierto"
+              ref="listaEl"
+              class="hm-msj__lista"
+              :class="{ 'is-drag': arrastrandoLista }"
+              tabindex="0"
+              role="group"
+              aria-label="Conversaciones. Se recorren arrastrando, con las flechas o tocando lo que asoma."
+              v-on="manejadoresLista"
+            >
               <div class="hm-msj__lista-titulo">{{ tituloLista }}</div>
               <div v-if="!lista.length" class="hm-msj__vacio">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path :d="ICONOS.bandeja" /></svg>
@@ -85,6 +96,7 @@
                 :key="h.id"
                 class="hm-hilo"
                 :class="{ 'is-sel': h.id === seleccionado, 'is-leido': !h.noLeidos && !h.entregaFallida }"
+                data-bloque
                 role="button"
                 tabindex="0"
                 :aria-current="h.id === seleccionado ? 'true' : null"
@@ -116,6 +128,13 @@
                 <svg v-if="movil" class="hm-hilo__flecha" viewBox="0 0 24 24" aria-hidden="true"><path :d="ICONOS.derecha" /></svg>
               </div>
             </div>
+            <span
+              v-show="!movil || !abierto"
+              class="hm-msj__indicador hm-msj__indicador--lista"
+              :class="{ 'is-on': indicadorLista.on }"
+              :style="{ top: indicadorLista.top + 'px', height: indicadorLista.alto + 'px' }"
+              aria-hidden="true"
+            />
 
             <div v-show="!movil || abierto" class="hm-msj__panel">
               <div v-if="abierto" class="hm-conv">
@@ -146,7 +165,15 @@
                   </div>
                 </div>
 
-                <div ref="hiloEl" class="hm-conv__hilo">
+                <div
+                  ref="hiloEl"
+                  class="hm-conv__hilo"
+                  :class="{ 'is-drag': arrastrandoHilo }"
+                  tabindex="0"
+                  role="group"
+                  :aria-label="'Conversación con ' + abierto.titular + '. Se recorre arrastrando, con las flechas o tocando arriba o abajo.'"
+                  v-on="manejadoresHilo"
+                >
                   <div v-for="m in abierto.mensajes" :key="m.id" class="hm-m" :class="m.dir === 'in' ? 'hm-m--in' : 'hm-m--out'">
                     <div class="hm-m__cab">
                       <template v-if="m.dir === 'in'">
@@ -163,7 +190,7 @@
                           :class="{ 'is-fallido': m.entrega === 'no_entregado', 'is-ayuda': m.entrega === 'entregado' }"
                           :title="m.entrega === 'entregado' ? AYUDA_ENTREGADO : undefined"
                         >· {{ estadoEnvio(m) }}</span>
-                        <a v-if="m.correo" href="#" class="hm-m__ver" @click.prevent="verCorreo(m)">Ver el correo</a>
+                        <a v-if="m.correo" href="#" class="hm-m__ver" @click.prevent="verCorreo(m, $event)">Ver el correo</a>
                       </template>
                     </div>
                     <p v-if="m.texto" class="hm-m__texto">{{ m.texto }}</p>
@@ -192,14 +219,20 @@
                       </div>
                     </template>
                     <template v-if="m.adjunto">
-                      <span class="hm-m__adjunto">
+                      <button type="button" class="hm-m__adjunto" @click="avisar(AVISO_ADJUNTO)">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path :d="ICONOS.documento" /></svg>
                         {{ m.adjunto.nombre }}<small> · {{ m.adjunto.tamano }} · descargar</small>
-                      </span>
+                      </button>
                       <p class="hm-m__aviso">Lo ha escrito el huésped: los enlaces de su texto no se abren desde aquí y los archivos bloqueados no se guardan.</p>
                     </template>
                   </div>
                 </div>
+                <span
+                  class="hm-msj__indicador hm-msj__indicador--hilo"
+                  :class="{ 'is-on': indicadorHilo.on }"
+                  :style="{ top: indicadorHilo.top + 'px', height: indicadorHilo.alto + 'px' }"
+                  aria-hidden="true"
+                />
 
                 <div class="hm-conv__resp">
                   <label for="hm-msj-respuesta" class="hm-conv__label">Responder a {{ abierto.titular }}</label>
@@ -233,11 +266,11 @@
         <svg viewBox="0 0 24 24"><path :d="ICONOS.chat" /></svg>
       </span>
 
-      <div v-if="toast" class="hm-msj__toast" role="status">{{ toast }}</div>
+      <div v-if="toast" class="hm-msj__toast" :class="{ 'is-error': toastError }" :role="toastError ? 'alert' : 'status'">{{ toast }}</div>
 
       <!-- "Ver el correo": el correo tal como le llego al huesped -->
       <div v-if="correo" class="hm-modal" @click.self="cerrarCorreo">
-        <div class="hm-modal__dialogo" role="dialog" aria-modal="true" :aria-label="correo.asunto">
+        <div class="hm-modal__dialogo" role="dialog" aria-modal="true" :aria-label="correo.asunto" tabindex="-1">
           <div class="hm-modal__cab">
             <span class="hm-modal__titulo">{{ correo.asunto }}</span>
             <button ref="cerrarEl" type="button" class="hm-modal__cerrar" aria-label="Cerrar" @click="cerrarCorreo">
@@ -296,12 +329,15 @@ import {
 } from '~/utils/mensajesEjemplo'
 
 const AYUDA_ENTREGADO = 'El servidor de correo del huésped lo ha aceptado. No quiere decir que esté en su bandeja de entrada: Gmail u Outlook no avisan si lo dejan en correo no deseado.'
+const AVISO_ADJUNTO = 'En el panel, el archivo se descarga al pulsarlo'
 
 /* el portatil desde 1024 px; por debajo, el movil. Va dentro de MontarAlVerse, que solo la monta
    en el navegador: aqui ya se sabe el ancho y no hay que cambiar de marco despues de pintar */
 const ANCHO_PORTATIL = '(min-width: 1024px)'
-/* la pantalla del portatil, algo mas alta que la del marco por defecto: cabe la conversacion */
+/* la pantalla del portatil, algo mas alta que la del marco por defecto: cabe la conversacion. A lo ancho, la del
+   marco: 1200 px del panel; en el movil, 375 */
 const ALTO_PANTALLA = 832
+const ANCHO_PANTALLA = 1200
 const movil = ref(typeof window !== 'undefined' && !window.matchMedia(ANCHO_PORTATIL).matches)
 const hilos = ref<HiloEjemplo[]>(conversacionesDeEjemplo())
 const estado = ref<'pendientes' | 'todos'>('pendientes')
@@ -315,11 +351,49 @@ const correcciones = reactive<Record<number, string>>({})
 hilos.value.forEach(h => h.mensajes.forEach((m) => {
   if (m.puedeReenviar && m.para) correcciones[m.id] = m.para
 }))
+/* las direcciones que no reciben correos (rebotaron porque no existen), con la fecha del rebote: como en el panel, a
+   ellas no sale nada, ni una respuesta ni un reenvio, y lo que se intente da su error */
+const bloqueadas = new Map<string, string>()
+const MESES_REBOTE = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic']
+function bloquear(email: string, cuando: string) {
+  const [dia, mes] = cuando.split(',')[0].split(' ')
+  const dos = (n: number) => (n < 10 ? '0' : '') + n
+  bloqueadas.set(email.toLowerCase(), dos(Number(dia)) + '/' + dos(MESES_REBOTE.indexOf(mes) + 1))
+}
+function textoBloqueo(email: string) {
+  return 'No se ha enviado: ' + email + ' no recibe correos (la dirección no existe, ' + bloqueadas.get(email.toLowerCase())
+    + '). Corrige el email del huésped.'
+}
+hilos.value.forEach(h => h.mensajes.forEach((m) => {
+  if (m.entrega === 'no_entregado' && m.motivo === 'la dirección no existe' && m.para) bloquear(m.para, m.cuando)
+}))
 const aviso = ref(true)
 const toast = ref('')
 const correoAbierto = ref<{ hilo: HiloEjemplo, mensaje: MensajeEjemplo } | null>(null)
+const raizEl = ref<HTMLElement | null>(null)
+const listaEl = ref<HTMLElement | null>(null)
 const hiloEl = ref<HTMLElement | null>(null)
 const cerrarEl = ref<HTMLElement | null>(null)
+
+/* la lista y la conversacion, que se recorren sin capturar la rueda (composables/useRecorrido); en px del panel.
+   Con el dedo, tocar una conversacion que asoma la trae entera y el toque siguiente la abre. La conversacion, que en
+   el movil mide poco, sube o baja un trozo segun se toque arriba o abajo */
+function escala() {
+  const r = raizEl.value
+  return r && r.clientWidth > 0 ? r.clientWidth / (movil.value ? 375 : ANCHO_PANTALLA) : 1
+}
+const {
+  arrastrando: arrastrandoLista,
+  indicador: indicadorLista,
+  manejadores: manejadoresLista,
+} = useRecorrido(listaEl, { escala, traerAntesDePulsar: true })
+const {
+  arrastrando: arrastrandoHilo,
+  indicador: indicadorHilo,
+  manejadores: manejadoresHilo,
+  irA: irEnHilo,
+  maxOff: finDelHilo,
+} = useRecorrido(hiloEl, { escala, porZonas: true })
 
 const pendientes = computed(() => hilos.value.filter(h => h.esperando && !h.zanjada).length)
 const lista = computed(() => idsLista.value
@@ -327,9 +401,15 @@ const lista = computed(() => idsLista.value
   .filter((h): h is HiloEjemplo => !!h))
 const abierto = computed(() => hilos.value.find(h => h.id === seleccionado.value) || null)
 
+/* en "Pendientes", las que siguen pendientes, como el numero de la pestaña: la lista guarda las que se abren hasta
+   que se rehace (el panel cuenta tambien esas, y al abrir una se leia "Pendientes 2" junto a "3 pendientes") */
 const tituloLista = computed(() => {
+  if (estado.value === 'pendientes') {
+    const p = pendientes.value
+    if (!p) return 'Ninguna conversación pendiente'
+    return p === 1 ? '1 conversación pendiente' : p + ' conversaciones pendientes'
+  }
   const n = idsLista.value.length
-  if (estado.value === 'pendientes') return n === 1 ? '1 conversación pendiente' : n + ' conversaciones pendientes'
   return n === 1 ? '1 conversación' : n + ' conversaciones'
 })
 
@@ -350,13 +430,16 @@ function luego(ms: number, fn: () => void) {
   temporizadores.add(t)
 }
 
+const toastError = ref(false)
 let tToast: ReturnType<typeof setTimeout> | undefined
-function avisar(mensaje: string) {
+/* el aviso de arriba; un error, en rojo y algo mas de tiempo, como en el panel */
+function avisar(mensaje: string, error = false) {
   toast.value = mensaje
+  toastError.value = error
   clearTimeout(tToast)
   tToast = setTimeout(() => {
     toast.value = ''
-  }, 2800)
+  }, error ? 5000 : 2800)
 }
 
 function cargarLista() {
@@ -407,13 +490,9 @@ function subir(h: HiloEjemplo) {
   }
 }
 
-function bajarHilo() {
-  nextTick(() => {
-    const el = hiloEl.value
-    if (!el) return
-    const suave = !window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    el.scrollTo({ top: el.scrollHeight, behavior: suave ? 'smooth' : 'auto' })
-  })
+/* al abrirla, la conversacion se ve por el final; al llegar un mensaje, baja hasta el */
+function bajarHilo(suave = true) {
+  nextTick(() => irEnHilo(finDelHilo(), suave ? 450 : 0))
 }
 
 /* abrirla la deja leida y atendida; sus mensajes nuevos llevan "Nuevo" mientras se ve */
@@ -429,7 +508,7 @@ function abrir(id: number) {
     h.entregaFallida = false
     h.esperando = false
   }
-  bajarHilo()
+  bajarHilo(false)
 }
 
 function volver() {
@@ -453,6 +532,10 @@ function enviar() {
   const h = abierto.value
   const t = texto.value.trim()
   if (!h || !t) return
+  if (bloqueadas.has(h.email.toLowerCase())) {
+    avisar(textoBloqueo(h.email), true)
+    return
+  }
   /* sale en el hilo del ultimo correo, en el idioma del huesped */
   const previo = [...h.mensajes].reverse().find(x => x.correo)?.correo
   const m = anadir(h, {
@@ -486,6 +569,8 @@ function enviar() {
       if (h.id !== seleccionado.value) {
         h.noLeidos = 1
         h.esperando = true
+        /* vuelve a "Pendientes", la primera: el panel la trae al rehacer la lista, y aqui se ve al momento */
+        if (estado.value === 'pendientes' && !idsLista.value.includes(h.id)) idsLista.value.unshift(h.id)
       }
     })
   })
@@ -508,6 +593,10 @@ function reenviar(m: MensajeEjemplo) {
   const h = abierto.value
   const nuevo = emailNuevo(m)
   if (!h || !nuevo) return
+  if (bloqueadas.has(nuevo.toLowerCase())) {
+    avisar(textoBloqueo(nuevo), true)
+    return
+  }
   const guarda = botonReenviar(m) === 'Guardar y reenviar'
   m.puedeReenviar = false
   m.reenviado = 'Reenviado el ' + ahora() + '.'
@@ -532,6 +621,7 @@ function reenviar(m: MensajeEjemplo) {
       r.motivo = 'la dirección no existe'
       r.puedeReenviar = true
       correcciones[r.id] = nuevo
+      bloquear(nuevo, r.cuando)
     } else {
       r.entrega = 'entregado'
     }
@@ -594,14 +684,21 @@ const correo = computed(() => {
   }
 })
 
-function verCorreo(m: MensajeEjemplo) {
+/* el enlace que la abrio, para devolverle el foco al cerrarla */
+let abridor: HTMLElement | null = null
+function verCorreo(m: MensajeEjemplo, e?: Event) {
   const h = abierto.value
   if (!h || !m.correo) return
+  abridor = (e?.currentTarget as HTMLElement | null) || null
   correoAbierto.value = { hilo: h, mensaje: m }
   nextTick(() => cerrarEl.value?.focus())
 }
 function cerrarCorreo() {
+  if (!correoAbierto.value) return
   correoAbierto.value = null
+  const enlace = abridor
+  abridor = null
+  nextTick(() => enlace?.focus({ preventScroll: true }))
 }
 
 let mq: MediaQueryList | null = null
@@ -841,6 +938,7 @@ onBeforeUnmount(() => {
 
 /* ===== Cuerpo: la lista a la izquierda y la conversacion a la derecha ===== */
 .hm-msj__cuerpo {
+  position: relative;
   flex: 1 1 auto;
   min-height: 0;
   display: flex;
@@ -850,6 +948,7 @@ onBeforeUnmount(() => {
   min-height: 0;
   overflow: hidden;
   border-right: 1px solid var(--hm-raya);
+  outline: none;
 }
 .hm-msj__lista-titulo {
   padding: calc(10 * var(--hm-u)) calc(16 * var(--hm-u));
@@ -1027,6 +1126,7 @@ onBeforeUnmount(() => {
   flex-direction: column;
 }
 .hm-conv {
+  position: relative;
   flex: 1 1 auto;
   min-height: 0;
   display: flex;
@@ -1144,6 +1244,43 @@ onBeforeUnmount(() => {
   gap: calc(14 * var(--hm-u));
   padding: calc(14 * var(--hm-u)) calc(22 * var(--hm-u));
   overflow: hidden;
+  outline: none;
+  cursor: grab;
+}
+/* la lista y la conversacion se recorren arrastrando, con el teclado o tocando lo que asoma */
+.hm-msj__lista.is-drag,
+.hm-conv__hilo.is-drag {
+  cursor: grabbing;
+  user-select: none;
+}
+.hm-msj__lista:focus-visible,
+.hm-conv__hilo:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--hm-primary);
+}
+.hm-conv__hilo :where(a, button) {
+  cursor: pointer;
+}
+.hm-conv__hilo :where(input) {
+  cursor: text;
+}
+.hm-msj__indicador {
+  position: absolute;
+  z-index: 3;
+  width: calc(4 * var(--hm-u));
+  border-radius: calc(4 * var(--hm-u));
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.hm-msj__indicador.is-on {
+  opacity: 1;
+}
+.hm-msj__indicador--lista {
+  left: calc(373 * var(--hm-u));
+}
+.hm-msj__indicador--hilo {
+  right: calc(3 * var(--hm-u));
 }
 .hm-m {
   flex: none;
@@ -1248,11 +1385,21 @@ onBeforeUnmount(() => {
   margin-top: calc(12 * var(--hm-u));
   min-height: calc(40 * var(--hm-u));
   padding: calc(6 * var(--hm-u)) calc(12 * var(--hm-u));
+  border: 0;
   border-radius: calc(8 * var(--hm-u));
   background: #fff;
   box-shadow: inset 0 0 0 1px var(--hm-borde);
   font-size: calc(13 * var(--hm-u));
   font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+.hm-m__adjunto:hover {
+  box-shadow: inset 0 0 0 1px var(--hm-primary);
+}
+.hm-m__adjunto:focus-visible {
+  outline: 2px solid var(--hm-primary);
+  outline-offset: 2px;
 }
 .hm-m__adjunto svg {
   width: calc(16 * var(--hm-u));
@@ -1360,6 +1507,10 @@ onBeforeUnmount(() => {
   box-shadow: 0 calc(4 * var(--hm-u)) calc(16 * var(--hm-u)) rgba(0, 0, 0, 0.18);
   animation: hm-msj-toast 0.25s ease;
 }
+.hm-msj__toast.is-error {
+  max-width: calc(380 * var(--hm-u));
+  background: var(--hm-danger);
+}
 @keyframes hm-msj-toast {
   from {
     opacity: 0;
@@ -1379,6 +1530,7 @@ onBeforeUnmount(() => {
   background: rgba(0, 0, 0, 0.5);
 }
 .hm-modal__dialogo {
+  outline: none;
   display: flex;
   flex-direction: column;
   width: calc(640 * var(--hm-u));
@@ -1539,6 +1691,10 @@ onBeforeUnmount(() => {
 .hm-msj--movil .hm-msj__lista {
   flex: 1 1 auto;
   border-right: 0;
+}
+.hm-msj--movil .hm-msj__indicador--lista {
+  left: auto;
+  right: calc(3 * var(--hm-u));
 }
 .hm-msj--movil .hm-conv__cab {
   gap: calc(10 * var(--hm-u));

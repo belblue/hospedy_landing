@@ -84,7 +84,8 @@ const props = defineProps<{
   estrecho?: boolean
 }>()
 
-const ALTO = 230
+/* la leyenda, justo debajo de la semana: el panel deja 60 px en blanco entre las dos */
+const ALTO = 172
 const ARRIBA = 28
 const IZQUIERDA = 44
 const DERECHA = 12

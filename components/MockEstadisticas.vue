@@ -16,7 +16,7 @@
   La pantalla es mas larga que la del portatil y la del movil, y la rueda no se captura: se
   recorre arrastrando con el raton, con el teclado o tocando lo que asoma por arriba o por abajo,
   que se desplaza hasta verse entero. Se mueve con scrollTop sobre overflow:hidden, como el auto
-  check-in. La primera vez que se ve baja hasta la evolucion por mes y vuelve, salvo con
+  check-in (composables/useRecorrido). La primera vez que se ve baja hasta la evolucion por mes y vuelve, salvo con
   movimiento reducido.
 -->
 <template>
@@ -45,7 +45,7 @@
         >
           <div ref="docEl" class="hm-est__doc">
             <!-- la banda de cabecera, con el periodo del cuadro de subtitulo -->
-            <div class="hm-est__banda">
+            <div class="hm-est__banda" data-bloque>
               <svg class="hm-est__banda-icono" viewBox="0 0 24 24" aria-hidden="true"><path :d="ICONOS.grafica" /></svg>
               <p class="hm-est__titulo">Estadísticas</p>
               <p class="hm-est__subtitulo">
@@ -397,6 +397,7 @@ import {
   ritmoDeVenta,
   unAnioAntes,
   type FilaReparto,
+  type PeriodoEstadisticas,
 } from '~/utils/estadisticasEjemplo'
 
 /* los colores de los graficos del panel */
@@ -413,7 +414,7 @@ const MAXIMO_CUADROS = 20
 
 const AVISO_FECHA = 'En el panel, la fecha se elige en un calendario'
 const AVISO_CRITERIO = 'En la maqueta, las cifras van siempre por noches del periodo'
-const AVISO_SIN_CHECKIN = 'En la maqueta, todas las estancias pasadas tienen su check-in'
+const AVISO_SIN_CHECKIN = 'En la maqueta, las reservas sin check-in se quedan siempre aparte'
 const AVISO_AYUDA = 'En el panel, la Ayuda cuenta cómo sale cada cifra'
 const COMO_SE_CALCULA = 'noches del periodo · en el pasado solo cuentan las estancias con check-in o huéspedes registrados'
   + ' · canceladas aparte · los cierres de habitación no cuentan · la ocupación es sobre las habitaciones de hoy,'
@@ -492,8 +493,10 @@ function difPct(a: number | null, b: number | null): Diferencia | null {
   const texto = b ? dec1(Math.abs((100 * d) / b)) + ' %' : dec1(Math.abs(d))
   return { texto: flecha(d) + texto, signo: d > 0 ? 'mas' : 'menos' }
 }
-function difPuntos(a: number, b: number): Diferencia {
-  const p = Math.round((a - b) * 10) / 10
+/* la diferencia de ocupacion, sobre las cifras exactas y no sobre las ya redondeadas, como el panel */
+function difPuntos(a: PeriodoEstadisticas, b: PeriodoEstadisticas): Diferencia {
+  const exacta = (x: PeriodoEstadisticas) => (100 * x.noches) / (x.habitaciones * x.nochesPeriodo || 1)
+  const p = Math.round((exacta(a) - exacta(b)) * 10) / 10
   if (!p) return { texto: 'igual que antes', signo: 'igual' }
   return { texto: flecha(p) + dec1(Math.abs(p)) + ' puntos', signo: p > 0 ? 'mas' : 'menos' }
 }
@@ -612,7 +615,7 @@ const kpis = computed(() => {
       ayuda: undefined,
       valor: pct(a.ocupacion),
       antes: c ? pct(c.ocupacion) : null,
-      diferencia: c ? difPuntos(a.ocupacion, c.ocupacion) : null,
+      diferencia: c ? difPuntos(a, c) : null,
       nota: plural(a.habitaciones, 'habitación', 'habitaciones') + ' × ' + plural(a.nochesPeriodo, 'noche', 'noches'),
       ...ocupacion,
       pie: '',
@@ -713,7 +716,7 @@ const graficoDias = computed(() => {
     margen: { izq: 40, der: 8, arr: 12, aba: 44 },
     categorias: DIAS,
     series,
-    ejes: [{ formato: (v: number) => String(v), entero: true }],
+    ejes: [{ formato: (v: number) => fmtEntero.format(v), entero: true }],
     anchoBarra: 24,
     leyenda: true,
     tooltip: (i: number) => ({
@@ -777,7 +780,7 @@ const graficoRitmo = computed(() => {
       { nombre: 'El año pasado a estas alturas', tipo: 'barra' as const, valores: r.tramosComparado.map((t, i) => valor(t.noches, i)), color: C.muted },
       { nombre: 'El año pasado al final', tipo: 'linea' as const, valores: finales.map(f => (enPct ? (f.noches ? 100 : null) : f.noches)), color: C.accent, discontinua: true, punto: 7 },
     ],
-    ejes: [{ formato: enPct ? (v: number) => v + ' %' : (v: number) => String(v), entero: !enPct }],
+    ejes: [{ formato: enPct ? (v: number) => v + ' %' : (v: number) => fmtEntero.format(v), entero: !enPct }],
     anchoBarra: 28,
     leyenda: true,
     tooltip: (i: number) => {
@@ -879,7 +882,7 @@ const graficoCancelaciones = computed(() => {
     margen: { izq: 36, der: 8, arr: 12, aba: 44 },
     categorias,
     series,
-    ejes: [{ formato: (v: number) => String(v), entero: true }],
+    ejes: [{ formato: (v: number) => fmtEntero.format(v), entero: true }],
     anchoBarra: 22,
     leyenda: true,
     tooltip: (i: number) => {
@@ -994,104 +997,20 @@ function avisar(texto: string) {
   }, 2800)
 }
 
-// ---- desplazamiento: "off" va en px del panel; la pagina tiene overflow:hidden (ni la rueda
-//      ni el dedo la mueven) y se desplaza con scrollTop ----
+// ---- desplazamiento: la pagina tiene overflow:hidden (ni la rueda ni el dedo la mueven) y se recorre
+//      con composables/useRecorrido, en px del panel ----
 const raizEl = ref<HTMLElement | null>(null)
 const vistaEl = ref<HTMLElement | null>(null)
 const docEl = ref<HTMLElement | null>(null)
 const evolucionEl = ref<HTMLElement | null>(null)
-const arrastrando = ref(false)
-const indicador = ref({ on: false, top: 0, alto: 0 })
-const off = ref(0)
-let animacion = 0
-let reducido = false
-
 function escala() {
   const v = vistaEl.value
   return v && v.clientWidth > 0 ? v.clientWidth / anchoVista.value : 1
 }
-function altoVista() {
-  const v = vistaEl.value
-  return v ? v.clientHeight / escala() : 0
-}
-function maxOff() {
-  const v = vistaEl.value
-  return v ? Math.max(0, (v.scrollHeight - v.clientHeight) / escala()) : 0
-}
-const limitar = (x: number) => Math.max(0, Math.min(maxOff(), x))
-function fijar(x: number) {
-  off.value = limitar(x)
-  if (vistaEl.value) vistaEl.value.scrollTop = off.value * escala()
-  mostrarIndicador()
-}
-function alScroll() {
-  if (!vistaEl.value) return
-  off.value = vistaEl.value.scrollTop / escala()
-  mostrarIndicador()
-}
-function cancelar() {
-  if (animacion) cancelAnimationFrame(animacion)
-  animacion = 0
-}
-function irA(destino: number, ms: number, fin?: () => void) {
-  cancelar()
-  const hasta = limitar(destino)
-  if (reducido || !ms) {
-    fijar(hasta)
-    if (fin) fin()
-    return
-  }
-  const desde = off.value
-  const t0 = performance.now()
-  const paso = (t: number) => {
-    const k = Math.min(1, (t - t0) / ms)
-    const e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2
-    fijar(desde + (hasta - desde) * e)
-    if (k < 1) animacion = requestAnimationFrame(paso)
-    else {
-      animacion = 0
-      if (fin) fin()
-    }
-  }
-  animacion = requestAnimationFrame(paso)
-}
-/* la posicion de un elemento en la pagina, en px del panel; con "abajo", la de su borde inferior */
-function posDe(el: HTMLElement, abajo?: boolean) {
-  if (!docEl.value) return 0
-  const rd = docEl.value.getBoundingClientRect()
-  const k = rd.width / anchoVista.value || 1
-  const re = el.getBoundingClientRect()
-  return ((abajo ? re.bottom : re.top) - rd.top) / k
-}
-/* lo que asoma, entero: si queda cortado, sube o baja hasta arriba de la pantalla, y debajo
-   asoma lo siguiente para seguir */
-function mostrarEntero(el: HTMLElement | null) {
-  if (!el) return
-  const margen = 12
-  const arriba = posDe(el) - margen
-  const abajo = posDe(el, true) + margen
-  if (arriba < off.value - 1 || abajo > off.value + altoVista() + 1) irA(arriba, 450)
-}
-
-let tIndicador: ReturnType<typeof setTimeout> | undefined
-function mostrarIndicador() {
-  const v = vistaEl.value
-  if (!v) return
-  const total = v.scrollHeight
-  const vis = v.clientHeight
-  if (total <= vis + 1) {
-    indicador.value = { on: false, top: 0, alto: 0 }
-    return
-  }
-  const pista = vis - 8
-  const alto = Math.max(22, (pista * vis) / total)
-  const top = 4 + (pista - alto) * (v.scrollTop / (total - vis))
-  indicador.value = { on: true, top, alto }
-  clearTimeout(tIndicador)
-  tIndicador = setTimeout(() => {
-    indicador.value = { ...indicador.value, on: false }
-  }, 900)
-}
+const { arrastrando, indicador, altoVista, irA, cancelar, posDe, mostrarEntero, manejadores } = useRecorrido(vistaEl, {
+  escala,
+  alTocar: tomarControl,
+})
 
 /* ---- vistazo: la primera vez que se ve, baja hasta la evolucion por mes y vuelve. Nunca con
    movimiento reducido; lo corta cualquier gesto ---- */
@@ -1109,105 +1028,17 @@ function vistazo() {
   )
 }
 
-/* ---- arrastre con raton o lapiz; el dedo es de la pagina ---- */
-let pulsado: { id: number, y: number, o: number, k: number, movido: boolean } | null = null
-let recienArrastrado = false
-
-function alPulsar(e: PointerEvent) {
-  tomarControl()
-  if (e.pointerType === 'touch') return
-  if (e.button !== undefined && e.button !== 0) return
-  const t = e.target as Element | null
-  if (t && t.closest && t.closest('input, textarea, .hm-sel__lista')) return
-  e.preventDefault() /* sin esto, arrastrar selecciona texto */
-  pulsado = { id: e.pointerId, y: e.clientY, o: off.value, k: escala(), movido: false }
-}
-function alMover(e: PointerEvent) {
-  if (!pulsado || e.pointerId !== pulsado.id) return
-  const dy = e.clientY - pulsado.y
-  if (!pulsado.movido) {
-    if (Math.abs(dy) < 5) return
-    pulsado.movido = true
-    arrastrando.value = true
-    try {
-      vistaEl.value?.setPointerCapture(e.pointerId)
-    }
-    catch {
-      /* sin captura el arrastre sigue funcionando dentro de la pantalla */
-    }
-  }
-  fijar(pulsado.o - dy / pulsado.k)
-}
-function alSoltar(e: PointerEvent) {
-  if (!pulsado || e.pointerId !== pulsado.id) return
-  if (pulsado.movido) {
-    recienArrastrado = true
-    setTimeout(() => {
-      recienArrastrado = false
-    }, 0)
-  }
-  pulsado = null
-  arrastrando.value = false
-}
-/* un arrastre que acaba encima de un boton no lo pulsa; un toque en lo que asoma lo trae entero */
-function alClic(e: MouseEvent) {
-  if (recienArrastrado) {
-    e.stopPropagation()
-    e.preventDefault()
-    return
-  }
-  const t = e.target as Element | null
-  const bloque = t && t.closest ? (t.closest('[data-bloque]') as HTMLElement | null) : null
-  if (bloque) mostrarEntero(bloque)
-}
-function alTeclear(e: KeyboardEvent) {
-  tomarControl()
-  if (e.target !== vistaEl.value) return
-  const vh = altoVista() - 80
-  let d: number | null = null
-  if (e.key === 'ArrowDown') d = 40
-  else if (e.key === 'ArrowUp') d = -40
-  else if (e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey)) d = vh
-  else if (e.key === 'PageUp' || (e.key === ' ' && e.shiftKey)) d = -vh
-  else if (e.key === 'Home') d = -off.value
-  else if (e.key === 'End') d = maxOff()
-  if (d === null) return
-  e.preventDefault()
-  fijar(off.value + d)
-}
-
-const manejadores = {
-  pointerdown: alPulsar,
-  pointermove: alMover,
-  pointerup: alSoltar,
-  pointercancel: alSoltar,
-  clickCapture: alClic,
-  keydown: alTeclear,
-  scroll: alScroll,
-}
-
 let mq: MediaQueryList | null = null
-let ro: ResizeObserver | null = null
 let io: IntersectionObserver | null = null
 function alCambiarAncho() {
   movil.value = !!mq && !mq.matches
-  nextTick(() => {
-    ro?.disconnect()
-    if (vistaEl.value) ro?.observe(vistaEl.value)
-    fijar(0)
-  })
 }
 
 onMounted(() => {
-  reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   mq = window.matchMedia(ANCHO_PORTATIL)
   movil.value = !mq.matches
   mq.addEventListener('change', alCambiarAncho)
-  if ('ResizeObserver' in window && vistaEl.value) {
-    /* al cambiar el tamanno de la pantalla, el mismo punto de la pagina sigue arriba */
-    ro = new ResizeObserver(() => fijar(off.value))
-    ro.observe(vistaEl.value)
-  }
+  const reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   if (reducido || !('IntersectionObserver' in window) || !raizEl.value) return
   io = new IntersectionObserver((entradas) => {
     if (entradas.some(x => x.isIntersecting)) {
@@ -1220,13 +1051,10 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   mq?.removeEventListener('change', alCambiarAncho)
-  ro?.disconnect()
   io?.disconnect()
-  cancelar()
   temporizadores.forEach(t => clearTimeout(t))
   clearTimeout(tToast)
   clearTimeout(tMensaje)
-  clearTimeout(tIndicador)
 })
 </script>
 

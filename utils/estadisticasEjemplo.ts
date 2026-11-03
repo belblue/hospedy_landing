@@ -397,6 +397,8 @@ export function estadisticasDelPeriodo(desde: string, hasta: string): PeriodoEst
 // El ritmo de venta: los «meses» que vienen desde el mes en curso, con lo vendido a hoy, lo que llevaba vendido el
 // año pasado a estas alturas para el mismo mes y con lo que acabó ese mes
 export function ritmoDeVenta(cuantos: number): RitmoDeVenta {
+  // cuenta todas las reservas no canceladas, también las que no tienen check-in, con sus noches a la estancia media
+  const sinCheckin = (m: MesEjemplo) => (m.estancias ? Math.round((m.sinCheckin * m.noches) / m.estancias) : 0)
   const todos = mesesDeEjemplo()
   const [hoyA, hoyM] = HOY_ESTADISTICAS.split('-').map(Number)
   const inicio = (hoyA - PRIMER_ANIO) * 12 + hoyM - 1
@@ -406,10 +408,12 @@ export function ritmoDeVenta(cuantos: number): RitmoDeVenta {
   for (let i = 0; i < cuantos && inicio + i < todos.length; i++) {
     const m = todos[inicio + i]
     const antes = todos[inicio + i - 12]
-    tramos.push({ clave: m.clave, noches: m.noches, ocupacion: pctDe(m.noches, HABITACIONES * m.dias), estancias: m.estancias })
+    const noches = m.noches + sinCheckin(m)
+    tramos.push({ clave: m.clave, noches, ocupacion: pctDe(noches, HABITACIONES * m.dias), estancias: m.estancias + m.sinCheckin })
     // lo que tiene ahora el mismo mes del año pasado: si ya pasó, con lo que acabó
-    finalComparado.push({ clave: antes.clave, noches: antes.noches })
-    tramosComparado.push({ clave: antes.clave, noches: Math.min(antes.noches, Math.round(antes.final * VENDIDO[i] * m.vaivenRitmo)) })
+    const finalAntes = antes.noches + sinCheckin(antes)
+    finalComparado.push({ clave: antes.clave, noches: finalAntes })
+    tramosComparado.push({ clave: antes.clave, noches: Math.min(finalAntes, Math.round(finalAntes * VENDIDO[i] * m.vaivenRitmo)) })
   }
   return { aFecha: HOY_ESTADISTICAS, aFechaComparado: unAnioAntes(HOY_ESTADISTICAS), tramos, tramosComparado, finalComparado }
 }
