@@ -36,6 +36,9 @@ export default defineNuxtPlugin(() => {
       {
         src: `${base}/m/s.js`,
         defer: true,
+        // el servidor de la recogida: sin esto, el script lo saca de su propia carpeta y envía a /m/m/e, que
+        // Cloudflare Access no deja pasar (solo están abiertas /m/s.js y /m/e)
+        'data-host-url': base,
         'data-website-id': sitio,
         'data-domains': String(config.metricasDominios || '').trim() || undefined,
         'data-exclude-hash': 'true',
