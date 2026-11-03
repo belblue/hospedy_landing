@@ -9,7 +9,7 @@
       <p class="text-secondary font-semibold text-lg mb-3">Funciones</p>
       <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-5">Todo lo que hace Hospedy</h1>
       <p class="text-xl text-gray-600 mb-8">
-        Doce funciones para el día a día de tu alojamiento, de la reserva a la factura. Y todas van en todos los planes:
+        Trece funciones para el día a día de tu alojamiento, de la reserva a la factura. Y todas van en todos los planes:
         no pagas aparte por ninguna.
       </p>
       <BotonesPrueba centrados />

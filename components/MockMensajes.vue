@@ -28,25 +28,8 @@
       aria-label="Maqueta de la pantalla Mensajes de Hospedy, con conversaciones de ejemplo"
       @keydown.esc="cerrarCorreo"
     >
-      <!-- el menu lateral del panel, en el portatil -->
-      <div v-if="!movil" class="hm-msj__nav" aria-hidden="true">
-        <span class="hm-msj__nav-logo"><MockLogoHospedy /></span>
-        <span
-          v-for="entrada in MENU"
-          :key="entrada.nombre"
-          class="hm-msj__nav-item"
-          :class="{ 'is-marcado': entrada.nombre === 'Mensajes' }"
-        >
-          <svg viewBox="0 0 24 24"><path :d="ICONOS[entrada.icono]" /></svg>
-          <span>{{ entrada.nombre }}</span>
-          <b v-if="entrada.nombre === 'Mensajes' && pendientes" class="hm-msj__nav-num">{{ pendientes }}</b>
-        </span>
-      </div>
-      <!-- la barra de arriba del panel, en el movil -->
-      <div v-else class="hm-msj__barra" aria-hidden="true">
-        <span class="hm-msj__barra-logo"><MockLogoHospedy /></span>
-        <svg viewBox="0 0 24 24"><path :d="ICONOS.barras" /></svg>
-      </div>
+      <!-- el menu lateral del panel en el portatil y su barra de arriba en el movil -->
+      <MockPanelMenu :movil="movil" marcado="Mensajes" :mensajes="pendientes" />
 
       <div class="hm-msj__main">
         <div class="hm-msj__banda">
@@ -301,6 +284,8 @@
 <script setup lang="ts">
 import MockPhoneFrame from '~/components/MockPhoneFrame.vue'
 import MockPortatilFrame from '~/components/MockPortatilFrame.vue'
+import MockPanelMenu from '~/components/MockPanelMenu.vue'
+import { ICONOS_PANEL as ICONOS } from '~/utils/iconosPanel'
 import {
   ALOJAMIENTO_EJEMPLO,
   DIRECCION_ALOJAMIENTO,
@@ -309,49 +294,6 @@ import {
   type HiloEjemplo,
   type MensajeEjemplo,
 } from '~/utils/mensajesEjemplo'
-
-/* el menu lateral del panel, en su orden */
-const MENU = [
-  { nombre: 'Nuevo huésped', icono: 'mas' },
-  { nombre: 'Planning', icono: 'calendario' },
-  { nombre: 'Huéspedes', icono: 'personas' },
-  { nombre: 'Pre Check-ins', icono: 'avion' },
-  { nombre: 'Mensajes', icono: 'sobre' },
-  { nombre: 'Facturación', icono: 'euro' },
-  { nombre: 'Channel Manager', icono: 'red' },
-  { nombre: 'Estadísticas', icono: 'grafica' },
-  { nombre: 'Encuestas', icono: 'tarta' },
-  { nombre: 'Cartas', icono: 'cubiertos' },
-  { nombre: 'Limpieza', icono: 'escoba' },
-  { nombre: 'Panel usuario', icono: 'ajustes' },
-  { nombre: 'Ayuda', icono: 'ayuda' },
-] as const
-
-/* iconos de trazo, en una rejilla de 24 */
-const ICONOS: Record<string, string> = {
-  mas: 'M12 5v14M5 12h14',
-  calendario: 'M5 6h14v14H5zM5 10.5h14M9 3.5v4M15 3.5v4',
-  personas: 'M9.5 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6M16 4.3a3.5 3.5 0 0 1 0 6.4M18.5 14.5c1.6.8 2.5 2.7 2.5 5.5',
-  avion: 'M21 3 10 14M21 3l-7 18-4-7-7-4z',
-  sobre: 'M4 5.5h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-11a1 1 0 0 1 1-1zM3.5 6.5 12 13l8.5-6.5',
-  sobreAbierto: 'M3 10.5 12 4l9 6.5V19a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1zM3.5 11l8.5 6 8.5-6',
-  euro: 'M17.5 6.5A6.5 6.5 0 1 0 17.5 17.5M4 10.5h9.5M4 13.5h9.5',
-  red: 'M9 3h6v5H9zM3 16h6v5H3zM15 16h6v5h-6zM12 8v4M6 16v-4h12v4',
-  grafica: 'M4 20h16M5 15.5l4-4.5 4 3 6.5-7.5',
-  tarta: 'M11 4a8 8 0 1 0 9 9h-9zM14 3v7h7a7 7 0 0 0-7-7z',
-  cubiertos: 'M7 3v18M4.5 3v5a2.5 2.5 0 0 0 5 0V3M17 3c-1.7 0-3 2.6-3 6s1.3 4 3 4v8',
-  escoba: 'M15 3l-3.5 9M7.5 12h8l1.5 9H6z',
-  ajustes: 'M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1',
-  ayuda: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM9.6 9.4a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.2.9-1.2 1.7v.5M12 17h.01',
-  check: 'M5 13l4 4L19 7',
-  izquierda: 'M15 5l-7 7 7 7',
-  derecha: 'M9 5l7 7-7 7',
-  documento: 'M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h6',
-  bandeja: 'M3 13.5 6 5h12l3 8.5V19H3zM3 13.5h5l1 3h6l1-3h5',
-  barras: 'M4 7h16M4 12h16M4 17h16',
-  cerrar: 'M6 6l12 12M18 6 6 18',
-  chat: 'M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4A1.5 1.5 0 0 1 4 14.5z',
-}
 
 const AYUDA_ENTREGADO = 'El servidor de correo del huésped lo ha aceptado. No quiere decir que esté en su bandeja de entrada: Gmail u Outlook no avisan si lo dejan en correo no deseado.'
 
@@ -735,84 +677,6 @@ onBeforeUnmount(() => {
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-}
-
-/* ===== Menu lateral (Sidenavbar.vue: 210 px, entradas de 45 px) ===== */
-.hm-msj__nav {
-  position: relative;
-  z-index: 2;
-  flex: 0 0 calc(210 * var(--hm-u));
-  display: flex;
-  flex-direction: column;
-  gap: calc(4 * var(--hm-u));
-  padding: 0 calc(10 * var(--hm-u));
-  background: #fff;
-  box-shadow: 0 0 calc(10 * var(--hm-u)) calc(2 * var(--hm-u)) rgba(0, 0, 0, 0.1);
-  pointer-events: none;
-}
-.hm-msj__nav-logo {
-  display: block;
-  width: calc(150 * var(--hm-u));
-  margin: calc(20 * var(--hm-u)) auto calc(16 * var(--hm-u));
-}
-.hm-msj__nav-item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: calc(18 * var(--hm-u));
-  height: calc(45 * var(--hm-u));
-  padding: 0 calc(10 * var(--hm-u)) 0 calc(14 * var(--hm-u));
-  border-radius: calc(7 * var(--hm-u));
-  color: #585b54;
-  white-space: nowrap;
-}
-.hm-msj__nav-item svg {
-  width: calc(18 * var(--hm-u));
-  height: calc(18 * var(--hm-u));
-}
-.hm-msj__nav-item.is-marcado {
-  background: rgba(15, 118, 110, 0.2);
-  color: var(--hm-primary);
-}
-.hm-msj__nav-num {
-  position: absolute;
-  right: calc(10 * var(--hm-u));
-  top: calc(12 * var(--hm-u));
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: calc(22 * var(--hm-u));
-  height: calc(22 * var(--hm-u));
-  padding: 0 calc(7 * var(--hm-u));
-  border-radius: 999px;
-  background: var(--hm-accent);
-  color: var(--hm-ink);
-  font-size: calc(12 * var(--hm-u));
-  font-weight: 800;
-  line-height: 1;
-}
-
-/* ===== Barra de arriba en el movil (Navbar.vue) ===== */
-.hm-msj__barra {
-  position: relative;
-  z-index: 2;
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: calc(56 * var(--hm-u));
-  padding: 0 calc(16 * var(--hm-u));
-  background: #fff;
-  box-shadow: 0 0 calc(10 * var(--hm-u)) calc(2 * var(--hm-u)) rgba(0, 0, 0, 0.1);
-  color: #585b54;
-}
-.hm-msj__barra-logo {
-  display: block;
-  width: calc(148 * var(--hm-u));
-}
-.hm-msj__barra > svg {
-  width: calc(24 * var(--hm-u));
-  height: calc(24 * var(--hm-u));
 }
 
 /* ===== La pagina: banda de cabecera y la tarjeta que la solapa ===== */

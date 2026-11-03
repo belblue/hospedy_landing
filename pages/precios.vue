@@ -196,7 +196,7 @@ const EXTRAS = [
 const PREGUNTAS: PreguntaFaq[] = [
   {
     pregunta: '¿Qué incluye el precio?',
-    respuesta: 'Todas las funciones de Hospedy: planning y reservas, check-in y auto check-in, partes de viajeros, encuestas del INE, facturación, comunicaciones y mensajes con el huésped, limpieza, channel manager con las agencias de tu plan, motor de reservas, cobros online y Hugo, el asistente. Y el soporte por email y videollamada.',
+    respuesta: 'Todas las funciones de Hospedy: planning y reservas, check-in y auto check-in, partes de viajeros, encuestas del INE, facturación, comunicaciones y mensajes con el huésped, limpieza, estadísticas, channel manager con las agencias de tu plan, motor de reservas, cobros online y Hugo, el asistente. Y el soporte por email y videollamada.',
   },
   {
     pregunta: '¿Cómo se cuentan las unidades?',

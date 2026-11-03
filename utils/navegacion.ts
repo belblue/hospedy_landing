@@ -62,6 +62,12 @@ export const FUNCIONES: GrupoDeFunciones[] = [
         descripcion: 'Tu equipo marca las habitaciones desde el móvil y tú lo ves en el planning',
         actualizado: '2026-10-10',
       },
+      {
+        nombre: 'Estadísticas',
+        ruta: '/funciones/estadisticas',
+        descripcion: 'Ocupación, ingresos, ADR y RevPAR de cualquier periodo, frente al año anterior',
+        actualizado: '2026-11-03',
+      },
     ],
   },
   {
@@ -253,6 +259,11 @@ export const RELACIONES: Record<string, Relaciones> = {
   'mensajes': {
     funciones: [F('comunicaciones'), F('check-in'), F('planning-reservas')],
     guias: ['pre-checkin-ahorrar-tiempo'],
+    tipos: LOS_TRES,
+  },
+  'estadisticas': {
+    funciones: [F('hugo'), F('planning-reservas'), F('channel-manager')],
+    guias: ['reservas-directas-vs-otas'],
     tipos: LOS_TRES,
   },
   'limpieza': {
