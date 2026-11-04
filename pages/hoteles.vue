@@ -119,7 +119,7 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Encuesta de Ocupación Hotelera</h3>
-                            <p class="text-gray-600">Hospedy rellena la Encuesta de Ocupación Hotelera con los datos que ya tienes y la envía al INE con un clic, sin entrar en ARCE.</p>
+                            <p class="text-gray-600">Hospedy rellena la Encuesta de Ocupación Hotelera con los datos que ya tienes y la envía al INE con un clic, sin entrar en el portal del INE.</p>
                             <NuxtLink to="/funciones/encuestas-ine" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>

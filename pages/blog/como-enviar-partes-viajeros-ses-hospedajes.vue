@@ -76,7 +76,7 @@
             ¿Alojamiento en el País Vasco?
           </h3>
           <p class="mb-4">
-            Muchos PMS solo envían a SES Hospedajes y no cubren Ertzaintza. <strong>Hospedy envía automáticamente tanto a SES Hospedajes como a Ertzaintza</strong>.
+            <strong>Hospedy envía automáticamente tanto a SES Hospedajes como a la Ertzaintza</strong>, según lo que tengas activado en cada establecimiento.
           </p>
           <p>
             Si gestionas un hotel, casa rural o apartamento en Euskadi, con Hospedy cumples la normativa sin preocuparte de a qué sistema hay que enviar.

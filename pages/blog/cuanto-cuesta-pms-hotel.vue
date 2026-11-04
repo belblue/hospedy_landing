@@ -14,7 +14,7 @@
       <!-- Content -->
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
         <p class="lead">
-          Hospedy tiene todas las funciones en todos los planes, desde 350&nbsp;€/año sin IVA, y te quita trabajo en partes, encuesta del INE y calendarios.
+          Hospedy tiene todas las funciones en todos los planes, desde 350&nbsp;€/año sin IVA y con Hugo, su asistente con IA, incluido. Te quita trabajo en partes, encuesta del INE y calendarios.
         </p>
 
         <h2>Rango de precios del mercado</h2>
@@ -65,19 +65,26 @@
 
         <h3>Comisiones por reserva</h3>
         <ul>
-          <li>Algunos sistemas cobran un porcentaje de cada reserva (2-4&nbsp;%)</li>
-          <li>AvaiBook, por ejemplo, tiene comisiones en su pasarela de pagos</li>
+          <li>Algunos sistemas cobran un porcentaje de cada reserva</li>
           <li>En Hospedy el motor no cobra comisión por reserva; los cobros con tarjeta cuestan {{ comision }} por cobro, IVA incluido, más las tarifas de Stripe, solo si los usas</li>
           <li>Con muchas reservas, estas comisiones pueden superar el coste del software</li>
         </ul>
 
-        <h3>Servicios adicionales</h3>
+        <h3>Servicios y módulos aparte</h3>
         <ul>
-          <li>RuralGest cobra por diseño web (150-1.200&nbsp;€)</li>
-          <li>Packs de SEO (220-800&nbsp;€)</li>
-          <li>Mantenimiento SEO mensual (90&nbsp;€/mes)</li>
+          <li>Diseño de la web y posicionamiento en buscadores</li>
+          <li>Módulos que se venden por separado: la web, el sistema de precios, el TPV o las cerraduras</li>
           <li>Soporte premium o prioritario</li>
         </ul>
+
+        <h3>La inteligencia artificial: ¿incluida o aparte?</h3>
+        <p>
+          Cada vez más programas venden un asistente con IA, y no siempre va en el precio. Pregunta si está incluido o es un
+          módulo de pago, y qué hace de verdad: contestar a tus huéspedes, responder preguntas sobre tus datos o preparar
+          los cambios para que tú los confirmes. En Hospedy, Hugo va incluido en todos los planes y hace lo segundo y lo
+          tercero: responde con tus datos y te prepara cambios de precios, reservas, partes o facturas que se aplican cuando
+          le das el sí.
+        </p>
 
         <div class="bg-yellow-50 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4 text-yellow-800">Consejo</h3>
@@ -86,32 +93,14 @@
           </p>
         </div>
 
-        <h2>¿Cuándo se amortiza la inversión?</h2>
-        <p>Los estudios del sector muestran que el software de hospitalidad tiene un retorno de inversión muy positivo:</p>
-        <ul>
-          <li><strong>ROI medio:</strong> hasta 17x en algunos casos</li>
-          <li><strong>Tiempo de amortización:</strong> típicamente 1-6 meses</li>
-          <li><strong>Ahorro de tiempo:</strong> hasta 75&nbsp;% en tareas administrativas</li>
-          <li><strong>Reducción de errores:</strong> menos multas, menos overbookings</li>
-        </ul>
-
-        <h3>¿De dónde viene el ahorro?</h3>
+        <h2>¿De dónde sale lo que te ahorras?</h2>
+        <p>Un buen PMS se paga con el tiempo y los errores que te quita:</p>
         <ul>
           <li><strong>Menos tiempo en tareas manuales:</strong> partes de viajeros, INE, sincronización de calendarios</li>
           <li><strong>Más reservas directas:</strong> motor de reservas sin comisión por reserva frente al 15-30&nbsp;% de las agencias</li>
           <li><strong>Menos errores:</strong> menos overbookings y partes que salen solos, sin olvidos</li>
           <li><strong>Mejor gestión:</strong> informes, estadísticas, control de ocupación</li>
-        </ul>
-
-        <h2>El nivel de digitalización en España</h2>
-        <p>
-          Según estudios recientes, solo el <strong>31&nbsp;% de las PYMES turísticas en España</strong> están completamente digitalizadas. Esto significa que hay una gran oportunidad:
-        </p>
-        <ul>
-          <li>Los alojamientos digitalizados tienen ventaja competitiva</li>
-          <li>Pueden ofrecer mejor experiencia al huésped</li>
-          <li>Ahorran tiempo que pueden dedicar a la atención personal</li>
-          <li>Tienen mejor visibilidad online</li>
+          <li><strong>Menos clics:</strong> con un asistente como Hugo, un cambio de precios de todo un mes o un parte rechazado se piden con una frase y se aplican con un botón</li>
         </ul>
 
         <h2>¿Qué incluye Hospedy por 350&nbsp;€/año?</h2>
@@ -124,6 +113,12 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
               <span>PMS completo con calendario y gestión de reservas</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Hugo, el asistente con IA</span>
             </li>
             <li class="flex items-center gap-2">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -160,6 +155,12 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
               <span>Pre check-in</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Facturas y Zenfisk, el programa de facturación con Verifactu</span>
             </li>
             <li class="flex items-center gap-2">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

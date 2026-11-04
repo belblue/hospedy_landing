@@ -343,7 +343,7 @@
           <h3 class="text-3xl text-white font-semibold mb-4">Encuestas INE y documentos autonómicos</h3>
           <p class="text-white">
             La encuesta de ocupación de hoteles y de apartamentos <span class="font-semibold text-gold">se envía al INE con
-            un clic</span>, sin entrar en ARCE. La de turismo rural sale rellena, lista para presentar.
+            un clic</span>, sin entrar en el portal del INE. La de turismo rural sale rellena, lista para presentar.
           </p>
           <p class="text-white mt-4">
             Y el documento de admisión que piden once comunidades autónomas, desde la ficha de la reserva.
@@ -368,7 +368,7 @@
                 <p class="text-gray-700">
                   Muchos PMS generan un archivo XML que tú debes subir a mano.
                   <span class="font-semibold text-gray-900">Hospedy envía la encuesta de ocupación directamente al INE</span>,
-                  sin descargas ni ARCE.
+                  sin descargas ni portales.
                 </p>
               </div>
               <NuxtLink to="/funciones/encuestas-ine" class="btn btn-outline sm:flex-none px-6 whitespace-nowrap">Ver cómo funciona</NuxtLink>

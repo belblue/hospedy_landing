@@ -53,7 +53,7 @@
           <li>Recopilar todos los datos de huéspedes del mes</li>
           <li>Clasificarlos por procedencia, tipo de habitación, etc.</li>
           <li>Calcular promedios y totales</li>
-          <li>Rellenar el formulario en la plataforma ARCE del INE</li>
+          <li>Rellenar el formulario en el portal del INE</li>
           <li>Revisar y enviar</li>
         </ol>
         <p>
@@ -65,13 +65,13 @@
             Hospedy: la encuesta, enviada con un clic
           </h3>
           <p class="text-green-900 mb-4">
-            Aquí está la diferencia clave que debes conocer:
+            Aquí está la diferencia:
           </p>
           <p class="text-green-900 font-semibold mb-4">
-            Hospedy envía la encuesta de ocupación hotelera y la de apartamentos turísticos directamente al INE, con un clic.
+            Hospedy envía la encuesta de ocupación hotelera y la de apartamentos turísticos directamente al INE, con un clic, y te llega por email el justificante del INE.
           </p>
           <p class="text-green-900">
-            Otros sistemas como RuralGest, AvaiBook, Amenitiz o Cloudbeds solo generan un archivo XML. Tú tienes que descargar ese archivo y subirlo manualmente a la plataforma ARCE del INE cada mes.
+            Otros programas, como Cloudbeds o Mews, generan un archivo que tienes que descargar y presentar tú en el portal del INE cada mes.
           </p>
         </div>
 
@@ -84,7 +84,7 @@
           <li>Listo</li>
         </ol>
         <p>
-          Sin descargar archivos XML ni entrar en la plataforma ARCE; solo repasas los datos antes de enviar.
+          Sin descargar archivos ni entrar en el portal del INE: solo repasas los datos antes de enviar, y te llega por email el justificante del INE.
         </p>
 
         <h2>La importancia del check-out</h2>

@@ -41,7 +41,7 @@
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="bg-red-200 text-red-800 rounded-full w-5 h-5 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">3</span>
-                                    <span>Entras en ARCE (web del INE)</span>
+                                    <span>Entras en el portal del INE</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="bg-red-200 text-red-800 rounded-full w-5 h-5 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">4</span>
@@ -70,7 +70,7 @@
                                     <span class="font-semibold">¡Listo! Nosotros nos encargamos</span>
                                 </li>
                             </ol>
-                            <p class="mt-4 text-green-800 font-medium text-sm">Sin descargas y sin entrar en ARCE.</p>
+                            <p class="mt-4 text-green-800 font-medium text-sm">Sin descargas y sin entrar en el portal del INE.</p>
                         </div>
                     </div>
                 </div>
@@ -145,7 +145,7 @@
                         <div class="flex-shrink-0 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold">2</div>
                         <div>
                             <h3 class="text-xl font-semibold mb-2">Al final del mes, haz clic en "Enviar"</h3>
-                            <p class="text-gray-600">Un clic y Hospedy envía la encuesta de ocupación al INE por su servicio web. Sin entrar en ARCE ni subir archivos.</p>
+                            <p class="text-gray-600">Un clic y Hospedy envía la encuesta de ocupación al INE por su servicio web. Sin entrar en el portal del INE ni subir archivos.</p>
                         </div>
                     </div>
                     <div class="flex gap-6 items-start">
@@ -171,7 +171,7 @@
                     </div>
                     <div>
                         <div class="text-4xl font-bold text-primary mb-2">0</div>
-                        <p class="text-gray-600">Archivos que subir a ARCE</p>
+                        <p class="text-gray-600">Archivos que subir al portal del INE</p>
                     </div>
                     <div>
                         <div class="text-4xl font-bold text-primary mb-2">11</div>
@@ -189,7 +189,7 @@
 </template>
 
 <script setup lang="ts">
-const DESCRIPCION = 'La encuesta de ocupación hotelera o de apartamentos, al INE con un clic y sin entrar en ARCE; la de turismo rural y los documentos autonómicos, rellenos.'
+const DESCRIPCION = 'La encuesta de ocupación hotelera o de apartamentos, al INE con un clic y sin entrar en su portal; la de turismo rural y los documentos autonómicos, rellenos.'
 
 useSeoPagina({
     titulo: 'Encuesta de ocupación del INE con un clic',

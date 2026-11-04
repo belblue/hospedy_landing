@@ -86,7 +86,7 @@ export const FUNCIONES: GrupoDeFunciones[] = [
         nombre: 'Encuestas INE y documentos autonómicos',
         ruta: '/funciones/encuestas-ine',
         descripcion: 'La encuesta de ocupación, al INE con un clic; y los documentos autonómicos',
-        actualizado: '2026-10-10',
+        actualizado: '2026-11-04',
       },
     ],
   },
@@ -156,9 +156,9 @@ export const PARA_QUIEN: PaginaWeb[] = [
 ]
 
 export const RECURSOS: PaginaWeb[] = [
-  { nombre: 'Blog y guías', ruta: '/blog', descripcion: 'Normativa, ventas y gestión del día a día', actualizado: '2026-10-10' },
-  { nombre: 'Comparativa de PMS', ruta: '/comparar', descripcion: 'Hospedy frente a otros programas', actualizado: '2026-10-10' },
-  { nombre: 'Preguntas frecuentes', ruta: '/faq', descripcion: 'Las dudas de antes de empezar', actualizado: '2026-10-10' },
+  { nombre: 'Blog y guías', ruta: '/blog', descripcion: 'Normativa, ventas y gestión del día a día', actualizado: '2026-11-04' },
+  { nombre: 'Comparativa de PMS', ruta: '/comparar', descripcion: 'La IA, el precio y la normativa de cada programa', actualizado: '2026-11-04' },
+  { nombre: 'Preguntas frecuentes', ruta: '/faq', descripcion: 'Las dudas de antes de empezar', actualizado: '2026-11-04' },
 ]
 
 export const EMPRESA: PaginaWeb[] = [

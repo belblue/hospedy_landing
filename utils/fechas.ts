@@ -7,3 +7,9 @@ export function mesYAnio(fecha: string): string {
   const [anio, mes] = fecha.split('-')
   return `${MESES[Number(mes) - 1]} de ${anio}`
 }
+
+// '2026-11-04' → «4 de noviembre de 2026»
+export function fechaLarga(fecha: string): string {
+  const [anio, mes, dia] = fecha.split('-')
+  return `${Number(dia)} de ${MESES[Number(mes) - 1]} de ${anio}`
+}

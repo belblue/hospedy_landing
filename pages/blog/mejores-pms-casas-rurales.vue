@@ -7,14 +7,18 @@
           Los 5 mejores PMS para casas rurales en España [2026]
         </h1>
         <p class="text-xl text-gray-600 mb-6">
-          Comparativa de los principales sistemas de gestión para casas rurales: funcionalidades, precios y automatización del cumplimiento normativo español.
+          Comparativa de cinco programas de gestión para casas rurales: precio, partes de viajeros, encuesta del INE y lo
+          que hace de verdad la inteligencia artificial de cada uno.
         </p>
         </ArticuloCabecera>
 
       <!-- Content -->
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
         <p class="lead">
-          Los 5 mejores PMS para casas rurales en España son: Hospedy (desde 350&nbsp;€/año, con la encuesta del INE de turismo rural rellena con tus reservas), RuralGest (veterano del sector, sin precios públicos), AvaiBook (desde 204&nbsp;€/año pero con comisiones del 2-4&nbsp;%), Amenitiz (desde 504&nbsp;€/año) y Cloudbeds (desde 1.200&nbsp;€/año).
+          Hospedy (desde {{ PLANES[0].mensual }}&nbsp;€ + IVA al mes, con Hugo, su asistente con IA, incluido), MisterPlan
+          (antes RuralGest, desde 45&nbsp;€ + IVA al mes), AvaiBook (de idealista, pensado para el alquiler vacacional),
+          Amenitiz (con su asistente Ami como módulo de pago) y Avirato (con IA para los huéspedes incluida). Los comparamos
+          con la información que publica cada empresa, revisada el {{ revision }}.
         </p>
 
         <h2>Comparativa rápida</h2>
@@ -24,186 +28,204 @@
             <thead class="bg-gray-50">
               <tr>
                 <th class="px-3 py-3 text-left font-semibold text-gray-900">PMS</th>
-                <th class="px-3 py-3 text-left font-semibold text-gray-900">Precio/año</th>
-                <th class="px-3 py-3 text-center font-semibold text-gray-900">Partes</th>
-                <th class="px-3 py-3 text-center font-semibold text-gray-900">INE</th>
-                <th class="px-3 py-3 text-center font-semibold text-gray-900">CM</th>
-                <th class="px-3 py-3 text-center font-semibold text-gray-900">Comisiones</th>
+                <th class="px-3 py-3 text-left font-semibold text-gray-900">Precio</th>
+                <th class="px-3 py-3 text-left font-semibold text-gray-900">Partes</th>
+                <th class="px-3 py-3 text-left font-semibold text-gray-900">Encuesta del INE</th>
+                <th class="px-3 py-3 text-left font-semibold text-gray-900">Asistente con IA</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200">
               <tr class="bg-green-50">
                 <td class="px-3 py-3 font-medium text-gray-900">Hospedy</td>
-                <td class="px-3 py-3 text-gray-700">350-1.290&nbsp;€</td>
-                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /> Auto</td>
-                <td class="px-3 py-3 text-center text-green-600 font-medium"><IconoMarca tipo="si" /> Rellena y lista</td>
-                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /><span class="sr-only">Sí</span></td>
-                <td class="px-3 py-3 text-center text-green-600">0&nbsp;% por reserva (cobros con tarjeta: {{ comision }} más las tarifas de Stripe)</td>
+                <td class="px-3 py-3 text-gray-700">Público: desde {{ PLANES[0].mensual }}&nbsp;€ + IVA al mes</td>
+                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="si" /> Automáticos</td>
+                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="si" /> La rural sale rellena; la hotelera y la de apartamentos se envían desde Hospedy</td>
+                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="si" /> Hugo, incluido: responde con tus datos y prepara los cambios que tú confirmas</td>
               </tr>
               <tr>
-                <td class="px-3 py-3 font-medium text-gray-900">RuralGest</td>
-                <td class="px-3 py-3 text-gray-700">No público</td>
-                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /> Auto</td>
-                <td class="px-3 py-3 text-center text-orange-600"><IconoMarca tipo="no" /> XML</td>
-                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /><span class="sr-only">Sí</span></td>
-                <td class="px-3 py-3 text-center text-gray-500">Variable</td>
+                <td class="px-3 py-3 font-medium text-gray-900">MisterPlan (antes RuralGest)</td>
+                <td class="px-3 py-3 text-gray-700">Público: desde 45&nbsp;€ + IVA al mes</td>
+                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="si" /> Automáticos</td>
+                <td class="px-3 py-3 text-gray-700">Anuncia el envío telemático</td>
+                <td class="px-3 py-3 text-gray-700">No consta</td>
               </tr>
               <tr>
                 <td class="px-3 py-3 font-medium text-gray-900">AvaiBook</td>
-                <td class="px-3 py-3 text-gray-700">204-576&nbsp;€+</td>
-                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /> Auto</td>
-                <td class="px-3 py-3 text-center text-orange-600"><IconoMarca tipo="no" /> XML</td>
-                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /><span class="sr-only">Sí</span></td>
-                <td class="px-3 py-3 text-center text-red-600">2-4&nbsp;%</td>
+                <td class="px-3 py-3 text-gray-700">Según unidades</td>
+                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="si" /> Manual, semiautomático o automático</td>
+                <td class="px-3 py-3 text-gray-700">Sin comprobar</td>
+                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="no" /> Solo un chat de soporte con IA</td>
               </tr>
               <tr>
                 <td class="px-3 py-3 font-medium text-gray-900">Amenitiz</td>
-                <td class="px-3 py-3 text-gray-700">504-1.500&nbsp;€</td>
-                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /> Auto</td>
-                <td class="px-3 py-3 text-center text-orange-600"><IconoMarca tipo="no" /> XML</td>
-                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /><span class="sr-only">Sí</span></td>
-                <td class="px-3 py-3 text-center text-green-600">0&nbsp;%</td>
+                <td class="px-3 py-3 text-gray-700">Con presupuesto</td>
+                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="si" /> Con Chekin, en su plan Core</td>
+                <td class="px-3 py-3 text-gray-700">Sin comprobar</td>
+                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="parcial" /> Ami, de pago aparte: redacta o envía las respuestas a los huéspedes</td>
               </tr>
               <tr>
-                <td class="px-3 py-3 font-medium text-gray-900">Cloudbeds</td>
-                <td class="px-3 py-3 text-gray-700">1.200&nbsp;€+</td>
-                <td class="px-3 py-3 text-center text-orange-600"><IconoMarca tipo="parcial" /> Parcial</td>
-                <td class="px-3 py-3 text-center text-orange-600"><IconoMarca tipo="no" /> XML</td>
-                <td class="px-3 py-3 text-center text-green-600"><IconoMarca tipo="si" /><span class="sr-only">Sí</span></td>
-                <td class="px-3 py-3 text-center text-green-600">0&nbsp;%</td>
+                <td class="px-3 py-3 font-medium text-gray-900">Avirato</td>
+                <td class="px-3 py-3 text-gray-700">Con presupuesto</td>
+                <td class="px-3 py-3 text-gray-700">Sin comprobar</td>
+                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="parcial" /> Semiautomática, con vista previa</td>
+                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="parcial" /> Incluida: contesta a los huéspedes y responde preguntas, también por voz</td>
               </tr>
             </tbody>
           </table>
         </div>
+        <p class="text-sm text-gray-500 not-prose">
+          Revisado el {{ revision }} con la información pública de cada empresa. Puede haber cambiado. «No consta» quiere
+          decir que esa empresa no lo cuenta, y «Sin comprobar», que no hemos podido verlo. Más programas en la
+          <NuxtLink to="/comparar" class="text-primary hover:underline">comparativa de PMS</NuxtLink>.
+        </p>
 
         <h2>1. Hospedy</h2>
-        <p><strong>Ideal para:</strong> casas rurales y hoteles pequeños que quieren quitarse papeleo</p>
+        <p><strong>Ideal para:</strong> casas rurales y alojamientos pequeños que quieren quitarse papeleo y trabajo de encima</p>
         <p>
-          Hospedy es un PMS hecho para alojamientos turísticos en España. Su punto fuerte es la automatización del cumplimiento normativo español: envía los partes de viajeros a SES Hospedajes automáticamente y te deja la encuesta del INE rellena con tus datos: la de turismo rural, lista para presentar; en hoteles y apartamentos, <strong>enviada al INE con un clic</strong>.
+          Hospedy es un programa de gestión hecho para alojamientos turísticos en España. Su punto fuerte es Hugo, un
+          asistente con inteligencia artificial al que le pides las cosas como a una persona: «pon la casa a 150&nbsp;€ la
+          noche del 1 al 7 de agosto», «¿qué tengo pendiente hoy?» o «el registro ha rechazado el parte de Luis Gómez,
+          corrígelo y reenvíalo».
+          Hugo mira tus datos, te prepara el cambio y <strong>no aplica nada hasta que tú lo confirmas</strong>. Y la
+          normativa va sola: los partes de viajeros salen solos y la encuesta de turismo rural sale rellena con tus
+          reservas.
         </p>
 
         <h3>Puntos fuertes</h3>
         <ul>
-          <li>La encuesta del INE, rellena con tus reservas</li>
-          <li>Partes de viajeros automáticos a SES y Ertzaintza</li>
-          <li>Precios públicos y transparentes</li>
-          <li>Channel manager incluido en todos los planes</li>
-          <li>Sin comisión por reserva en las reservas directas</li>
+          <li>Hugo, incluido: cambia precios y cierres de muchos días en una frase, arregla reservas y partes, y te dice qué tienes pendiente</li>
+          <li>Partes de viajeros automáticos a SES Hospedajes y a la Ertzaintza</li>
+          <li>La encuesta del INE de turismo rural, rellena con tus reservas</li>
+          <li>Precio público con todo dentro: channel manager, motor de reservas, Hugo y Zenfisk con Verifactu</li>
+          <li>Sin instalar nada: se abre en el navegador de cualquier dispositivo, siempre al día, y se añade a la pantalla de inicio del móvil</li>
         </ul>
 
         <h3>Puntos débiles</h3>
         <ul>
-          <li>Empresa más joven que competidores veteranos</li>
+          <li>Empresa más joven que los veteranos del sector</li>
+          <li>Cada plan incluye de {{ MIN_OTAS }} a {{ MAX_OTAS }} agencias; cada agencia de más tiene una cuota aparte</li>
+          <li>Hugo no contesta a los huéspedes: lo que te escriben lo respondes tú desde Mensajes</li>
+          <li>No tiene precios dinámicos automáticos</li>
         </ul>
 
-        <p><strong>Precio:</strong> desde 350&nbsp;€/año (plan Esencial) hasta 1.290&nbsp;€/año (Enterprise)</p>
+        <p><strong>Precio:</strong> desde {{ PLANES[0].anual }}&nbsp;€/año (plan {{ PLANES[0].nombre }}) hasta {{ miles(PLANES[PLANES.length - 1].anual) }}&nbsp;€/año ({{ PLANES[PLANES.length - 1].nombre }}), sin IVA</p>
 
-        <h2>2. RuralGest</h2>
-        <p><strong>Ideal para:</strong> quienes valoran la experiencia y quieren servicios adicionales de web/SEO</p>
+        <h2>2. MisterPlan (antes RuralGest)</h2>
+        <p><strong>Ideal para:</strong> quien quiere soporte por teléfono a cualquier hora y una empresa con muchos años en el sector</p>
         <p>
-          RuralGest es el veterano del sector con más de 20 años en el mercado español. Tiene una base de clientes consolidada y ofrece servicios adicionales como diseño web y posicionamiento SEO.
+          RuralGest ahora se llama MisterPlan: es la misma empresa, de Cáceres, en el sector desde 2009, y dice trabajar con
+          más de 5.000 establecimientos. Publica su precio, con el programa de gestión, el motor de reservas y el channel
+          manager.
         </p>
 
         <h3>Puntos fuertes</h3>
         <ul>
-          <li>20+ años de experiencia</li>
-          <li>App móvil disponible</li>
-          <li>Servicios adicionales de diseño web y SEO</li>
-          <li>Amplia base de clientes</li>
+          <li>Precio público con motor de reservas y channel manager, sin permanencia</li>
+          <li>Configuración y formación incluidas</li>
+          <li>Soporte por teléfono las 24 horas</li>
+          <li>Ficha policial automática y pre check-in con escáner</li>
         </ul>
 
         <h3>Puntos débiles</h3>
         <ul>
-          <li>No publica precios (hay que pedir presupuesto)</li>
-          <li>Solo genera XML para el INE (no lo envía)</li>
-          <li>Costes adicionales: web 150-1.200&nbsp;€, SEO 220-800&nbsp;€, mantenimiento SEO 90&nbsp;€/mes</li>
+          <li>No anuncia ningún asistente con IA</li>
+          <li>Del INE anuncia el envío telemático, sin más detalle en su web</li>
         </ul>
 
-        <p><strong>Precio:</strong> no público, varía según negociación</p>
+        <p><strong>Precio:</strong> desde 45&nbsp;€ + IVA al mes</p>
 
-        <h2>3. AvaiBook (Idealista)</h2>
-        <p><strong>Ideal para:</strong> quien busca el precio de entrada más bajo</p>
+        <h2>3. AvaiBook (idealista)</h2>
+        <p><strong>Ideal para:</strong> el alquiler vacacional con pocas unidades</p>
         <p>
-          AvaiBook, parte del grupo Idealista, ofrece el precio de entrada más bajo del mercado. Sin embargo, su modelo incluye comisiones en algunos planes y tarifas por procesamiento de pagos.
+          AvaiBook es de idealista y está pensado sobre todo para el alquiler vacacional. Tiene tres planes, Standard (hasta
+          5 unidades), Pro y Elite, con el precio según las unidades, y app para iOS y Android.
         </p>
 
         <h3>Puntos fuertes</h3>
         <ul>
-          <li>Precio inicial más bajo (desde 17&nbsp;€/mes)</li>
-          <li>Parte del ecosistema Idealista</li>
-          <li>Fast Check-in para partes de viajeros</li>
+          <li>Su Fast Check-in envía los partes a SES, Mossos y Ertzaintza, de forma manual, semiautomática o automática</li>
+          <li>Precio publicado según tus unidades</li>
+          <li>Verifactu en los planes superiores</li>
         </ul>
 
         <h3>Puntos débiles</h3>
         <ul>
-          <li>Comisiones del 2-4&nbsp;% en pasarela de pagos</li>
-          <li>Solo genera XML para el INE</li>
-          <li>El precio final puede ser mayor por comisiones</li>
+          <li>No tiene asistente de gestión con IA: solo un agente de soporte en su centro de ayuda</li>
+          <li>El lector de documentos va solo en Pro y Elite</li>
         </ul>
 
-        <p><strong>Precio:</strong> desde 204&nbsp;€/año, pero con posibles comisiones adicionales</p>
+        <p><strong>Precio:</strong> según las unidades, en su web</p>
 
         <h2>4. Amenitiz</h2>
-        <p><strong>Ideal para:</strong> hoteles boutique que buscan diseño moderno</p>
+        <p><strong>Ideal para:</strong> quien quiere que una IA le redacte las respuestas a los huéspedes</p>
         <p>
-          Amenitiz es una plataforma internacional con presencia en España. Destaca por su interfaz moderna y su enfoque en hoteles boutique y alojamientos con encanto.
+          Amenitiz es una empresa de Barcelona, de 2017, con alojamientos en España, Francia, Italia y Portugal. Tiene dos
+          planes, Core y Advanced, con presupuesto según las habitaciones, y vende aparte su asistente Ami, la web, su
+          sistema de precios, el TPV y las cerraduras.
         </p>
 
         <h3>Puntos fuertes</h3>
         <ul>
-          <li>Interfaz moderna y atractiva</li>
-          <li>Buen posicionamiento para hoteles boutique</li>
-          <li>Sin comisiones en reservas directas</li>
+          <li>Ami redacta o envía las respuestas a los huéspedes en WhatsApp, Booking y Airbnb: a mano, como borrador o en automático</li>
+          <li>El check-in online con Chekin, que envía los partes a SES, va incluido en Core</li>
+          <li>Soporte por teléfono en Core y un gestor de cuenta en Advanced</li>
+          <li>Migración gratuita</li>
         </ul>
 
         <h3>Puntos débiles</h3>
         <ul>
-          <li>Precio más elevado (desde 42&nbsp;€/mes)</li>
-          <li>Solo genera XML para el INE</li>
-          <li>Soporte desde call center internacional</li>
+          <li>Ya no publica precios</li>
+          <li>Ami es un módulo de pago aparte</li>
+          <li>No tiene asistente para gestionar el alojamiento: Ami solo habla con los huéspedes</li>
         </ul>
 
-        <p><strong>Precio:</strong> desde 504&nbsp;€/año (plan básico) hasta 1.500&nbsp;€/año</p>
+        <p><strong>Precio:</strong> con presupuesto</p>
 
-        <h2>5. Cloudbeds</h2>
-        <p><strong>Ideal para:</strong> hoteles medianos-grandes con operaciones internacionales</p>
+        <h2>5. Avirato</h2>
+        <p><strong>Ideal para:</strong> quien quiere una IA que atienda a sus huéspedes por muchos canales</p>
         <p>
-          Cloudbeds es una plataforma internacional potente, pero su adaptación al mercado español tiene limitaciones. El módulo Guest Experience puede tener problemas de compatibilidad con campos obligatorios españoles como el parentesco o el segundo apellido.
+          Avirato es español, dice trabajar con más de 24.300 hoteleros y conecta con más de 450 agencias. Su IA, Avirato
+          Intelligence, va en todos los planes y se amplía con complementos de pago: atiende a los huéspedes, lleva el chat
+          de la web, redacta textos y tiene un asistente para el hotelero que, por voz o por escrito, consulta la ocupación,
+          las llegadas, las reservas, la disponibilidad y los precios.
         </p>
 
         <h3>Puntos fuertes</h3>
         <ul>
-          <li>Plataforma robusta y escalable</li>
-          <li>Buena para operaciones internacionales</li>
-          <li>Amplio ecosistema de integraciones</li>
+          <li>IA incluida que contesta a los huéspedes por WhatsApp, la web, Booking, Airbnb y el email</li>
+          <li>Un asistente para el hotelero, por voz o por escrito, con permisos por rol</li>
+          <li>Más de 450 agencias</li>
+          <li>Envío de la encuesta del INE semiautomático, con vista previa</li>
         </ul>
 
         <h3>Puntos débiles</h3>
         <ul>
-          <li>Problemas de compatibilidad con normativa española</li>
-          <li>Precio elevado (desde 100&nbsp;€/mes)</li>
-          <li>Solo genera XML para el INE</li>
-          <li>Campos como parentesco/segundo apellido requieren revisión manual</li>
+          <li>Precio con presupuesto: Premium, Advanced y Platinum</li>
+          <li>No consta que su asistente haga cambios en la gestión: consulta los datos y prepara propuestas para el huésped</li>
+          <li>Parte de la IA va en complementos de pago</li>
         </ul>
 
-        <p><strong>Precio:</strong> desde 1.200&nbsp;€/año (contactar para presupuesto)</p>
+        <p><strong>Precio:</strong> con presupuesto; 20 días de prueba</p>
 
         <div class="bg-green-50 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4 text-green-800">¿Cuál elegir?</h3>
           <ul class="space-y-2 text-green-900">
-            <li><strong>Si quieres la encuesta del INE hecha con tus reservas →</strong> Hospedy</li>
-            <li><strong>Si valoras la experiencia y quieres servicios de web →</strong> RuralGest</li>
-            <li><strong>Si buscas el precio más bajo de entrada →</strong> AvaiBook</li>
-            <li><strong>Si tienes un hotel boutique y valoras el diseño →</strong> Amenitiz</li>
-            <li><strong>Si tienes un hotel mediano-grande internacional →</strong> Cloudbeds</li>
+            <li><strong>Si quieres que la IA te prepare el trabajo y la normativa resuelta, con precio publicado →</strong> Hospedy</li>
+            <li><strong>Si quieres poder llamar por teléfono a cualquier hora →</strong> MisterPlan</li>
+            <li><strong>Si te dedicas al alquiler vacacional y quieres una app de las tiendas →</strong> AvaiBook</li>
+            <li><strong>Si quieres que una IA redacte las respuestas a tus huéspedes →</strong> Amenitiz</li>
+            <li><strong>Si quieres que una IA atienda a tus huéspedes por muchos canales →</strong> Avirato</li>
           </ul>
         </div>
 
         <h2>Preguntas frecuentes</h2>
 
-        <h3>¿Cuál tiene mejor soporte en español?</h3>
+        <h3>¿Qué hace la IA de cada uno?</h3>
         <p>
-          Hospedy y RuralGest dan soporte nativo en español. AvaiBook también tiene buen soporte en español al ser parte de Idealista. Amenitiz y Cloudbeds tienen soporte en español pero desde equipos internacionales.
+          No hacen lo mismo. Amenitiz y Avirato usan la IA sobre todo para contestar a los huéspedes. Avirato tiene además un
+          asistente que responde preguntas sobre tus datos. Hugo, el de Hospedy, no habla con tus huéspedes: trabaja
+          contigo, responde con tus datos y prepara los cambios (precios, reservas, partes, facturas) para que los confirmes.
+          Lo tienes todo en la <NuxtLink to="/comparar">comparativa de PMS</NuxtLink>.
         </p>
 
         <h3>¿Puedo cambiar de un PMS a otro fácilmente?</h3>
@@ -211,9 +233,18 @@
           La migración entre sistemas suele requerir exportar datos y configurar de nuevo los canales. La mayoría ofrecen ayuda en la migración durante el período de prueba.
         </p>
 
-        <h3>¿Qué significa "Rellena y lista", "INE FULL" e "INE XML"?</h3>
+        <h3>¿Qué diferencia hay entre enviar la encuesta del INE y generar el fichero?</h3>
         <p>
-          "Rellena y lista" significa que el sistema te deja la encuesta de turismo rural rellena con tus datos para que la presentes tú, como hace Hospedy. "INE FULL" significa que el sistema envía la encuesta directamente al INE con un clic (Hospedy lo hace con la de ocupación hotelera y la de apartamentos). "INE XML" significa que genera un archivo que tú debes descargar y subir manualmente a la plataforma ARCE del INE cada mes.
+          Enviarla quiere decir que el programa se la manda al INE y tú recibes el justificante, como hace Hospedy con la de
+          ocupación hotelera y la de apartamentos. Generar el fichero quiere decir que te lo descargas y lo presentas tú en
+          el portal del INE cada mes. La encuesta de turismo rural, en Hospedy, sale rellena con tus datos para que la
+          presentes tú.
+        </p>
+
+        <h3>¿Tengo que instalar algo para usar Hospedy en el móvil?</h3>
+        <p>
+          No. Hospedy se abre en el navegador de cualquier dispositivo, siempre en su última versión, y lo puedes añadir a
+          la pantalla de inicio para entrar con un toque. Y a Hugo le puedes hablar en vez de escribir.
         </p>
       </div>
 
@@ -228,10 +259,19 @@
 </template>
 
 <script setup lang="ts">
-import { TEXTO_COMISION_COBROS } from '~/utils/precios'
+import { REVISION_COMPARATIVA } from '~/utils/comparativa'
+import { fechaLarga } from '~/utils/fechas'
+import { PLANES } from '~/utils/precios'
 
-const comision = TEXTO_COMISION_COBROS
 const articulo = useArticulo('mejores-pms-casas-rurales')
+const revision = fechaLarga(REVISION_COMPARATIVA)
+const MIN_OTAS = Math.min(...PLANES.map(plan => plan.otasIncluidas))
+const MAX_OTAS = Math.max(...PLANES.map(plan => plan.otasIncluidas))
+
+// 1290 → «1.290», como el resto de la web
+function miles(numero: number) {
+  return String(numero).replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+}
 </script>
 
 <style scoped>

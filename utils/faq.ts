@@ -97,7 +97,7 @@ export const FAQ: GrupoFaq[] = [
       {
         id: 'encuestas-ine',
         pregunta: '¿Cómo se hacen las encuestas del INE?',
-        respuesta: 'Hospedy rellena las encuestas de ocupación del INE con los datos de tus reservas. La de hoteles y la de apartamentos turísticos se envían al INE desde Hospedy con un clic, sin entrar en ARCE; la de turismo rural y la de Castilla y León te las deja listas para descargar y presentar. También genera el documento de admisión que exigen once comunidades autónomas.',
+        respuesta: 'Hospedy rellena las encuestas de ocupación del INE con los datos de tus reservas. La de hoteles y la de apartamentos turísticos se envían al INE desde Hospedy con un clic, sin entrar en el portal del INE; la de turismo rural y la de Castilla y León te las deja listas para descargar y presentar. También genera el documento de admisión que exigen once comunidades autónomas.',
       },
       {
         id: 'auto-checkin',

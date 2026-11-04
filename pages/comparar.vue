@@ -4,1040 +4,118 @@
       <div class="max-w-6xl mx-auto px-6">
         <MigasDePan :migas="[{ nombre: 'Comparativa de PMS', ruta: '/comparar' }]" />
       </div>
-      <!-- Hero -->
+      <!-- Cabecera -->
       <div class="text-center max-w-4xl mx-auto px-6 mt-8">
-        <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-          Hospedy vs otros PMS
-        </h1>
-        <p class="text-xl text-gray-600 mb-8">
-          Comparamos precios y funcionalidades con los principales PMS del
-          mercado. Sin trucos, sin letra pequeña.
+        <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Hospedy frente a otros PMS</h1>
+        <p class="text-xl text-gray-600">
+          Qué hace la inteligencia artificial de cada programa, cuánto cuesta y cómo resuelve los partes de viajeros y la
+          encuesta del INE. Con la información que publica cada empresa, revisada el {{ revision }}.
         </p>
       </div>
 
-      <!-- Main comparison table. El aviso, encima: los precios de otros son una referencia -->
-      <div class="max-w-6xl mx-auto px-6 mt-12">
-        <p class="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 text-lg text-amber-900 mb-6">
+      <!-- La IA de cada uno. Las tablas se leen en filas en el móvil (cada celda con su rótulo), sin scroll lateral. El
+           rótulo lleva data-nosnippet: en el Markdown de la página (y en los buscadores) ya lo dice la cabecera -->
+      <section class="max-w-6xl mx-auto px-6 mt-14" aria-labelledby="titulo-ia">
+        <h2 id="titulo-ia" class="text-3xl font-bold text-gray-900 text-center mb-4">La inteligencia artificial de cada uno</h2>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto text-center mb-8">
+          Casi todos los programas hablan ya de IA, pero no hacen lo mismo. Hay tres tipos: la que contesta a tus
+          huéspedes, la que responde preguntas sobre tus datos y la que hace el trabajo contigo, que prepara los cambios
+          para que tú los confirmes.
+        </p>
+        <div class="rounded-2xl border border-gray-200 bg-white overflow-hidden">
+          <table class="w-full text-left">
+            <caption class="sr-only">La inteligencia artificial de cada programa de gestión</caption>
+            <thead class="hidden md:table-header-group bg-gray-50">
+              <tr>
+                <th scope="col" class="p-4 font-semibold text-gray-900 w-[16%]">Programa</th>
+                <th v-for="columna in COLUMNAS_IA" :key="columna" scope="col" class="p-4 font-semibold text-gray-900">{{ columna }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="fila in FILAS_IA"
+                :key="fila.nombre"
+                class="block md:table-row border-t border-gray-200 first:border-t-0 md:first:border-t px-5 py-4 md:p-0"
+                :class="{ 'bg-primary/5': fila.propia }"
+              >
+                <th scope="row" class="block md:table-cell md:p-4 align-top text-lg" :class="fila.propia ? 'text-primary font-bold' : 'font-semibold text-gray-900'">{{ fila.nombre }}</th>
+                <td v-for="clave in CLAVES_IA" :key="clave" class="block md:table-cell md:p-4 align-top mt-2 md:mt-0 text-gray-700">
+                  <span class="md:hidden font-semibold text-gray-900" data-nosnippet>{{ COLUMNAS_IA[clave] }}: </span>
+                  <IconoMarca v-if="fila[clave].marca" :tipo="fila[clave].marca" class="mr-1" />{{ fila[clave].texto }}
+                </td>
+                <td class="block md:table-cell md:p-4 align-top mt-2 md:mt-0 text-gray-700">
+                  <span class="md:hidden font-semibold text-gray-900" data-nosnippet>{{ COLUMNAS_IA.coste }}: </span>{{ fila.coste }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-lg text-gray-600 mt-4">
+          Hugo trabaja para ti y no habla con tus huéspedes: los emails automáticos salen de
+          <NuxtLink to="/funciones/comunicaciones" class="text-secondary font-semibold hover:underline underline-offset-4">Comunicaciones</NuxtLink>,
+          y lo que te contestan lo respondes tú desde
+          <NuxtLink to="/funciones/mensajes" class="text-secondary font-semibold hover:underline underline-offset-4">Mensajes</NuxtLink>.
+        </p>
+      </section>
+
+      <!-- Precio y normativa -->
+      <section class="max-w-6xl mx-auto px-6 mt-16" aria-labelledby="titulo-precio">
+        <h2 id="titulo-precio" class="text-3xl font-bold text-gray-900 text-center mb-8">Precio y normativa</h2>
+        <div class="rounded-2xl border border-gray-200 bg-white overflow-hidden">
+          <table class="w-full text-left">
+            <caption class="sr-only">Precio, partes de viajeros y encuesta del INE de cada programa de gestión</caption>
+            <thead class="hidden md:table-header-group bg-gray-50">
+              <tr>
+                <th scope="col" class="p-4 font-semibold text-gray-900 w-[16%]">Programa</th>
+                <th v-for="columna in COLUMNAS_PRECIO" :key="columna" scope="col" class="p-4 font-semibold text-gray-900">{{ columna }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="fila in FILAS_PRECIO"
+                :key="fila.nombre"
+                class="block md:table-row border-t border-gray-200 first:border-t-0 md:first:border-t px-5 py-4 md:p-0"
+                :class="{ 'bg-primary/5': fila.propia }"
+              >
+                <th scope="row" class="block md:table-cell md:p-4 align-top text-lg" :class="fila.propia ? 'text-primary font-bold' : 'font-semibold text-gray-900'">{{ fila.nombre }}</th>
+                <td v-for="clave in CLAVES_PRECIO" :key="clave" class="block md:table-cell md:p-4 align-top mt-2 md:mt-0 text-gray-700">
+                  <span class="md:hidden font-semibold text-gray-900" data-nosnippet>{{ COLUMNAS_PRECIO[clave] }}: </span>
+                  <IconoMarca v-if="fila[clave].marca" :tipo="fila[clave].marca" class="mr-1" />{{ fila[clave].texto }}
+                </td>
+                <td class="block md:table-cell md:p-4 align-top mt-2 md:mt-0 text-gray-700">
+                  <span class="md:hidden font-semibold text-gray-900" data-nosnippet>{{ COLUMNAS_PRECIO.notas }}: </span>{{ fila.notas }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- La fecha de la revisión, junto a las tablas: un dato de otra empresa puede cambiar -->
+        <p class="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 text-lg text-amber-900 mt-6">
           <svg class="w-6 h-6 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
           </svg>
-          <span>Precios de referencia aproximados, tomados de información pública en febrero de 2025. Pueden haber cambiado: consulta a cada proveedor.</span>
+          <span>Revisado el {{ revision }} con la información pública de cada empresa. Puede haber cambiado. «No consta» quiere decir que esa empresa no lo cuenta, y «Sin comprobar», que no hemos podido verlo.</span>
         </p>
-        <div class="overflow-x-auto">
-          <table class="w-full border-collapse">
-            <thead>
-              <tr class="bg-gray-50">
-                <th class="text-left p-4 border-b border-gray-200 w-1/5">
-                  Característica
-                </th>
-                <th
-                  class="text-center p-4 border-b border-gray-200 bg-primary/5 border-l-2 border-r-2 border-primary"
-                >
-                  <span class="text-primary font-bold text-lg">Hospedy</span>
-                </th>
-                <th class="text-center p-4 border-b border-gray-200">
-                  Cloudbeds
-                </th>
-                <th class="text-center p-4 border-b border-gray-200">Mews</th>
-                <th class="text-center p-4 border-b border-gray-200">
-                  Amenitiz
-                </th>
-                <th class="text-center p-4 border-b border-gray-200">
-                  Little Hotelier
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Pricing -->
-              <tr class="bg-gray-50">
-                <td colspan="6" class="p-4 font-bold text-lg">Precios</td>
-              </tr>
-              <tr>
-                <td class="p-4 border-b border-gray-100">
-                  Precio base, 6 habitaciones
-                  <span class="block text-sm text-gray-500">referencia aproximada</span>
-                </td>
-                <td
-                  class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary font-bold text-green-600"
-                >
-                  590&nbsp;€/año
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  ~1.200&nbsp;€/año
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  ~1.800&nbsp;€/año
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  ~600&nbsp;€/año
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  ~1.080&nbsp;€/año
-                </td>
-              </tr>
-              <tr>
-                <td class="p-4 border-b border-gray-100">
-                  Comisión por reserva
-                </td>
-                <td
-                  class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary font-bold text-green-600"
-                >
-                  0&nbsp;%
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  Variable
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  0,75-1,5&nbsp;%
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">0&nbsp;%</td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  Variable
-                </td>
-              </tr>
-              <tr>
-                <td class="p-4 border-b border-gray-100">Prueba gratuita</td>
-                <td
-                  class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary font-bold text-green-600"
-                >
-                  30 días
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">Demo</td>
-                <td class="p-4 border-b border-gray-100 text-center">Demo</td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  14 días
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  30 días
-                </td>
-              </tr>
+      </section>
 
-              <!-- Spanish compliance -->
-              <tr class="bg-gray-50">
-                <td colspan="6" class="p-4 font-bold text-lg">
-                  Cumplimiento normativo español
-                </td>
-              </tr>
-              <tr>
-                <td class="p-4 border-b border-gray-100">
-                  Partes de viajeros automáticos
-                </td>
-                <td
-                  class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary"
-                >
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-                <td
-                  class="p-4 border-b border-gray-100 text-center text-lg text-gray-500"
-                >
-                  Manual
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-              </tr>
-              <tr>
-                <td class="p-4 border-b border-gray-100">
-                  Envío a SES Hospedajes
-                </td>
-                <td
-                  class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary"
-                >
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-                <td
-                  class="p-4 border-b border-gray-100 text-center text-lg text-gray-500"
-                >
-                  Manual
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-              </tr>
-              <tr class="bg-green-50">
-                <td class="p-4 border-b border-gray-100 font-semibold">
-                  Envío a Ertzaintza (País Vasco)
-                </td>
-                <td
-                  class="p-4 border-b border-gray-100 text-center bg-green-100 border-l-2 border-r-2 border-primary"
-                >
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-              </tr>
-              <tr>
-                <td class="p-4 border-b border-gray-100">
-                  Encuestas INE automáticas
-                </td>
-                <td
-                  class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary"
-                >
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-              </tr>
-
-              <!-- Features -->
-              <tr class="bg-gray-50">
-                <td colspan="6" class="p-4 font-bold text-lg">
-                  Funcionalidades
-                </td>
-              </tr>
-              <tr>
-                <td class="p-4 border-b border-gray-100">Motor de reservas</td>
-                <td
-                  class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary"
-                >
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-              </tr>
-              <tr>
-                <td class="p-4 border-b border-gray-100">Channel Manager</td>
-                <td
-                  class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary text-lg"
-                >
-                  1-5 OTAs incl.
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center text-lg">
-                  Incluido
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center text-lg">
-                  Incluido
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center text-lg">
-                  Incluido
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center text-lg">
-                  Incluido
-                </td>
-              </tr>
-              <tr>
-                <td class="p-4 border-b border-gray-100">Facturación</td>
-                <td
-                  class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary"
-                >
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-              </tr>
-              <tr>
-                <td class="p-4 border-b border-gray-100">Auto check-in</td>
-                <td
-                  class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary"
-                >
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td
-                  class="p-4 border-b border-gray-100 text-center text-lg text-gray-500"
-                >
-                  Addon
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-              </tr>
-
-              <!-- Support -->
-              <tr class="bg-gray-50">
-                <td colspan="6" class="p-4 font-bold text-lg">Soporte</td>
-              </tr>
-              <tr>
-                <td class="p-4 border-b border-gray-100">Soporte en español</td>
-                <td
-                  class="p-4 border-b text-center bg-primary/5 border-l-2 border-r-2 border-primary"
-                >
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td
-                  class="p-4 border-b border-gray-100 text-center text-lg text-gray-500"
-                >
-                  Limitado
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td
-                  class="p-4 border-b border-gray-100 text-center text-lg text-gray-500"
-                >
-                  Limitado
-                </td>
-              </tr>
-              <tr>
-                <td class="p-4 border-b border-gray-100">
-                  Soporte por email + videollamada
-                </td>
-                <td
-                  class="p-4 border-b border-gray-100 text-center bg-primary/5 border-l-2 border-r-2 border-primary"
-                >
-                  <svg
-                    class="w-6 h-6 text-green-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg
-                    class="w-6 h-6 text-red-500 mx-auto"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Spanish competitors -->
-      <div class="max-w-5xl mx-auto px-6 mt-20">
-        <h2 class="text-3xl font-bold text-center mb-8">Comparativa con PMS españoles</h2>
-        <div class="overflow-x-auto">
-          <table class="w-full border-collapse bg-white rounded-lg shadow">
-            <thead>
-              <tr class="bg-gray-50">
-                <th class="text-left p-4 border-b border-gray-200">PMS</th>
-                <th class="text-center p-4 border-b border-gray-200">Precio/año <span class="block text-sm font-normal text-gray-500">referencia aproximada</span></th>
-                <th class="text-center p-4 border-b border-gray-200">Channel Manager</th>
-                <th class="text-center p-4 border-b border-gray-200">Partes auto</th>
-                <th class="text-center p-4 border-b border-gray-200">Notas</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="bg-primary/5 border-l-2 border-primary">
-                <td class="p-4 border-b border-gray-100 font-bold text-primary">Hospedy</td>
-                <td class="p-4 border-b border-gray-100 text-center font-bold text-green-600">350-1.290&nbsp;€</td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center text-sm text-gray-600">Todas las funciones</td>
-              </tr>
-              <tr>
-                <td class="p-4 border-b border-gray-100 font-medium">RuralGest (apts)</td>
-                <td class="p-4 border-b border-gray-100 text-center">298&nbsp;€</td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center text-sm text-gray-600">20+ años en el mercado</td>
-              </tr>
-              <tr>
-                <td class="p-4 border-b border-gray-100 font-medium">RuralGest (hotel)</td>
-                <td class="p-4 border-b border-gray-100 text-center">980&nbsp;€</td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center text-sm text-gray-600">Competidor directo</td>
-              </tr>
-              <tr>
-                <td class="p-4 border-b border-gray-100 font-medium">Avaibook</td>
-                <td class="p-4 border-b border-gray-100 text-center">204-576&nbsp;€</td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center text-sm text-gray-500">Limitado</td>
-                <td class="p-4 border-b border-gray-100 text-center text-sm text-red-600">+ 2-4&nbsp;% comisiones</td>
-              </tr>
-              <tr>
-                <td class="p-4 border-b border-gray-100 font-medium">HotelManager</td>
-                <td class="p-4 border-b border-gray-100 text-center">1.308&nbsp;€</td>
-                <td class="p-4 border-b border-gray-100 text-center text-sm text-gray-500">Extra</td>
-                <td class="p-4 border-b border-gray-100 text-center">
-                  <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </td>
-                <td class="p-4 border-b border-gray-100 text-center text-sm text-gray-600">Más caro</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="bg-green-50 rounded-lg p-6 mt-8">
-          <h3 class="font-semibold text-lg mb-3 text-green-800">Ventajas de Hospedy vs competencia española:</h3>
-          <ul class="space-y-2 text-green-700">
-            <li class="flex items-start gap-2">
-              <IconoMarca tipo="si" class="mt-1" />
-              <span>40-60&nbsp;% más barato que RuralGest (hoteles) y HotelManager</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <IconoMarca tipo="si" class="mt-1" />
-              <span>Cumplimiento español de serie: partes a SES Hospedajes y Ertzaintza, encuestas del INE y documentos autonómicos</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <IconoMarca tipo="si" class="mt-1" />
-              <span>Sin comisión por reserva en las reservas directas (Avaibook cobra un 2-4&nbsp;%)</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <IconoMarca tipo="si" class="mt-1" />
-              <span>Todo en uno: PMS + Channel Manager + Motor de reservas incluidos</span>
+      <!-- Por qué elegir Hospedy -->
+      <section class="bg-primary/5 py-16 mt-20" aria-labelledby="titulo-por-que">
+        <div class="max-w-5xl mx-auto px-6">
+          <h2 id="titulo-por-que" class="text-3xl font-bold text-center mb-12">Por qué elegir Hospedy</h2>
+          <ul class="grid md:grid-cols-2 gap-10">
+            <li v-for="motivo in MOTIVOS" :key="motivo.titulo" class="text-center">
+              <span class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="motivo.icono"></path>
+                </svg>
+              </span>
+              <h3 class="font-semibold text-xl text-gray-900 mb-2">{{ motivo.titulo }}</h3>
+              <p class="text-lg text-gray-600">{{ motivo.texto }}</p>
+              <NuxtLink v-if="motivo.enlace" :to="motivo.enlace.ruta" class="inline-block mt-3 text-secondary font-semibold hover:underline underline-offset-4">{{ motivo.enlace.texto }} →</NuxtLink>
             </li>
           </ul>
         </div>
-      </div>
-
-      <!-- Key differentiators -->
-      <div class="bg-primary/5 py-16 mt-20">
-        <div class="max-w-4xl mx-auto px-6">
-          <h2 class="text-3xl font-bold text-center mb-12">
-            Por qué elegir Hospedy
-          </h2>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="text-center">
-              <div
-                class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm"
-              >
-                <svg
-                  class="w-8 h-8 text-primary"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                  ></path>
-                </svg>
-              </div>
-              <h3 class="font-semibold text-lg mb-2">
-                Cumplimiento automático
-              </h3>
-              <p class="text-gray-600">
-                Envío automático de partes a SES Hospedajes y Ertzaintza (País
-                Vasco).
-              </p>
-            </div>
-            <div class="text-center">
-              <div
-                class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm"
-              >
-                <svg
-                  class="w-8 h-8 text-primary"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-              </div>
-              <h3 class="font-semibold text-lg mb-2">Hasta 60&nbsp;% más barato</h3>
-              <p class="text-gray-600">
-                Desde 350&nbsp;€/año frente a +1.000&nbsp;€/año de la competencia.
-              </p>
-            </div>
-            <div class="text-center">
-              <div
-                class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm"
-              >
-                <svg
-                  class="w-8 h-8 text-primary"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"
-                  ></path>
-                </svg>
-              </div>
-              <h3 class="font-semibold text-lg mb-2">Soporte humano real</h3>
-              <p class="text-gray-600">
-                Email y videollamada, con personas reales que hablan español.
-              </p>
-            </div>
-            <div class="text-center">
-              <div
-                class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm"
-              >
-                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-              </div>
-              <h3 class="font-semibold text-lg mb-2">Todas las funciones en todos los planes</h3>
-              <p class="text-gray-600">
-                No escondemos herramientas para los alojamientos pequeños ni cobramos cada función por separado.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      </section>
 
       <!-- Más comparativas, en el blog -->
       <section class="max-w-5xl mx-auto px-6 mt-20" aria-labelledby="titulo-mas-comparativas">
@@ -1063,11 +141,47 @@
 
 <script setup lang="ts">
 import { ARTICULOS } from '~/utils/blog'
+import { COLUMNAS_IA, COLUMNAS_PRECIO, FILAS_IA, FILAS_PRECIO, REVISION_COMPARATIVA } from '~/utils/comparativa'
+import { fechaLarga } from '~/utils/fechas'
+import { PLANES } from '~/utils/precios'
 
 useSeoPagina({
-    titulo: 'Comparativa de PMS para alojamientos en España',
-    descripcion: 'Hospedy frente a Cloudbeds, Mews, Amenitiz y Little Hotelier: precios de referencia, funciones y cumplimiento de la normativa española.',
+  titulo: 'Comparativa de PMS: IA, precios y normativa',
+  descripcion: 'Hospedy frente a Avirato, Cloudbeds, Mews, Amenitiz, AvaiBook y otros PMS: qué hace su IA, cuánto cuestan y cómo envían los partes y la encuesta del INE.',
 })
+
+const revision = fechaLarga(REVISION_COMPARATIVA)
+
+// las columnas con marca; la última de cada tabla es solo texto
+const CLAVES_IA = ['huespedes', 'datos', 'cambios'] as const
+const CLAVES_PRECIO = ['precio', 'partes', 'ine'] as const
+
+// Iconos de 24 × 24 con trazo (como los de Heroicons)
+const MOTIVOS = [
+  {
+    titulo: 'Hugo hace el trabajo, no solo contesta',
+    texto: 'Cambia precios y cierres de muchos días en una frase, y arregla reservas, huéspedes, partes y facturas. Te lo prepara y se aplica cuando tú lo confirmas.',
+    icono: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
+    enlace: { texto: 'Conoce a Hugo', ruta: '/funciones/hugo' },
+  },
+  {
+    titulo: 'La IA y la normativa, juntas',
+    texto: 'Si el registro rechaza un parte, Hugo te dice por qué, corrige el dato y lo vuelve a enviar cuando le das el sí. Los partes salen solos y la encuesta del INE se envía desde Hospedy.',
+    icono: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    enlace: { texto: 'Ver los partes de viajeros', ruta: '/funciones/partes-viajeros' },
+  },
+  {
+    titulo: 'Precio público, con todo dentro',
+    texto: `Desde ${PLANES[0].mensual} €/mes, con Hugo, el channel manager, el motor de reservas y Zenfisk incluidos. Todas las funciones en todos los planes: pagas según el tamaño de tu alojamiento.`,
+    icono: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    enlace: { texto: 'Ver los precios', ruta: '/precios' },
+  },
+  {
+    titulo: 'Hugo funciona en nuestros servidores',
+    texto: 'En servidores propios de Hospedy, los mismos en los que se guardan tus datos. Los documentos y teléfonos de tus huéspedes los enseña tapados en parte, y cada cambio que confirmas queda en el registro de actividad.',
+    icono: 'M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01',
+  },
+]
 
 // los artículos del blog que comparan PMS
 const COMPARATIVAS = ['mejores-pms-casas-rurales', 'hospedy-vs-ruralgest', 'cuanto-cuesta-pms-hotel']
