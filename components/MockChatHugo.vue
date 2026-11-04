@@ -5,10 +5,20 @@
 
        - pasos: las líneas de una propuesta de varios pasos, como las escribe el programa; sin ellas, los cambios de
          precio de «cambios»; sin ninguno de los dos, la respuesta va sin tarjeta
+       - alto: el alto fijo de la ventana, como la del panel, que mide lo mismo tenga lo que tenga. Hace falta dentro de
+         MontarAlVerse: la maqueta mide entonces alto + 76 a cualquier ancho y su hueco se reserva con ese alto exacto
+         (con una proporción, el texto parte distinto en el móvil y la página salta al montarla o al volver atrás)
        - movil: dentro de MockPhoneFrame, como en el panel en un móvil de 375 px: la ventana de 343 × 568 sobre el botón
          y, detrás, la barra de la app. Todas las medidas van en --k, que vale 1 px en el ordenador y 1 px del móvil
          de referencia (--p del marco) dentro del móvil. -->
-  <div class="hm-hugo" :class="{ 'hm-hugo--movil': movil }" role="img" :aria-label="descripcion" inert>
+  <div
+    class="hm-hugo"
+    :class="{ 'hm-hugo--movil': movil, 'hm-hugo--fijo': alto && !movil }"
+    :style="alto && !movil ? { '--hm-hugo-alto': alto } : undefined"
+    role="img"
+    :aria-label="descripcion"
+    inert
+  >
     <div v-if="movil" class="hm-hugo-app" aria-hidden="true">
       <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
       <span class="hm-hugo-app-marca">Hospedy</span>
@@ -88,6 +98,7 @@ withDefaults(defineProps<{
   pasos?: string[]
   descripcion?: string
   saludo?: boolean
+  alto?: number
   movil?: boolean
 }>(), {
   peticion: 'Baja la Doble a 90 € del 1 al 7 de julio',
@@ -96,6 +107,7 @@ withDefaults(defineProps<{
   pasos: () => [],
   descripcion: 'Ejemplo del chat de Hugo, el asistente de Hospedy: le pides bajar la habitación Doble a 90 € del 1 al 7 de julio y Hugo te enseña el cambio, de 110 € a 90 €, para que lo confirmes con «Sí, aplicar».',
   saludo: true,
+  alto: 0,
   movil: false,
 })
 </script>
@@ -211,12 +223,23 @@ withDefaults(defineProps<{
   color: #2d3748;
 }
 
+/* la viñeta del panel, dibujada en --k: el marcador de la lista no encoge con el móvil y caía sobre el borde */
 .hm-hugo-cambios {
   margin: 0 0 calc(8 * var(--k));
   padding-left: calc(16 * var(--k));
-  list-style: disc;
+  list-style: none;
   font-size: calc(12.5 * var(--k));
   color: #2d3748;
+}
+
+.hm-hugo-cambios li {
+  position: relative;
+}
+
+.hm-hugo-cambios li::before {
+  content: "•";
+  position: absolute;
+  left: calc(-12 * var(--k));
 }
 
 .hm-hugo-cambios li + li {
@@ -309,9 +332,29 @@ withDefaults(defineProps<{
   height: calc(20 * var(--k));
 }
 
+/* Con alto fijo, y en el móvil, los mensajes se pegan abajo, como una conversación que ha bajado sola: lo que no cabe
+   se corta por arriba. */
+.hm-hugo--fijo .hm-hugo-panel {
+  height: calc(var(--hm-hugo-alto) * var(--k));
+}
+
+.hm-hugo--fijo .hm-hugo-cuerpo,
+.hm-hugo--movil .hm-hugo-cuerpo {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hm-hugo--fijo .hm-hugo-msg,
+.hm-hugo--movil .hm-hugo-msg {
+  flex: 0 0 auto;
+}
+
 /* En el móvil (dentro de MockPhoneFrame): la pantalla entera, con la barra de la app detrás. El panel, como en el
-   panel real a 375 px: a 22 px de la derecha, 90 px por encima del borde, 343 px de ancho y el 70 % del alto. Los
-   mensajes se pegan abajo, como una conversación que ha bajado sola: lo que no cabe se corta por arriba. */
+   panel real a 375 px: a 22 px de la derecha, 90 px por encima del borde, 343 px de ancho y el 70 % del alto. */
 .hm-hugo--movil {
   --k: var(--p);
   flex: 1 1 auto;
@@ -350,19 +393,6 @@ withDefaults(defineProps<{
   bottom: calc(90 * var(--k));
   width: calc(343 * var(--k));
   height: calc(568 * var(--k));
-}
-
-.hm-hugo--movil .hm-hugo-cuerpo {
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.hm-hugo--movil .hm-hugo-msg {
-  flex: 0 0 auto;
 }
 
 .hm-hugo--movil .hm-hugo-fab {

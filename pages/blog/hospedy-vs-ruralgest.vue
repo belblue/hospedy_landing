@@ -30,55 +30,33 @@
 
         <h2>Comparativa directa</h2>
 
-        <div class="overflow-x-auto my-6 not-prose">
-          <table class="min-w-full border border-gray-200 rounded-lg">
-            <thead class="bg-gray-50">
+        <!-- En el móvil cada fila se lee como una ficha, con el rótulo de cada celda (data-nosnippet: en el Markdown ya lo
+             dice la cabecera), sin scroll lateral -->
+        <div class="my-6 not-prose rounded-lg border border-gray-200 overflow-hidden">
+          <table class="w-full text-left text-sm">
+            <thead class="hidden md:table-header-group bg-gray-50">
               <tr>
-                <th class="px-4 py-3 text-left text-sm font-semibold text-gray-900">Característica</th>
-                <th class="px-4 py-3 text-left text-sm font-semibold text-gray-900">Hospedy</th>
-                <th class="px-4 py-3 text-left text-sm font-semibold text-gray-900">MisterPlan (antes RuralGest)</th>
+                <th scope="col" class="px-4 py-3 font-semibold text-gray-900">Característica</th>
+                <th scope="col" class="px-4 py-3 font-semibold text-gray-900">Hospedy</th>
+                <th scope="col" class="px-4 py-3 font-semibold text-gray-900">MisterPlan (antes RuralGest)</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200">
-              <tr>
-                <td class="px-4 py-3 text-sm text-gray-700">Precio</td>
-                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="si" /> Público: desde {{ PLANES[0].mensual }}&nbsp;€ + IVA al mes</td>
-                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="si" /> Público: desde 45&nbsp;€ + IVA al mes</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-3 text-sm text-gray-700">Qué incluye</td>
-                <td class="px-4 py-3 text-sm text-gray-700">Todas las funciones en todos los planes: channel manager, motor de reservas, Hugo y Zenfisk con Verifactu</td>
-                <td class="px-4 py-3 text-sm text-gray-700">Programa de gestión, motor de reservas y channel manager, con la configuración y la formación</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-3 text-sm text-gray-700">Permanencia</td>
-                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="si" /> Sin permanencia</td>
-                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="si" /> Sin permanencia</td>
-              </tr>
-              <tr class="bg-green-50">
-                <td class="px-4 py-3 text-sm text-gray-700 font-medium">Asistente con IA</td>
-                <td class="px-4 py-3 text-sm text-gray-700 font-medium"><IconoMarca tipo="si" /> Hugo, incluido: responde con tus datos y prepara los cambios para que los confirmes</td>
-                <td class="px-4 py-3 text-sm text-gray-700">No consta</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-3 text-sm text-gray-700">Partes de viajeros</td>
-                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="si" /> Automáticos, a SES Hospedajes y a la Ertzaintza</td>
-                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="si" /> Automáticos</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-3 text-sm text-gray-700">Encuesta del INE</td>
-                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="si" /> Se envía desde Hospedy, con el justificante del INE, en hoteles y apartamentos; la de turismo rural sale rellena</td>
-                <td class="px-4 py-3 text-sm text-gray-700">Anuncia el envío telemático automático</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-3 text-sm text-gray-700">Check-in</td>
-                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="si" /> Escáner de documentos y auto check-in desde el móvil del huésped</td>
-                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="si" /> Pre check-in con escáner</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-3 text-sm text-gray-700">Soporte</td>
-                <td class="px-4 py-3 text-sm text-gray-700">Por email y videollamada, en español</td>
-                <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="si" /> Por teléfono, las 24 horas</td>
+            <tbody>
+              <tr
+                v-for="fila in FILAS"
+                :key="fila.nombre"
+                class="block md:table-row border-t border-gray-200 first:border-t-0 md:first:border-t px-4 py-3 md:p-0"
+                :class="{ 'bg-green-50': fila.destacada }"
+              >
+                <th scope="row" class="block md:table-cell md:px-4 md:py-3 align-top font-semibold md:font-normal text-gray-900 md:text-gray-700">{{ fila.nombre }}</th>
+                <td class="block md:table-cell md:px-4 md:py-3 align-top mt-1 md:mt-0 text-gray-700">
+                  <span class="md:hidden font-semibold text-gray-900" data-nosnippet>Hospedy: </span>
+                  <IconoMarca v-if="fila.hospedy.marca" :tipo="fila.hospedy.marca" class="mr-1" />{{ fila.hospedy.texto }}
+                </td>
+                <td class="block md:table-cell md:px-4 md:py-3 align-top mt-1 md:mt-0 text-gray-700">
+                  <span class="md:hidden font-semibold text-gray-900" data-nosnippet>MisterPlan: </span>
+                  <IconoMarca v-if="fila.otro.marca" :tipo="fila.otro.marca" class="mr-1" />{{ fila.otro.texto }}
+                </td>
               </tr>
             </tbody>
           </table>
@@ -186,11 +164,24 @@
 
 <script setup lang="ts">
 import { REVISION_COMPARATIVA } from '~/utils/comparativa'
+import type { CeldaComparativa } from '~/utils/comparativa'
 import { fechaLarga } from '~/utils/fechas'
 import { PLANES } from '~/utils/precios'
 
 const articulo = useArticulo('hospedy-vs-ruralgest')
 const revision = fechaLarga(REVISION_COMPARATIVA)
+
+// Los datos de MisterPlan, de su web en la fecha de REVISION_COMPARATIVA
+const FILAS: { nombre: string, destacada?: boolean, hospedy: CeldaComparativa, otro: CeldaComparativa }[] = [
+  { nombre: 'Precio', hospedy: { marca: 'si', texto: `Público: desde ${PLANES[0].mensual}\u00a0€ + IVA al mes` }, otro: { marca: 'si', texto: 'Público: desde 45\u00a0€ + IVA al mes' } },
+  { nombre: 'Qué incluye', hospedy: { texto: 'Todas las funciones en todos los planes: channel manager, motor de reservas, Hugo y Zenfisk con Verifactu' }, otro: { texto: 'Programa de gestión, motor de reservas y channel manager, con la configuración y la formación' } },
+  { nombre: 'Permanencia', hospedy: { marca: 'si', texto: 'Sin permanencia' }, otro: { marca: 'si', texto: 'Sin permanencia' } },
+  { nombre: 'Asistente con IA', destacada: true, hospedy: { marca: 'si', texto: 'Hugo, incluido: responde con tus datos y prepara los cambios para que los confirmes' }, otro: { texto: 'No consta' } },
+  { nombre: 'Partes de viajeros', hospedy: { marca: 'si', texto: 'Automáticos, a SES Hospedajes y a la Ertzaintza' }, otro: { marca: 'si', texto: 'Automáticos' } },
+  { nombre: 'Encuesta del INE', hospedy: { marca: 'si', texto: 'Se envía desde Hospedy, con el justificante del INE, en hoteles y apartamentos; la de turismo rural sale rellena' }, otro: { texto: 'Anuncia el envío telemático automático' } },
+  { nombre: 'Check-in', hospedy: { marca: 'si', texto: 'Escáner de documentos y auto check-in desde el móvil del huésped' }, otro: { marca: 'si', texto: 'Pre check-in con escáner' } },
+  { nombre: 'Soporte', hospedy: { texto: 'Por email y videollamada, en español' }, otro: { marca: 'si', texto: 'Por teléfono, las 24 horas' } },
+]
 </script>
 
 <style scoped>

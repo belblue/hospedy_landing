@@ -18,7 +18,7 @@
           </li>
         </ul>
         <p class="mt-3 flex justify-start">
-          <span class="max-w-[90%] bg-white border border-gray-200 text-gray-800 rounded-2xl rounded-bl-md px-4 py-3 text-lg shadow-sm">Te lo preparo: revísalo y, si está bien, pulsa «Sí, aplicar».</span>
+          <span class="max-w-[90%] bg-white border border-gray-200 text-gray-800 rounded-2xl rounded-bl-md px-4 py-3 text-lg shadow-sm">{{ respuesta }}</span>
         </p>
       </div>
     </div>
@@ -26,12 +26,16 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+withDefaults(defineProps<{
   titulo: string
   texto: string
   // lo que le dirías a Hugo, sin comillas: las pone la burbuja
   frases: string[]
-}>()
+  // lo que contesta Hugo, que tiene que valer para todas las frases: preguntas y cambios
+  respuesta?: string
+}>(), {
+  respuesta: 'Te lo miro y te lo cuento. Si hay que cambiar algo, te lo preparo y lo aplicas con «Sí, aplicar».',
+})
 </script>
 
 <style scoped>

@@ -18,11 +18,12 @@
     <section class="max-w-6xl mx-auto px-6 mt-20" aria-labelledby="titulo-ejemplos" data-nosnippet>
       <h2 id="titulo-ejemplos" class="text-3xl font-bold text-gray-900 text-center mb-10">Así te lo cuenta</h2>
       <div class="grid lg:grid-cols-2 gap-12 justify-items-center items-start">
-        <MontarAlVerse class="w-full max-w-[380px]" proporcion="380 / 560" :descripcion="HUGO_PENDIENTES.descripcion">
-          <MockChatHugo v-bind="HUGO_PENDIENTES" :cambios="[]" :saludo="false" />
+        <!-- alto fijo (480 + 76 del botón): el hueco reservado mide lo mismo que la maqueta a cualquier ancho -->
+        <MontarAlVerse class="w-full max-w-[380px] h-[556px]" :descripcion="HUGO_PENDIENTES.descripcion">
+          <MockChatHugo v-bind="HUGO_PENDIENTES" :cambios="[]" :saludo="false" :alto="480" />
         </MontarAlVerse>
-        <MontarAlVerse class="w-full max-w-[380px]" proporcion="380 / 520" :descripcion="HUGO_MOVER_RESERVA.descripcion">
-          <MockChatHugo v-bind="HUGO_MOVER_RESERVA" />
+        <MontarAlVerse class="w-full max-w-[380px] h-[556px]" :descripcion="HUGO_MOVER_RESERVA.descripcion">
+          <MockChatHugo v-bind="HUGO_MOVER_RESERVA" :alto="480" />
         </MontarAlVerse>
       </div>
     </section>

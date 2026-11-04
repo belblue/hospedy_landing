@@ -23,52 +23,34 @@
 
         <h2>Comparativa rápida</h2>
 
-        <div class="overflow-x-auto my-6 not-prose">
-          <table class="min-w-full border border-gray-200 rounded-lg text-sm">
-            <thead class="bg-gray-50">
+        <!-- En el móvil cada fila se lee como una ficha, con el rótulo de cada celda (data-nosnippet: en el Markdown ya lo
+             dice la cabecera), sin scroll lateral -->
+        <div class="my-6 not-prose rounded-lg border border-gray-200 overflow-hidden">
+          <table class="w-full text-left text-sm">
+            <thead class="hidden md:table-header-group bg-gray-50">
               <tr>
-                <th class="px-3 py-3 text-left font-semibold text-gray-900">PMS</th>
-                <th class="px-3 py-3 text-left font-semibold text-gray-900">Precio</th>
-                <th class="px-3 py-3 text-left font-semibold text-gray-900">Partes</th>
-                <th class="px-3 py-3 text-left font-semibold text-gray-900">Encuesta del INE</th>
-                <th class="px-3 py-3 text-left font-semibold text-gray-900">Asistente con IA</th>
+                <th scope="col" class="px-3 py-3 font-semibold text-gray-900">PMS</th>
+                <th v-for="columna in COLUMNAS" :key="columna" scope="col" class="px-3 py-3 font-semibold text-gray-900">{{ columna }}</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200">
-              <tr class="bg-green-50">
-                <td class="px-3 py-3 font-medium text-gray-900">Hospedy</td>
-                <td class="px-3 py-3 text-gray-700">Público: desde {{ PLANES[0].mensual }}&nbsp;€ + IVA al mes</td>
-                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="si" /> Automáticos</td>
-                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="si" /> La rural sale rellena; la hotelera y la de apartamentos se envían desde Hospedy</td>
-                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="si" /> Hugo, incluido: responde con tus datos y prepara los cambios que tú confirmas</td>
-              </tr>
-              <tr>
-                <td class="px-3 py-3 font-medium text-gray-900">MisterPlan (antes RuralGest)</td>
-                <td class="px-3 py-3 text-gray-700">Público: desde 45&nbsp;€ + IVA al mes</td>
-                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="si" /> Automáticos</td>
-                <td class="px-3 py-3 text-gray-700">Anuncia el envío telemático</td>
-                <td class="px-3 py-3 text-gray-700">No consta</td>
-              </tr>
-              <tr>
-                <td class="px-3 py-3 font-medium text-gray-900">AvaiBook</td>
-                <td class="px-3 py-3 text-gray-700">Según unidades</td>
-                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="si" /> Manual, semiautomático o automático</td>
-                <td class="px-3 py-3 text-gray-700">Sin comprobar</td>
-                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="no" /> Solo un chat de soporte con IA</td>
-              </tr>
-              <tr>
-                <td class="px-3 py-3 font-medium text-gray-900">Amenitiz</td>
-                <td class="px-3 py-3 text-gray-700">Con presupuesto</td>
-                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="si" /> Con Chekin, en su plan Core</td>
-                <td class="px-3 py-3 text-gray-700">Sin comprobar</td>
-                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="parcial" /> Ami, de pago aparte: redacta o envía las respuestas a los huéspedes</td>
-              </tr>
-              <tr>
-                <td class="px-3 py-3 font-medium text-gray-900">Avirato</td>
-                <td class="px-3 py-3 text-gray-700">Con presupuesto</td>
-                <td class="px-3 py-3 text-gray-700">Sin comprobar</td>
-                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="parcial" /> Semiautomática, con vista previa</td>
-                <td class="px-3 py-3 text-gray-700"><IconoMarca tipo="parcial" /> Incluida: contesta a los huéspedes y responde preguntas, también por voz</td>
+            <tbody>
+              <tr
+                v-for="fila in FILAS"
+                :key="fila.nombre"
+                class="block md:table-row border-t border-gray-200 first:border-t-0 md:first:border-t px-4 py-3 md:p-0"
+                :class="{ 'bg-green-50': fila.propia }"
+              >
+                <th scope="row" class="block md:table-cell md:px-3 md:py-3 align-top font-semibold text-gray-900">{{ fila.nombre }}</th>
+                <td class="block md:table-cell md:px-3 md:py-3 align-top mt-1 md:mt-0 text-gray-700">
+                  <span class="md:hidden font-semibold text-gray-900" data-nosnippet>{{ COLUMNAS.precio }}: </span>{{ fila.precio }}
+                </td>
+                <td v-for="clave in CLAVES" :key="clave" class="block md:table-cell md:px-3 md:py-3 align-top mt-1 md:mt-0 text-gray-700">
+                  <span class="md:hidden font-semibold text-gray-900" data-nosnippet>{{ COLUMNAS[clave] }}: </span>
+                  <IconoMarca v-if="fila[clave].marca" :tipo="fila[clave].marca" class="mr-1" />{{ fila[clave].texto }}
+                </td>
+                <td class="block md:table-cell md:px-3 md:py-3 align-top mt-1 md:mt-0 text-gray-700">
+                  <span class="md:hidden font-semibold text-gray-900" data-nosnippet>{{ COLUMNAS.ia }}: </span>{{ fila.ia }}
+                </td>
               </tr>
             </tbody>
           </table>
@@ -260,11 +242,24 @@
 
 <script setup lang="ts">
 import { REVISION_COMPARATIVA } from '~/utils/comparativa'
+import type { CeldaComparativa } from '~/utils/comparativa'
 import { fechaLarga } from '~/utils/fechas'
 import { PLANES } from '~/utils/precios'
 
 const articulo = useArticulo('mejores-pms-casas-rurales')
 const revision = fechaLarga(REVISION_COMPARATIVA)
+
+// Los datos de los otros programas, de su información pública en la fecha de REVISION_COMPARATIVA. La columna de la IA
+// va solo con texto: cada uno hace una parte distinta (ver /comparar)
+const COLUMNAS = { precio: 'Precio', partes: 'Partes', ine: 'Encuesta del INE', ia: 'Asistente con IA' }
+const CLAVES = ['partes', 'ine'] as const
+const FILAS: { nombre: string, propia?: boolean, precio: string, partes: CeldaComparativa, ine: CeldaComparativa, ia: string }[] = [
+  { nombre: 'Hospedy', propia: true, precio: `Público: desde ${PLANES[0].mensual}\u00a0€ + IVA al mes`, partes: { marca: 'si', texto: 'Automáticos' }, ine: { marca: 'si', texto: 'La rural sale rellena; la hotelera y la de apartamentos se envían desde Hospedy' }, ia: 'Hugo, incluido: responde con tus datos y prepara los cambios que tú confirmas' },
+  { nombre: 'MisterPlan (antes RuralGest)', precio: 'Público: desde 45\u00a0€ + IVA al mes', partes: { marca: 'si', texto: 'Automáticos' }, ine: { texto: 'Anuncia el envío telemático' }, ia: 'No consta' },
+  { nombre: 'AvaiBook', precio: 'Según unidades', partes: { marca: 'si', texto: 'Manual, semiautomático o automático' }, ine: { texto: 'Sin comprobar' }, ia: 'Solo un chat de soporte con IA' },
+  { nombre: 'Amenitiz', precio: 'Con presupuesto', partes: { marca: 'si', texto: 'Con Chekin, en su plan Core' }, ine: { texto: 'Sin comprobar' }, ia: 'Ami, de pago aparte: redacta o envía las respuestas a los huéspedes' },
+  { nombre: 'Avirato', precio: 'Con presupuesto', partes: { texto: 'Sin comprobar' }, ine: { marca: 'parcial', texto: 'Semiautomática, con vista previa' }, ia: 'Incluida: contesta a los huéspedes y responde preguntas, también por voz' },
+]
 const MIN_OTAS = Math.min(...PLANES.map(plan => plan.otasIncluidas))
 const MAX_OTAS = Math.max(...PLANES.map(plan => plan.otasIncluidas))
 

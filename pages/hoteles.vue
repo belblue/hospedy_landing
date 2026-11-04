@@ -157,6 +157,7 @@
                 titulo="Hugo mueve reservas y reparte grupos"
                 texto="Con muchas habitaciones, cambiar a alguien de habitación o separar la reserva de un grupo son varios pasos. A Hugo se lo dices en una frase: te prepara la propuesta y se aplica cuando la confirmas."
                 :frases="['Pasa la reserva de los Wilson a la 102', 'Divide la reserva del grupo Martín: la 204, a nombre de Laura Martín', 'Reparte el grupo del congreso entre la 301 y la 305']"
+                respuesta="Te lo preparo: revísalo y, si está bien, pulsa «Sí, aplicar»."
             />
 
             <!-- Pricing teaser -->

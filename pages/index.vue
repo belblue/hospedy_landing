@@ -126,8 +126,9 @@
           <NuxtLink to="/funciones/hugo" class="btn btn-principal sm:flex-none inline-block px-6 py-3 font-semibold">Conoce a Hugo</NuxtLink>
         </div>
         <div class="flex justify-center" data-aos="fade-left">
-          <MontarAlVerse class="w-full max-w-[380px]" proporcion="380 / 520" descripcion="Ejemplo del chat de Hugo: le pides bajar la habitación Doble a 90 € del 1 al 7 de julio y te enseña el cambio para que lo confirmes.">
-            <MockChatHugo />
+          <!-- alto fijo: el hueco reservado mide lo mismo que la maqueta a cualquier ancho -->
+          <MontarAlVerse class="w-full max-w-[380px] h-[520px]" descripcion="Ejemplo del chat de Hugo: le pides bajar la habitación Doble a 90 € del 1 al 7 de julio y te enseña el cambio para que lo confirmes.">
+            <MockChatHugo :alto="444" />
           </MontarAlVerse>
         </div>
       </div>
