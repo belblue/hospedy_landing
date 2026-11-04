@@ -19,28 +19,20 @@
                         No necesitas estar en la casa para gestionar reservas. Tus huéspedes hacen el check-in solos y los partes de viajeros se envían automáticamente.
                     </p>
                     <ul class="space-y-3 mb-8">
-                        <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="100">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
+                        <li class="flex items-center gap-3 text-lg group" data-aos="fade-up" data-aos-delay="100">
+                            <MarcaLista :retraso="100" class="w-5 h-5 flex-shrink-0" />
                             <span>Auto check-in para huéspedes</span>
                         </li>
-                        <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="150">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
+                        <li class="flex items-center gap-3 text-lg group" data-aos="fade-up" data-aos-delay="150">
+                            <MarcaLista :retraso="150" class="w-5 h-5 flex-shrink-0" />
                             <span>Partes de viajeros automáticos</span>
                         </li>
-                        <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="200">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
+                        <li class="flex items-center gap-3 text-lg group" data-aos="fade-up" data-aos-delay="200">
+                            <MarcaLista :retraso="200" class="w-5 h-5 flex-shrink-0" />
                             <span>Encuesta de Turismo Rural del INE, rellena y lista para presentar</span>
                         </li>
-                        <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="250">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
+                        <li class="flex items-center gap-3 text-lg group" data-aos="fade-up" data-aos-delay="250">
+                            <MarcaLista :retraso="250" class="w-5 h-5 flex-shrink-0" />
                             <span>Gestión remota desde el móvil</span>
                         </li>
                     </ul>
@@ -64,18 +56,18 @@
                     <h2 class="text-3xl font-bold text-center mb-4" data-aos="fade-up">Los retos de gestionar una casa rural</h2>
                     <p class="text-center text-gray-600 mb-12" data-aos="fade-up" data-aos-delay="100">Sabemos lo que es...</p>
                     <div class="grid lg:grid-cols-3 gap-8">
-                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="0">
-                            <IconoReto nombre="desplazamiento" class="mb-4" />
+                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover group" data-aos="fade-up" data-aos-delay="0">
+                            <IconoReto nombre="desplazamiento" :retraso="0" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"Tengo que ir a recibir a todos"</h3>
                             <p class="text-gray-600">Desplazarte cada vez que llega un huésped es agotador. Con el auto check-in, ellos se registran solos antes de llegar.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="100">
-                            <IconoReto nombre="papeleo" class="mb-4" />
+                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover group" data-aos="fade-up" data-aos-delay="100">
+                            <IconoReto nombre="papeleo" :retraso="100" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"El papeleo me quita tiempo"</h3>
                             <p class="text-gray-600">Partes de viajeros, INE, facturas... Con Hospedy los partes se envían solos, la encuesta del INE sale rellena y cada factura, con un clic.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="200">
-                            <IconoReto nombre="disponibilidad" class="mb-4" />
+                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover group" data-aos="fade-up" data-aos-delay="200">
+                            <IconoReto nombre="disponibilidad" :retraso="200" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"No sé cuándo tengo libre"</h3>
                             <p class="text-gray-600">Reservas en Booking, en Airbnb, directas... Un solo calendario donde ves todo de un vistazo.</p>
                         </div>
@@ -128,11 +120,9 @@
             <div class="max-w-5xl mx-auto px-6 mt-20">
                 <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Pensado para casas rurales</h2>
                 <div class="grid lg:grid-cols-2 gap-12">
-                    <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="0">
-                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                            </svg>
+                    <div class="flex gap-4 feature-item group" data-aos="fade-up" data-aos-delay="0">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                            <IconoFuncion nombre="movil" :retraso="0" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Gestión desde el móvil</h3>
@@ -140,11 +130,9 @@
                             <NuxtLink to="/funciones/planning-reservas" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
-                    <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="100">
-                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path>
-                            </svg>
+                    <div class="flex gap-4 feature-item group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                            <IconoFuncion nombre="temporada" :retraso="100" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Precios por temporada</h3>
@@ -152,11 +140,9 @@
                             <NuxtLink to="/funciones/channel-manager" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
-                    <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                            </svg>
+                    <div class="flex gap-4 feature-item group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                            <IconoFuncion nombre="encuesta-rural" :retraso="200" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Encuesta de Turismo Rural</h3>
@@ -164,11 +150,9 @@
                             <NuxtLink to="/funciones/encuestas-ine" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
-                    <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="300">
-                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                            </svg>
+                    <div class="flex gap-4 feature-item group" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                            <IconoFuncion nombre="varias-casas" :retraso="300" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Gestión de varias casas</h3>

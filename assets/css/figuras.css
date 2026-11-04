@@ -1,10 +1,12 @@
 /* Las figuras animadas de la web: SVG dentro del código, con la clase hm-fig. Se dibujan una vez, cuando AOS enseña su
-   tarjeta, y al pasar el ratón por la tarjeta (la clase group) hacen su gesto. Sin AOS se ven enteras y quietas, y con el
-   movimiento reducido, también.
+   tarjeta, y al pasar el ratón por la tarjeta (la clase group) hacen su gesto. Fuera de las tarjetas de AOS se ven
+   enteras y quietas, y con el movimiento reducido, también.
 
-   - Entradas (hm-fig__*): la pieza espera mientras su tarjeta lleva .aos-init sin .aos-animate y entra con una
-     transición, con su retraso en línea (transition-delay). Son transiciones y no animaciones, como las de AOS: al volver
-     atrás, plugins/aos.client.ts lo enseña todo de golpe sin transiciones y no se repite nada.
+   - Entradas (hm-fig__*): la pieza espera mientras su tarjeta (data-aos) no lleva .aos-animate y entra con una
+     transición, con su retraso en línea (transition-delay). Espera desde que se pinta la página y no desde .aos-init: a
+     lo que ya se ve al cargar, AOS le pone .aos-init y .aos-animate a la vez, y sin nada que esperar no habría entrada.
+     Son transiciones y no animaciones, como las de AOS: al volver atrás, plugins/aos.client.ts lo enseña todo de golpe
+     sin transiciones y no se repite nada.
    - Gestos (hm-gesto-*): una animación con el ratón encima, siempre en un grupo distinto del de la entrada, con su
      retraso en línea (animation-delay) y, si gira desde un punto concreto, su eje en línea (transform-box y
      transform-origin).
@@ -25,19 +27,27 @@
 .hm-fig__asoma,
 .hm-fig__sale,
 .hm-fig__brota,
+.hm-fig__rueda,
 .hm-gesto-orbitar,
 .hm-gesto-girar,
+.hm-gesto-media-vuelta,
 .hm-gesto-titilar,
 .hm-gesto-resonar,
-.hm-gesto-onda {
+.hm-gesto-onda,
+.hm-gesto-voltear,
+.hm-gesto-vibrar,
+.hm-gesto-temblar,
+.hm-gesto-latir {
   transform-box: fill-box;
   transform-origin: center;
 }
 
-/* lo que sube o se mece desde su base */
+/* lo que sube, se mece o salta desde su base */
 .hm-fig__sube,
 .hm-gesto-mecer,
-.hm-gesto-tambalear {
+.hm-gesto-tambalear,
+.hm-gesto-saltar,
+.hm-gesto-enviar {
   transform-box: fill-box;
   transform-origin: 50% 100%;
 }
@@ -49,54 +59,60 @@
 
 @media (prefers-reduced-motion: no-preference) {
   /* Hasta que AOS enseña la tarjeta, la figura espera sin dibujar */
-  .aos-init:not(.aos-animate) .hm-fig__linea {
+  [data-aos]:not(.aos-animate) .hm-fig__linea {
     stroke-dashoffset: 1;
   }
 
-  .aos-init:not(.aos-animate) .hm-fig__aparece {
+  [data-aos]:not(.aos-animate) .hm-fig__aparece {
     opacity: 0;
   }
 
-  .aos-init:not(.aos-animate) .hm-fig__crece {
+  [data-aos]:not(.aos-animate) .hm-fig__crece {
     opacity: 0;
     transform: scale(0.8);
   }
 
-  .aos-init:not(.aos-animate) .hm-fig__asoma {
+  [data-aos]:not(.aos-animate) .hm-fig__asoma {
     opacity: 0;
     transform: scale(0.3);
   }
 
-  .aos-init:not(.aos-animate) .hm-fig__sube {
+  [data-aos]:not(.aos-animate) .hm-fig__sube {
     opacity: 0;
     transform: scaleY(0.3);
   }
 
-  .aos-init:not(.aos-animate) .hm-fig__entra {
+  [data-aos]:not(.aos-animate) .hm-fig__entra {
     opacity: 0;
     transform: translateX(-10px);
   }
 
-  .aos-init:not(.aos-animate) .hm-fig__entra-der {
+  [data-aos]:not(.aos-animate) .hm-fig__entra-der {
     opacity: 0;
     transform: translateX(10px);
   }
 
-  .aos-init:not(.aos-animate) .hm-fig__cae {
+  [data-aos]:not(.aos-animate) .hm-fig__cae {
     opacity: 0;
     transform: translateY(-12px);
   }
 
   /* sale de un libro abierto, abajo a la izquierda */
-  .aos-init:not(.aos-animate) .hm-fig__sale {
+  [data-aos]:not(.aos-animate) .hm-fig__sale {
     opacity: 0;
     transform: translate(-22px, 30px) scale(0.5);
   }
 
   /* brota del punto que le da la pieza, con --hm-desde-x y --hm-desde-y */
-  .aos-init:not(.aos-animate) .hm-fig__brota {
+  [data-aos]:not(.aos-animate) .hm-fig__brota {
     opacity: 0;
     transform: translate(var(--hm-desde-x, 0), var(--hm-desde-y, 0)) scale(0.3);
+  }
+
+  /* llega rodando desde la izquierda, como una moneda */
+  [data-aos]:not(.aos-animate) .hm-fig__rueda {
+    opacity: 0;
+    transform: translateX(-14px) rotate(-150deg);
   }
 
   /* y cuando la enseña, se dibuja, cada pieza con su retraso */
@@ -134,6 +150,10 @@
     transition: opacity 0.55s ease-out, transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
+  .aos-animate .hm-fig__rueda {
+    transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.34, 1.3, 0.64, 1);
+  }
+
   /* Un botón que se aprieta al entrar y vuelve: una transición solo va de un sitio a otro, así que son dos grupos
      anidados, uno baja y el otro, después, sube lo mismo. Al final la pieza queda donde estaba */
   .aos-animate .hm-fig__pulsa {
@@ -148,7 +168,7 @@
 
   /* El gesto, con el ratón encima de la tarjeta */
   .group:hover .hm-gesto-orbitar {
-    animation: hm-gesto-orbitar 1.4s ease-in-out;
+    animation: hm-gesto-orbitar var(--hm-duracion, 1.4s) ease-in-out;
   }
 
   .group:hover .hm-gesto-girar {
@@ -194,9 +214,77 @@
   .group:hover .hm-gesto-rodar {
     animation: hm-gesto-rodar 0.8s ease-in-out;
   }
+
+  .group:hover .hm-gesto-media-vuelta {
+    animation: hm-gesto-media-vuelta 0.9s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-arrastrar {
+    animation: hm-gesto-arrastrar 1s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-barrer {
+    animation: hm-gesto-barrer 0.9s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-balancear {
+    animation: hm-gesto-balancear 1s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-enviar {
+    animation: hm-gesto-enviar 0.7s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-voltear {
+    animation: hm-gesto-voltear 0.8s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-vibrar {
+    animation: hm-gesto-vibrar 0.5s linear;
+  }
+
+  .group:hover .hm-gesto-saltar {
+    animation: hm-gesto-saltar 0.55s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-deslizar {
+    animation: hm-gesto-deslizar 0.7s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-temblar {
+    animation: hm-gesto-temblar 0.6s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-chocar {
+    animation: hm-gesto-chocar 0.6s ease-out;
+  }
+
+  .group:hover .hm-gesto-migas {
+    animation: hm-gesto-migas 0.8s ease-out;
+  }
+
+  .group:hover .hm-gesto-fantasma {
+    animation: hm-gesto-fantasma 1s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-garabato {
+    animation: hm-gesto-garabato 0.7s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-fluir {
+    animation: hm-gesto-fluir 0.9s linear;
+  }
+
+  .group:hover .hm-gesto-buscar {
+    animation: hm-gesto-buscar 1.1s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-latir {
+    animation: hm-gesto-latir 0.5s ease;
+  }
 }
 
-/* una vuelta entera */
+/* una vuelta entera; la pieza puede darla más deprisa con --hm-duracion */
 @keyframes hm-gesto-orbitar {
   to { transform: rotate(360deg); }
 }
@@ -204,6 +292,11 @@
 /* un cuarto de vuelta: unas flechas en cuadrado quedan igual */
 @keyframes hm-gesto-girar {
   to { transform: rotate(90deg); }
+}
+
+/* media vuelta: dos flechas en círculo quedan igual */
+@keyframes hm-gesto-media-vuelta {
+  to { transform: rotate(180deg); }
 }
 
 @keyframes hm-gesto-titilar {
@@ -251,4 +344,99 @@
 
 @keyframes hm-gesto-rodar {
   45% { transform: translateX(-3px); }
+}
+
+/* una reserva que se arrastra a otra fila y se queda un momento allí */
+@keyframes hm-gesto-arrastrar {
+  40%, 70% { transform: translate(2px, -11.6px); }
+}
+
+/* la línea de un escáner, arriba y abajo */
+@keyframes hm-gesto-barrer {
+  30% { transform: translateY(-6px); }
+  70% { transform: translateY(6px); }
+}
+
+/* lo que cuelga de un punto: una llave, una etiqueta */
+@keyframes hm-gesto-balancear {
+  25% { transform: rotate(12deg); }
+  60% { transform: rotate(-8deg); }
+}
+
+@keyframes hm-gesto-enviar {
+  40% { transform: translate(2px, -3px) rotate(4deg); }
+}
+
+/* una moneda que da la vuelta */
+@keyframes hm-gesto-voltear {
+  25% { transform: scaleX(0); }
+  50% { transform: scaleX(-1); }
+  75% { transform: scaleX(0); }
+}
+
+@keyframes hm-gesto-vibrar {
+  20% { transform: rotate(-6deg); }
+  40% { transform: rotate(5deg); }
+  60% { transform: rotate(-4deg); }
+  80% { transform: rotate(3deg); }
+}
+
+/* se encoge, salta y cae */
+@keyframes hm-gesto-saltar {
+  25% { transform: translateY(0) scaleY(0.92); }
+  55% { transform: translateY(-3px) scaleY(1.04); }
+  80% { transform: translateY(0) scaleY(0.98); }
+}
+
+@keyframes hm-gesto-deslizar {
+  45% { transform: translateX(3px); }
+}
+
+/* un aviso que tiembla */
+@keyframes hm-gesto-temblar {
+  20% { transform: rotate(-14deg); }
+  40% { transform: rotate(12deg); }
+  60% { transform: rotate(-8deg); }
+  80% { transform: rotate(5deg); }
+}
+
+/* choca y rebota */
+@keyframes hm-gesto-chocar {
+  30% { transform: translateX(-3px); }
+  55% { transform: translateX(1.5px); }
+}
+
+/* unas migas que salen volando y vuelven a su sitio */
+@keyframes hm-gesto-migas {
+  60% { opacity: 0; transform: translate(3px, -3px); }
+  61% { opacity: 0; transform: translate(0, 0); }
+}
+
+/* se desvanece dos veces, como alguien que no llega */
+@keyframes hm-gesto-fantasma {
+  25%, 75% { opacity: 0.15; }
+  50% { opacity: 1; }
+}
+
+/* un lápiz que escribe */
+@keyframes hm-gesto-garabato {
+  20% { transform: translate(-1.5px, 1px); }
+  40% { transform: translate(1px, -0.5px); }
+  60% { transform: translate(-1px, 1px); }
+  80% { transform: translate(1px, 0); }
+}
+
+/* los trazos de una ruta discontinua (stroke-dasharray="2.6 2.8") avanzan dos tramos: al acabar queda igual */
+@keyframes hm-gesto-fluir {
+  to { stroke-dashoffset: -10.8; }
+}
+
+/* una lupa que busca un hueco */
+@keyframes hm-gesto-buscar {
+  30% { transform: translate(-12px, -6px); }
+  60% { transform: translate(-6px, -12px); }
+}
+
+@keyframes hm-gesto-latir {
+  45% { transform: scale(1.18); }
 }

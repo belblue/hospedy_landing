@@ -19,28 +19,20 @@
                         Deja de depender solo de Airbnb y Booking. Motor de reservas sin comisión por reserva, channel manager para evitar overbookings y partes automáticos.
                     </p>
                     <ul class="space-y-3 mb-8">
-                        <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="100">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
+                        <li class="flex items-center gap-3 text-lg group" data-aos="fade-up" data-aos-delay="100">
+                            <MarcaLista :retraso="100" class="w-5 h-5 flex-shrink-0" />
                             <span>Motor de reservas sin comisión por reserva</span>
                         </li>
-                        <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="150">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
+                        <li class="flex items-center gap-3 text-lg group" data-aos="fade-up" data-aos-delay="150">
+                            <MarcaLista :retraso="150" class="w-5 h-5 flex-shrink-0" />
                             <span>Channel Manager con +150 OTAs</span>
                         </li>
-                        <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="200">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
+                        <li class="flex items-center gap-3 text-lg group" data-aos="fade-up" data-aos-delay="200">
+                            <MarcaLista :retraso="200" class="w-5 h-5 flex-shrink-0" />
                             <span>Cobro de depósitos con Stripe</span>
                         </li>
-                        <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="250">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
+                        <li class="flex items-center gap-3 text-lg group" data-aos="fade-up" data-aos-delay="250">
+                            <MarcaLista :retraso="250" class="w-5 h-5 flex-shrink-0" />
                             <span>Partes de viajeros automáticos</span>
                         </li>
                     </ul>
@@ -64,18 +56,18 @@
                     <h2 class="text-3xl font-bold text-center mb-4" data-aos="fade-up">Los problemas de gestionar apartamentos</h2>
                     <p class="text-center text-gray-600 mb-12" data-aos="fade-up" data-aos-delay="100">¿Te sientes identificado?</p>
                     <div class="grid lg:grid-cols-3 gap-8">
-                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="0">
-                            <IconoReto nombre="comisiones" class="mb-4" />
+                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover group" data-aos="fade-up" data-aos-delay="0">
+                            <IconoReto nombre="comisiones" :retraso="0" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"Las comisiones me comen"</h3>
                             <p class="text-gray-600">Booking cobra 15&nbsp;%, Airbnb otro tanto... Con un motor de reservas propio, cada reserva directa es 100&nbsp;% tuya.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="100">
-                            <IconoReto nombre="noshow" class="mb-4" />
+                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover group" data-aos="fade-up" data-aos-delay="100">
+                            <IconoReto nombre="noshow" :retraso="100" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"Otro no-show más"</h3>
                             <p class="text-gray-600">Reservan y no aparecen. Con Stripe integrado, cobras depósitos y te aseguras de que vengan.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="200">
-                            <IconoReto nombre="calendarios" class="mb-4" />
+                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover group" data-aos="fade-up" data-aos-delay="200">
+                            <IconoReto nombre="calendarios" :retraso="200" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"Actualizo 5 calendarios"</h3>
                             <p class="text-gray-600">Booking, Airbnb, Vrbo, tu web... Con el Channel Manager todo se sincroniza automáticamente.</p>
                         </div>
@@ -117,11 +109,9 @@
             <div class="max-w-5xl mx-auto px-6 mt-20">
                 <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Pensado para apartamentos turísticos</h2>
                 <div class="grid lg:grid-cols-2 gap-12">
-                    <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="0">
-                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
-                            </svg>
+                    <div class="flex gap-4 feature-item group" data-aos="fade-up" data-aos-delay="0">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                            <IconoFuncion nombre="motor" :retraso="0" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Motor de reservas para tu web</h3>
@@ -129,11 +119,9 @@
                             <NuxtLink to="/funciones/motor-reservas" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
-                    <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="100">
-                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
-                            </svg>
+                    <div class="flex gap-4 feature-item group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                            <IconoFuncion nombre="channel" :retraso="100" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Channel Manager</h3>
@@ -141,11 +129,9 @@
                             <NuxtLink to="/funciones/channel-manager" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Ver las agencias →</NuxtLink>
                         </div>
                     </div>
-                    <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
+                    <div class="flex gap-4 feature-item group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                            <IconoFuncion nombre="deposito" :retraso="200" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Cobro de depósitos</h3>
@@ -153,11 +139,9 @@
                             <NuxtLink to="/funciones/cobros" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
-                    <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="300">
-                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                            </svg>
+                    <div class="flex gap-4 feature-item group" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                            <IconoFuncion nombre="varios-apartamentos" :retraso="300" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Gestión de varios apartamentos</h3>
@@ -165,11 +149,9 @@
                             <NuxtLink to="/funciones/planning-reservas" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
-                    <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="400">
-                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                            </svg>
+                    <div class="flex gap-4 feature-item group" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                            <IconoFuncion nombre="encuesta-apartamento" :retraso="400" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Encuesta de Apartamentos Turísticos</h3>
@@ -177,11 +159,9 @@
                             <NuxtLink to="/funciones/encuestas-ine" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
-                    <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="500">
-                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
-                            </svg>
+                    <div class="flex gap-4 feature-item group" data-aos="fade-up" data-aos-delay="500">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                            <IconoFuncion nombre="auto-checkin" :retraso="500" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Auto check-in</h3>

@@ -19,28 +19,20 @@
                         Desde la recepción hasta el cumplimiento normativo: check-in escaneando el documento, partes de viajeros que se envían solos y todo sincronizado con tus agencias.
                     </p>
                     <ul class="space-y-3 mb-8">
-                        <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="100">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
+                        <li class="flex items-center gap-3 text-lg group" data-aos="fade-up" data-aos-delay="100">
+                            <MarcaLista :retraso="100" class="w-5 h-5 flex-shrink-0" />
                             <span>Check-in con escaneo de DNI</span>
                         </li>
-                        <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="150">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
+                        <li class="flex items-center gap-3 text-lg group" data-aos="fade-up" data-aos-delay="150">
+                            <MarcaLista :retraso="150" class="w-5 h-5 flex-shrink-0" />
                             <span>Envío automático a SES Hospedajes</span>
                         </li>
-                        <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="200">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
+                        <li class="flex items-center gap-3 text-lg group" data-aos="fade-up" data-aos-delay="200">
+                            <MarcaLista :retraso="200" class="w-5 h-5 flex-shrink-0" />
                             <span>Encuestas INE de ocupación hotelera</span>
                         </li>
-                        <li class="flex items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="250">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
+                        <li class="flex items-center gap-3 text-lg group" data-aos="fade-up" data-aos-delay="250">
+                            <MarcaLista :retraso="250" class="w-5 h-5 flex-shrink-0" />
                             <span>Planning visual para múltiples habitaciones</span>
                         </li>
                     </ul>
@@ -64,18 +56,18 @@
                     <h2 class="text-3xl font-bold text-center mb-4" data-aos="fade-up">Los problemas de gestionar un hotel</h2>
                     <p class="text-center text-gray-600 mb-12" data-aos="fade-up" data-aos-delay="100">Seguro que te suenan...</p>
                     <div class="grid lg:grid-cols-3 gap-8">
-                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="0">
-                            <IconoReto nombre="checkin" class="mb-4" />
+                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover group" data-aos="fade-up" data-aos-delay="0">
+                            <IconoReto nombre="checkin" :retraso="0" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"El check-in es eterno"</h3>
                             <p class="text-gray-600">Teclear datos de 10 huéspedes a mano lleva media hora. Con Hospedy, escaneas y listo.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="100">
-                            <IconoReto nombre="parte" class="mb-4" />
+                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover group" data-aos="fade-up" data-aos-delay="100">
+                            <IconoReto nombre="parte" :retraso="100" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"Se me olvidó enviar el parte"</h3>
                             <p class="text-gray-600">No comunicar a tus viajeros es una infracción grave: multas de 601 a 30.000&nbsp;€ (Ley Orgánica 4/2015). Con Hospedy, los partes se envían solos.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover" data-aos="fade-up" data-aos-delay="200">
-                            <IconoReto nombre="overbooking" class="mb-4" />
+                        <div class="bg-white p-6 rounded-xl shadow-sm lift-hover group" data-aos="fade-up" data-aos-delay="200">
+                            <IconoReto nombre="overbooking" :retraso="200" class="mb-4" />
                             <h3 class="font-semibold text-lg mb-2">"Tengo overbooking otra vez"</h3>
                             <p class="text-gray-600">Booking, Expedia, tu web... imposible tenerlo todo sincronizado. Con el Channel Manager, todo sincronizado.</p>
                         </div>
@@ -87,11 +79,9 @@
             <div class="max-w-5xl mx-auto px-6 mt-20">
                 <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Funcionalidades clave para hoteles</h2>
                 <div class="grid lg:grid-cols-2 gap-12">
-                    <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="0">
-                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-                            </svg>
+                    <div class="flex gap-4 feature-item group" data-aos="fade-up" data-aos-delay="0">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                            <IconoFuncion nombre="planning" :retraso="0" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Gestión de múltiples habitaciones</h3>
@@ -99,11 +89,9 @@
                             <NuxtLink to="/funciones/planning-reservas" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
-                    <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="100">
-                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path>
-                            </svg>
+                    <div class="flex gap-4 feature-item group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                            <IconoFuncion nombre="checkin" :retraso="100" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Check-in con escáner y auto check-in</h3>
@@ -111,11 +99,9 @@
                             <NuxtLink to="/funciones/check-in" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
-                    <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                            </svg>
+                    <div class="flex gap-4 feature-item group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                            <IconoFuncion nombre="encuesta-hotel" :retraso="200" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Encuesta de Ocupación Hotelera</h3>
@@ -123,11 +109,9 @@
                             <NuxtLink to="/funciones/encuestas-ine" class="text-secondary font-semibold hover:underline underline-offset-4 text-lg mt-2 inline-block">Saber más →</NuxtLink>
                         </div>
                     </div>
-                    <div class="flex gap-4 feature-item" data-aos="fade-up" data-aos-delay="300">
-                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
+                    <div class="flex gap-4 feature-item group" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                            <IconoFuncion nombre="factura" :retraso="300" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <div>
                             <h3 class="font-semibold text-xl mb-2">Facturación profesional</h3>
