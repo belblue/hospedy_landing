@@ -77,7 +77,7 @@ export const FUNCIONES: GrupoDeFunciones[] = [
         nombre: 'Partes de viajeros',
         ruta: '/funciones/partes-viajeros',
         descripcion: 'Se envían solos a la policía, sin entrar en ningún portal',
-        actualizado: '2026-10-10',
+        actualizado: '2026-11-04',
       },
       {
         nombre: 'Encuestas INE y documentos autonómicos',

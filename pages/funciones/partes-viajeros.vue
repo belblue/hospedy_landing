@@ -16,31 +16,44 @@
                 <BotonesPrueba centrados />
             </div>
 
-            <!-- How it works -->
+            <!-- How it works: los tres pasos y, al lado, el auto check-in de ejemplo, que es donde el huésped escanea su
+                 documento y deja los datos con los que sale su parte -->
             <div class="max-w-5xl mx-auto px-6 mt-20">
                 <h2 class="text-3xl font-bold text-center mb-12">Cómo funciona</h2>
-                <div class="grid lg:grid-cols-3 gap-8">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-primary">1</span>
+                <div class="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-center">
+                    <ol class="space-y-10">
+                        <li class="flex gap-5">
+                            <span class="w-16 h-16 shrink-0 bg-primary/10 rounded-full flex items-center justify-center text-2xl font-bold text-primary" aria-hidden="true">1</span>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Escanea el documento</h3>
+                                <p class="text-gray-600">En el mostrador, con la cámara del móvil o un escáner. O lo hace el huésped desde su móvil con el auto check-in, antes de llegar. Los datos se rellenan solos.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-5">
+                            <span class="w-16 h-16 shrink-0 bg-primary/10 rounded-full flex items-center justify-center text-2xl font-bold text-primary" aria-hidden="true">2</span>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Hospedy genera el parte</h3>
+                                <p class="text-gray-600">Con todos los datos del huésped y la reserva. Sin que tengas que escribir nada.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-5">
+                            <span class="w-16 h-16 shrink-0 bg-primary/10 rounded-full flex items-center justify-center text-2xl font-bold text-primary" aria-hidden="true">3</span>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Envío automático</h3>
+                                <p class="text-gray-600">El parte sale al cuerpo policial que tengas activado. Tu libro de viajeros queda al día.</p>
+                            </div>
+                        </li>
+                    </ol>
+                    <figure class="flex flex-col items-center">
+                        <div class="w-[250px] sm:w-[270px]">
+                            <MontarAlVerse proporcion="288 / 602.64" descripcion="El auto check-in de ejemplo en un móvil: el huésped hace una foto de su documento, revisa sus datos y firma.">
+                                <MockCheckinPhone />
+                            </MontarAlVerse>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">Escanea el DNI</h3>
-                        <p class="text-gray-600">Con la cámara del móvil o un lector de documentos. Los datos se extraen automáticamente.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-primary">2</span>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Hospedy genera el parte</h3>
-                        <p class="text-gray-600">Con todos los datos del huésped y la reserva. Sin que tengas que escribir nada.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-primary">3</span>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Envío automático</h3>
-                        <p class="text-gray-600">El parte sale al cuerpo policial que tengas activado. Tu libro de viajeros queda al día.</p>
-                    </div>
+                        <figcaption class="mt-5 max-w-[300px] text-center text-gray-600">
+                            Pruébalo: es el auto check-in que recibe el huésped. Escanea su documento y sus datos se rellenan solos; al marcar su llegada, queda registrado y su parte sale.
+                        </figcaption>
+                    </figure>
                 </div>
             </div>
 
