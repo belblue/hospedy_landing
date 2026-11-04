@@ -86,8 +86,9 @@
           </div>
         </div>
       </div>
-      <!-- Flecha para seguir bajando -->
-      <div v-show="mostrarFlecha" class="pb-6 flex justify-center transition-opacity duration-300">
+      <!-- Flecha para seguir bajando. Al bajar se desvanece sin dejar su hueco: con display: none la cabecera encogía
+           88 px, y al volver atrás lo hacía justo al devolver el scroll, que se quedaba 88 px más arriba -->
+      <div class="pb-6 flex justify-center transition-[opacity,visibility] duration-300" :class="{ 'opacity-0 invisible': !mostrarFlecha }">
         <a href="#tu-alojamiento" class="animate-bounce" aria-label="Bajar a la siguiente sección">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-primary opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />

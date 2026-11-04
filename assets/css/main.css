@@ -53,6 +53,12 @@ html {
   opacity: 0;
 }
 
+/* Al volver atrás a una página ya vista, lo que anima AOS sale ya en su sitio, sin transiciones (plugins/aos.client.ts) */
+html.sin-entradas [data-aos],
+html.sin-entradas [data-aos] * {
+  transition: none !important;
+}
+
 @layer components {
   .form-input {
     border: 1px solid #0D9488;

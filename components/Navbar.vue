@@ -314,10 +314,12 @@ let ultimoScroll = 0
 function alHacerScroll() {
   const y = window.scrollY
   if (abierto.value && Math.abs(y - ultimoScroll) > 4) abierto.value = null
-  // pasada la primera pantalla, se esconde al bajar y vuelve al subir; nunca con el menú del móvil abierto
+  // pasada la primera pantalla, se esconde al bajar y vuelve al subir; nunca con el menú del móvil abierto. Un salto de
+  // más de una pantalla no es alguien bajando, sino el scroll que se devuelve al volver atrás: entonces se queda como está
+  const salto = Math.abs(y - ultimoScroll) > window.innerHeight
   if (movilAbierto.value || y <= window.innerHeight) oculta.value = false
-  else if (y > ultimoScroll) oculta.value = true
-  else if (y < ultimoScroll) oculta.value = false
+  else if (!salto && y > ultimoScroll) oculta.value = true
+  else if (!salto && y < ultimoScroll) oculta.value = false
   ultimoScroll = y
 }
 
