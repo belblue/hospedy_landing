@@ -22,34 +22,7 @@
           huéspedes, la que responde preguntas sobre tus datos y la que hace el trabajo contigo, que prepara los cambios
           para que tú los confirmes.
         </p>
-        <div class="rounded-2xl border border-gray-200 bg-white overflow-hidden">
-          <table class="w-full text-left">
-            <caption class="sr-only">La inteligencia artificial de cada programa de gestión</caption>
-            <thead class="hidden md:table-header-group bg-gray-50">
-              <tr>
-                <th scope="col" class="p-4 font-semibold text-gray-900 w-[16%]">Programa</th>
-                <th v-for="columna in COLUMNAS_IA" :key="columna" scope="col" class="p-4 font-semibold text-gray-900">{{ columna }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                v-for="fila in FILAS_IA"
-                :key="fila.nombre"
-                class="block md:table-row border-t border-gray-200 first:border-t-0 md:first:border-t px-5 py-4 md:p-0"
-                :class="{ 'bg-primary/5': fila.propia }"
-              >
-                <th scope="row" class="block md:table-cell md:p-4 align-top text-lg" :class="fila.propia ? 'text-primary font-bold' : 'font-semibold text-gray-900'">{{ fila.nombre }}</th>
-                <td v-for="clave in CLAVES_IA" :key="clave" class="block md:table-cell md:p-4 align-top mt-2 md:mt-0 text-gray-700">
-                  <span class="md:hidden font-semibold text-gray-900" data-nosnippet>{{ COLUMNAS_IA[clave] }}: </span>
-                  <IconoMarca v-if="fila[clave].marca" :tipo="fila[clave].marca" class="mr-1" />{{ fila[clave].texto }}
-                </td>
-                <td class="block md:table-cell md:p-4 align-top mt-2 md:mt-0 text-gray-700">
-                  <span class="md:hidden font-semibold text-gray-900" data-nosnippet>{{ COLUMNAS_IA.coste }}: </span>{{ fila.coste }}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <TablaIa />
         <p class="text-lg text-gray-600 mt-4">
           Hugo trabaja para ti y no habla con tus huéspedes: los emails automáticos salen de
           <NuxtLink to="/funciones/comunicaciones" class="text-secondary font-semibold hover:underline underline-offset-4">Comunicaciones</NuxtLink>,
@@ -141,7 +114,7 @@
 
 <script setup lang="ts">
 import { ARTICULOS } from '~/utils/blog'
-import { COLUMNAS_IA, COLUMNAS_PRECIO, FILAS_IA, FILAS_PRECIO, REVISION_COMPARATIVA } from '~/utils/comparativa'
+import { COLUMNAS_PRECIO, FILAS_PRECIO, REVISION_COMPARATIVA } from '~/utils/comparativa'
 import { fechaLarga } from '~/utils/fechas'
 import { PLANES } from '~/utils/precios'
 
@@ -152,8 +125,7 @@ useSeoPagina({
 
 const revision = fechaLarga(REVISION_COMPARATIVA)
 
-// las columnas con marca; la última de cada tabla es solo texto
-const CLAVES_IA = ['huespedes', 'datos', 'cambios'] as const
+// las columnas con marca; la última es solo texto
 const CLAVES_PRECIO = ['precio', 'partes', 'ine'] as const
 
 // Iconos de 24 × 24 con trazo (como los de Heroicons)
@@ -184,7 +156,7 @@ const MOTIVOS = [
 ]
 
 // los artículos del blog que comparan PMS
-const COMPARATIVAS = ['mejores-pms-casas-rurales', 'hospedy-vs-ruralgest', 'cuanto-cuesta-pms-hotel']
+const COMPARATIVAS = ['pms-con-inteligencia-artificial', 'mejores-pms-casas-rurales', 'hospedy-vs-ruralgest']
   .map(slug => ARTICULOS.find(articulo => articulo.slug === slug))
   .filter((articulo): articulo is NonNullable<typeof articulo> => Boolean(articulo))
 </script>

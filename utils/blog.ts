@@ -24,6 +24,30 @@ export interface ArticuloBlog {
 
 export const ARTICULOS: ArticuloBlog[] = [
   {
+    slug: 'pms-con-inteligencia-artificial',
+    titulo: 'PMS con inteligencia artificial en 2026: qué hace de verdad cada uno',
+    tituloSeo: 'PMS con inteligencia artificial: qué hace cada uno',
+    descripcion: 'Qué hace la IA de Hospedy, Avirato, Cloudbeds, Mews, Amenitiz, AvaiBook y otros PMS: contestar a huéspedes, responder preguntas o preparar cambios.',
+    extracto: 'Contestar a los huéspedes, responder preguntas o preparar los cambios para que los confirmes: lo que hace de verdad la IA de cada PMS.',
+    categoria: 'Elegir un PMS',
+    minutos: 8,
+    publicado: '2026-11-04',
+    actualizado: '2026-11-04',
+    funcion: '/funciones/hugo',
+  },
+  {
+    slug: 'parte-viajeros-rechazado-ses-hospedajes',
+    titulo: 'Parte de viajeros rechazado en SES Hospedajes: por qué pasa y cómo corregirlo',
+    tituloSeo: 'Parte de viajeros rechazado en SES: cómo corregirlo',
+    descripcion: 'Por qué SES Hospedajes rechaza un parte de viajeros (contacto, soporte del DNI, fechas, repetidos) y cómo corregirlo y reenviarlo, a mano o con Hugo.',
+    extracto: 'Las causas más habituales de un parte rechazado y cómo corregirlo y reenviarlo, a mano o pidiéndoselo a Hugo.',
+    categoria: 'Normativa',
+    minutos: 7,
+    publicado: '2026-11-04',
+    actualizado: '2026-11-04',
+    funcion: '/funciones/partes-viajeros',
+  },
+  {
     slug: 'como-enviar-partes-viajeros-ses-hospedajes',
     titulo: 'Cómo enviar partes de viajeros a SES Hospedajes automáticamente',
     tituloSeo: 'Cómo enviar partes de viajeros a SES Hospedajes',

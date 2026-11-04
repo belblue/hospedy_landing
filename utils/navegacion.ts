@@ -237,7 +237,7 @@ export const RELACIONES: Record<string, Relaciones> = {
   },
   'partes-viajeros': {
     funciones: [F('encuestas-ine'), F('check-in'), F('hugo')],
-    guias: ['como-enviar-partes-viajeros-ses-hospedajes', 'pre-checkin-ahorrar-tiempo'],
+    guias: ['como-enviar-partes-viajeros-ses-hospedajes', 'parte-viajeros-rechazado-ses-hospedajes', 'pre-checkin-ahorrar-tiempo'],
     tipos: LOS_TRES,
   },
   'encuestas-ine': {
@@ -297,7 +297,7 @@ export const RELACIONES: Record<string, Relaciones> = {
   },
   'hugo': {
     funciones: [F('partes-viajeros'), F('planning-reservas'), F('estadisticas'), F('channel-manager'), F('comunicaciones')],
-    guias: [],
+    guias: ['pms-con-inteligencia-artificial', 'parte-viajeros-rechazado-ses-hospedajes'],
     tipos: LOS_TRES,
   },
 }
