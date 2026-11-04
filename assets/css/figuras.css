@@ -1,0 +1,254 @@
+/* Las figuras animadas de la web: SVG dentro del código, con la clase hm-fig. Se dibujan una vez, cuando AOS enseña su
+   tarjeta, y al pasar el ratón por la tarjeta (la clase group) hacen su gesto. Sin AOS se ven enteras y quietas, y con el
+   movimiento reducido, también.
+
+   - Entradas (hm-fig__*): la pieza espera mientras su tarjeta lleva .aos-init sin .aos-animate y entra con una
+     transición, con su retraso en línea (transition-delay). Son transiciones y no animaciones, como las de AOS: al volver
+     atrás, plugins/aos.client.ts lo enseña todo de golpe sin transiciones y no se repite nada.
+   - Gestos (hm-gesto-*): una animación con el ratón encima, siempre en un grupo distinto del de la entrada, con su
+     retraso en línea (animation-delay) y, si gira desde un punto concreto, su eje en línea (transform-box y
+     transform-origin).
+
+   Es una hoja global a propósito: en el estilo con ámbito de un componente, «:global(.x) .y» se queda en «.x» y se
+   aplicaría a toda la página. */
+
+.hm-fig {
+  overflow: visible;
+}
+
+/* con pathLength="1", el trazo entero mide 1: desplazarlo 1 lo esconde y llevarlo a 0 lo dibuja */
+.hm-fig__linea {
+  stroke-dasharray: 1;
+}
+
+.hm-fig__crece,
+.hm-fig__asoma,
+.hm-fig__sale,
+.hm-fig__brota,
+.hm-gesto-orbitar,
+.hm-gesto-girar,
+.hm-gesto-titilar,
+.hm-gesto-resonar,
+.hm-gesto-onda {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* lo que sube o se mece desde su base */
+.hm-fig__sube,
+.hm-gesto-mecer,
+.hm-gesto-tambalear {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+/* las ondas de una campanilla solo se ven mientras suena */
+.hm-gesto-onda {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Hasta que AOS enseña la tarjeta, la figura espera sin dibujar */
+  .aos-init:not(.aos-animate) .hm-fig__linea {
+    stroke-dashoffset: 1;
+  }
+
+  .aos-init:not(.aos-animate) .hm-fig__aparece {
+    opacity: 0;
+  }
+
+  .aos-init:not(.aos-animate) .hm-fig__crece {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  .aos-init:not(.aos-animate) .hm-fig__asoma {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  .aos-init:not(.aos-animate) .hm-fig__sube {
+    opacity: 0;
+    transform: scaleY(0.3);
+  }
+
+  .aos-init:not(.aos-animate) .hm-fig__entra {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  .aos-init:not(.aos-animate) .hm-fig__entra-der {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+
+  .aos-init:not(.aos-animate) .hm-fig__cae {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  /* sale de un libro abierto, abajo a la izquierda */
+  .aos-init:not(.aos-animate) .hm-fig__sale {
+    opacity: 0;
+    transform: translate(-22px, 30px) scale(0.5);
+  }
+
+  /* brota del punto que le da la pieza, con --hm-desde-x y --hm-desde-y */
+  .aos-init:not(.aos-animate) .hm-fig__brota {
+    opacity: 0;
+    transform: translate(var(--hm-desde-x, 0), var(--hm-desde-y, 0)) scale(0.3);
+  }
+
+  /* y cuando la enseña, se dibuja, cada pieza con su retraso */
+  .aos-animate .hm-fig__linea {
+    transition: stroke-dashoffset 0.6s ease-out;
+  }
+
+  .aos-animate .hm-fig__aparece {
+    transition: opacity 0.5s ease-out;
+  }
+
+  .aos-animate .hm-fig__crece {
+    transition: opacity 0.45s ease-out, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .aos-animate .hm-fig__asoma {
+    transition: opacity 0.35s ease-out, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .aos-animate .hm-fig__sube,
+  .aos-animate .hm-fig__cae {
+    transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .aos-animate .hm-fig__entra,
+  .aos-animate .hm-fig__entra-der {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .aos-animate .hm-fig__sale {
+    transition: opacity 0.65s ease-out, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .aos-animate .hm-fig__brota {
+    transition: opacity 0.55s ease-out, transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* Un botón que se aprieta al entrar y vuelve: una transición solo va de un sitio a otro, así que son dos grupos
+     anidados, uno baja y el otro, después, sube lo mismo. Al final la pieza queda donde estaba */
+  .aos-animate .hm-fig__pulsa {
+    transform: translateY(5px);
+    transition: transform 0.14s ease-in-out;
+  }
+
+  .aos-animate .hm-fig__suelta {
+    transform: translateY(-5px);
+    transition: transform 0.21s ease-in-out;
+  }
+
+  /* El gesto, con el ratón encima de la tarjeta */
+  .group:hover .hm-gesto-orbitar {
+    animation: hm-gesto-orbitar 1.4s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-girar {
+    animation: hm-gesto-girar 0.8s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-titilar {
+    animation: hm-gesto-titilar 0.6s ease;
+  }
+
+  .group:hover .hm-gesto-mecer {
+    animation: hm-gesto-mecer 1.1s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-tambalear {
+    animation: hm-gesto-tambalear 0.8s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-planear {
+    animation: hm-gesto-planear 0.9s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-pulsar {
+    animation: hm-gesto-pulsar 0.45s ease;
+  }
+
+  .group:hover .hm-gesto-resonar {
+    animation: hm-gesto-resonar 0.8s ease-out;
+  }
+
+  .group:hover .hm-gesto-brincar {
+    animation: hm-gesto-brincar 0.55s ease-in-out;
+  }
+
+  .group:hover .hm-gesto-onda {
+    animation: hm-gesto-onda 0.7s ease;
+  }
+
+  .group:hover .hm-gesto-humo {
+    animation: hm-gesto-humo 1.2s ease-out;
+  }
+
+  .group:hover .hm-gesto-rodar {
+    animation: hm-gesto-rodar 0.8s ease-in-out;
+  }
+}
+
+/* una vuelta entera */
+@keyframes hm-gesto-orbitar {
+  to { transform: rotate(360deg); }
+}
+
+/* un cuarto de vuelta: unas flechas en cuadrado quedan igual */
+@keyframes hm-gesto-girar {
+  to { transform: rotate(90deg); }
+}
+
+@keyframes hm-gesto-titilar {
+  50% { transform: scale(1.25) rotate(20deg); }
+}
+
+@keyframes hm-gesto-mecer {
+  30% { transform: rotate(-5deg); }
+  65% { transform: rotate(3deg); }
+}
+
+@keyframes hm-gesto-tambalear {
+  25% { transform: rotate(-4deg); }
+  55% { transform: rotate(3deg); }
+  80% { transform: rotate(-1.5deg); }
+}
+
+@keyframes hm-gesto-planear {
+  50% { transform: translate(4px, -4px); }
+}
+
+/* lo que baja el botón lo da la pieza, con --hm-recorrido */
+@keyframes hm-gesto-pulsar {
+  35% { transform: translateY(var(--hm-recorrido, 2px)); }
+}
+
+@keyframes hm-gesto-resonar {
+  25% { opacity: 0.2; transform: scale(0.8); }
+  60% { opacity: 1; transform: scale(1.15); }
+}
+
+@keyframes hm-gesto-brincar {
+  40% { transform: translateY(-6px); }
+}
+
+@keyframes hm-gesto-onda {
+  0% { opacity: 0; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.2); }
+}
+
+@keyframes hm-gesto-humo {
+  50% { opacity: 0.35; transform: translateY(-3px); }
+}
+
+@keyframes hm-gesto-rodar {
+  45% { transform: translateX(-3px); }
+}

@@ -108,10 +108,9 @@
         <li v-for="(tipo, i) in PARA_QUIEN" :key="tipo.ruta" data-aos="fade-up" :data-aos-delay="i * 100">
           <!-- en el móvil, en filas: el icono a la izquierda -->
           <NuxtLink :to="tipo.ruta" class="group flex md:flex-col gap-4 md:gap-0 h-full bg-white rounded-2xl border border-gray-100 shadow-sm p-5 md:p-6 hover:shadow-md hover:border-primary/30 transition">
-            <span class="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-xl bg-tertiary text-secondary flex items-center justify-center md:mb-4">
-              <svg class="w-7 h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" :d="ICONOS_TIPO[i]"></path>
-              </svg>
+            <span class="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-xl bg-tertiary flex items-center justify-center md:mb-4">
+              <!-- entra con su tarjeta, que AOS retrasa i * 100 ms -->
+              <IconoAlojamiento :tipo="TIPOS_ALOJAMIENTO[i]" :retraso="i * 100" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
             </span>
             <div class="flex flex-col flex-1">
               <h3 class="text-2xl font-bold text-gray-900 group-hover:text-secondary mb-2">{{ tipo.nombre }}</h3>
@@ -327,19 +326,21 @@
         <h2 id="titulo-cumple" class="text-4xl sm:text-5xl lg:text-6xl text-gray-900">Cumple la normativa</h2>
         <p class="text-xl mt-8">Los partes, la encuesta del INE y los documentos de tu comunidad, sin perder la mañana.</p>
       </div>
+      <!-- las tarjetas, en columna y con la ilustración al pie: las dos ilustraciones quedan a la misma altura aunque la
+           del INE lleve más texto. En el móvil más pequeño no salen -->
       <div class="grid lg:grid-cols-2 gap-4 mx-6 lg:mx-16">
-        <div class="gestiona-card-gradient rounded-2xl p-8 glow-hover" data-aos="fade-right">
+        <div class="gestiona-card-gradient group flex flex-col rounded-2xl p-8 glow-hover" data-aos="fade-right">
           <h3 class="text-3xl text-white font-semibold mb-4">Partes de viajeros</h3>
           <p class="text-white">
             Se generan en el check-in y <span class="font-semibold text-gold">se envían solos</span> a SES Hospedajes o a
             la Ertzaintza, según lo que tengas activado, sin entrar en ningún portal. Tu libro de viajeros, siempre al día.
           </p>
-          <NuxtLink to="/funciones/partes-viajeros" class="inline-block mt-4 text-gold font-semibold hover:underline underline-offset-4">Saber más de los partes →</NuxtLink>
-          <div class="hidden sm:flex justify-center mt-6">
-            <img src="/partes.svg" class="w-48 lg:w-64 h-auto" width="256" height="200" loading="lazy" alt="Ilustración de un parte de viajeros" />
+          <NuxtLink to="/funciones/partes-viajeros" class="self-start inline-block mt-4 text-gold font-semibold hover:underline underline-offset-4">Saber más de los partes →</NuxtLink>
+          <div class="hidden sm:flex justify-center mt-auto pt-6">
+            <IlustracionNormativa pieza="partes" class="block w-48 h-[150px] lg:w-64 lg:h-[200px]" />
           </div>
         </div>
-        <div class="gestiona-card-gradient rounded-2xl p-8 glow-hover" data-aos="fade-left">
+        <div class="gestiona-card-gradient group flex flex-col rounded-2xl p-8 glow-hover" data-aos="fade-left">
           <h3 class="text-3xl text-white font-semibold mb-4">Encuestas INE y documentos autonómicos</h3>
           <p class="text-white">
             La encuesta de ocupación de hoteles y de apartamentos <span class="font-semibold text-gold">se envía al INE con
@@ -348,7 +349,10 @@
           <p class="text-white mt-4">
             Y el documento de admisión que piden once comunidades autónomas, desde la ficha de la reserva.
           </p>
-          <NuxtLink to="/funciones/encuestas-ine" class="inline-block mt-4 text-gold font-semibold hover:underline underline-offset-4">Ver cómo funciona →</NuxtLink>
+          <NuxtLink to="/funciones/encuestas-ine" class="self-start inline-block mt-4 text-gold font-semibold hover:underline underline-offset-4">Ver cómo funciona →</NuxtLink>
+          <div class="hidden sm:flex justify-center mt-auto pt-6">
+            <IlustracionNormativa pieza="ine" class="block w-48 h-[150px] lg:w-64 lg:h-[200px]" />
+          </div>
         </div>
       </div>
 
@@ -540,12 +544,8 @@ const PILDORAS = [
   { texto: 'Asistente con IA', ruta: '/funciones/hugo', icono: ICONO.chispas },
 ]
 
-// edificio de hotel, casa rural y bloque de apartamentos, en el orden de PARA_QUIEN
-const ICONOS_TIPO = [
-  'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
-  'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',
-  'M8 21V7a1 1 0 011-1h6a1 1 0 011 1v14M4 21V11a1 1 0 011-1h3m8 0h3a1 1 0 011 1v10M3 21h18M11 9h2m-2 3h2m-2 3h2',
-]
+// los iconos de cada tipo (IconoAlojamiento), en el orden de PARA_QUIEN
+const TIPOS_ALOJAMIENTO = ['hotel', 'rural', 'apartamento'] as const
 
 const DIFERENCIAS = [
   { titulo: 'Todo en uno', texto: 'Reservas, partes, facturas, INE, channel manager y asistente con IA en una sola aplicación.', figura: 'esfera' },

@@ -48,6 +48,8 @@ export default defineNuxtConfig({
     css: [
       '@fontsource-variable/nunito',
       '~/assets/css/main.css',
+      // las figuras animadas (hm-fig): sus entradas con AOS y sus gestos
+      '~/assets/css/figuras.css',
       'vue-toastification/dist/index.css'
     ],
     postcss: {
