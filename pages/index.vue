@@ -1,7 +1,5 @@
 <template>
   <div>
-    <ExitIntentPopup />
-
     <!-- Pestaña flotante «Prueba gratis 30 días»: solo pasada la cabecera, para no tapar la maqueta del portátil -->
     <a
       v-show="pestanaVisible"
