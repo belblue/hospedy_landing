@@ -52,10 +52,16 @@
             Agencia de más: {{ plan.altaOtaExtra }}&nbsp;€ de alta + {{ CUOTA_OTA_EXTRA }}&nbsp;€/mes
           </p>
           <a
+            v-if="registroOfrecido"
             :href="appUrl('/register')"
             class="btn flex-none text-center font-semibold py-3"
             :class="plan.recomendado ? 'bg-white text-secondary hover:bg-tertiary' : 'btn-principal'"
           >Prueba gratis {{ DIAS_DE_PRUEBA }} días</a>
+          <PruebaHospedyButton
+            v-else
+            class="btn flex-none text-center font-semibold py-3"
+            :class="plan.recomendado ? 'bg-white text-secondary hover:bg-tertiary' : 'btn-principal'"
+          >Pide una demo</PruebaHospedyButton>
         </div>
       </div>
       <p class="text-center text-gray-500 mt-6">
@@ -153,6 +159,7 @@ useSeoPagina({
 useEsquema('software', esquemaSoftware())
 
 const { appUrl } = useReferral()
+const { registroOfrecido } = usePruebaHospedy()
 
 const comision = TEXTO_COMISION_COBROS
 

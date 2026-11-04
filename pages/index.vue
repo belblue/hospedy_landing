@@ -1,10 +1,12 @@
 <template>
   <div>
-    <!-- Pestaña flotante «Prueba gratis 30 días»: solo pasada la cabecera, para no tapar la maqueta del portátil -->
+    <!-- Pestaña flotante «Prueba gratis 30 días», o «Pide una demo» sin el registro en la web: solo pasada la cabecera,
+         para no tapar la maqueta del portátil -->
     <a
+      v-if="registroOfrecido"
       v-show="pestanaVisible"
       :href="appUrl('/register')"
-      class="fixed right-0 top-1/2 -translate-y-1/2 z-50 bg-gradient-to-b from-primary to-secondary text-white font-semibold py-3 px-4 rounded-l-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-x-1 writing-vertical hidden lg:flex items-center gap-2 animate-bounce-subtle"
+      :class="CLASE_PESTANA"
       title="Crea tu cuenta de Hospedy y empieza la prueba gratis"
     >
       <svg class="w-5 h-5 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -12,6 +14,12 @@
       </svg>
       Prueba gratis 30 días
     </a>
+    <PruebaHospedyButton v-else v-show="pestanaVisible" :class="CLASE_PESTANA">
+      <svg class="w-5 h-5 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+      </svg>
+      Pide una demo
+    </PruebaHospedyButton>
 
     <!-- Cabecera. El padding de arriba deja sitio a la barra fija -->
     <section ref="cabecera" class="min-h-screen hero-gradient flex flex-col overflow-hidden relative pt-24 lg:pt-16">
@@ -469,7 +477,7 @@
     </section>
 
     <!-- CIERRE -->
-    <CtaFinal titulo="Empieza hoy: 30 días gratis" />
+    <CtaFinal />
 
     <!-- Volver arriba -->
     <button
@@ -500,6 +508,8 @@ useEsquema('software', esquemaSoftware())
 
 // enlaces a la app (registro) con el código de amigo si se llegó con uno
 const { appUrl } = useReferral()
+const { registroOfrecido } = usePruebaHospedy()
+const CLASE_PESTANA = 'fixed right-0 top-1/2 -translate-y-1/2 z-50 bg-gradient-to-b from-primary to-secondary text-white font-semibold py-3 px-4 rounded-l-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-x-1 writing-vertical hidden lg:flex items-center gap-2 animate-bounce-subtle'
 
 // las agencias, la cifra real: las del channel manager (server/api/agencias.get.ts)
 const { data: agenciasDelChannel } = await useFetch('/api/agencias', { key: 'agencias-total', pick: ['total'] })

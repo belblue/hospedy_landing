@@ -11,6 +11,8 @@ export function usePruebaHospedy() {
     // La cuenta de demo solo funciona activada (NUXT_PUBLIC_DEMO_ENABLED) y con el admin panel
     // configurado (NUXT_PUBLIC_PANEL_API_BASE); mientras tanto la opción se enseña como "Muy pronto".
     demoLista: computed(() => cuentaDemoActivada(config.public)),
+    // Sin el registro en la web (NUXT_PUBLIC_REGISTRO_VISIBLE), los botones de prueba son «Pide una demo»
+    registroOfrecido: computed(() => registroOfrecido(config.public)),
     abrir: () => {
       abierto.value = true
     },

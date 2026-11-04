@@ -1,23 +1,33 @@
 <template>
   <!-- Los dos botones de siempre (decisión de Arturo del 10-10): «Prueba gratis 30 días», que lleva al registro,
-       es el principal; «Ver una demo», el secundario. Sobre fondo oscuro (la banda de cierre), en blanco. -->
+       es el principal; «Ver una demo», el secundario. Sin el registro en la web (NUXT_PUBLIC_REGISTRO_VISIBLE,
+       decisión del 04-11), solo «Pide una demo», como principal. Sobre fondo oscuro (la banda de cierre), en blanco. -->
   <div class="flex flex-col sm:flex-row sm:flex-wrap gap-3" :class="{ 'justify-center': centrados }">
-    <a
-      :href="appUrl('/register')"
-      class="btn sm:flex-none px-6 py-3 whitespace-nowrap font-semibold"
-      :class="oscuro ? 'bg-white text-secondary hover:bg-tertiary' : 'btn-principal btn-shimmer'"
-      title="Crea tu cuenta de Hospedy y empieza la prueba gratis"
-    >Prueba gratis 30 días</a>
+    <template v-if="registroOfrecido">
+      <a
+        :href="appUrl('/register')"
+        class="btn sm:flex-none px-6 py-3 whitespace-nowrap font-semibold"
+        :class="principal"
+        title="Crea tu cuenta de Hospedy y empieza la prueba gratis"
+      >Prueba gratis 30 días</a>
+      <PruebaHospedyButton
+        class="btn sm:flex-none px-6 py-3 whitespace-nowrap"
+        :class="oscuro ? 'boton-demo-oscuro' : 'btn-outline'"
+      >Ver una demo</PruebaHospedyButton>
+    </template>
     <PruebaHospedyButton
-      class="btn sm:flex-none px-6 py-3 whitespace-nowrap"
-      :class="oscuro ? 'boton-demo-oscuro' : 'btn-outline'"
-    >Ver una demo</PruebaHospedyButton>
+      v-else
+      class="btn sm:flex-none px-6 py-3 whitespace-nowrap font-semibold"
+      :class="principal"
+    >Pide una demo</PruebaHospedyButton>
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{ centrados?: boolean, oscuro?: boolean }>()
+const props = defineProps<{ centrados?: boolean, oscuro?: boolean }>()
 const { appUrl } = useReferral()
+const { registroOfrecido } = usePruebaHospedy()
+const principal = computed(() => (props.oscuro ? 'bg-white text-secondary hover:bg-tertiary' : 'btn-principal btn-shimmer'))
 </script>
 
 <style scoped>

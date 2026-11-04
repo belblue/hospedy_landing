@@ -195,7 +195,7 @@
     <ArticuloPie
       :articulo="articulo"
       titulo="¿Quieres evitar los overbookings?"
-      texto="Crea tu cuenta y prueba Hospedy gratis 30 días, con el channel manager y todas tus agencias en un solo calendario."
+      texto="Pide una demo y te enseñamos el channel manager, con todas tus agencias en un solo calendario. Después, 30 días gratis."
     />
   </div>
 </template>

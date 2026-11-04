@@ -41,6 +41,7 @@ Los formularios de contacto, de demo asistida (`/demo`) y de cuenta de demo
 | `NUXT_PUBLIC_PANEL_API_BASE` | API del admin panel (en dev, `https://rididadminapi.silatek.net`) |
 | `NUXT_PUBLIC_TURNSTILE_SITE_KEY` | Sitekey de Cloudflare Turnstile |
 | `NUXT_PUBLIC_DEMO_ENABLED` | `true` para ofrecer la cuenta de demo; si no, sale como «Muy pronto» |
+| `NUXT_PUBLIC_REGISTRO_VISIBLE` | `true` para que los botones lleven al registro de la app y se enseñe el Programa Amigos; si no, solo «Pide una demo» (el registro de la app sigue abierto) |
 
 Sin el panel o sin la sitekey, los formularios no se pueden enviar e invitan a
 escribir a hola@hospedy.app. El panel tiene que admitir el origen de la landing

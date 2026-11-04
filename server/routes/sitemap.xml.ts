@@ -1,12 +1,12 @@
 // Sitemap generado con el mapa de la web (utils/navegacion.ts) y los artículos (utils/blog.ts): una página nueva
 // entra sola, y su lastmod es la fecha en que cambió su contenido. Fuera quedan las páginas con noindex (aviso legal,
-// /r/*) y la cuenta de demo mientras no esté activada.
-import { SITIO_URL, cuentaDemoActivada } from '../../utils/sitio'
+// /r/*), la cuenta de demo mientras no esté activada y el Programa Amigos sin el registro en la web.
+import { SITIO_URL, cuentaDemoActivada, registroOfrecido } from '../../utils/sitio'
 import { paginasDelSitemap } from '../../utils/navegacion'
 
 export default defineEventHandler((event) => {
-  const demoLista = cuentaDemoActivada(useRuntimeConfig(event).public)
-  const urls = paginasDelSitemap({ demoLista }).map(pagina => [
+  const publico = useRuntimeConfig(event).public
+  const urls = paginasDelSitemap({ demoLista: cuentaDemoActivada(publico), registroOfrecido: registroOfrecido(publico) }).map(pagina => [
     '  <url>',
     `    <loc>${SITIO_URL}${pagina.ruta}</loc>`,
     `    <lastmod>${pagina.actualizado}</lastmod>`,

@@ -8,12 +8,12 @@
     <div v-if="!demoLista" class="text-center py-4">
       <h2 class="text-xl font-semibold text-gray-900 mb-2">La cuenta de demo estará disponible muy pronto</h2>
       <p class="text-gray-600 mb-6">
-        Mientras tanto, pide una demo asistida con una persona del equipo o crea tu cuenta: el asistente de
-        configuración te ayuda a dejarlo todo listo en menos de 15 minutos.
+        Mientras tanto, pide una demo asistida con una persona del equipo<template v-if="registroOfrecido"> o crea tu
+        cuenta: el asistente de configuración te ayuda a dejarlo todo listo en menos de 15 minutos</template>.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <NuxtLink to="/demo" class="btn btn-outline">Pedir demo asistida</NuxtLink>
-        <a :href="appUrl('/register')" class="btn btn-grad" title="Crea tu cuenta de Hospedy y empieza la prueba gratis">Crear mi cuenta</a>
+        <NuxtLink to="/demo" class="btn" :class="registroOfrecido ? 'btn-outline' : 'btn-grad'">Pedir demo asistida</NuxtLink>
+        <a v-if="registroOfrecido" :href="appUrl('/register')" class="btn btn-grad" title="Crea tu cuenta de Hospedy y empieza la prueba gratis">Crear mi cuenta</a>
       </div>
     </div>
 
@@ -120,7 +120,7 @@ import { useToast, POSITION, TYPE } from 'vue-toastification/dist/index.mjs'
 
 // El cuestionario va al admin panel; solo se enseña con la demo activada y el panel configurado
 const panelApiBase = usePanelApiBase()
-const { demoLista } = usePruebaHospedy()
+const { demoLista, registroOfrecido } = usePruebaHospedy()
 const { appUrl } = useReferral()
 const { evento } = useMetricas()
 const toast = useToast()

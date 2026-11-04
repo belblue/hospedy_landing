@@ -3,7 +3,7 @@
 // las maquetas (data-nosnippet, con datos de ejemplo), los iconos, los formularios, los botones y las migas.
 import TurndownService from 'turndown'
 import { gfm } from 'turndown-plugin-gfm'
-import { SITIO_URL, urlAbsoluta } from '../../utils/sitio'
+import { SITIO_URL, cuentaDemoActivada, registroOfrecido, urlAbsoluta } from '../../utils/sitio'
 import { paginasDelSitemap } from '../../utils/navegacion'
 
 function conversor() {
@@ -54,8 +54,9 @@ export const paginaEnMarkdown = defineCachedFunction(convertir, {
 })
 
 // Las páginas que tienen versión en Markdown: las del sitemap (lo indexable)
-export function rutasConMarkdown(demoLista: boolean): Set<string> {
-  return new Set(paginasDelSitemap({ demoLista }).map(pagina => pagina.ruta))
+export function rutasConMarkdown(publico: { demoEnabled?: unknown, panelApiBase?: unknown, registroVisible?: unknown }): Set<string> {
+  const filtros = { demoLista: cuentaDemoActivada(publico), registroOfrecido: registroOfrecido(publico) }
+  return new Set(paginasDelSitemap(filtros).map(pagina => pagina.ruta))
 }
 
 // /precios → /precios.md; la portada, /index.md

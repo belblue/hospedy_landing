@@ -17,7 +17,7 @@ export const FAQ: GrupoFaq[] = [
       {
         id: 'probar-gratis',
         pregunta: '¿Puedo probar Hospedy antes de pagar?',
-        respuesta: `Sí. Creas tu cuenta y tienes ${DIAS_DE_PRUEBA} días de prueba gratis con todas las funciones, sin tarjeta de crédito. Si prefieres que te lo enseñemos antes, pide una demo por videollamada.`,
+        respuesta: `Sí: ${DIAS_DE_PRUEBA} días de prueba gratis con todas las funciones, sin tarjeta de crédito. Pide una demo por videollamada: te enseñamos Hospedy con tu caso y te enviamos el enlace para crear tu cuenta.`,
       },
       {
         id: 'instalar',

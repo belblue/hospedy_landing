@@ -1,7 +1,8 @@
 <template>
   <!-- Programa Amigos: quien llega con un código de amigo ve con qué código viene y un botón para
-       crear la cuenta con él. Se puede cerrar (vuelve en la siguiente visita). -->
-  <div v-if="codigo && !cerrado" class="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 shadow-lg">
+       crear la cuenta con él. Se puede cerrar (vuelve en la siguiente visita). Solo con el registro en la web
+       (NUXT_PUBLIC_REGISTRO_VISIBLE). -->
+  <div v-if="codigo && !cerrado && registroOfrecido" class="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 shadow-lg">
     <div class="relative max-w-6xl mx-auto pl-4 pr-12 py-3 flex flex-wrap items-center justify-center gap-3 text-center">
       <span class="text-gray-700">
         Te ha invitado un amigo con el código <strong class="text-primary">{{ codigo }}</strong>. Crea tu cuenta y empieza tu prueba gratis.
@@ -16,5 +17,6 @@
 
 <script setup lang="ts">
 const { codigo, appUrl } = useReferral()
+const { registroOfrecido } = usePruebaHospedy()
 const cerrado = ref(false)
 </script>

@@ -379,7 +379,7 @@
     <ArticuloPie
       :articulo="articulo"
       titulo="¿Quieres aumentar tus reservas directas?"
-      texto="Hospedy incluye motor de reservas sin comisión por reserva. Crea tu cuenta y pruébalo gratis durante 30 días."
+      texto="Hospedy incluye motor de reservas sin comisión por reserva. Pide una demo y te lo enseñamos; después, 30 días gratis para probarlo."
     />
   </div>
 </template>

@@ -13,6 +13,9 @@ export interface PaginaWeb {
   actualizado: string
   // false: lleva noindex y no va en el sitemap
   indexar?: boolean
+  // true: solo con el registro en la web (NUXT_PUBLIC_REGISTRO_VISIBLE): sin él, ni en el pie, ni en el sitemap, ni en
+  // llms.txt, y la página lleva noindex
+  conRegistro?: boolean
 }
 
 export interface GrupoDeFunciones {
@@ -163,8 +166,14 @@ export const EMPRESA: PaginaWeb[] = [
   { nombre: 'Contacto', ruta: '/contacto', actualizado: '2026-10-10' },
   { nombre: 'Ver una demo', ruta: '/demo', actualizado: '2026-10-10' },
   { nombre: 'Quiénes somos', ruta: '/quienes-somos', actualizado: '2026-10-10' },
-  { nombre: 'Programa Amigos', ruta: '/programa-amigos', actualizado: '2026-09-25' },
+  // invita a registrarse con el código de un cliente
+  { nombre: 'Programa Amigos', ruta: '/programa-amigos', actualizado: '2026-09-25', conRegistro: true },
 ]
+
+// Las páginas de una lista que se enseñan: sin el registro en la web, fuera las que invitan a registrarse
+export function visibles(paginas: PaginaWeb[], registroOfrecido: boolean): PaginaWeb[] {
+  return paginas.filter(pagina => registroOfrecido || !pagina.conRegistro)
+}
 
 export const LEGAL: PaginaWeb[] = [
   // el domicilio tiene que estar publicado, pero no hace falta que lo recojan los buscadores
@@ -178,13 +187,13 @@ export const LEGAL: PaginaWeb[] = [
 export const CUENTA_DEMO: PaginaWeb = { nombre: 'Cuenta de demo', ruta: '/cuenta-demo', actualizado: '2026-09-26' }
 
 // Páginas que van en el sitemap, con su fecha de último cambio
-export function paginasDelSitemap({ demoLista }: { demoLista: boolean }): { ruta: string, actualizado: string }[] {
+export function paginasDelSitemap({ demoLista, registroOfrecido }: { demoLista: boolean, registroOfrecido: boolean }): { ruta: string, actualizado: string }[] {
   const paginas: PaginaWeb[] = [
     PORTADA,
     INDICE_FUNCIONES,
     ...TODAS_LAS_FUNCIONES,
     ...PARA_QUIEN,
-    ...EMPRESA,
+    ...visibles(EMPRESA, registroOfrecido),
     ...RECURSOS,
     ...ARTICULOS.map(articulo => ({ nombre: articulo.titulo, ruta: `/blog/${articulo.slug}`, actualizado: articulo.actualizado })),
     ...(demoLista ? [CUENTA_DEMO] : []),

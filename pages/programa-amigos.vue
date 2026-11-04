@@ -136,7 +136,7 @@
             <!-- FAQ, con su FAQPage -->
             <FaqLista :preguntas="PREGUNTAS" class="max-w-4xl mx-auto px-6 mt-20" />
 
-            <CtaFinal titulo="¿Aún no eres cliente?" texto="Crea tu cuenta, prueba Hospedy 30 días gratis y empieza a invitar a tus amigos." />
+            <CtaFinal titulo="¿Aún no eres cliente?" texto="Pide una demo, prueba Hospedy 30 días gratis y empieza a invitar a tus amigos." />
         </div>
     </div>
 </template>
@@ -144,7 +144,11 @@
 <script setup lang="ts">
 import type { PreguntaFaq } from '~/utils/contenido'
 
+// invita a registrarse con el código de un cliente: sin el registro en la web (NUXT_PUBLIC_REGISTRO_VISIBLE), fuera
+// del pie y del sitemap, y sin indexar
+const { registroOfrecido } = usePruebaHospedy()
 useSeoPagina({
+    indexar: registroOfrecido.value,
     titulo: 'Programa Amigos: meses gratis por recomendar',
     descripcion: 'Gana hasta 4 meses gratis de Hospedy por cada amigo que pague su primera cuota, sin límite. Con 5 amigos eres Embajador: 10 % de descuento al renovar.',
 })

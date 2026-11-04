@@ -30,8 +30,8 @@
             ¿Cómo quieres ver Hospedy?
           </h2>
           <p class="text-lg text-gray-600 text-center mb-6">
-            Elige lo que mejor te encaje, sin compromiso. Y si ya lo tienes claro,
-            <a :href="appUrl('/register')" class="text-secondary font-semibold underline underline-offset-4">crea tu cuenta: 30 días gratis</a>.
+            Elige lo que mejor te encaje, sin compromiso.<template v-if="registroOfrecido"> Y si ya lo tienes claro,
+            <a :href="appUrl('/register')" class="text-secondary font-semibold underline underline-offset-4">crea tu cuenta: 30 días gratis</a>.</template>
           </p>
 
           <!-- flex-none en los botones: .btn trae flex 1 1 auto y en una tarjeta en columna se estira -->
@@ -75,7 +75,7 @@
 </template>
 
 <script setup lang="ts">
-const { abierto, demoLista, cerrar } = usePruebaHospedy()
+const { abierto, demoLista, registroOfrecido, cerrar } = usePruebaHospedy()
 const { appUrl } = useReferral()
 const panel = ref<HTMLElement | null>(null)
 let foco: HTMLElement | null = null

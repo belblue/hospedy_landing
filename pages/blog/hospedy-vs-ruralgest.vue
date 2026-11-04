@@ -162,7 +162,7 @@
     <ArticuloPie
       :articulo="articulo"
       titulo="¿Quieres probar Hospedy sin compromiso?"
-      texto="Crea tu cuenta: 30 días de prueba gratis y sin tarjeta de crédito. Puedes probarlo en paralelo con tu sistema actual."
+      texto="Pide una demo. Después tienes 30 días de prueba gratis, sin tarjeta de crédito, para probarlo en paralelo con tu sistema actual."
     />
   </div>
 </template>

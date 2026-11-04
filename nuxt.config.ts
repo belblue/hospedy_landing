@@ -78,6 +78,9 @@ export default defineNuxtConfig({
         // configurado; si no, sale como "Muy pronto" y /cuenta-demo remite a las otras dos formas
         // de probar.
         demoEnabled: false,
+        // Registro en la web: con NUXT_PUBLIC_REGISTRO_VISIBLE=true, los botones «Prueba gratis 30 días» llevan
+        // al registro de la app y se enseña el Programa Amigos; si no, solo «Pide una demo» (utils/sitio.ts).
+        registroVisible: false,
         // Medición de audiencia con Umami en nuestros servidores (plugins/metricas.ts):
         // NUXT_PUBLIC_METRICAS_URL (https://metricas.silatek.net), NUXT_PUBLIC_METRICAS_SITIO (el
         // Website ID de esta web en Umami) y NUXT_PUBLIC_METRICAS_DOMINIOS (dónde puede medir,

@@ -2,7 +2,9 @@
 // Corre también en el servidor: así la página ya sale renderizada con la barra "Te ha invitado un
 // amigo" y los enlaces al registro con el código, y el navegador hidrata lo mismo (si solo corriera
 // en el navegador, la primera visita con ?ref= daría "Hydration completed but contains mismatches").
+// Sin el registro en la web (NUXT_PUBLIC_REGISTRO_VISIBLE) no hay barra ni enlaces al registro: el código no se guarda.
 export default defineNuxtPlugin(() => {
+  if (!registroOfrecido(useRuntimeConfig().public)) return
   const { guardar } = useReferral()
   const capturar = (query: Record<string, unknown>) => {
     if (query && query.ref) guardar(query.ref)

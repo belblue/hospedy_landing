@@ -137,7 +137,7 @@
     <ArticuloPie
       :articulo="articulo"
       titulo="¿Quieres ahorrar tiempo con el pre check-in?"
-      texto="El pre check-in está incluido en todos los planes de Hospedy. Crea tu cuenta y pruébalo gratis durante 30 días."
+      texto="El pre check-in está incluido en todos los planes de Hospedy. Pide una demo y te lo enseñamos; después, 30 días gratis para probarlo."
     />
   </div>
 </template>

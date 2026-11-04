@@ -1,6 +1,6 @@
 <template>
   <!-- Entre 1024 y 1279 px la barra va justa: el WhatsApp sale desde 1280 (está también en Contacto y en el pie) y el
-       botón dice solo «Prueba gratis».
+       botón dice solo «Prueba gratis». Sin el registro en la web (NUXT_PUBLIC_REGISTRO_VISIBLE), «Pide una demo».
        La barra responde a lo que busca quien llega: qué hace (Funciones), si sirve para su alojamiento (Para quién),
        cuánto cuesta, dónde están las dudas (Recursos), cómo hablar con alguien y cómo empezar. Lleva a páginas, nunca
        a anclas de la portada. Los desplegables van siempre en el HTML del servidor (v-show): los buscadores ven todos
@@ -140,10 +140,15 @@
         </a>
         <a :href="appUrl('/')" class="hidden lg:inline-block shrink-0 px-2 py-2 text-[17px] text-gray-700 hover:text-secondary whitespace-nowrap">Iniciar sesión</a>
         <a
+          v-if="registroOfrecido"
           :href="appUrl('/register')"
           class="btn btn-principal flex-none text-base font-semibold px-4 py-2 whitespace-nowrap"
           title="Crea tu cuenta de Hospedy y empieza la prueba gratis"
         >Prueba gratis<span class="hidden sm:inline lg:hidden xl:inline"> 30 días</span></a>
+        <PruebaHospedyButton
+          v-else
+          class="btn btn-principal flex-none text-base font-semibold px-4 py-2 whitespace-nowrap"
+        >Pide una demo</PruebaHospedyButton>
         <button
           id="boton-menu-movil"
           type="button"
@@ -221,6 +226,7 @@ import { DESTACADO, FUNCIONES, INDICE_FUNCIONES, PARA_QUIEN, RECURSOS } from '~/
 type Menu = 'funciones' | 'para-quien' | 'recursos'
 
 const { appUrl } = useReferral()
+const { registroOfrecido } = usePruebaHospedy()
 const route = useRoute()
 
 const abierto = ref<Menu | null>(null)

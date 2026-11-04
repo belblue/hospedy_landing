@@ -33,9 +33,19 @@ export const CONTACTO = {
 }
 
 // La cuenta de demo bajo demanda solo funciona activada (NUXT_PUBLIC_DEMO_ENABLED) y con el admin panel configurado
-// (NUXT_PUBLIC_PANEL_API_BASE). Nuxt convierte «true» en un booleano, pero se admite también el texto.
+// (NUXT_PUBLIC_PANEL_API_BASE).
 export function cuentaDemoActivada(publico: { demoEnabled?: unknown, panelApiBase?: unknown }): boolean {
-  const valor = publico.demoEnabled
-  const activada = valor === true || valor === 1 || valor === 'true' || valor === '1'
-  return activada && Boolean(String(publico.panelApiBase || '').trim())
+  return encendido(publico.demoEnabled) && Boolean(String(publico.panelApiBase || '').trim())
+}
+
+// El registro en la app sigue abierto, pero la web solo lo ofrece con NUXT_PUBLIC_REGISTRO_VISIBLE=true (decisión de
+// Arturo del 04-11-2026: de momento, solo «Pide una demo»; el enlace al registro lo manda él). Apagado, los botones
+// llevan a /demo y el Programa Amigos, que invita a registrarse, no se enseña.
+export function registroOfrecido(publico: { registroVisible?: unknown }): boolean {
+  return encendido(publico.registroVisible)
+}
+
+// Nuxt convierte «true» en un booleano, pero se admite también el texto
+function encendido(valor: unknown): boolean {
+  return valor === true || valor === 1 || valor === 'true' || valor === '1'
 }

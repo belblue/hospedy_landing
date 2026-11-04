@@ -191,7 +191,7 @@
     <ArticuloPie
       :articulo="articulo"
       titulo="¿Quieres automatizar tus partes de viajeros?"
-      texto="Crea tu cuenta, prueba Hospedy gratis durante 30 días y olvídate del papeleo."
+      texto="Pide una demo y te enseñamos cómo salen solos los partes. Después, 30 días gratis para probarlo."
     />
   </div>
 </template>

@@ -1,7 +1,7 @@
 // llms.txt (formato de llmstxt.org): qué es Hospedy y sus páginas, con un enlace a la versión en Markdown de cada una,
 // para que un asistente de IA entienda la web sin leer el HTML. Sale de los mismos datos que la barra y el sitemap.
-import { CONTACTO, DEFINICION, SITIO_URL } from '../../utils/sitio'
-import { EMPRESA, FUNCIONES, DESTACADO, LEGAL, PARA_QUIEN, RECURSOS, INDICE_FUNCIONES } from '../../utils/navegacion'
+import { CONTACTO, DEFINICION, SITIO_URL, registroOfrecido } from '../../utils/sitio'
+import { EMPRESA, FUNCIONES, DESTACADO, LEGAL, PARA_QUIEN, RECURSOS, INDICE_FUNCIONES, visibles } from '../../utils/navegacion'
 import type { PaginaWeb } from '../../utils/navegacion'
 import { ARTICULOS } from '../../utils/blog'
 import { CUOTA_OTA_EXTRA, DIAS_DE_PRUEBA, MENSAJE_PLANES, PLANES, TEXTO_COMISION_COBROS } from '../../utils/precios'
@@ -23,7 +23,8 @@ function planes() {
 }
 
 export default defineEventHandler((event) => {
-  const empresa: PaginaWeb[] = EMPRESA.filter(pagina => pagina.ruta !== '/precios')
+  const conRegistro = registroOfrecido(useRuntimeConfig(event).public)
+  const empresa: PaginaWeb[] = visibles(EMPRESA, conRegistro).filter(pagina => pagina.ruta !== '/precios')
   const texto = [
     '# Hospedy',
     '',
@@ -37,7 +38,9 @@ export default defineEventHandler((event) => {
     `- ${MENSAJE_PLANES.titulo}: ${MENSAJE_PLANES.texto}`,
     `- Cada plan incluye de 1 a 5 agencias (OTAs) en el channel manager; cada agencia de más cuesta ${CUOTA_OTA_EXTRA} €/mes.`,
     `- Cobros online con tarjeta: ${COMISION} por cobro, IVA incluido, más las tarifas de Stripe, que Stripe cobra aparte; solo si se usan. El motor de reservas no cobra comisión por reserva.`,
-    `- Prueba gratis de ${DIAS_DE_PRUEBA} días con todas las funciones, sin tarjeta y sin permanencia.`,
+    conRegistro
+      ? `- Prueba gratis de ${DIAS_DE_PRUEBA} días con todas las funciones, sin tarjeta y sin permanencia.`
+      : `- Para empezar, se pide una demo (${SITIO_URL}/demo); después, ${DIAS_DE_PRUEBA} días de prueba gratis con todas las funciones, sin tarjeta y sin permanencia.`,
     '- Soporte en español por email y videollamada, de lunes a viernes, con respuesta en 24-48 horas.',
     '- Normativa: partes de viajeros a SES Hospedajes (Policía Nacional y Guardia Civil) y a la Ertzaintza; encuesta de ocupación del INE (hoteles y apartamentos, enviada con un clic; turismo rural, rellena para presentar); documento de admisión de 11 comunidades autónomas.',
     '- Para hoteles, hostales, casas rurales y apartamentos turísticos en España. Funciona en el navegador, también en el móvil.',

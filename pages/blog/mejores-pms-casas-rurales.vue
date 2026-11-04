@@ -222,7 +222,7 @@
     <ArticuloPie
       :articulo="articulo"
       titulo="¿Quieres probar Hospedy en tu casa rural?"
-      texto="Crea tu cuenta y prueba Hospedy gratis durante 30 días. Sin tarjeta de crédito, sin compromiso."
+      texto="Pide una demo y te enseñamos Hospedy con tu casa rural. Después, 30 días gratis, sin tarjeta y sin compromiso."
     />
   </div>
 </template>

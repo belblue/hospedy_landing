@@ -28,7 +28,7 @@
         <nav aria-labelledby="pie-hospedy">
           <p id="pie-hospedy" class="pie-titulo">Hospedy</p>
           <ul class="space-y-2">
-            <li v-for="pagina in EMPRESA" :key="pagina.ruta"><NuxtLink :to="pagina.ruta" class="pie-enlace">{{ pagina.nombre }}</NuxtLink></li>
+            <li v-for="pagina in empresa" :key="pagina.ruta"><NuxtLink :to="pagina.ruta" class="pie-enlace">{{ pagina.nombre }}</NuxtLink></li>
             <li><a :href="appUrl('/')" class="pie-enlace">Iniciar sesión</a></li>
           </ul>
         </nav>
@@ -72,9 +72,12 @@
 
 <script setup lang="ts">
 import { CONTACTO } from '~/utils/sitio'
-import { EMPRESA, INDICE_FUNCIONES, LEGAL, PARA_QUIEN, RECURSOS, TODAS_LAS_FUNCIONES } from '~/utils/navegacion'
+import { EMPRESA, INDICE_FUNCIONES, LEGAL, PARA_QUIEN, RECURSOS, TODAS_LAS_FUNCIONES, visibles } from '~/utils/navegacion'
 
 const { appUrl } = useReferral()
+const { registroOfrecido } = usePruebaHospedy()
+// sin el registro en la web, sin el Programa Amigos
+const empresa = computed(() => visibles(EMPRESA, registroOfrecido.value))
 const anio = new Date().getFullYear()
 
 // En el pie, sin la coletilla: «Hugo, tu asistente con IA» se queda en «Hugo, asistente con IA»

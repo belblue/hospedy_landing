@@ -39,7 +39,7 @@
       </div>
     </article>
 
-    <CtaFinal titulo="¿Hablamos?" texto="Pruébalo 30 días gratis, pide una demo o escríbenos." />
+    <CtaFinal titulo="¿Hablamos?" texto="Pide una demo o escríbenos, y te contamos cómo encaja Hospedy en tu alojamiento." />
   </div>
 </template>
 

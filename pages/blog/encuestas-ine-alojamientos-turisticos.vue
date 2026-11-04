@@ -192,7 +192,7 @@
     <ArticuloPie
       :articulo="articulo"
       titulo="¿Quieres automatizar tus encuestas del INE?"
-      texto="Crea tu cuenta y prueba Hospedy gratis durante 30 días: la encuesta del INE, rellena con tus reservas y, en hoteles y apartamentos, enviada con un clic."
+      texto="Pide una demo y te enseñamos la encuesta del INE, rellena con tus reservas y, en hoteles y apartamentos, enviada con un clic. Después, 30 días gratis."
     />
   </div>
 </template>
