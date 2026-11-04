@@ -130,8 +130,8 @@
       <StarAccent class="bottom-8 right-[8%] hidden lg:block" size="xs" animation="float" :opacity="0.4" :delay="0.9" />
       <ul class="grid lg:grid-cols-3 gap-2 lg:gap-8 mx-6 sm:mx-10">
         <li v-for="(diferencia, i) in DIFERENCIAS" :key="diferencia.titulo" class="flex justify-center" data-aos="fade-up" :data-aos-delay="i * 150">
-          <div class="feature-card lift-hover w-full max-w-sm flex lg:block items-start gap-4 text-left lg:text-center">
-            <img class="h-14 w-14 lg:h-20 lg:w-20 lg:mx-auto shrink-0" :class="`float-${i + 1}`" :src="diferencia.imagen" width="80" height="80" alt="" />
+          <div class="feature-card lift-hover group w-full max-w-sm flex lg:block items-start gap-4 text-left lg:text-center">
+            <FiguraDiferencia :figura="diferencia.figura" class="block h-14 w-14 lg:h-20 lg:w-20 lg:mx-auto shrink-0" />
             <div>
               <h3 class="text-2xl text-secondary lg:mt-4">{{ diferencia.titulo }}</h3>
               <p class="text-gray-600 text-lg mt-2 lg:mt-4 lg:px-4">{{ diferencia.texto }}</p>
@@ -547,10 +547,10 @@ const ICONOS_TIPO = [
 ]
 
 const DIFERENCIAS = [
-  { titulo: 'Todo en uno', texto: 'Reservas, partes, facturas, INE, channel manager y asistente con IA en una sola aplicación.', imagen: '/completo.svg' },
-  { titulo: 'Tan fácil que sorprende', texto: 'Si sabes usar WhatsApp, sabes usar Hospedy. En minutos, no en días.', imagen: '/intuitivo.svg' },
-  { titulo: 'Gestiona desde la playa', texto: 'Móvil, tablet u ordenador. Estés donde estés, todo bajo control.', imagen: '/accesible.svg' },
-]
+  { titulo: 'Todo en uno', texto: 'Reservas, partes, facturas, INE, channel manager y asistente con IA en una sola aplicación.', figura: 'esfera' },
+  { titulo: 'Tan fácil que sorprende', texto: 'Si sabes usar WhatsApp, sabes usar Hospedy. En minutos, no en días.', figura: 'cuadrado' },
+  { titulo: 'Gestiona desde la playa', texto: 'Móvil, tablet u ordenador. Estés donde estés, todo bajo control.', figura: 'velero' },
+] as const
 
 const PESTANAS_CHECKIN = [
   {
@@ -658,30 +658,6 @@ onBeforeUnmount(() => {
   box-shadow: 0 4px 20px rgba(13, 148, 136, 0.15);
 }
 
-.float-1 {
-  animation: float 2s ease-in-out infinite;
-}
-
-.float-2 {
-  animation: float 2s ease-in-out infinite;
-  animation-delay: 0.5s;
-}
-
-.float-3 {
-  animation: float 2s ease-in-out infinite;
-  animation-delay: 1s;
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 /* Números de las tarjetas de «Gestiona» */
 .step-number-light {
   display: flex;
@@ -738,9 +714,6 @@ onBeforeUnmount(() => {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .float-1,
-  .float-2,
-  .float-3,
   .animate-bounce-subtle {
     animation: none;
   }
