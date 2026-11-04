@@ -17,7 +17,7 @@ import { TEXTO_COMISION_COBROS } from '~/utils/precios'
 
 const COMISION = TEXTO_COMISION_COBROS
 
-const DESCRIPCION = `Cobra el total o un depósito con tarjeta al reservar en tu motor y envía enlaces de pago por email. ${COMISION} por cobro, IVA incluido, más las tarifas de Stripe, solo si lo usas.`
+const DESCRIPCION = `Cobra el total o un depósito con tarjeta al reservar y envía enlaces de pago. ${COMISION} por cobro, IVA incluido, más las tarifas de Stripe, solo si lo usas.`
 
 useSeoPagina({
   titulo: 'Cobros online y depósitos para tu alojamiento',

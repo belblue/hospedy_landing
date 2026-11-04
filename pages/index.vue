@@ -500,9 +500,10 @@ import { DEFINICION } from '~/utils/sitio'
 import { PARA_QUIEN, TODAS_LAS_FUNCIONES } from '~/utils/navegacion'
 import { MENSAJE_PLANES, PLANES, TEXTO_COMISION_COBROS } from '~/utils/precios'
 
+// la definición entera (293 caracteres) no cabe en el resultado de un buscador: esta, en unos 155
 useSeoPagina({
   titulo: 'Programa de gestión para alojamientos turísticos',
-  descripcion: DEFINICION,
+  descripcion: 'Programa de gestión (PMS) para hoteles, casas rurales y apartamentos turísticos: partes de viajeros, INE, channel manager y motor de reservas. Desde 35 €/mes.',
 })
 useEsquema('software', esquemaSoftware())
 

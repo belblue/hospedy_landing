@@ -29,7 +29,7 @@
 <script setup lang="ts">
 import type { PreguntaFaq, SeccionFuncion } from '~/utils/contenido'
 
-const DESCRIPCION = 'Ocupación, ingresos, ADR y RevPAR de tu alojamiento en cualquier periodo, comparados con el año anterior y desglosados por mes, día de la semana, tipo de habitación y canal.'
+const DESCRIPCION = 'Ocupación, ingresos, ADR y RevPAR de tu alojamiento en cualquier periodo, frente al año anterior, por mes, día de la semana, tipo de habitación y canal.'
 
 useSeoPagina({
   titulo: 'Estadísticas de ocupación, ADR y RevPAR de tu alojamiento',
