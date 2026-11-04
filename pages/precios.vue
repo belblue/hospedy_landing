@@ -8,8 +8,8 @@
     <section class="text-center max-w-4xl mx-auto px-6 mt-8">
       <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Precios claros, sin sorpresas</h1>
       <p class="text-xl text-gray-600 mb-3">
-        Desde {{ PLANES[0].mensual }}&nbsp;€/mes sin IVA, según las unidades de tu alojamiento. {{ DIAS_DE_PRUEBA }} días
-        gratis, sin tarjeta y sin permanencia.
+        Desde {{ PLANES[0].mensual }}&nbsp;€/mes sin IVA, según las unidades de tu alojamiento, con todas las funciones y
+        Hugo, el asistente con IA, incluidos. {{ DIAS_DE_PRUEBA }} días gratis, sin tarjeta y sin permanencia.
       </p>
       <p class="text-base text-gray-500">Actualizado: <time :datetime="ACTUALIZADO">{{ mesYAnio(ACTUALIZADO) }}</time></p>
     </section>
@@ -150,7 +150,7 @@ import { TODAS_LAS_FUNCIONES } from '~/utils/navegacion'
 import { mesYAnio } from '~/utils/fechas'
 
 // Se cambia al tocar los precios o lo que incluyen
-const ACTUALIZADO = '2026-10'
+const ACTUALIZADO = '2026-11'
 
 useSeoPagina({
   titulo: 'Precios: PMS para hotel desde 35 €/mes',

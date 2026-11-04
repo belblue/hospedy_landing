@@ -43,8 +43,8 @@
                 </li>
               </ul>
               <h1 class="mb-5 font-bold text-gray-900" data-aos="fade-up" data-aos-delay="200">
-                <span class="block text-lg lg:text-xl font-semibold text-secondary mb-3">Programa de gestión para alojamientos turísticos<span class="sr-only">: </span></span>
-                <span class="block text-4xl lg:text-5xl leading-tight">Más tiempo para lo que importa, menos para el ordenador</span>
+                <span class="block text-lg lg:text-xl font-semibold text-secondary mb-3">Programa de gestión para alojamientos turísticos<span class="sr-only">. </span></span>
+                <span class="block text-4xl lg:text-5xl leading-tight">Díselo a Hugo: él prepara el trabajo y tú confirmas</span>
               </h1>
               <!-- La definición de Hospedy: la misma que la meta description, los datos estructurados y llms.txt -->
               <p class="mb-8 text-lg text-gray-700" data-aos="fade-up" data-aos-delay="300">{{ DEFINICION }}</p>
@@ -60,9 +60,9 @@
               </p>
             </div>
             <div class="flex items-center justify-center lg:justify-end order-1 lg:order-2 mr-2" data-nosnippet>
-              <!-- Maquetas en CSS del planning y del auto check-in, con datos de ejemplo. Es la primera pantalla: va
-                   en el HTML del servidor -->
-              <MockDevices />
+              <!-- Maquetas en CSS del planning y, en el móvil, del chat de Hugo con un parte rechazado que prepara
+                   para corregir y reenviar; datos de ejemplo. Es la primera pantalla: va en el HTML del servidor -->
+              <MockDevices movil="hugo" />
             </div>
           </div>
 
@@ -89,7 +89,7 @@
       <!-- Flecha para seguir bajando. Al bajar se desvanece sin dejar su hueco: con display: none la cabecera encogía
            88 px, y al volver atrás lo hacía justo al devolver el scroll, que se quedaba 88 px más arriba -->
       <div class="pb-6 flex justify-center transition-[opacity,visibility] duration-300" :class="{ 'opacity-0 invisible': !mostrarFlecha }">
-        <a href="#tu-alojamiento" class="animate-bounce" aria-label="Bajar a la siguiente sección">
+        <a href="#hugo" class="animate-bounce" aria-label="Bajar a la siguiente sección">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-primary opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
@@ -99,6 +99,39 @@
 
     <!-- Clientes y lo esencial -->
     <SocialProof />
+
+    <!-- HUGO, justo después de los clientes: es lo que más nos diferencia -->
+    <section id="hugo" class="hugo-banda py-16 mb-16" aria-labelledby="titulo-hugo">
+      <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <p class="text-secondary font-semibold text-lg mb-3">Asistente con IA, incluido en todos los planes</p>
+          <h2 id="titulo-hugo" class="text-4xl font-bold text-gray-900 mb-5">Hugo: se lo pides y lo prepara él</h2>
+          <p class="text-xl text-gray-700 mb-8">
+            Pídeselo como a una persona, escribiendo o con la voz. Hugo mira tus datos, te prepara el trabajo y no cambia
+            nada hasta que tú lo confirmas.
+          </p>
+          <ul class="space-y-6 mb-8">
+            <li v-for="bloque in BLOQUES_HUGO" :key="bloque.titulo" class="flex items-start gap-4">
+              <span class="w-11 h-11 shrink-0 rounded-xl bg-white text-primary shadow-sm flex items-center justify-center">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="bloque.icono"></path>
+                </svg>
+              </span>
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900">{{ bloque.titulo }}</h3>
+                <p class="text-lg text-gray-700 mt-1">{{ bloque.texto }}</p>
+              </div>
+            </li>
+          </ul>
+          <NuxtLink to="/funciones/hugo" class="btn btn-principal sm:flex-none inline-block px-6 py-3 font-semibold">Conoce a Hugo</NuxtLink>
+        </div>
+        <div class="flex justify-center" data-aos="fade-left">
+          <MontarAlVerse class="w-full max-w-[380px]" proporcion="380 / 520" descripcion="Ejemplo del chat de Hugo: le pides bajar la habitación Doble a 90 € del 1 al 7 de julio y te enseña el cambio para que lo confirmes.">
+            <MockChatHugo />
+          </MontarAlVerse>
+        </div>
+      </div>
+    </section>
 
     <!-- ¿Qué alojamiento tienes? -->
     <section id="tu-alojamiento" class="max-w-6xl mx-auto px-6 mb-20" aria-labelledby="titulo-alojamiento">
@@ -291,35 +324,6 @@
       </div>
     </section>
 
-    <!-- HUGO -->
-    <section class="hugo-banda py-16 mb-16" aria-labelledby="titulo-hugo">
-      <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-        <div data-aos="fade-right">
-          <p class="text-secondary font-semibold text-lg mb-3">Asistente con IA, incluido en todos los planes</p>
-          <h2 id="titulo-hugo" class="text-4xl font-bold text-gray-900 mb-5">Hugo: se lo pides y lo prepara él</h2>
-          <p class="text-xl text-gray-700 mb-6">
-            Pídeselo como a una persona, escribiendo o con la voz: «baja la Doble a 90 € del 1 al 7 de julio», «compara
-            agosto con el del año pasado» o «¿quién llega mañana?». Te contesta con tus datos y, antes de cambiar nada, te
-            enseña el cambio para que decidas tú.
-          </p>
-          <ul class="space-y-2 mb-8">
-            <li v-for="punto in PUNTOS_HUGO" :key="punto" class="flex items-start gap-2 text-lg text-gray-700">
-              <svg class="w-5 h-5 text-primary shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>{{ punto }}</span>
-            </li>
-          </ul>
-          <NuxtLink to="/funciones/hugo" class="btn btn-principal sm:flex-none inline-block px-6 py-3 font-semibold">Conoce a Hugo</NuxtLink>
-        </div>
-        <div class="flex justify-center" data-aos="fade-left">
-          <MontarAlVerse class="w-full max-w-[380px]" proporcion="380 / 520" descripcion="Ejemplo del chat de Hugo: le pides bajar la habitación Doble a 90 € del 1 al 7 de julio y te enseña el cambio para que lo confirmes.">
-            <MockChatHugo />
-          </MontarAlVerse>
-        </div>
-      </div>
-    </section>
-
     <!-- CUMPLE -->
     <section id="cumple" aria-labelledby="titulo-cumple">
       <div class="m-10 text-center" data-aos="fade-up">
@@ -356,26 +360,26 @@
         </div>
       </div>
 
-      <!-- Lo que diferencia al INE -->
+      <!-- Hugo también con la normativa: un parte rechazado se arregla pidiéndoselo -->
       <div class="mx-6 lg:mx-16 mb-16 mt-8 relative" data-aos="fade-up">
         <StarAccent class="-top-4 right-12 hidden lg:block" size="xs" animation="twinkle" :opacity="0.5" :delay="0.4" />
         <div class="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/30">
           <div class="flex flex-col sm:flex-row items-center gap-6">
             <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center flex-shrink-0 sm:ml-8 lg:ml-16" aria-hidden="true">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="ICONO.chispas"></path>
               </svg>
             </div>
             <div class="flex-1 flex flex-col items-center text-center gap-4">
               <div>
-                <p class="text-2xl font-bold text-gray-900 mb-2">La encuesta del INE, con un clic</p>
+                <p class="text-2xl font-bold text-gray-900 mb-2">¿Un parte rechazado? Díselo a Hugo</p>
                 <p class="text-gray-700">
-                  Muchos PMS generan un archivo XML que tú debes subir a mano.
-                  <span class="font-semibold text-gray-900">Hospedy envía la encuesta de ocupación directamente al INE</span>,
-                  sin descargas ni portales.
+                  Muchos programas usan la IA para contestar a los huéspedes.
+                  <span class="font-semibold text-gray-900">Hugo trabaja contigo</span>: si el registro rechaza un parte,
+                  te dice por qué, corrige el dato y lo vuelve a enviar cuando le das el sí.
                 </p>
               </div>
-              <NuxtLink to="/funciones/encuestas-ine" class="btn btn-outline sm:flex-none px-6 whitespace-nowrap">Ver cómo funciona</NuxtLink>
+              <NuxtLink to="/funciones/hugo" class="btn btn-outline sm:flex-none px-6 whitespace-nowrap">Ver qué más hace Hugo</NuxtLink>
             </div>
           </div>
         </div>
@@ -505,10 +509,10 @@ import { DEFINICION } from '~/utils/sitio'
 import { PARA_QUIEN, TODAS_LAS_FUNCIONES } from '~/utils/navegacion'
 import { MENSAJE_PLANES, PLANES, TEXTO_COMISION_COBROS } from '~/utils/precios'
 
-// la definición entera (293 caracteres) no cabe en el resultado de un buscador: esta, en unos 155
+// la definición entera (más de 300 caracteres) no cabe en el resultado de un buscador: esta, en unos 155
 useSeoPagina({
-  titulo: 'Programa de gestión para alojamientos turísticos',
-  descripcion: 'Programa de gestión (PMS) para hoteles, casas rurales y apartamentos turísticos: partes de viajeros, INE, channel manager y motor de reservas. Desde 35 €/mes.',
+  titulo: 'PMS con asistente de IA para alojamientos turísticos',
+  descripcion: 'PMS para hoteles, casas rurales y apartamentos con Hugo, un asistente de IA que te prepara el trabajo. Partes de viajeros, INE y channel. Desde 35 €/mes.',
 })
 useEsquema('software', esquemaSoftware())
 
@@ -526,7 +530,6 @@ const comision = TEXTO_COMISION_COBROS
 // Iconos de 24 × 24 con trazo (como los de Heroicons)
 const ICONO = {
   escudo: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
-  ine: 'M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
   sincronizar: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15',
   tarjeta: 'M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z',
   chispas: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
@@ -534,23 +537,25 @@ const ICONO = {
   sobre: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
   pantalla: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
   responder: 'M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6',
+  etiqueta: 'M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z',
+  lapiz: 'M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z',
+  lista: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01',
 }
 
 const PILDORAS = [
+  { texto: 'Asistente con IA', ruta: '/funciones/hugo', icono: ICONO.chispas, destacada: true },
   { texto: 'SES Hospedajes y Ertzaintza', ruta: '/funciones/partes-viajeros', icono: ICONO.escudo },
-  { texto: 'INE con un clic', ruta: '/funciones/encuestas-ine', icono: ICONO.ine, destacada: true },
   { texto: 'Channel Manager', ruta: '/funciones/channel-manager', icono: ICONO.sincronizar },
   { texto: 'Cobros online', ruta: '/funciones/cobros', icono: ICONO.tarjeta },
-  { texto: 'Asistente con IA', ruta: '/funciones/hugo', icono: ICONO.chispas },
 ]
 
 // los iconos de cada tipo (IconoAlojamiento), en el orden de PARA_QUIEN
 const TIPOS_ALOJAMIENTO = ['hotel', 'rural', 'apartamento'] as const
 
 const DIFERENCIAS = [
-  { titulo: 'Todo en uno', texto: 'Reservas, partes, facturas, INE, channel manager y asistente con IA en una sola aplicación.', figura: 'esfera' },
-  { titulo: 'Tan fácil que sorprende', texto: 'Si sabes usar WhatsApp, sabes usar Hospedy. En minutos, no en días.', figura: 'cuadrado' },
-  { titulo: 'Gestiona desde la playa', texto: 'Móvil, tablet u ordenador. Estés donde estés, todo bajo control.', figura: 'velero' },
+  { titulo: 'Todo en uno', texto: 'Reservas, partes, facturas, channel manager y Hugo, tu asistente con IA, en una sola aplicación.', figura: 'esfera' },
+  { titulo: 'Tan fácil que sorprende', texto: 'Si sabes usar WhatsApp, sabes usar Hospedy. Y si dudas de algo, se lo preguntas a Hugo.', figura: 'cuadrado' },
+  { titulo: 'Gestiona desde la playa', texto: 'Móvil, tablet u ordenador, sin instalar nada. Estés donde estés, todo bajo control.', figura: 'velero' },
 ] as const
 
 const PESTANAS_CHECKIN = [
@@ -580,11 +585,23 @@ const EMAILS_EJEMPLO = [
   { nombre: 'Agradecimiento', cuando: 'El día de la salida, solo si hizo el check-in' },
 ]
 
-const PUNTOS_HUGO = [
-  'Cambia precios, cierres y estancias mínimas de muchos días en una frase',
-  'Te da las cifras de cualquier periodo y las compara con el año anterior',
-  'Busca reservas y responde por tus agencias, huéspedes y extras',
-  'En el día a día, no aplica nada sin enseñártelo antes',
+// Los tres trabajos de Hugo que más tiempo quitan (manual: hugo-usar-asistente, hugo-arreglos y hugo-pendientes)
+const BLOQUES_HUGO = [
+  {
+    titulo: 'Precios y cierres en una frase',
+    texto: '«Baja la Doble a 90 € del 1 al 7 de julio»: cambia los de muchos días de una vez y te enseña cada noche con el precio de antes y el nuevo.',
+    icono: ICONO.etiqueta,
+  },
+  {
+    titulo: 'Arregla lo que no cuadra',
+    texto: '«Pasa a los Wilson a la 102» o «el registro ha rechazado el parte de Luis Gómez, corrígelo y reenvíalo»: te lo prepara en una tarjeta y se aplica cuando pulsas «Sí, aplicar».',
+    icono: ICONO.lapiz,
+  },
+  {
+    titulo: 'Te dice qué tienes pendiente',
+    texto: 'Reservas sin habitación, partes rechazados, cobros de las salidas y mensajes sin contestar, y lo que conviene revisar, como dos reservas que parecen la misma.',
+    icono: ICONO.lista,
+  },
 ]
 
 // «Hoteles y hostales» se queda en «Hoteles», y «Apartamentos turísticos» en «Apartamentos»

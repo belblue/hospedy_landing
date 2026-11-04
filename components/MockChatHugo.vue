@@ -1,8 +1,19 @@
 <template>
-  <!-- Hugo, el asistente, como se ve en el panel: la ventana del chat abierta sobre su botón ámbar. Copia la piel
-       del panel (cabecera teal, burbujas, la propuesta con «Sí, aplicar») con una conversación de ejemplo. Es una
-       foto: sin JavaScript, inert y con su texto alternativo. -->
-  <div class="hm-hugo" role="img" :aria-label="descripcion" inert>
+  <!-- Hugo, el asistente, como se ve en el panel: la ventana del chat abierta sobre su botón. Copia la piel del panel
+       (cabecera teal, burbujas, la propuesta con «Sí, aplicar») con una conversación de ejemplo. Es una foto: sin
+       JavaScript, inert y con su texto alternativo.
+
+       - pasos: las líneas de una propuesta de varios pasos, como las escribe el programa; sin ellas, los cambios de
+         precio de «cambios»; sin ninguno de los dos, la respuesta va sin tarjeta
+       - movil: dentro de MockPhoneFrame, como en el panel en un móvil de 375 px: la ventana de 343 × 568 sobre el botón
+         y, detrás, la barra de la app. Todas las medidas van en --k, que vale 1 px en el ordenador y 1 px del móvil
+         de referencia (--p del marco) dentro del móvil. -->
+  <div class="hm-hugo" :class="{ 'hm-hugo--movil': movil }" role="img" :aria-label="descripcion" inert>
+    <div v-if="movil" class="hm-hugo-app" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+      <span class="hm-hugo-app-marca">Hospedy</span>
+    </div>
+
     <div class="hm-hugo-panel">
       <div class="hm-hugo-cab">
         <span class="hm-hugo-nombre">
@@ -17,7 +28,7 @@
       </div>
 
       <div class="hm-hugo-cuerpo">
-        <div class="hm-hugo-msg hm-hugo-de-hugo">
+        <div v-if="saludo" class="hm-hugo-msg hm-hugo-de-hugo">
           <div class="hm-hugo-burbuja">Hola, soy <b>Hugo</b>. Pídeme cambios como si hablaras con una persona. Antes de aplicar nada, te lo mostraré para que lo confirmes.</div>
         </div>
         <div class="hm-hugo-msg hm-hugo-tuyo">
@@ -25,12 +36,17 @@
         </div>
         <div class="hm-hugo-msg hm-hugo-de-hugo">
           <div class="hm-hugo-burbuja">{{ respuesta }}</div>
-          <div class="hm-hugo-propuesta">
+          <div v-if="pasos.length || cambios.length" class="hm-hugo-propuesta">
             <div class="hm-hugo-propuesta-titulo">Cambios propuestos</div>
             <ul class="hm-hugo-cambios">
-              <li v-for="cambio in cambios" :key="cambio.fechas">
-                <b>{{ cambio.habitacion }}</b> · {{ cambio.fechas }} · Precio: {{ cambio.antes }} € → <b>{{ cambio.despues }} €</b>
-              </li>
+              <template v-if="pasos.length">
+                <li v-for="paso in pasos" :key="paso"><b>{{ paso }}</b></li>
+              </template>
+              <template v-else>
+                <li v-for="cambio in cambios" :key="cambio.fechas">
+                  <b>{{ cambio.habitacion }}</b> · {{ cambio.fechas }} · Precio: {{ cambio.antes }} € → <b>{{ cambio.despues }} €</b>
+                </li>
+              </template>
             </ul>
             <div class="hm-hugo-botones">
               <span class="hm-hugo-boton hm-hugo-si">
@@ -69,12 +85,18 @@ withDefaults(defineProps<{
   peticion?: string
   respuesta?: string
   cambios?: { habitacion: string, fechas: string, antes: number, despues: number }[]
+  pasos?: string[]
   descripcion?: string
+  saludo?: boolean
+  movil?: boolean
 }>(), {
   peticion: 'Baja la Doble a 90 € del 1 al 7 de julio',
   respuesta: 'Te preparo el cambio en la Doble. Revísalo y dime si lo aplico.',
   cambios: () => [{ habitacion: 'Doble', fechas: '1 jul – 7 jul', antes: 110, despues: 90 }],
+  pasos: () => [],
   descripcion: 'Ejemplo del chat de Hugo, el asistente de Hospedy: le pides bajar la habitación Doble a 90 € del 1 al 7 de julio y Hugo te enseña el cambio, de 110 € a 90 €, para que lo confirmes con «Sí, aplicar».',
+  saludo: true,
+  movil: false,
 })
 </script>
 
@@ -82,9 +104,10 @@ withDefaults(defineProps<{
 /* Medidas y colores del chat del panel (AssistantChatDrawer): ventana de 380 px, cabecera en el teal primario,
    fondo gris claro, burbuja del hotelero en teal y la de Hugo en blanco con borde. */
 .hm-hugo {
+  --k: 1px;
   position: relative;
-  width: min(100%, 380px);
-  padding-bottom: 76px;
+  width: min(100%, calc(380 * var(--k)));
+  padding-bottom: calc(76 * var(--k));
   font-family: "Nunito Variable", "Nunito", sans-serif;
   color: #1a202c;
   user-select: none;
@@ -92,16 +115,16 @@ withDefaults(defineProps<{
 
 .hm-hugo-panel {
   background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.28);
+  border-radius: calc(12 * var(--k));
+  box-shadow: 0 calc(10 * var(--k)) calc(40 * var(--k)) rgba(0, 0, 0, 0.28);
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
 .hm-hugo :where(svg) {
-  width: 16px;
-  height: 16px;
+  width: calc(16 * var(--k));
+  height: calc(16 * var(--k));
   fill: none;
   stroke: currentColor;
   stroke-width: 2;
@@ -113,17 +136,17 @@ withDefaults(defineProps<{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 14px;
+  padding: calc(12 * var(--k)) calc(14 * var(--k));
   background: #0f766e;
   color: #ffffff;
   font-weight: 600;
-  font-size: 15px;
+  font-size: calc(15 * var(--k));
 }
 
 .hm-hugo-nombre {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: calc(6 * var(--k));
 }
 
 .hm-hugo-nombre svg {
@@ -132,18 +155,18 @@ withDefaults(defineProps<{
 
 .hm-hugo-acciones {
   display: inline-flex;
-  gap: 12px;
+  gap: calc(12 * var(--k));
 }
 
 .hm-hugo-cuerpo {
-  padding: 12px;
+  padding: calc(12 * var(--k));
   background: #f7fafc;
 }
 
 .hm-hugo-msg {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: calc(10 * var(--k));
 }
 
 .hm-hugo-msg:last-child {
@@ -156,10 +179,11 @@ withDefaults(defineProps<{
 
 .hm-hugo-burbuja {
   max-width: 90%;
-  padding: 8px 11px;
-  border-radius: 10px;
-  font-size: 13.5px;
+  padding: calc(8 * var(--k)) calc(11 * var(--k));
+  border-radius: calc(10 * var(--k));
+  font-size: calc(13.5 * var(--k));
   line-height: 1.45;
+  white-space: pre-line;
 }
 
 .hm-hugo-tuyo .hm-hugo-burbuja {
@@ -169,50 +193,54 @@ withDefaults(defineProps<{
 
 .hm-hugo-de-hugo .hm-hugo-burbuja {
   background: #ffffff;
-  border: 1px solid #e2e8f0;
+  border: calc(1 * var(--k)) solid #e2e8f0;
 }
 
 .hm-hugo-propuesta {
-  margin-top: 6px;
-  padding: 10px;
+  margin-top: calc(6 * var(--k));
+  padding: calc(10 * var(--k));
   background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
+  border: calc(1 * var(--k)) solid #e2e8f0;
+  border-radius: calc(10 * var(--k));
 }
 
 .hm-hugo-propuesta-titulo {
-  margin-bottom: 6px;
-  font-size: 12.5px;
+  margin-bottom: calc(6 * var(--k));
+  font-size: calc(12.5 * var(--k));
   font-weight: 600;
   color: #2d3748;
 }
 
 .hm-hugo-cambios {
-  margin: 0 0 8px;
-  padding-left: 16px;
+  margin: 0 0 calc(8 * var(--k));
+  padding-left: calc(16 * var(--k));
   list-style: disc;
-  font-size: 12.5px;
+  font-size: calc(12.5 * var(--k));
   color: #2d3748;
+}
+
+.hm-hugo-cambios li + li {
+  margin-top: calc(3 * var(--k));
 }
 
 .hm-hugo-botones {
   display: flex;
-  gap: 8px;
+  gap: calc(8 * var(--k));
 }
 
 .hm-hugo-boton {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 13px;
+  gap: calc(5 * var(--k));
+  padding: calc(6 * var(--k)) calc(12 * var(--k));
+  border-radius: calc(8 * var(--k));
+  font-size: calc(13 * var(--k));
   color: #ffffff;
 }
 
 .hm-hugo-boton svg {
-  width: 13px;
-  height: 13px;
+  width: calc(13 * var(--k));
+  height: calc(13 * var(--k));
   stroke-width: 2.6;
 }
 
@@ -226,19 +254,19 @@ withDefaults(defineProps<{
 
 .hm-hugo-entrada {
   display: flex;
-  gap: 8px;
-  padding: 10px;
-  border-top: 1px solid #e2e8f0;
+  gap: calc(8 * var(--k));
+  padding: calc(10 * var(--k));
+  border-top: calc(1 * var(--k)) solid #e2e8f0;
   background: #ffffff;
 }
 
 .hm-hugo-caja {
   flex: 1;
-  min-height: 46px;
-  padding: 7px 9px;
-  border: 1px solid #cbd5e0;
-  border-radius: 8px;
-  font-size: 13.5px;
+  min-height: calc(46 * var(--k));
+  padding: calc(7 * var(--k)) calc(9 * var(--k));
+  border: calc(1 * var(--k)) solid #cbd5e0;
+  border-radius: calc(8 * var(--k));
+  font-size: calc(13.5 * var(--k));
   color: #a0aec0;
 }
 
@@ -247,8 +275,8 @@ withDefaults(defineProps<{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  border-radius: 8px;
+  width: calc(42 * var(--k));
+  border-radius: calc(8 * var(--k));
 }
 
 .hm-hugo-micro {
@@ -268,16 +296,77 @@ withDefaults(defineProps<{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: calc(56 * var(--k));
+  height: calc(56 * var(--k));
   border-radius: 50%;
   background: #4a5568;
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 calc(4 * var(--k)) calc(14 * var(--k)) rgba(0, 0, 0, 0.25);
 }
 
 .hm-hugo-fab svg {
-  width: 20px;
-  height: 20px;
+  width: calc(20 * var(--k));
+  height: calc(20 * var(--k));
+}
+
+/* En el móvil (dentro de MockPhoneFrame): la pantalla entera, con la barra de la app detrás. El panel, como en el
+   panel real a 375 px: a 22 px de la derecha, 90 px por encima del borde, 343 px de ancho y el 70 % del alto. Los
+   mensajes se pegan abajo, como una conversación que ha bajado sola: lo que no cabe se corta por arriba. */
+.hm-hugo--movil {
+  --k: var(--p);
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  padding-bottom: 0;
+  overflow: hidden;
+  background: #eef3f2;
+}
+
+.hm-hugo-app {
+  display: flex;
+  align-items: center;
+  gap: calc(12 * var(--k));
+  height: calc(52 * var(--k));
+  padding: 0 calc(16 * var(--k));
+  background: #ffffff;
+  border-bottom: calc(1 * var(--k)) solid #e2e8f0;
+  color: #4a5568;
+}
+
+.hm-hugo-app svg {
+  width: calc(20 * var(--k));
+  height: calc(20 * var(--k));
+}
+
+.hm-hugo-app-marca {
+  font-size: calc(16 * var(--k));
+  font-weight: 800;
+  color: #0f766e;
+}
+
+.hm-hugo--movil .hm-hugo-panel {
+  position: absolute;
+  right: calc(22 * var(--k));
+  bottom: calc(90 * var(--k));
+  width: calc(343 * var(--k));
+  height: calc(568 * var(--k));
+}
+
+.hm-hugo--movil .hm-hugo-cuerpo {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hm-hugo--movil .hm-hugo-msg {
+  flex: 0 0 auto;
+}
+
+.hm-hugo--movil .hm-hugo-fab {
+  right: calc(22 * var(--k));
+  bottom: calc(22 * var(--k));
 }
 </style>

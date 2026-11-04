@@ -193,6 +193,13 @@
                 </div>
             </div>
 
+            <!-- Hugo desde el móvil y con la voz -->
+            <BloqueHugo
+                titulo="Pregúntale a Hugo desde el móvil"
+                texto="Estés donde estés, le hablas a Hugo desde el móvil en vez de escribir: te dice qué tienes pendiente hoy y te prepara lo que haya que arreglar, para que lo confirmes con un botón."
+                :frases="['¿Qué tengo pendiente hoy?', '¿Quién llega mañana?', 'Cierra la casa del 3 al 7 de marzo']"
+            />
+
             <!-- Pricing teaser -->
             <div class="max-w-4xl mx-auto px-6 mt-20 text-center" data-aos="fade-up">
                 <h2 class="text-3xl font-bold mb-4">Precios para casas rurales</h2>

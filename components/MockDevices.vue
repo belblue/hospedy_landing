@@ -5,7 +5,8 @@
   fuera del borde derecho de la pantalla (83% menos el marco del portatil).
 
   - perfil: hotel, rural o apartamentos (el alojamiento de ejemplo de las dos maquetas)
-  - movil: "checkin" (el auto check-in del huesped) o "planning" (el planning en el movil)
+  - movil: "checkin" (el auto check-in del huesped), "planning" (el planning en el movil) o
+    "hugo" (el chat de Hugo con la propuesta de corregir y reenviar un parte rechazado)
   - estatico: el portatil es una foto que escala como una imagen. El movil, a este tamanno,
     siempre es una foto.
 
@@ -17,12 +18,17 @@
     <div class="hm-duo__lap"><MockPlanning :perfil="perfil" :estatico="estatico" /></div>
     <div class="hm-duo__ph">
       <MockPlanningPhone v-if="movil === 'planning'" :perfil="perfil" estatico />
+      <MockPhoneFrame v-else-if="movil === 'hugo'">
+        <MockChatHugo movil :saludo="false" v-bind="HUGO_PARTE_RECHAZADO" />
+      </MockPhoneFrame>
       <MockCheckinPhone v-else :perfil="perfil" estatico />
     </div>
   </div>
 </template>
 
 <script setup>
+import { HUGO_PARTE_RECHAZADO } from "~/utils/hugoEjemplos";
+
 defineProps({
   perfil: {
     type: String,
@@ -32,7 +38,7 @@ defineProps({
   movil: {
     type: String,
     default: "checkin",
-    validator: (v) => ["checkin", "planning"].includes(v),
+    validator: (v) => ["checkin", "planning", "hugo"].includes(v),
   },
   estatico: { type: Boolean, default: false },
 });

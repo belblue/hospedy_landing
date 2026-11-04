@@ -77,7 +77,7 @@
               </tr>
               <tr>
                 <td class="px-4 py-3 text-sm text-gray-700">Soporte</td>
-                <td class="px-4 py-3 text-sm text-gray-700">En español</td>
+                <td class="px-4 py-3 text-sm text-gray-700">Por email y videollamada, en español</td>
                 <td class="px-4 py-3 text-sm text-gray-700"><IconoMarca tipo="si" /> Por teléfono, las 24 horas</td>
               </tr>
             </tbody>

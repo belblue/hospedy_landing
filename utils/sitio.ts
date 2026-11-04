@@ -22,9 +22,10 @@ export function urlAbsoluta(ruta: string): string {
 // Qué es Hospedy, en una sola versión: el párrafo de la portada, su meta description, los datos estructurados y
 // llms.txt dicen exactamente esto.
 export const DEFINICION =
-  'Hospedy es un programa de gestión (PMS) para hoteles, casas rurales y apartamentos turísticos en España. ' +
-  'Envía los partes de viajeros y la encuesta del INE, sincroniza tus agencias, incluye motor de reservas y te deja ' +
-  'cobrar online. Desde 35 €/mes, con todas las funciones en todos los planes.'
+  'Hospedy es un programa de gestión (PMS) para hoteles, casas rurales y apartamentos turísticos en España, con Hugo, ' +
+  'un asistente con IA que te prepara el trabajo para que tú lo confirmes. Envía los partes de viajeros y la encuesta ' +
+  'del INE, sincroniza tus agencias e incluye motor de reservas y cobros online. Desde 35 €/mes, con todas las ' +
+  'funciones en todos los planes.'
 
 export const CONTACTO = {
   email: 'hola@hospedy.app',

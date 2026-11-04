@@ -23,7 +23,7 @@ export interface GrupoDeFunciones {
   items: PaginaWeb[]
 }
 
-export const PORTADA: PaginaWeb = { nombre: 'Inicio', ruta: '/', actualizado: '2026-11-03' }
+export const PORTADA: PaginaWeb = { nombre: 'Inicio', ruta: '/', actualizado: '2026-11-04' }
 
 export const FUNCIONES: GrupoDeFunciones[] = [
   {
@@ -63,7 +63,7 @@ export const FUNCIONES: GrupoDeFunciones[] = [
         nombre: 'Limpieza',
         ruta: '/funciones/limpieza',
         descripcion: 'Tu equipo marca las habitaciones desde el móvil y tú lo ves en el planning',
-        actualizado: '2026-10-10',
+        actualizado: '2026-11-04',
       },
       {
         nombre: 'Estadísticas',
@@ -109,7 +109,7 @@ export const FUNCIONES: GrupoDeFunciones[] = [
         nombre: 'Cobros y depósitos',
         ruta: '/funciones/cobros',
         descripcion: 'Cobra el total o un depósito con tarjeta al reservar',
-        actualizado: '2026-10-10',
+        actualizado: '2026-11-04',
       },
     ],
   },
@@ -119,8 +119,8 @@ export const FUNCIONES: GrupoDeFunciones[] = [
 export const DESTACADO: PaginaWeb = {
   nombre: 'Hugo, tu asistente con IA',
   ruta: '/funciones/hugo',
-  descripcion: 'Pídele cambios o dudas, escribiendo o con la voz; tú confirmas',
-  actualizado: '2026-11-03',
+  descripcion: 'Cambia precios, arregla reservas y partes y te dice qué tienes pendiente; tú confirmas',
+  actualizado: '2026-11-04',
 }
 
 // Todas las funciones en una lista: los tres grupos y Hugo
@@ -131,27 +131,27 @@ export const INDICE_FUNCIONES: PaginaWeb = {
   nombre: 'Funciones',
   ruta: '/funciones',
   descripcion: 'Todo lo que hace Hospedy, agrupado',
-  actualizado: '2026-11-03',
+  actualizado: '2026-11-04',
 }
 
 export const PARA_QUIEN: PaginaWeb[] = [
   {
     nombre: 'Hoteles y hostales',
     ruta: '/hoteles',
-    descripcion: 'Check-in con escáner, partes, INE y channel para muchas habitaciones',
-    actualizado: '2026-10-10',
+    descripcion: 'Check-in con escáner, partes, channel y Hugo para mover reservas y grupos',
+    actualizado: '2026-11-04',
   },
   {
     nombre: 'Casas rurales',
     ruta: '/casas-rurales',
-    descripcion: 'Desde el móvil, con auto check-in y la encuesta de turismo rural',
-    actualizado: '2026-10-10',
+    descripcion: 'Desde el móvil, con auto check-in y Hugo, al que le hablas con la voz',
+    actualizado: '2026-11-04',
   },
   {
     nombre: 'Apartamentos turísticos',
     ruta: '/apartamentos',
-    descripcion: 'Reservas directas, cobros por adelantado y limpieza coordinada',
-    actualizado: '2026-10-10',
+    descripcion: 'Reservas directas, cobros por adelantado, limpieza y Hugo para el día a día',
+    actualizado: '2026-11-04',
   },
 ]
 
@@ -162,7 +162,7 @@ export const RECURSOS: PaginaWeb[] = [
 ]
 
 export const EMPRESA: PaginaWeb[] = [
-  { nombre: 'Precios', ruta: '/precios', actualizado: '2026-11-03' },
+  { nombre: 'Precios', ruta: '/precios', actualizado: '2026-11-04' },
   { nombre: 'Contacto', ruta: '/contacto', actualizado: '2026-10-10' },
   { nombre: 'Ver una demo', ruta: '/demo', actualizado: '2026-10-10' },
   { nombre: 'Quiénes somos', ruta: '/quienes-somos', actualizado: '2026-10-10' },
@@ -221,22 +221,22 @@ const F = (clave: string) => `/funciones/${clave}`
 
 export const RELACIONES: Record<string, Relaciones> = {
   'hoteles': {
-    funciones: [F('check-in'), F('partes-viajeros'), F('encuestas-ine'), F('planning-reservas'), F('facturacion'), F('channel-manager')],
+    funciones: [F('check-in'), F('hugo'), F('partes-viajeros'), F('encuestas-ine'), F('planning-reservas'), F('facturacion'), F('channel-manager')],
     guias: ['cuanto-cuesta-pms-hotel', 'como-enviar-partes-viajeros-ses-hospedajes', 'pre-checkin-ahorrar-tiempo'],
     tipos: ['/casas-rurales', '/apartamentos'],
   },
   'casas-rurales': {
-    funciones: [F('check-in'), F('planning-reservas'), F('channel-manager'), F('encuestas-ine'), F('partes-viajeros'), F('motor-reservas')],
+    funciones: [F('check-in'), F('hugo'), F('planning-reservas'), F('channel-manager'), F('encuestas-ine'), F('partes-viajeros'), F('motor-reservas')],
     guias: ['mejores-pms-casas-rurales', 'como-evitar-overbookings', 'hospedy-vs-ruralgest'],
     tipos: ['/hoteles', '/apartamentos'],
   },
   'apartamentos': {
-    funciones: [F('motor-reservas'), F('channel-manager'), F('cobros'), F('check-in'), F('limpieza'), F('comunicaciones')],
+    funciones: [F('motor-reservas'), F('channel-manager'), F('cobros'), F('hugo'), F('check-in'), F('limpieza'), F('comunicaciones')],
     guias: ['reservas-directas-vs-otas', 'como-evitar-overbookings', 'pre-checkin-ahorrar-tiempo'],
     tipos: ['/hoteles', '/casas-rurales'],
   },
   'partes-viajeros': {
-    funciones: [F('encuestas-ine'), F('check-in')],
+    funciones: [F('encuestas-ine'), F('check-in'), F('hugo')],
     guias: ['como-enviar-partes-viajeros-ses-hospedajes', 'pre-checkin-ahorrar-tiempo'],
     tipos: LOS_TRES,
   },
@@ -276,7 +276,7 @@ export const RELACIONES: Record<string, Relaciones> = {
     tipos: LOS_TRES,
   },
   'limpieza': {
-    funciones: [F('planning-reservas')],
+    funciones: [F('planning-reservas'), F('hugo')],
     guias: [],
     tipos: ['/hoteles', '/apartamentos'],
   },
@@ -291,12 +291,12 @@ export const RELACIONES: Record<string, Relaciones> = {
     tipos: ['/apartamentos', '/casas-rurales'],
   },
   'cobros': {
-    funciones: [F('motor-reservas'), F('comunicaciones'), F('facturacion')],
+    funciones: [F('motor-reservas'), F('comunicaciones'), F('facturacion'), F('hugo')],
     guias: ['reservas-directas-vs-otas'],
     tipos: ['/casas-rurales', '/apartamentos', '/hoteles'],
   },
   'hugo': {
-    funciones: [F('estadisticas'), F('channel-manager'), F('planning-reservas'), F('comunicaciones')],
+    funciones: [F('partes-viajeros'), F('planning-reservas'), F('estadisticas'), F('channel-manager'), F('comunicaciones')],
     guias: [],
     tipos: LOS_TRES,
   },

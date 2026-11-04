@@ -22,7 +22,12 @@ export const FAQ: GrupoFaq[] = [
       {
         id: 'instalar',
         pregunta: '¿Necesito instalar algo?',
-        respuesta: 'No. Hospedy funciona en el navegador, desde el ordenador, la tableta o el móvil, con conexión a internet. En el móvil puedes añadirlo a la pantalla de inicio para entrar con un toque.',
+        respuesta: 'No. Hospedy funciona en el navegador, desde el ordenador, la tableta o el móvil, con conexión a internet, y siempre está en su última versión. En el móvil puedes añadirlo a la pantalla de inicio para entrar con un toque.',
+      },
+      {
+        id: 'hugo',
+        pregunta: '¿Qué hace Hugo, el asistente con IA?',
+        respuesta: 'Le pides las cosas como a una persona, escribiendo o con la voz: cambia precios y cierres de muchos días, arregla reservas, huéspedes y partes, te dice qué tienes pendiente y te da las cifras de tu negocio. Antes de cambiar nada te enseña lo que va a hacer, y solo se aplica cuando pulsas «Sí, aplicar». Va incluido en todos los planes y funciona en servidores propios de Hospedy.',
       },
       {
         id: 'varios-alojamientos',

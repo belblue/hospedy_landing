@@ -152,6 +152,13 @@
                 </div>
             </div>
 
+            <!-- Hugo con lo de cada día de un hotel: cambios de habitación y grupos -->
+            <BloqueHugo
+                titulo="Hugo mueve reservas y reparte grupos"
+                texto="Con muchas habitaciones, cambiar a alguien de habitación o separar la reserva de un grupo son varios pasos. A Hugo se lo dices en una frase: te prepara la propuesta y se aplica cuando la confirmas."
+                :frases="['Pasa la reserva de los Wilson a la 102', 'Divide la reserva del grupo Martín: la 204, a nombre de Laura Martín', 'Reparte el grupo del congreso entre la 301 y la 305']"
+            />
+
             <!-- Pricing teaser -->
             <div class="max-w-4xl mx-auto px-6 mt-20 text-center" data-aos="fade-up">
                 <h2 class="text-3xl font-bold mb-4">Precios para hoteles</h2>

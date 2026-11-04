@@ -4,21 +4,36 @@
     nombre="Hugo"
     grupo="Asistente con IA"
     h1="Hugo: se lo pides y lo prepara él"
-    entradilla="Pídeselo como a una persona («baja la Doble a 90 € del 1 al 7 de julio»): Hugo te enseña el cambio y decides tú. Está en todas las pantallas de Hospedy y va incluido en todos los planes."
+    entradilla="Pídeselo como a una persona: cambia precios, arregla reservas, huéspedes y partes, y te dice qué tienes pendiente. Te enseña cada cambio y decides tú. Está en todas las pantallas de Hospedy y va incluido en todos los planes."
     :descripcion="DESCRIPCION"
     :secciones="SECCIONES"
     :preguntas="PREGUNTAS"
   >
     <template #visual>
-      <MockChatHugo />
+      <MockChatHugo v-bind="HUGO_PARTE_RECHAZADO" />
     </template>
+
+    <!-- Dos conversaciones más: lo pendiente, sin tarjeta, y un arreglo de un paso. Son maquetas con datos de ejemplo:
+         la sección entera, título incluido, fuera del Markdown y de los resúmenes de los buscadores -->
+    <section class="max-w-6xl mx-auto px-6 mt-20" aria-labelledby="titulo-ejemplos" data-nosnippet>
+      <h2 id="titulo-ejemplos" class="text-3xl font-bold text-gray-900 text-center mb-10">Así te lo cuenta</h2>
+      <div class="grid lg:grid-cols-2 gap-12 justify-items-center items-start">
+        <MontarAlVerse class="w-full max-w-[380px]" proporcion="380 / 560" :descripcion="HUGO_PENDIENTES.descripcion">
+          <MockChatHugo v-bind="HUGO_PENDIENTES" :cambios="[]" :saludo="false" />
+        </MontarAlVerse>
+        <MontarAlVerse class="w-full max-w-[380px]" proporcion="380 / 520" :descripcion="HUGO_MOVER_RESERVA.descripcion">
+          <MockChatHugo v-bind="HUGO_MOVER_RESERVA" />
+        </MontarAlVerse>
+      </div>
+    </section>
   </PaginaFuncion>
 </template>
 
 <script setup lang="ts">
 import type { PreguntaFaq, SeccionFuncion } from '~/utils/contenido'
+import { HUGO_MOVER_RESERVA, HUGO_PARTE_RECHAZADO, HUGO_PENDIENTES } from '~/utils/hugoEjemplos'
 
-const DESCRIPCION = 'Hugo cambia precios y cierres, busca reservas, te da las cifras de tu negocio y responde tus dudas, escribiendo o con la voz. Tú confirmas cada cambio.'
+const DESCRIPCION = 'Hugo cambia precios, arregla reservas, huéspedes y partes, te dice qué tienes pendiente y te da las cifras de tu negocio. Tú confirmas cada cambio.'
 
 useSeoPagina({
   titulo: 'Hugo, el asistente con IA para tu alojamiento',
@@ -26,6 +41,29 @@ useSeoPagina({
 })
 
 const SECCIONES: SeccionFuncion[] = [
+  {
+    titulo: 'Arregla reservas, huéspedes y partes',
+    texto: 'Lo que harías desde el planning o la ficha, se lo pides con tus palabras: «pasa la reserva de los Wilson a la 102» o «el registro ha rechazado el parte de Luis Gómez, corrígelo y reenvíalo». Hugo mira tus datos, te explica lo que ha encontrado y te prepara una tarjeta con cada paso, con los nombres, las fechas y los importes reales. Se aplican todos juntos, o ninguno, cuando pulsas «Sí, aplicar».',
+    puntos: [
+      'Mover, dividir, cancelar o restaurar una reserva, y cambiar su titular, su agencia o su régimen',
+      'Corregir los datos de un huésped y volver a enviar su parte rechazado',
+      'Marcar el check-in, el check-out o el pago, y añadir o quitar extras',
+      'Pre-check-ins, tareas, limpieza, conversaciones de Mensajes y facturas cobradas',
+    ],
+    nota: 'Son los mismos cambios que harías tú, con las mismas reglas. Si algún paso no se puede hacer, te dice el motivo y no prepara nada.',
+  },
+  {
+    titulo: 'Lo que tienes pendiente y lo que no cuadra',
+    texto: 'Pregúntale «¿qué tengo pendiente hoy?» y te lo cuenta por apartados, con los nombres, los localizadores y las cifras, y te dice en qué pantalla se resuelve cada cosa. Lo que puede arreglar él, te ofrece prepararlo.',
+    puntos: [
+      'Reservas de agencias sin habitación y partes rechazados o sin enviar',
+      'Cobros de las salidas, depósitos sin pagar y disputas',
+      'Mensajes sin contestar, pre-check-ins sin terminar y llegadas sin check-in',
+      'Tareas, habitaciones por limpiar y noches sin precio',
+      '«¿Qué me falta para cerrar octubre?»: reservas sin cobrar o sin facturar, estancias sin huéspedes registrados y partes rechazados de ese mes',
+    ],
+    nota: 'También te señala lo que conviene revisar, como dos reservas que parecen la misma o más huéspedes que plazas. Son sospechas, no hechos: decides tú.',
+  },
   {
     titulo: 'Pídelo con tus palabras',
     texto: 'Hugo tiene su botón en todas las pantallas del panel. Le escribes o le hablas como a alguien de tu equipo, sin aprender comandos ni menús.',
@@ -37,7 +75,7 @@ const SECCIONES: SeccionFuncion[] = [
   },
   {
     titulo: 'La última palabra es tuya',
-    texto: 'En el día a día, antes de cambiar nada, Hugo te enseña lo que va a hacer: el antes y el después de cada precio o cierre. Solo se aplica cuando pulsas «Sí, aplicar», y cada cambio queda en el registro de actividad firmado como «Asistente IA».',
+    texto: 'En el día a día, antes de cambiar nada, Hugo te enseña lo que va a hacer: el antes y el después de cada precio, o cada paso de un arreglo. Solo se aplica cuando pulsas «Sí, aplicar», y cada cambio queda en el registro de actividad como un cambio del asistente confirmado por ti.',
   },
   {
     titulo: 'Precios y disponibilidad en una frase',
@@ -58,7 +96,6 @@ const SECCIONES: SeccionFuncion[] = [
       'Crea reservas directas enseñándote antes la habitación y el precio',
       'Reparte un grupo entre varias habitaciones',
       'Añade notas a una reserva y cierra una habitación por obras o por una avería',
-      'Revisa una reserva cuando algo no te cuadra: huéspedes que faltan o se repiten, cobros pendientes o datos de contacto vacíos',
     ],
   },
   {
@@ -75,14 +112,14 @@ const SECCIONES: SeccionFuncion[] = [
   },
   {
     titulo: 'Pregúntale por tus datos',
-    texto: 'Además de los totales, Hugo consulta los datos de todos tus alojamientos (reservas, huéspedes, agencias y extras) y te contesta con las cifras y los nombres que encuentra. Consultar no cambia nada.',
+    texto: 'Además de los totales, Hugo consulta los datos de todos tus alojamientos (reservas, huéspedes, agencias, extras, cobros, mensajes, partes y facturas) y te contesta con las cifras y los nombres que encuentra. También te enseña la ficha de una reserva o de un huésped. Consultar no cambia nada.',
     puntos: [
       '«¿Qué agencia me trajo más reservas este año?»',
-      '«¿Qué huéspedes han repetido conmigo?»',
-      '«¿De qué países vienen mis huéspedes?»',
+      '«¿Por qué se rechazó el parte de Luis Gómez?»',
+      '«¿Tengo mensajes sin contestar?»',
       '«¿Cuántas cunas vendí en agosto?»',
     ],
-    nota: 'No enseña documentos de identidad, fechas de nacimiento, direcciones, teléfonos ni correos de tus huéspedes.',
+    nota: 'En las fichas, los documentos, las fechas de nacimiento, las direcciones, los teléfonos y los correos de tus huéspedes salen tapados en parte, lo justo para reconocerlos.',
   },
   {
     titulo: 'Sabe cómo funciona Hospedy',
@@ -117,11 +154,19 @@ const PREGUNTAS: PreguntaFaq[] = [
   },
   {
     pregunta: '¿Qué no hace Hugo?',
-    respuesta: 'No registra huéspedes, no emite facturas, no cobra ni envía emails sueltos a tus huéspedes, y no pone los precios por su cuenta: los cambios los decides tú. Para todo eso tienes sus pantallas en Hospedy, y Hugo te explica cómo se hace.',
+    respuesta: 'No cobra ni devuelve dinero con tarjeta, no envía enlaces de pago, no borra huéspedes, reservas ni facturas de forma definitiva, no emite facturas y no toca la conexión con tus agencias. Tampoco envía nada a tus huéspedes: ni el pre-check-in, ni la respuesta a un mensaje, ni el resumen de la reserva.\n\nPara todo eso tienes sus pantallas en Hospedy, y Hugo te dice cuál es. Y los precios no los pone por su cuenta: los cambios los decides tú.',
+  },
+  {
+    pregunta: '¿Y si alguien cambia la reserva mientras tanto?',
+    respuesta: 'Si entre la propuesta y el botón alguien cambia esa reserva (otra persona de tu equipo o la agencia), Hospedy no aplica nada y te pide que se lo vuelvas a pedir a Hugo. Así nunca se aplica un cambio preparado con datos que ya no son los de ahora.',
+  },
+  {
+    pregunta: '¿Dónde funciona Hugo?',
+    respuesta: 'En servidores propios de Hospedy, los mismos en los que se guardan los datos de tu cuenta. Lo dice también el contrato de encargo del tratamiento.',
   },
   {
     pregunta: '¿Qué datos ve Hugo?',
-    respuesta: 'Solo los de tu cuenta: tus reservas, huéspedes, agencias y extras. Para responder a tus preguntas ve las reservas con salida en los dos últimos años y todas las futuras; si preguntas por algo anterior, dile el año y lo incluye. Las estadísticas te las da de cualquier periodo.\n\nNo enseña documentos de identidad, fechas de nacimiento, direcciones, teléfonos ni correos de tus huéspedes. Sí puedes darle un teléfono o un correo para que te diga de qué reserva es, y no lo repite. Lo que pone en las notas de una reserva lo lee como información: nunca sigue instrucciones que haya ahí.',
+    respuesta: 'Solo los de tu cuenta: reservas, huéspedes, agencias, extras, cobros, mensajes, partes, pre-check-ins, tareas y facturas. Para responder a tus preguntas ve las reservas con salida en los dos últimos años y todas las futuras, con lo que cuelga de ellas; si preguntas por algo anterior, dile el año y lo incluye. Las estadísticas te las da de cualquier periodo. Los cobros con tarjeta, los mensajes con los huéspedes y los envíos de las comunicaciones automáticas solo los ve si tienes esos módulos activados.\n\nLos documentos, las fechas de nacimiento, las direcciones, los teléfonos y los correos de tus huéspedes los enseña tapados en parte y nunca te los dicta enteros. Sí puedes darle un teléfono o un correo para que te diga de qué reserva es, y no lo repite. Lo que pone en las notas de una reserva o en el mensaje de un huésped lo lee como información: nunca sigue instrucciones que haya ahí.',
   },
   {
     pregunta: '¿Qué pasa con mis conversaciones?',

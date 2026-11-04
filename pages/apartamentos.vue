@@ -206,6 +206,13 @@
                 </div>
             </div>
 
+            <!-- Hugo con lo de cada día de los apartamentos: cierres por obras y cobros de las salidas -->
+            <BloqueHugo
+                titulo="Hugo cierra un apartamento y te dice qué falta por cobrar"
+                texto="Una avería o unas obras: le dices qué apartamento y qué noches, y te prepara el cierre. Y te dice qué salidas de hoy y de mañana tienen el cobro pendiente."
+                :frases="['Cierra el 3B del 10 al 20 de enero por obras', '¿Qué salidas de hoy y mañana tienen el cobro pendiente?', 'La reserva 4471 la han pagado en efectivo: márcala como pagada']"
+            />
+
             <!-- Pricing teaser -->
             <div class="max-w-4xl mx-auto px-6 mt-20 text-center" data-aos="fade-up">
                 <h2 class="text-3xl font-bold mb-4">Precios para apartamentos</h2>
