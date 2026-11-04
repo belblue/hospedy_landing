@@ -125,8 +125,11 @@ html {
     color: #ffffff;
   }
 
+  /* Al pasar el ratón, la misma ola en tonos más oscuros. Solo cambia la imagen: con el atajo background, el degradado
+     desaparecía de golpe y el color de debajo, transparente, tardaba medio segundo en llegar al teal (la transición de
+     .btn), así que el botón se quedaba casi en blanco un instante */
   .btn-principal:hover {
-    background: #115e59;
+    background-image: linear-gradient(to top right, #115e59 0%, #0f766e 25%, #115e59 50%, #0f766e 75%, #115e59 100%);
   }
 
   @keyframes ola-boton {
