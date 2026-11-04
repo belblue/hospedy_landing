@@ -70,9 +70,10 @@
       </div>
 
       <div class="max-w-3xl mx-auto px-6 my-8 flex justify-center">
-        <!-- alto fijo (500 + 76 del botón): el hueco reservado mide lo mismo que la maqueta a cualquier ancho -->
-        <MontarAlVerse class="w-full max-w-[380px] h-[576px]" :descripcion="HUGO_PARTE_RECHAZADO.descripcion">
-          <MockChatHugo v-bind="HUGO_PARTE_RECHAZADO" :saludo="false" :alto="500" />
+        <!-- alto fijo (560 + 76 del botón): el hueco reservado mide lo mismo que la maqueta a cualquier ancho, y la
+             petición, que da sentido al ejemplo, cabe entera hasta en un móvil de 320 px -->
+        <MontarAlVerse class="w-full max-w-[380px] h-[636px]" :descripcion="HUGO_PARTE_RECHAZADO.descripcion">
+          <MockChatHugo v-bind="HUGO_PARTE_RECHAZADO" :saludo="false" :alto="560" />
         </MontarAlVerse>
       </div>
 
