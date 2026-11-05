@@ -86,10 +86,11 @@
           </div>
         </div>
       </div>
-      <!-- Flecha para seguir bajando. Al bajar se desvanece sin dejar su hueco: con display: none la cabecera encogía
-           88 px, y al volver atrás lo hacía justo al devolver el scroll, que se quedaba 88 px más arriba -->
+      <!-- Flecha para seguir bajando: solo se ve cuando la cabecera cabe en la pantalla, y lleva deslizando a lo que viene
+           justo después. Al bajar se desvanece sin dejar su hueco: con display: none la cabecera encogía 88 px, y al volver
+           atrás lo hacía justo al devolver el scroll, que se quedaba 88 px más arriba -->
       <div class="pb-6 flex justify-center transition-[opacity,visibility] duration-300" :class="{ 'opacity-0 invisible': !mostrarFlecha }">
-        <a href="#hugo" class="animate-bounce" aria-label="Bajar a la siguiente sección">
+        <a href="#clientes" class="motion-safe:animate-bounce" aria-label="Bajar a la siguiente sección" @click.prevent="bajarALaSiguiente">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-primary opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
@@ -98,7 +99,7 @@
     </section>
 
     <!-- Clientes y lo esencial -->
-    <SocialProof />
+    <SocialProof id="clientes" />
 
     <!-- HUGO, justo después de los clientes: es lo que más nos diferencia -->
     <section id="hugo" class="hugo-banda py-16 mb-16" aria-labelledby="titulo-hugo">
@@ -623,8 +624,18 @@ function alHacerScroll() {
   mostrarFlecha.value = y < 50
 }
 
+// Desliza como la rueda del ratón; con el movimiento reducido, salta
+function comoDeslizar(): ScrollBehavior {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+}
+
+// La flecha baja a la franja de clientes sin dejar el ancla en la dirección, como si bajaras con la rueda
+function bajarALaSiguiente() {
+  document.getElementById('clientes')?.scrollIntoView({ behavior: comoDeslizar(), block: 'start' })
+}
+
 function volverArriba() {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+  window.scrollTo({ top: 0, behavior: comoDeslizar() })
 }
 
 onMounted(() => {
