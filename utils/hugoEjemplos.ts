@@ -10,15 +10,16 @@ export interface EjemploHugo {
   descripcion: string
 }
 
-// La IA junto a la normativa: el móvil de la primera pantalla de la portada
+// La IA junto a la normativa: el móvil de la primera pantalla de la portada. El fallo es de los que pasan de verdad: un
+// huésped con DNI dado de alta a mano sin su segundo apellido, que con DNI es obligatorio
 export const HUGO_PARTE_RECHAZADO: EjemploHugo = {
-  peticion: 'El registro ha rechazado el parte de Luis Gómez. Nació el 1 de enero de 2016: corrígelo y reenvíalo',
-  respuesta: 'Lo rechazó por la fecha de nacimiento: en su ficha pone 2015. Te preparo los dos pasos; revísalos y dime si los aplico.',
+  peticion: 'El registro ha rechazado el parte de Luis Gómez. Su segundo apellido es Martín: corrígelo y reenvíalo',
+  respuesta: 'Falta el segundo apellido, obligatorio con DNI: en su ficha solo pone Gómez. Te preparo los dos pasos; revísalos y dime si los aplico.',
   pasos: [
-    '1. Corregir en el huésped Luis Gómez (reserva 4385): fecha de nacimiento 01/01/2015 → 01/01/2016',
-    '2. Volver a enviar al registro de viajeros el parte de Luis Gómez (el sistema lo reenvía en unos minutos)',
+    '1. Corregir en el huésped Luis Gómez (reserva 4385): segundo apellido - → Martín',
+    '2. Volver a enviar al registro de viajeros el parte de Luis Gómez Martín (el sistema lo reenvía en unos minutos)',
   ],
-  descripcion: 'Ejemplo del chat de Hugo: le cuentas que el registro ha rechazado el parte de Luis Gómez y que nació el 1 de enero de 2016, y Hugo te prepara dos pasos, corregir su fecha de nacimiento y volver a enviar el parte, para que los confirmes con «Sí, aplicar».',
+  descripcion: 'Ejemplo del chat de Hugo: le cuentas que el registro ha rechazado el parte de Luis Gómez y que su segundo apellido es Martín, y Hugo te prepara dos pasos, añadir el apellido que faltaba y volver a enviar el parte, para que los confirmes con «Sí, aplicar».',
 }
 
 export const HUGO_MOVER_RESERVA: EjemploHugo = {

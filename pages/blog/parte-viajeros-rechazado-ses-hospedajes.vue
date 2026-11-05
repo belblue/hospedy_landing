@@ -15,7 +15,7 @@
       <!-- Content -->
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
         <p class="lead">
-          Casi siempre es un dato: una fecha, el documento o el contacto del huésped. Se corrige en la ficha del huésped y
+          Casi siempre es un dato que falta: un apellido, el soporte del documento o el contacto del huésped. Se corrige en la ficha del huésped y
           se vuelve a enviar, y en unos minutos el parte sale otra vez.
         </p>
 
@@ -36,10 +36,10 @@
           devuelve el registro al comprobar el envío.
         </p>
         <ul>
+          <li><strong>Falta el segundo apellido.</strong> Con DNI es obligatorio, y es fácil dejárselo al dar de alta a mano a un huésped desde el planning.</li>
           <li><strong>Faltan datos de contacto.</strong> Sin el teléfono o sin el email del huésped, el parte no se envía, y Hospedy te dice cuál falta.</li>
           <li><strong>El número de soporte del DNI o del NIE.</strong> En los documentos españoles es obligatorio, y un guion o un valor de relleno no sirve.</li>
-          <li><strong>Una fecha mal escrita.</strong> Sobre todo la de nacimiento, y más aún en los menores, que llevan además el parentesco con el adulto responsable.</li>
-          <li><strong>Los apellidos y el domicilio.</strong> Los huéspedes españoles necesitan sus dos apellidos, y el domicilio, el municipio de residencia.</li>
+          <li><strong>El domicilio.</strong> Los huéspedes que viven en España necesitan el municipio de residencia.</li>
           <li><strong>La misma persona, dos veces.</strong> Si el motivo es «Ya existe una comunicación con estos datos», esa persona está repetida en la reserva y su parte ya salió con el otro registro: sobra el repetido.</li>
           <li><strong>Un huésped sin reserva.</strong> El parte va unido a la estancia: un huésped que no está en ninguna reserva no se puede comunicar.</li>
         </ul>
@@ -47,7 +47,7 @@
         <h2>Cómo se corrige a mano</h2>
         <ol>
           <li>En «Huéspedes», pulsa el triángulo rojo del huésped para abrir su ficha y lee el motivo.</li>
-          <li>Corrige en «Datos del huésped» lo que falle (el documento, las fechas, el domicilio o el contacto) y pulsa «Guardar».</li>
+          <li>Corrige en «Datos del huésped» lo que falle (los apellidos, el documento, el domicilio o el contacto) y pulsa «Guardar».</li>
           <li>Pulsa «Reenviar parte». El bloque vuelve a «Procesando, pendiente de envío.» y el parte sale en la siguiente pasada.</li>
         </ol>
         <p>
@@ -58,8 +58,8 @@
 
         <h2>Cómo te lo prepara Hugo</h2>
         <p>
-          Se lo cuentas con tus palabras: «el registro ha rechazado el parte de Luis Gómez, su fecha de nacimiento es el 1
-          de enero de 2016, corrígelo y reenvíalo». Hugo mira la ficha y el motivo del rechazo y te prepara dos pasos,
+          Se lo cuentas con tus palabras: «el registro ha rechazado el parte de Luis Gómez, su segundo apellido es Martín,
+          corrígelo y reenvíalo». Hugo mira la ficha y el motivo del rechazo y te prepara dos pasos,
           corregir el dato y volver a enviar el parte, con el valor de antes y el nuevo. Se aplican los dos juntos cuando
           pulsas «Sí, aplicar».
         </p>
@@ -70,10 +70,10 @@
       </div>
 
       <div class="max-w-3xl mx-auto px-6 my-8 flex justify-center">
-        <!-- alto fijo (560 + 76 del botón): el hueco reservado mide lo mismo que la maqueta a cualquier ancho, y la
+        <!-- alto fijo (588 + 76 del botón): el hueco reservado mide lo mismo que la maqueta a cualquier ancho, y la
              petición, que da sentido al ejemplo, cabe entera hasta en un móvil de 320 px -->
-        <MontarAlVerse class="w-full max-w-[380px] h-[636px]" :descripcion="HUGO_PARTE_RECHAZADO.descripcion">
-          <MockChatHugo v-bind="HUGO_PARTE_RECHAZADO" :saludo="false" :alto="560" />
+        <MontarAlVerse class="w-full max-w-[380px] h-[664px]" :descripcion="HUGO_PARTE_RECHAZADO.descripcion">
+          <MockChatHugo v-bind="HUGO_PARTE_RECHAZADO" :saludo="false" :alto="588" />
         </MontarAlVerse>
       </div>
 

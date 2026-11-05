@@ -39,7 +39,7 @@ export const ARTICULOS: ArticuloBlog[] = [
     slug: 'parte-viajeros-rechazado-ses-hospedajes',
     titulo: 'Parte de viajeros rechazado en SES Hospedajes: por qué pasa y cómo corregirlo',
     tituloSeo: 'Parte de viajeros rechazado en SES: cómo corregirlo',
-    descripcion: 'Por qué SES Hospedajes rechaza un parte de viajeros (contacto, soporte del DNI, fechas, repetidos) y cómo corregirlo y reenviarlo, a mano o con Hugo.',
+    descripcion: 'Por qué SES Hospedajes rechaza un parte de viajeros (segundo apellido, contacto, soporte del DNI, repetidos) y cómo corregirlo, a mano o con Hugo.',
     extracto: 'Las causas más habituales de un parte rechazado y cómo corregirlo y reenviarlo, a mano o pidiéndoselo a Hugo.',
     categoria: 'Normativa',
     minutos: 7,
