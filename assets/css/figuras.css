@@ -37,7 +37,8 @@
 .hm-gesto-voltear,
 .hm-gesto-vibrar,
 .hm-gesto-temblar,
-.hm-gesto-latir {
+.hm-gesto-latir,
+.hm-gesto-sellar {
   transform-box: fill-box;
   transform-origin: center;
 }
@@ -282,6 +283,10 @@
   .group:hover .hm-gesto-latir {
     animation: hm-gesto-latir 0.5s ease;
   }
+
+  .group:hover .hm-gesto-sellar {
+    animation: hm-gesto-sellar 0.7s ease-in-out;
+  }
 }
 
 /* una vuelta entera; la pieza puede darla más deprisa con --hm-duracion */
@@ -439,4 +444,11 @@
 
 @keyframes hm-gesto-latir {
   45% { transform: scale(1.18); }
+}
+
+/* un sello que se levanta, golpea el papel y rebota */
+@keyframes hm-gesto-sellar {
+  30% { transform: translateY(-5px) scale(1.12); }
+  55% { transform: translateY(1px) scale(0.9); }
+  75% { transform: scale(1.04); }
 }

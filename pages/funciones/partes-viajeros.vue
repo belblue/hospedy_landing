@@ -62,12 +62,10 @@
                 <div class="max-w-5xl mx-auto px-6">
                     <h2 class="text-3xl font-bold text-center mb-12">Por qué automatizar los partes</h2>
                     <div class="grid lg:grid-cols-2 gap-8">
-                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <div class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="0">
                             <div class="flex gap-4">
-                                <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
+                                <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                                    <IconoPartes nombre="cronometro" :retraso="0" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-lg mb-2">Menos tiempo en recepción</h3>
@@ -75,12 +73,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <div class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
                             <div class="flex gap-4">
-                                <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
+                                <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                                    <IconoPartes nombre="formulario" :retraso="100" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-lg mb-2">Menos errores al teclear</h3>
@@ -88,12 +84,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <div class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="200">
                             <div class="flex gap-4">
-                                <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                                    </svg>
+                                <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                                    <IconoPartes nombre="multa" :retraso="200" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-lg mb-2">Evita multas</h3>
@@ -101,13 +95,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <div class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="300">
                             <div class="flex gap-4">
-                                <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    </svg>
+                                <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
+                                    <IconoPartes nombre="envio" :retraso="300" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-lg mb-2">Envío automático a SES y Ertzaintza</h3>
@@ -127,29 +118,23 @@
                         <p class="text-gray-600 text-lg max-w-2xl mx-auto">Configuramos contigo, una sola vez, el envío a los cuerpos que te corresponden, con las credenciales que te da cada organismo. Desde entonces, cada parte sale solo.</p>
                     </div>
                     <div class="grid lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
-                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                                </svg>
+                        <div class="group bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="0">
+                            <div class="w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center mx-auto mb-3">
+                                <IconoPartes nombre="registro" :retraso="0" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                             </div>
                             <h3 class="font-semibold mb-1">SES Hospedajes</h3>
                             <p class="text-lg text-gray-500">Policía Nacional y Guardia Civil</p>
                         </div>
-                        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
-                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                                </svg>
+                        <div class="group bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                            <div class="w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center mx-auto mb-3">
+                                <IconoPartes nombre="registro" :retraso="100" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                             </div>
                             <h3 class="font-semibold mb-1">Ertzaintza</h3>
                             <p class="text-lg text-gray-500">País Vasco</p>
                         </div>
-                        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
-                            <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                                </svg>
+                        <div class="group bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="200">
+                            <div class="w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center mx-auto mb-3">
+                                <IconoPartes nombre="registro" :retraso="200" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                             </div>
                             <h3 class="font-semibold mb-1">Mossos d'Esquadra</h3>
                             <p class="text-lg text-gray-500">Cataluña</p>

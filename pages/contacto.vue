@@ -19,8 +19,11 @@
         <ContactForm solo-formulario />
       </section>
 
-      <!-- Las otras formas de hablar con nosotros -->
+      <!-- Las otras formas de hablar con nosotros, con la ilustración del contacto encima (desde tablet) -->
       <div class="lg:col-span-2 space-y-5">
+        <div class="hidden sm:flex justify-center group" data-aos="fade-up">
+          <IlustracionContacto class="block w-64 h-[200px]" />
+        </div>
         <section class="bg-gray-50 rounded-2xl p-6" aria-labelledby="contacto-antes">
           <h2 id="contacto-antes" class="text-xl font-bold text-gray-900 mb-2">¿Dudas antes de contratar?</h2>
           <p class="text-lg text-gray-600 mb-4">Pregúntanos lo que quieras por WhatsApp o por email.</p>
@@ -32,10 +35,10 @@
               </a>
             </li>
             <li>
-              <a :href="`mailto:${CONTACTO.email}`" class="inline-flex items-center gap-3 font-semibold text-secondary hover:underline underline-offset-4">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                </svg>
+              <a :href="`mailto:${CONTACTO.email}`" class="group inline-flex items-center gap-3 font-semibold text-secondary hover:underline underline-offset-4">
+                <span class="flex w-7 h-7 shrink-0 rounded-full bg-tertiary items-center justify-center">
+                  <IconoContacto class="block w-[22px] h-[22px]" />
+                </span>
                 {{ CONTACTO.email }}
               </a>
             </li>

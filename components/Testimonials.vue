@@ -51,20 +51,20 @@
 
             <!-- Los principios: cada uno lleva a su pregunta de la FAQ -->
             <div class="flex flex-wrap justify-center gap-3 mt-10" data-aos="fade-up" data-aos-delay="300">
-                <NuxtLink to="/faq#permanencia" class="bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
-                    <img src="/permanencia.svg" alt="" width="16" height="16" class="w-4 h-4 icon-teal" />Sin permanencia
+                <NuxtLink to="/faq#permanencia" class="group bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
+                    <IconoValor nombre="permanencia" :retraso="300" class="block w-5 h-5 shrink-0" />Sin permanencia
                 </NuxtLink>
-                <NuxtLink to="/faq#letra-pequena" class="bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
-                    <span class="text-lg font-bold text-secondary">A</span>Sin letra pequeña
+                <NuxtLink to="/faq#letra-pequena" class="group bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
+                    <IconoValor nombre="letra" :retraso="300" class="block w-5 h-5 shrink-0" />Sin letra pequeña
                 </NuxtLink>
-                <NuxtLink to="/faq#si-algo-falla" class="bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
-                    <img src="/humanos.svg" alt="" width="16" height="16" class="w-4 h-4 icon-teal" />Asumimos errores
+                <NuxtLink to="/faq#si-algo-falla" class="group bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
+                    <IconoValor nombre="errores" :retraso="300" class="block w-5 h-5 shrink-0" />Asumimos errores
                 </NuxtLink>
-                <NuxtLink to="/faq#igualdad" class="bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
-                    <img src="/igualdad.svg" alt="" width="16" height="16" class="w-4 h-4 icon-teal" />Igualdad
+                <NuxtLink to="/faq#igualdad" class="group bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
+                    <IconoValor nombre="igualdad" :retraso="300" class="block w-5 h-5 shrink-0" />Igualdad
                 </NuxtLink>
-                <NuxtLink to="/faq#sugerencias" class="bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
-                    <img src="/flexibilidad.svg" alt="" width="16" height="16" class="w-4 h-4 icon-teal" />Flexibilidad
+                <NuxtLink to="/faq#sugerencias" class="group bg-white px-4 py-2 rounded-full text-base font-medium text-black shadow-sm flex items-center gap-2 hover:shadow-md transition-shadow cursor-pointer">
+                    <IconoValor nombre="flexibilidad" :retraso="300" class="block w-5 h-5 shrink-0" />Flexibilidad
                 </NuxtLink>
             </div>
             <div class="text-center mt-4">
@@ -77,9 +77,5 @@
 <style scoped>
 .testimonials-gradient {
     background: linear-gradient(135deg, #0f766e 0%, #24c9bb 100%);
-}
-
-.icon-teal {
-    filter: invert(52%) sepia(85%) saturate(401%) hue-rotate(127deg) brightness(92%) contrast(91%);
 }
 </style>

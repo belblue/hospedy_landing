@@ -3,7 +3,7 @@
     <!-- Picture section (left); en /contacto, solo el formulario: la página pone su propia columna -->
     <div v-if="!soloFormulario" class="text-center">
       <div class="flex justify-center mb-4">
-        <img class="w-1/2" src="/contacto.svg" alt="" />
+        <IlustracionContacto class="block w-64 h-[200px]" />
       </div>
       <div class="flex justify-center mt-4">
         <a

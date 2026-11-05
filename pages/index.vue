@@ -111,11 +111,9 @@
             nada hasta que tú lo confirmas.
           </p>
           <ul class="space-y-6 mb-8">
-            <li v-for="bloque in BLOQUES_HUGO" :key="bloque.titulo" class="flex items-start gap-4">
-              <span class="w-11 h-11 shrink-0 rounded-xl bg-white text-primary shadow-sm flex items-center justify-center">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="bloque.icono"></path>
-                </svg>
+            <li v-for="(bloque, i) in BLOQUES_HUGO" :key="bloque.titulo" class="flex items-start gap-4 group">
+              <span class="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-xl bg-tertiary flex items-center justify-center">
+                <IconoHugo :nombre="bloque.icono" :retraso="i * 150" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
               </span>
               <div>
                 <h3 class="text-xl font-semibold text-gray-900">{{ bloque.titulo }}</h3>
@@ -244,7 +242,7 @@
         </div>
 
         <!-- 2. Facturas -->
-        <div class="gestiona-card-gradient rounded-2xl p-8 glow-hover" data-aos="fade-left" data-aos-delay="100">
+        <div class="gestiona-card-gradient group rounded-2xl p-8 glow-hover" data-aos="fade-left" data-aos-delay="100">
           <div class="flex items-center gap-4 mb-6">
             <span class="step-number-light" aria-hidden="true">2</span>
             <h3 class="text-3xl text-white font-semibold">Facturas</h3>
@@ -257,7 +255,7 @@
           </p>
           <NuxtLink to="/funciones/facturacion" class="inline-block mt-4 text-gold font-semibold hover:underline underline-offset-4">Saber más de la facturación →</NuxtLink>
           <div class="hidden sm:flex justify-center mt-6">
-            <img src="/invoices_1.svg" class="w-40 lg:w-52 h-auto" width="208" height="208" loading="lazy" alt="Ilustración de una factura" />
+            <IlustracionPortada pieza="facturas" :retraso="100" class="block w-48 h-[150px] lg:w-64 lg:h-[200px]" />
           </div>
         </div>
 
@@ -364,12 +362,10 @@
       <!-- Hugo también con la normativa: un parte rechazado se arregla pidiéndoselo -->
       <div class="mx-6 lg:mx-16 mb-16 mt-8 relative" data-aos="fade-up">
         <StarAccent class="-top-4 right-12 hidden lg:block" size="xs" animation="twinkle" :opacity="0.5" :delay="0.4" />
-        <div class="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/30">
+        <div class="group bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/30">
           <div class="flex flex-col sm:flex-row items-center gap-6">
             <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center flex-shrink-0 sm:ml-8 lg:ml-16" aria-hidden="true">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="ICONO.chispas"></path>
-              </svg>
+              <IconoHugo nombre="rechazado" class="block w-10 h-10" />
             </div>
             <div class="flex-1 flex flex-col items-center text-center gap-4">
               <div>
@@ -395,7 +391,7 @@
         <StarAccent class="top-2 right-1/4 hidden lg:block" size="lg" animation="float" :opacity="0.4" :delay="1.2" />
       </div>
 
-      <div class="grid lg:grid-cols-2 mb-12 lg:mb-20 relative">
+      <div class="grid lg:grid-cols-2 mb-12 lg:mb-20 relative group">
         <div class="mx-6 sm:mx-10" data-aos="fade-right">
           <h3 class="text-4xl mb-4 text-secondary">Reservas directas, sin comisión por reserva</h3>
           <p class="text-xl mt-8">
@@ -410,7 +406,7 @@
           <NuxtLink to="/funciones/motor-reservas" class="inline-block mt-4 text-xl text-secondary font-semibold hover:underline underline-offset-4">Calcula cuánto te ahorras →</NuxtLink>
         </div>
         <div class="hidden sm:flex justify-center items-center mt-8 lg:mt-0" data-aos="fade-left">
-          <img src="/motor.svg" class="w-2/3 lg:w-1/2 h-auto" width="400" height="300" loading="lazy" alt="Ilustración del motor de reservas en una web" />
+          <IlustracionPortada pieza="motor" class="block w-80 h-60" />
         </div>
       </div>
 
@@ -434,7 +430,7 @@
         </div>
       </div>
 
-      <div class="grid lg:grid-cols-2 lg:mb-8 relative">
+      <div class="grid lg:grid-cols-2 lg:mb-8 relative group">
         <div class="mx-6 sm:mx-10" data-aos="fade-right">
           <h3 class="text-4xl mb-4 text-secondary">Cobra por adelantado, evita problemas</h3>
           <p class="text-xl mt-8">
@@ -448,7 +444,7 @@
           <NuxtLink to="/funciones/cobros" class="inline-block mt-4 text-xl text-secondary font-semibold hover:underline underline-offset-4">Saber más de los cobros →</NuxtLink>
         </div>
         <div class="hidden sm:flex flex-col justify-center items-center mt-8 lg:mt-0" data-aos="fade-left">
-          <img src="/pasarela.svg" class="w-2/3 h-auto" width="400" height="300" loading="lazy" alt="Ilustración de un pago con tarjeta" />
+          <IlustracionPortada pieza="pasarela" class="block w-80 h-60" />
         </div>
       </div>
     </section>
@@ -538,9 +534,6 @@ const ICONO = {
   sobre: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
   pantalla: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
   responder: 'M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6',
-  etiqueta: 'M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z',
-  lapiz: 'M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z',
-  lista: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01',
 }
 
 const PILDORAS = [
@@ -586,24 +579,25 @@ const EMAILS_EJEMPLO = [
   { nombre: 'Agradecimiento', cuando: 'El día de la salida, solo si hizo el check-in' },
 ]
 
-// Los tres trabajos de Hugo que más tiempo quitan (manual: hugo-usar-asistente, hugo-arreglos y hugo-pendientes)
+// Los tres trabajos de Hugo que más tiempo quitan (manual: hugo-usar-asistente, hugo-arreglos y hugo-pendientes), con su
+// icono (IconoHugo)
 const BLOQUES_HUGO = [
   {
     titulo: 'Precios y cierres en una frase',
     texto: '«Baja la Doble a 90 € del 1 al 7 de julio»: cambia los de muchos días de una vez y te enseña cada noche con el precio de antes y el nuevo.',
-    icono: ICONO.etiqueta,
+    icono: 'precios',
   },
   {
     titulo: 'Arregla lo que no cuadra',
     texto: '«Pasa a los Wilson a la 102» o «el registro ha rechazado el parte de Luis Gómez, corrígelo y reenvíalo»: te lo prepara en una tarjeta y se aplica cuando pulsas «Sí, aplicar».',
-    icono: ICONO.lapiz,
+    icono: 'arregla',
   },
   {
     titulo: 'Te dice qué tienes pendiente',
     texto: 'Reservas sin habitación, partes rechazados, cobros de las salidas y mensajes sin contestar, y lo que conviene revisar, como dos reservas que parecen la misma.',
-    icono: ICONO.lista,
+    icono: 'pendiente',
   },
-]
+] as const
 
 // «Hoteles y hostales» se queda en «Hoteles», y «Apartamentos turísticos» en «Apartamentos»
 function nombreCorto(nombre: string) {
