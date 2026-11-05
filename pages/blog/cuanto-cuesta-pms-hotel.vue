@@ -7,7 +7,8 @@
           ¿Cuánto cuesta un PMS para hotel pequeño en 2026?
         </h1>
         <p class="text-xl text-gray-600 mb-6">
-          Un PMS para hotel pequeño o casa rural en España cuesta entre 120&nbsp;€ y 1.500&nbsp;€ al año. La media del mercado está en 50-70&nbsp;€ al mes para soluciones completas con channel manager incluido.
+          Un PMS completo para hotel pequeño o casa rural, con channel manager y motor de reservas, ronda en España los
+          50-70&nbsp;€ al mes. Hospedy cuesta desde {{ PLANES[0].mensual }}&nbsp;€ al mes sin IVA.
         </p>
         </ArticuloCabecera>
 
@@ -45,9 +46,9 @@
                 <td class="px-4 py-3 text-sm text-gray-700">1.200&nbsp;€+</td>
               </tr>
               <tr class="bg-green-50">
-                <td class="px-4 py-3 text-sm font-medium text-gray-900">Hospedy (todas las funciones)</td>
-                <td class="px-4 py-3 text-sm text-gray-700">35-129&nbsp;€</td>
-                <td class="px-4 py-3 text-sm font-medium text-green-600">350-1.290&nbsp;€</td>
+                <td class="px-4 py-3 text-sm font-medium text-gray-900">Hospedy (todas las funciones y Hugo)</td>
+                <td class="px-4 py-3 text-sm text-gray-700">desde {{ PLANES[0].mensual }}&nbsp;€</td>
+                <td class="px-4 py-3 text-sm font-medium text-green-600">desde {{ PLANES[0].anual }}&nbsp;€</td>
               </tr>
             </tbody>
           </table>
@@ -59,31 +60,28 @@
         <h3>Costes de implementación</h3>
         <ul>
           <li><strong>Configuración inicial:</strong> algunos sistemas cobran 100&nbsp;€+ por puesta en marcha</li>
-          <li><strong>Formación:</strong> pueden cobrarte por horas de training</li>
+          <li><strong>Formación:</strong> pueden cobrarte por horas de formación</li>
           <li><strong>Migración de datos:</strong> pasar información de tu sistema anterior</li>
         </ul>
 
         <h3>Comisiones por reserva</h3>
         <ul>
-          <li>Algunos sistemas cobran un porcentaje de cada reserva</li>
-          <li>En Hospedy el motor no cobra comisión por reserva; los cobros con tarjeta cuestan {{ comision }} por cobro, IVA incluido, más las tarifas de Stripe, solo si los usas</li>
-          <li>Con muchas reservas, estas comisiones pueden superar el coste del software</li>
+          <li>Algunos sistemas cobran un porcentaje de cada reserva y, si tienes muchas, puede costarte más que el propio programa</li>
+          <li>En Hospedy, el motor no cobra comisión por reserva. Cobrar con tarjeta es opcional: {{ comision }} por cobro, IVA incluido, más las tarifas de Stripe</li>
         </ul>
 
-        <h3>Servicios y módulos aparte</h3>
+        <h3>Funciones que se pagan aparte</h3>
         <ul>
-          <li>Diseño de la web y posicionamiento en buscadores</li>
-          <li>Módulos que se venden por separado: la web, el sistema de precios, el TPV o las cerraduras</li>
-          <li>Soporte premium o prioritario</li>
+          <li>Funciones que solo entran en los planes caros o se venden como módulo, como el channel manager o el lector de documentos</li>
+          <li>En Hospedy, todas las funciones van en todos los planes, también las que vayamos añadiendo</li>
         </ul>
 
         <h3>La inteligencia artificial: ¿incluida o aparte?</h3>
         <p>
-          Cada vez más programas venden un asistente con IA, y no siempre va en el precio. Pregunta si está incluido o es un
-          módulo de pago, y qué hace de verdad: contestar a tus huéspedes, responder preguntas sobre tus datos o preparar
-          los cambios para que tú los confirmes. En Hospedy, Hugo va incluido en todos los planes y hace lo segundo y lo
-          tercero: responde con tus datos y te prepara cambios de precios, reservas, partes o facturas que se aplican cuando
-          le das el sí.
+          Cada vez más programas venden un asistente con IA, y no siempre va en el precio: pregunta si está incluido y qué
+          hace de verdad. En Hospedy, Hugo va incluido en todos los planes: responde con tus datos y te prepara cambios de
+          precios, reservas, partes o facturas, que se aplican cuando le das el sí. Con tus huéspedes no habla: preferimos
+          que el trato con ellos siga siendo tuyo.
         </p>
 
         <div class="bg-yellow-50 p-6 rounded-xl my-8 not-prose">
@@ -162,7 +160,7 @@
 
         <h3>¿Hay período de prueba?</h3>
         <p>
-          Hospedy ofrece 30 días de prueba gratis sin necesidad de tarjeta de crédito.
+          Sí: 30 días gratis, sin tarjeta de crédito y sin permanencia.
         </p>
 
         <h3>¿Puedo cambiar de plan después?</h3>
@@ -181,13 +179,13 @@
     <ArticuloPie
       :articulo="articulo"
       titulo="¿Quieres saber cuánto pagarías con Hospedy?"
-      texto="Consulta nuestros precios públicos y transparentes. Sin sorpresas, sin letra pequeña."
+      texto="Desde 350 € al año, con todas las funciones y Hugo en todos los planes. Te lo enseñamos en una demo y, después, 30 días gratis, sin tarjeta y sin permanencia."
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import { TEXTO_COMISION_COBROS } from '~/utils/precios'
+import { PLANES, TEXTO_COMISION_COBROS } from '~/utils/precios'
 
 const comision = TEXTO_COMISION_COBROS
 const articulo = useArticulo('cuanto-cuesta-pms-hotel')

@@ -15,17 +15,16 @@
       <!-- Content -->
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
         <p class="lead">
-          La diferencia que más pesa en 2026: Hospedy incluye a Hugo, un asistente con inteligencia artificial que te
-          prepara el trabajo (cambiar precios, mover una reserva, corregir y reenviar un parte rechazado) para que tú lo
-          confirmes, y MisterPlan no anuncia ninguna IA. Los dos publican sus precios, incluyen channel manager y envían los
-          partes de viajeros solos.
+          La diferencia que más pesa: Hospedy incluye a Hugo, un asistente con inteligencia artificial que te prepara el
+          trabajo para que tú lo confirmes, y MisterPlan no anuncia ninguna IA. Además, Hospedy empieza en
+          {{ PLANES[0].mensual }}&nbsp;€ al mes sin IVA y MisterPlan, en 45&nbsp;€. Los dos incluyen channel manager, envían
+          los partes solos y no tienen permanencia.
         </p>
 
         <h2>RuralGest y MisterPlan son la misma empresa</h2>
         <p>
-          Es una empresa de Cáceres que está en el sector desde 2009 y dice trabajar con más de 5.000 establecimientos. Su
-          producto se llama ahora MisterPlan, y la web de RuralGest ya solo enseña el contacto de MisterPlan. Si buscas
-          RuralGest, lo que vas a contratar es MisterPlan.
+          Es una empresa de Cáceres, en el sector desde 2009. Su producto se llama ahora MisterPlan y la web de RuralGest ya
+          solo enseña su contacto: si buscas RuralGest, lo que vas a contratar es MisterPlan.
         </p>
 
         <h2>Comparativa directa</h2>
@@ -84,28 +83,12 @@
           publicados en la web.
         </p>
 
-        <h3>3. La encuesta del INE, enviada desde el programa</h3>
+        <h3>3. Te ayudamos a empezar</h3>
         <p>
-          Si tienes un hotel o apartamentos turísticos, Hospedy envía la encuesta de ocupación al INE con un clic y te llega
-          por email el justificante del INE en PDF. Si tienes una casa rural, la encuesta de turismo rural sale rellena con
-          tus reservas, lista para presentar.
+          Hugo te deja el panel listo con una conversación sobre tu alojamiento, y nuestro equipo configura contigo las
+          agencias. Para cualquier duda tienes el manual y a Hugo a cualquier hora, y a nuestro equipo por email y
+          videollamada.
         </p>
-
-        <h3>4. Sin instalar nada</h3>
-        <p>
-          Hospedy se abre en el navegador de cualquier dispositivo: el ordenador de recepción, la tablet o tu móvil. Siempre
-          está en su última versión y lo puedes añadir a la pantalla de inicio para entrar con un toque.
-        </p>
-
-        <div class="bg-blue-50 p-6 rounded-xl my-8 not-prose">
-          <h3 class="text-xl font-bold mb-4 text-blue-800">Seamos honestos: ¿en qué gana MisterPlan?</h3>
-          <p class="text-blue-900 mb-4">No todo son ventajas para Hospedy. MisterPlan tiene puntos fuertes:</p>
-          <ul class="space-y-2 text-blue-900">
-            <li><strong>Soporte por teléfono las 24 horas:</strong> si quieres llamar a cualquier hora, ellos lo ofrecen</li>
-            <li><strong>Muchos años de oficio:</strong> están en el sector desde 2009 y dicen trabajar con más de 5.000 establecimientos</li>
-            <li><strong>Configuración y formación incluidas</strong> en el precio</li>
-          </ul>
-        </div>
 
         <h2>¿Cuál elegir?</h2>
 
@@ -113,9 +96,9 @@
           <h3 class="text-xl font-bold mb-4 text-green-800">Elige Hospedy si:</h3>
           <ul class="space-y-2 text-green-900">
             <li>Quieres un asistente con IA que te prepare el trabajo y te diga qué tienes pendiente</li>
-            <li>Quieres la encuesta del INE enviada desde el programa, con su justificante</li>
-            <li>Quieres la facturación con Verifactu incluida en la suscripción</li>
-            <li>Quieres usarlo desde cualquier dispositivo sin instalar nada</li>
+            <li>Quieres empezar desde {{ PLANES[0].mensual }}&nbsp;€ al mes, con todas las funciones incluidas</li>
+            <li>Quieres Zenfisk incluido, para facturar con Verifactu</li>
+            <li>Quieres que Hugo te ayude a empezar y te resuelva las dudas</li>
           </ul>
         </div>
 
@@ -132,12 +115,14 @@
 
         <h3>¿Es difícil migrar de RuralGest a Hospedy?</h3>
         <p>
-          No especialmente. Hospedy ofrece ayuda en la configuración inicial durante los 30 días de prueba gratis. Los datos de reservas futuras se pueden introducir fácilmente y las conexiones con las agencias las configura nuestro equipo contigo.
+          No. Hugo te deja el panel listo con una conversación, las reservas futuras se las puedes pedir a él, y nuestro
+          equipo configura contigo las conexiones con las agencias.
         </p>
 
         <h3>¿Puedo probar Hospedy sin compromiso?</h3>
         <p>
-          Sí, Hospedy ofrece 30 días de prueba gratis sin necesidad de tarjeta de crédito. Puedes probarlo en paralelo con tu sistema actual antes de decidir.
+          Sí. Pide una demo y después tienes 30 días de prueba gratis, sin tarjeta, para probarlo en paralelo con tu sistema
+          actual.
         </p>
 
         <h3>¿Puedo usar Hospedy desde el móvil?</h3>
@@ -148,7 +133,8 @@
 
         <h3>¿Qué pasa con mis datos si cambio de sistema?</h3>
         <p>
-          Tus datos siempre son tuyos. En Hospedy descargas cuando quieras el listado de huéspedes (PDF o CSV), el libro de viajeros, tus facturas (una a una o en Excel), las encuestas del INE y los documentos de admisión. Y te ayudamos con la migración durante el período de prueba.
+          Son tuyos: descargas cuando quieras el listado de huéspedes, el libro de viajeros, tus facturas, las encuestas del
+          INE y los documentos de admisión, y te ayudamos con la migración.
         </p>
       </div>
 
@@ -173,14 +159,14 @@ const revision = fechaLarga(REVISION_COMPARATIVA)
 
 // Los datos de MisterPlan, de su web en la fecha de REVISION_COMPARATIVA
 const FILAS: { nombre: string, destacada?: boolean, hospedy: CeldaComparativa, otro: CeldaComparativa }[] = [
-  { nombre: 'Precio', hospedy: { marca: 'si', texto: `Público: desde ${PLANES[0].mensual}\u00a0€ + IVA al mes` }, otro: { marca: 'si', texto: 'Público: desde 45\u00a0€ + IVA al mes' } },
-  { nombre: 'Qué incluye', hospedy: { texto: 'Todas las funciones en todos los planes: channel manager, motor de reservas, Hugo y Zenfisk con Verifactu' }, otro: { texto: 'Programa de gestión, motor de reservas y channel manager, con la configuración y la formación' } },
-  { nombre: 'Permanencia', hospedy: { marca: 'si', texto: 'Sin permanencia' }, otro: { marca: 'si', texto: 'Sin permanencia' } },
   { nombre: 'Asistente con IA', destacada: true, hospedy: { marca: 'si', texto: 'Hugo, incluido: responde con tus datos y prepara los cambios para que los confirmes' }, otro: { texto: 'No consta' } },
+  { nombre: 'Precio', hospedy: { marca: 'si', texto: `Público: desde ${PLANES[0].mensual}\u00a0€ + IVA al mes` }, otro: { marca: 'si', texto: 'Público: desde 45\u00a0€ + IVA al mes' } },
+  { nombre: 'Qué incluye', hospedy: { texto: 'Todas las funciones: channel manager, motor de reservas, Hugo, Zenfisk con Verifactu y ayuda para empezar' }, otro: { texto: 'Programa de gestión, motor de reservas y channel manager, con la configuración y la formación' } },
+  { nombre: 'Permanencia', hospedy: { marca: 'si', texto: 'Sin permanencia' }, otro: { marca: 'si', texto: 'Sin permanencia' } },
   { nombre: 'Partes de viajeros', hospedy: { marca: 'si', texto: 'Automáticos, a SES Hospedajes y a la Ertzaintza' }, otro: { marca: 'si', texto: 'Automáticos' } },
-  { nombre: 'Encuesta del INE', hospedy: { marca: 'si', texto: 'Se envía desde Hospedy, con el justificante del INE, en hoteles y apartamentos; la de turismo rural sale rellena' }, otro: { texto: 'Anuncia el envío telemático automático' } },
+  { nombre: 'Encuesta del INE', hospedy: { marca: 'si', texto: 'Hoteles y apartamentos: se envía con un clic, con justificante. Turismo rural: sale rellena' }, otro: { texto: 'Anuncia el envío telemático automático' } },
   { nombre: 'Check-in', hospedy: { marca: 'si', texto: 'Escáner de documentos y auto check-in desde el móvil del huésped' }, otro: { marca: 'si', texto: 'Pre check-in con escáner' } },
-  { nombre: 'Soporte', hospedy: { texto: 'Por email y videollamada, en español' }, otro: { marca: 'si', texto: 'Por teléfono, las 24 horas' } },
+  { nombre: 'Soporte', hospedy: { marca: 'si', texto: 'Email y videollamada; Hugo, a cualquier hora' }, otro: { marca: 'si', texto: 'Por teléfono, las 24 horas' } },
 ]
 </script>
 

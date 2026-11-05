@@ -46,13 +46,13 @@
             Dato importante
           </h3>
           <p class="text-green-900">
-            Con el DNI español, Hospedy rellena también la <strong>dirección del huésped</strong>. Muchos sistemas del mercado no hacen esto.
+            Con el DNI español, Hospedy rellena también la <strong>dirección del huésped</strong>: un dato menos que teclear.
           </p>
         </div>
 
         <h2>¿Y si hay un error?</h2>
         <p>
-          Si SES Hospedajes devuelve un error, verás un <strong>aviso</strong> en el planning, en el listado de huéspedes y en la ficha del huésped, con el motivo cuando se conoce. Corriges el dato y pulsas «Reenviar parte».
+          Si SES Hospedajes devuelve un error, verás un <strong>aviso</strong> en el planning, en el listado de huéspedes y en la ficha del huésped, con el motivo cuando se conoce. Corriges el dato y pulsas «Reenviar parte». O pídeselo a Hugo en una frase: te prepara la corrección y el reenvío, y se aplican cuando le das el sí.
         </p>
         <p>Los errores más comunes son:</p>
         <ul>
@@ -64,11 +64,6 @@
         <h2>Medida de seguridad: sin partes de no-shows</h2>
         <p>
           El parte solo sale de los huéspedes que registras, y los datos del pre check-in no pasan a huéspedes hasta que marcas el check-in. Es una medida de seguridad importante: si alguien no aparece (no-show), no se envía ningún parte. Así evitas problemas con registros de personas que nunca llegaron.
-        </p>
-
-        <h2>¿Y el País Vasco?</h2>
-        <p>
-          En País Vasco, los partes se envían a <strong>Ertzaintza</strong> en lugar de a SES Hospedajes. Con Hospedy, el proceso es exactamente el mismo: solo cambia el destino del envío.
         </p>
 
         <div class="bg-primary/5 p-6 rounded-xl my-8 not-prose">
@@ -89,9 +84,6 @@
         </p>
         <p>
           Cuando llega al alojamiento, tú solo tienes que hacer un clic en 'Check-in' y el parte se envía automáticamente.
-        </p>
-        <p>
-          <strong>Para reservas de Booking.com:</strong> el enlace puede ir al email que da Booking; si en su extranet tienes activada la seguridad de mensajes, autoriza allí la dirección de Hospedy y el enlace del pre check-in.
         </p>
 
         <h2>Normativa: Real Decreto 933/2021</h2>
@@ -152,6 +144,9 @@
             </tbody>
           </table>
         </div>
+        <p>
+          Y si tu comunidad pide el documento de admisión, Hospedy lo genera con la firma que el huésped hizo en el check-in.
+        </p>
 
         <h2>Preguntas frecuentes</h2>
 

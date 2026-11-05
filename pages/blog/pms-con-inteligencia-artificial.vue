@@ -7,8 +7,8 @@
           {{ articulo.titulo }}
         </h1>
         <p class="text-xl text-gray-600 mb-6">
-          Casi todos los programas de gestión dicen ya tener IA, pero no hacen lo mismo. Te explicamos los tres tipos que
-          hay y qué hace la de cada uno, con su información pública revisada el {{ revision }}.
+          Cada vez más programas de gestión dicen tener IA, pero no hacen lo mismo. Te explicamos los tres tipos que hay y
+          qué hace la de cada uno.
         </p>
         </ArticuloCabecera>
 
@@ -17,7 +17,7 @@
         <p class="lead">
           La IA de un PMS puede hacer tres cosas muy distintas: contestar a tus huéspedes, responder a tus preguntas sobre
           tus datos o hacer el trabajo contigo, preparando los cambios para que tú los confirmes. La primera te ahorra
-          mensajes; la segunda, búsquedas; la tercera es la que más tiempo quita, y la que más cuidado necesita.
+          mensajes; la segunda, búsquedas; la tercera es la que más tiempo te ahorra.
         </p>
 
         <h2>Los tres tipos de IA que vas a encontrar</h2>
@@ -30,30 +30,28 @@
           en este último caso como un módulo de pago aparte.
         </p>
         <p>
-          Te ahorra escribir. Lo que haya que cambiar en la reserva depende de si el programa tiene, además, el tercer tipo
-          de IA.
+          Te ahorra escribir. En Hospedy, el trato con tus huéspedes lo llevas tú, y es a propósito: en un alojamiento
+          pequeño es personal. Hugo, el asistente de Hospedy, te prepara los emails automáticos y te dice qué mensajes
+          tienes sin contestar, pero la respuesta es tuya.
         </p>
 
         <h3>2. La que responde preguntas sobre tus datos</h3>
         <p>
           Le preguntas como a una persona, «¿cuántas llegadas tengo mañana?» o «¿qué agencia me trae más reservas?», y te
-          contesta con tus datos, sin buscar en informes. Avirato lo hace también por voz, Cloudbeds lo llama «Ask
-          Signals» y Mews resume sus informes. Hugo, el asistente de Hospedy, contesta con cifras que calcula el programa:
-          las cuentas no dependen de la IA, que solo te las lee.
+          contesta con tus datos. A Hugo se lo escribes o se lo dices con la voz, y las cifras las calcula el programa, no
+          la IA. Avirato también acepta la voz, Cloudbeds lo llama «Ask Signals» y Mews resume sus informes.
         </p>
 
         <h3>3. La que hace el trabajo contigo</h3>
         <p>
-          Le pides un cambio, «baja la Doble a 90&nbsp;€ del 1 al 7 de julio» o «pasa la reserva de los Wilson a la 102»,
-          y te lo deja preparado para que lo confirmes. Es la que más tiempo quita, porque hace por ti los clics de cada
-          cambio, y la que más cuidado necesita: <strong>lo importante es que te enseñe exactamente lo que va a hacer y que
-          no aplique nada sin tu sí</strong>.
+          Le pides un cambio, «baja la Doble a 90&nbsp;€ del 1 al 7 de julio» o «corrige y reenvía el parte de Luis Gómez»,
+          y te lo deja preparado para que lo confirmes. Es la que más trabajo te quita, porque hace por ti los clics de cada
+          cambio. <strong>Lo importante es que te enseñe exactamente lo que va a hacer y que no aplique nada sin tu
+          sí</strong>.
         </p>
         <p>
-          En los programas para hoteles medianos y grandes ya existe. Mews modifica reservas y crea tareas con la
-          aprobación que se configure. Newhotel presentó a NIA, que «responde, prepara el cambio y espera su sí». Y Ulyses
-          tiene agentes de operaciones que registran incidencias. Para alojamientos pequeños, Hugo hace este trabajo dentro
-          de un precio público, desde {{ PLANES[0].mensual }}&nbsp;€ al mes.
+          En Hospedy lo hace Hugo, incluido en todos los planes desde {{ PLANES[0].mensual }}&nbsp;€ + IVA al mes. También
+          lo tienen programas para hoteles medianos y grandes, como Mews, Newhotel o Ulyses.
         </p>
 
         <h2>Qué hace la IA de cada uno</h2>
@@ -83,22 +81,11 @@
         </ul>
         <p>
           Cada cambio te lo enseña en una tarjeta, paso a paso, con los nombres, las fechas y los importes reales, y
-          <strong>solo se aplica cuando pulsas «Sí, aplicar»</strong>. Si mientras tanto alguien cambia esa reserva, no se
-          aplica nada. Lo que confirmas queda en el registro de actividad, y Hugo funciona en servidores propios de Hospedy.
+          <strong>solo se aplica cuando pulsas «Sí, aplicar»</strong>. Lo que confirmas queda en el registro de actividad, y
+          Hugo funciona en servidores propios de Hospedy.
         </p>
         <p>
           <NuxtLink to="/funciones/hugo">Todo lo que hace Hugo</NuxtLink>
-        </p>
-
-        <h2>Dónde no llega Hugo</h2>
-        <p>
-          Hugo trabaja para ti y no habla con tus huéspedes. Los emails automáticos salen de las comunicaciones, que Hugo
-          te ayuda a preparar, y lo que te contestan lo respondes tú desde Mensajes. Si lo que buscas es una IA que atienda
-          a tus huéspedes por WhatsApp o Booking, hoy otros programas te encajan mejor en eso.
-        </p>
-        <p>
-          Tampoco pone precios por su cuenta, porque Hospedy no tiene precios dinámicos automáticos. Y no cobra ni devuelve
-          dinero, ni envía nada a tus huéspedes: eso sigue en sus pantallas.
         </p>
 
         <h2>Qué preguntar antes de elegir</h2>

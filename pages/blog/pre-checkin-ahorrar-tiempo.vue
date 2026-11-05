@@ -4,7 +4,7 @@
       <!-- Header -->
       <ArticuloCabecera :articulo="articulo">
         <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-          Pre check-in: Cómo ahorrar tiempo en la recepción
+          Pre check-in: cómo ahorrar tiempo en la recepción
         </h1>
         <p class="text-xl text-gray-600 mb-6">
           El pre check-in de Hospedy permite que los huéspedes completen su registro antes de llegar. Al llegar, el propietario solo hace un clic y el parte de viajeros se envía automáticamente.
@@ -42,7 +42,7 @@
 
         <h2>¿Cómo funciona en Hospedy?</h2>
         <ol>
-          <li>Generas un enlace de pre check-in en la web de Hospedy</li>
+          <li>Generas un enlace de pre check-in desde la ficha de la reserva</li>
           <li>Envías el enlace al huésped (hay un botón para email, o puedes copiar el enlace para WhatsApp)</li>
           <li>El huésped abre el enlace en su móvil</li>
           <li>Rellena los datos de cada ocupante, también de los menores (con su adulto responsable)</li>
@@ -101,7 +101,7 @@
           No pasa nada. Siempre puedes hacer el registro tradicional en recepción. El pre check-in es una <strong>opción para ahorrar tiempo</strong>, no una obligación.
         </p>
         <p>
-          Algunos propietarios envían el enlace con antelación y un recordatorio el día antes. Otros solo lo usan para huéspedes que llegan a horas complicadas. Tú decides cómo integrarlo en tu operativa.
+          Algunos propietarios envían el enlace con antelación y un recordatorio el día antes. Otros solo lo usan para huéspedes que llegan a horas complicadas. Tú decides cómo integrarlo en tu operativa. Y pregúntale a Hugo qué pre-check-ins de las próximas llegadas siguen sin terminar.
         </p>
 
         <h2>Preguntas frecuentes</h2>
@@ -113,7 +113,7 @@
 
         <h3>¿Puedo personalizar el formulario de pre check-in?</h3>
         <p>
-          El formulario recoge los datos necesarios para el parte de viajeros. Los campos están predefinidos para cumplir la normativa.
+          No hace falta: pide justo lo que exige el parte de viajeros, con la firma del huésped.
         </p>
 
         <h3>¿Funciona para grupos grandes?</h3>

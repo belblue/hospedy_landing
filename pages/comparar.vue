@@ -8,8 +8,8 @@
       <div class="text-center max-w-4xl mx-auto px-6 mt-8">
         <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Hospedy frente a otros PMS</h1>
         <p class="text-xl text-gray-600">
-          Qué hace la inteligencia artificial de cada programa, cuánto cuesta y cómo resuelve los partes de viajeros y la
-          encuesta del INE. Con la información que publica cada empresa, revisada el {{ revision }}.
+          Hospedy incluye a Hugo, su asistente con IA, desde {{ PLANES[0].mensual }}&nbsp;€ al mes. Así queda frente a otros
+          programas en IA, precio y normativa, con lo que publica cada empresa, revisado el {{ revision }}.
         </p>
       </div>
 
@@ -18,15 +18,14 @@
       <section class="max-w-6xl mx-auto px-6 mt-14" aria-labelledby="titulo-ia">
         <h2 id="titulo-ia" class="text-3xl font-bold text-gray-900 text-center mb-4">La inteligencia artificial de cada uno</h2>
         <p class="text-lg text-gray-700 max-w-3xl mx-auto text-center mb-8">
-          Casi todos los programas hablan ya de IA, pero no hacen lo mismo. Hay tres tipos: la que contesta a tus
-          huéspedes, la que responde preguntas sobre tus datos y la que hace el trabajo contigo, que prepara los cambios
-          para que tú los confirmes.
+          Cada vez más programas hablan de IA, pero no hacen lo mismo: unos contestan a tus huéspedes, otros responden
+          preguntas sobre tus datos y pocos hacen el trabajo contigo, preparando los cambios para que tú los confirmes.
         </p>
         <TablaIa />
         <p class="text-lg text-gray-600 mt-4">
-          Hugo trabaja para ti y no habla con tus huéspedes: los emails automáticos salen de
-          <NuxtLink to="/funciones/comunicaciones" class="text-secondary font-semibold hover:underline underline-offset-4">Comunicaciones</NuxtLink>,
-          y lo que te contestan lo respondes tú desde
+          Hugo no contesta a tus huéspedes, y es a propósito: el trato personal es tuyo. Los emails automáticos salen de
+          <NuxtLink to="/funciones/comunicaciones" class="text-secondary font-semibold hover:underline underline-offset-4">Comunicaciones</NuxtLink>
+          y respondes en
           <NuxtLink to="/funciones/mensajes" class="text-secondary font-semibold hover:underline underline-offset-4">Mensajes</NuxtLink>.
         </p>
       </section>
@@ -67,7 +66,7 @@
           <svg class="w-6 h-6 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
           </svg>
-          <span>Revisado el {{ revision }} con la información pública de cada empresa. Puede haber cambiado. «No consta» quiere decir que esa empresa no lo cuenta, y «Sin comprobar», que no hemos podido verlo.</span>
+          <span>Revisado el {{ revision }} con la información pública de cada empresa; puede haber cambiado. «No consta»: esa empresa no lo cuenta. «Sin comprobar»: no hemos podido verlo.</span>
         </p>
       </section>
 
@@ -138,19 +137,19 @@ const MOTIVOS = [
   },
   {
     titulo: 'La IA y la normativa, juntas',
-    texto: 'Si el registro rechaza un parte, Hugo te dice por qué, corrige el dato y lo vuelve a enviar cuando le das el sí. Los partes salen solos y la encuesta del INE se envía desde Hospedy.',
+    texto: 'Si el registro rechaza un parte, Hugo te dice por qué, corrige el dato y lo reenvía cuando le das el sí. Los partes salen solos y la encuesta del INE sale rellena con tus reservas.',
     icono: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
     enlace: { texto: 'Ver los partes de viajeros', ruta: '/funciones/partes-viajeros' },
   },
   {
-    titulo: 'Precio público, con todo dentro',
-    texto: `Desde ${PLANES[0].mensual} €/mes, con Hugo, el channel manager, el motor de reservas y Zenfisk incluidos. Todas las funciones en todos los planes: pagas según el tamaño de tu alojamiento.`,
+    titulo: 'Precio público, con todas las funciones',
+    texto: `Desde ${PLANES[0].mensual} €/mes, con Hugo, el channel manager, el motor de reservas sin comisión por reserva y Zenfisk. Pagas según el tamaño de tu alojamiento.`,
     icono: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
     enlace: { texto: 'Ver los precios', ruta: '/precios' },
   },
   {
     titulo: 'Hugo funciona en nuestros servidores',
-    texto: 'En servidores propios de Hospedy, los mismos en los que se guardan tus datos. Los documentos y teléfonos de tus huéspedes los enseña tapados en parte, y cada cambio que confirmas queda en el registro de actividad.',
+    texto: 'En servidores propios, donde ya están tus datos. Enseña tapados en parte los documentos y teléfonos de tus huéspedes, y cada cambio que confirmas queda en el registro de actividad.',
     enlace: { texto: 'Dónde funciona Hugo', ruta: '/funciones/hugo#donde-funciona-hugo' },
     icono: 'M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01',
   },

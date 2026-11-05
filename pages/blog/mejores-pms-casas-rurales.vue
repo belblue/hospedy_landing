@@ -16,9 +16,8 @@
       <div class="max-w-3xl mx-auto px-6 mt-10 prose prose-lg">
         <p class="lead">
           Hospedy (desde {{ PLANES[0].mensual }}&nbsp;€ + IVA al mes, con Hugo, su asistente con IA, incluido), MisterPlan
-          (antes RuralGest, desde 45&nbsp;€ + IVA al mes), AvaiBook (de idealista, pensado para el alquiler vacacional),
-          Amenitiz (con su asistente Ami como módulo de pago) y Avirato (con IA para los huéspedes incluida). Los comparamos
-          con la información que publica cada empresa, revisada el {{ revision }}.
+          (antes RuralGest, desde 45&nbsp;€ + IVA al mes), AvaiBook, Amenitiz y Avirato, comparados con la información que
+          publica cada empresa, revisada el {{ revision }}.
         </p>
 
         <h2>Comparativa rápida</h2>
@@ -65,35 +64,33 @@
         <p><strong>Ideal para:</strong> casas rurales y alojamientos pequeños que quieren quitarse papeleo y trabajo de encima</p>
         <p>
           Hospedy es un programa de gestión hecho para alojamientos turísticos en España. Su punto fuerte es Hugo, un
-          asistente con inteligencia artificial al que le pides las cosas como a una persona: «pon la casa a 150&nbsp;€ la
-          noche del 1 al 7 de agosto», «¿qué tengo pendiente hoy?» o «el registro ha rechazado el parte de Luis Gómez,
-          corrígelo y reenvíalo».
-          Hugo mira tus datos, te prepara el cambio y <strong>no aplica nada hasta que tú lo confirmas</strong>. Y la
-          normativa va sola: los partes de viajeros salen solos y la encuesta de turismo rural sale rellena con tus
-          reservas.
+          asistente con inteligencia artificial al que le pides las cosas como a una persona, escribiendo o con la voz:
+          «pon la casa a 150&nbsp;€ la noche del 1 al 7 de agosto», «¿qué tengo pendiente hoy?» o «el registro ha rechazado
+          el parte de Luis Gómez, corrígelo y reenvíalo».
+          Hugo mira tus datos, te prepara el cambio y <strong>no aplica nada hasta que tú lo confirmas</strong>. Con tus
+          huéspedes no habla, a propósito: el trato con ellos sigue siendo tuyo, y les contestas desde Mensajes. Y la
+          normativa va sola: tus huéspedes se registran desde el móvil, los partes salen solos y la encuesta de turismo
+          rural sale rellena.
         </p>
 
         <h3>Puntos fuertes</h3>
         <ul>
-          <li>Hugo, incluido: cambia precios y cierres de muchos días en una frase, arregla reservas y partes, y te dice qué tienes pendiente</li>
-          <li>Partes de viajeros automáticos a SES Hospedajes y a la Ertzaintza</li>
-          <li>La encuesta del INE de turismo rural, rellena con tus reservas</li>
-          <li>Precio público con todo dentro: channel manager, motor de reservas, Hugo y Zenfisk con Verifactu</li>
-          <li>Sin instalar nada: se abre en el navegador de cualquier dispositivo, siempre al día, y se añade a la pantalla de inicio del móvil</li>
+          <li>Hugo, incluido, por escrito o por voz: cambia precios y cierres de muchos días en una frase, arregla reservas y partes y te dice qué tienes pendiente</li>
+          <li>Auto check-in desde el móvil del huésped, con la foto de su documento, y partes automáticos a SES Hospedajes y a la Ertzaintza</li>
+          <li>La encuesta de turismo rural del INE y el documento de admisión de varias comunidades, rellenos con tus reservas</li>
+          <li>Precio público con todas las funciones y sin permanencia: channel manager, motor de reservas sin comisión por reserva, Hugo y Zenfisk con Verifactu</li>
+          <li>Sin instalar nada: en el navegador de cualquier dispositivo y con acceso desde la pantalla de inicio del móvil</li>
         </ul>
 
         <h3>Puntos débiles</h3>
         <ul>
-          <li>Empresa más joven que los veteranos del sector</li>
-          <li>Cada plan incluye de {{ MIN_OTAS }} a {{ MAX_OTAS }} agencias; cada agencia de más tiene una cuota aparte</li>
-          <li>Hugo no contesta a los huéspedes: lo que te escriben lo respondes tú desde Mensajes</li>
-          <li>No tiene precios dinámicos automáticos</li>
+          <li>Cada plan incluye de {{ MIN_OTAS }} a {{ MAX_OTAS }} agencias; las demás van aparte</li>
         </ul>
 
-        <p><strong>Precio:</strong> desde {{ PLANES[0].anual }}&nbsp;€/año (plan {{ PLANES[0].nombre }}) hasta {{ miles(PLANES[PLANES.length - 1].anual) }}&nbsp;€/año ({{ PLANES[PLANES.length - 1].nombre }}), sin IVA</p>
+        <p><strong>Precio:</strong> desde {{ PLANES[0].anual }}&nbsp;€/año ({{ PLANES[0].nombre }}, {{ PLANES[0].unidades }}) hasta {{ miles(PLANES[PLANES.length - 1].anual) }}&nbsp;€/año ({{ PLANES[PLANES.length - 1].nombre }}), sin IVA; {{ DIAS_DE_PRUEBA }} días gratis</p>
 
         <h2>2. MisterPlan (antes RuralGest)</h2>
-        <p><strong>Ideal para:</strong> quien quiere soporte por teléfono a cualquier hora y una empresa con muchos años en el sector</p>
+        <p><strong>Ideal para:</strong> quien quiere soporte por teléfono a cualquier hora</p>
         <p>
           RuralGest ahora se llama MisterPlan: es la misma empresa, de Cáceres, en el sector desde 2009, y dice trabajar con
           más de 5.000 establecimientos. Publica su precio, con el programa de gestión, el motor de reservas y el channel
@@ -111,7 +108,6 @@
         <h3>Puntos débiles</h3>
         <ul>
           <li>No anuncia ningún asistente con IA</li>
-          <li>Del INE anuncia el envío telemático, sin más detalle en su web</li>
         </ul>
 
         <p><strong>Precio:</strong> desde 45&nbsp;€ + IVA al mes</p>
@@ -125,9 +121,8 @@
 
         <h3>Puntos fuertes</h3>
         <ul>
-          <li>Su Fast Check-in envía los partes a SES, Mossos y Ertzaintza, de forma manual, semiautomática o automática</li>
+          <li>Su Fast Check-in envía los partes a SES, Mossos y Ertzaintza</li>
           <li>Precio publicado según tus unidades</li>
-          <li>Verifactu en los planes superiores</li>
         </ul>
 
         <h3>Puntos débiles</h3>
@@ -148,7 +143,7 @@
 
         <h3>Puntos fuertes</h3>
         <ul>
-          <li>Ami redacta o envía las respuestas a los huéspedes en WhatsApp, Booking y Airbnb: a mano, como borrador o en automático</li>
+          <li>Ami redacta o envía las respuestas a los huéspedes en WhatsApp, Booking y Airbnb</li>
           <li>El check-in online con Chekin, que envía los partes a SES, va incluido en Core</li>
           <li>Soporte por teléfono en Core y un gestor de cuenta en Advanced</li>
           <li>Migración gratuita</li>
@@ -168,15 +163,13 @@
         <p>
           Avirato es español, dice trabajar con más de 24.300 hoteleros y conecta con más de 450 agencias. Su IA, Avirato
           Intelligence, va en todos los planes y se amplía con complementos de pago: atiende a los huéspedes, lleva el chat
-          de la web, redacta textos y tiene un asistente para el hotelero que, por voz o por escrito, consulta la ocupación,
-          las llegadas, las reservas, la disponibilidad y los precios.
+          de la web y tiene un asistente que consulta tus datos.
         </p>
 
         <h3>Puntos fuertes</h3>
         <ul>
           <li>IA incluida que contesta a los huéspedes por WhatsApp, la web, Booking, Airbnb y el email</li>
-          <li>Un asistente para el hotelero, por voz o por escrito, con permisos por rol</li>
-          <li>Más de 450 agencias</li>
+          <li>Un asistente para el hotelero, con permisos por rol</li>
           <li>Envío de la encuesta del INE semiautomático, con vista previa</li>
         </ul>
 
@@ -192,11 +185,10 @@
         <div class="bg-green-50 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4 text-green-800">¿Cuál elegir?</h3>
           <ul class="space-y-2 text-green-900">
-            <li><strong>Si quieres que la IA te prepare el trabajo y la normativa resuelta, con precio publicado →</strong> Hospedy</li>
+            <li><strong>Si quieres auto check-in, la normativa resuelta y una IA que te prepare el trabajo, con precio publicado →</strong> Hospedy</li>
             <li><strong>Si quieres poder llamar por teléfono a cualquier hora →</strong> MisterPlan</li>
             <li><strong>Si te dedicas al alquiler vacacional y quieres una app de las tiendas →</strong> AvaiBook</li>
-            <li><strong>Si quieres que una IA redacte las respuestas a tus huéspedes →</strong> Amenitiz</li>
-            <li><strong>Si quieres que una IA atienda a tus huéspedes por muchos canales →</strong> Avirato</li>
+            <li><strong>Si quieres que una IA conteste por ti a tus huéspedes →</strong> Amenitiz o Avirato</li>
           </ul>
         </div>
 
@@ -204,15 +196,16 @@
 
         <h3>¿Qué hace la IA de cada uno?</h3>
         <p>
-          No hacen lo mismo. Amenitiz y Avirato usan la IA sobre todo para contestar a los huéspedes. Avirato tiene además un
-          asistente que responde preguntas sobre tus datos. Hugo, el de Hospedy, no habla con tus huéspedes: trabaja
-          contigo, responde con tus datos y prepara los cambios (precios, reservas, partes, facturas) para que los confirmes.
+          No hacen lo mismo. Amenitiz y Avirato usan la IA sobre todo para contestar a los huéspedes, y Avirato tiene además
+          un asistente que consulta tus datos. Hugo, el de Hospedy, trabaja contigo y no con tus huéspedes, a propósito:
+          responde con tus datos y prepara los cambios para que los confirmes.
           Lo tienes todo en la <NuxtLink to="/comparar">comparativa de PMS</NuxtLink>.
         </p>
 
         <h3>¿Puedo cambiar de un PMS a otro fácilmente?</h3>
         <p>
-          La migración entre sistemas suele requerir exportar datos y configurar de nuevo los canales. La mayoría ofrecen ayuda en la migración durante el período de prueba.
+          Hay que volver a configurar los canales. En Hospedy te ayudamos con la configuración, por videollamada, durante los
+          {{ DIAS_DE_PRUEBA }} días de prueba.
         </p>
 
         <h3>¿Qué diferencia hay entre enviar la encuesta del INE y generar el fichero?</h3>
@@ -244,7 +237,7 @@
 import { REVISION_COMPARATIVA } from '~/utils/comparativa'
 import type { CeldaComparativa } from '~/utils/comparativa'
 import { fechaLarga } from '~/utils/fechas'
-import { PLANES } from '~/utils/precios'
+import { DIAS_DE_PRUEBA, PLANES } from '~/utils/precios'
 
 const articulo = useArticulo('mejores-pms-casas-rurales')
 const revision = fechaLarga(REVISION_COMPARATIVA)
@@ -254,11 +247,11 @@ const revision = fechaLarga(REVISION_COMPARATIVA)
 const COLUMNAS = { precio: 'Precio', partes: 'Partes', ine: 'Encuesta del INE', ia: 'Asistente con IA' }
 const CLAVES = ['partes', 'ine'] as const
 const FILAS: { nombre: string, propia?: boolean, precio: string, partes: CeldaComparativa, ine: CeldaComparativa, ia: string }[] = [
-  { nombre: 'Hospedy', propia: true, precio: `Público: desde ${PLANES[0].mensual}\u00a0€ + IVA al mes`, partes: { marca: 'si', texto: 'Automáticos' }, ine: { marca: 'si', texto: 'La rural sale rellena; la hotelera y la de apartamentos se envían desde Hospedy' }, ia: 'Hugo, incluido: responde con tus datos y prepara los cambios que tú confirmas' },
+  { nombre: 'Hospedy', propia: true, precio: `Público: desde ${PLANES[0].mensual}\u00a0€ + IVA al mes`, partes: { marca: 'si', texto: 'Automáticos' }, ine: { marca: 'si', texto: 'La rural sale rellena; la hotelera y la de apartamentos se envían desde Hospedy' }, ia: 'Hugo, incluido, por escrito o por voz: responde con tus datos y prepara los cambios que confirmas' },
   { nombre: 'MisterPlan (antes RuralGest)', precio: 'Público: desde 45\u00a0€ + IVA al mes', partes: { marca: 'si', texto: 'Automáticos' }, ine: { texto: 'Anuncia el envío telemático' }, ia: 'No consta' },
   { nombre: 'AvaiBook', precio: 'Según unidades', partes: { marca: 'si', texto: 'Manual, semiautomático o automático' }, ine: { texto: 'Sin comprobar' }, ia: 'Solo un chat de soporte con IA' },
   { nombre: 'Amenitiz', precio: 'Con presupuesto', partes: { marca: 'si', texto: 'Con Chekin, en su plan Core' }, ine: { texto: 'Sin comprobar' }, ia: 'Ami, de pago aparte: redacta o envía las respuestas a los huéspedes' },
-  { nombre: 'Avirato', precio: 'Con presupuesto', partes: { texto: 'Sin comprobar' }, ine: { marca: 'parcial', texto: 'Semiautomática, con vista previa' }, ia: 'Incluida: contesta a los huéspedes y responde preguntas, también por voz' },
+  { nombre: 'Avirato', precio: 'Con presupuesto', partes: { texto: 'Sin comprobar' }, ine: { marca: 'parcial', texto: 'Semiautomática, con vista previa' }, ia: 'Incluida: contesta a los huéspedes y responde preguntas sobre tus datos' },
 ]
 const MIN_OTAS = Math.min(...PLANES.map(plan => plan.otasIncluidas))
 const MAX_OTAS = Math.max(...PLANES.map(plan => plan.otasIncluidas))

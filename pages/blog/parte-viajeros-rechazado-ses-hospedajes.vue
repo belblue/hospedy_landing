@@ -95,8 +95,8 @@
 
         <h3>¿Cuánto tarda en salir el parte corregido?</h3>
         <p>
-          «Reenviar parte» no lo envía en el momento: lo marca para que el sistema lo vuelva a mandar en su siguiente pasada,
-          en unos minutos. Si el dato sigue mal, el error vuelve a aparecer con su motivo.
+          Unos minutos: «Reenviar parte» lo pone en cola y sale en la siguiente pasada. Si el dato sigue mal, el error vuelve a
+          salir con su motivo.
         </p>
 
         <h3>¿Cómo evito que vuelva a pasar?</h3>

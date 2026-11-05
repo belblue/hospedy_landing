@@ -34,8 +34,8 @@
         </p>
         <ol>
           <li>Un huésped reserva en Booking.com</li>
-          <li>El channel manager sincroniza cada 30 minutos</li>
-          <li>Durante esos 30 minutos, otro huésped reserva la misma fecha en Airbnb</li>
+          <li>Los demás canales tardan en enterarse</li>
+          <li>Mientras tanto, otro huésped reserva la misma fecha en Airbnb</li>
           <li><strong>Overbooking</strong></li>
         </ol>
         <p>
@@ -71,7 +71,7 @@
 
         <h2>Sistema inteligente de disponibilidad</h2>
         <p>
-          Si tienes varias habitaciones del mismo tipo, Hospedy las vende por tipo y a cada reserva le busca una habitación libre todas las noches. Si no la hay, entra igual en una bandeja para que la coloques tú, y se coloca sola si se libera sitio.
+          Si tienes varias habitaciones del mismo tipo, Hospedy las vende por tipo y a cada reserva le busca una habitación libre todas las noches. Si no la hay, entra igual en una bandeja para que la coloques tú, y se coloca sola si se libera sitio. Y Hugo te dice cuáles esperan habitación y, si se lo pides, te prepara dónde colocarlas.
         </p>
         <p>
           Por ejemplo: si tienes 3 habitaciones dobles y recibes una reserva para una de ellas, el sistema mantiene las otras 2 disponibles en todos los canales. Si el huésped modifica las fechas, se recalcula automáticamente.
@@ -88,42 +88,12 @@
           Cualquier cambio que hagas sale solo hacia todos los canales conectados.
         </p>
 
-        <h2>¿Cuántas OTAs puedo conectar?</h2>
-        <p>Depende del plan de Hospedy:</p>
-
-        <div class="overflow-x-auto my-6 not-prose">
-          <table class="min-w-full border border-gray-200 rounded-lg">
-            <thead class="bg-gray-50">
-              <tr>
-                <th class="px-4 py-3 text-left text-sm font-semibold text-gray-900">Plan</th>
-                <th class="px-4 py-3 text-left text-sm font-semibold text-gray-900">OTAs incluidas</th>
-                <th class="px-4 py-3 text-left text-sm font-semibold text-gray-900">OTA adicional</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200">
-              <tr>
-                <td class="px-4 py-3 text-sm text-gray-700">Esencial</td>
-                <td class="px-4 py-3 text-sm text-gray-700">1</td>
-                <td class="px-4 py-3 text-sm text-gray-700">79&nbsp;€ + 10&nbsp;€/mes</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-3 text-sm text-gray-700">Profesional</td>
-                <td class="px-4 py-3 text-sm text-gray-700">2</td>
-                <td class="px-4 py-3 text-sm text-gray-700">49&nbsp;€ + 10&nbsp;€/mes</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-3 text-sm text-gray-700">Business</td>
-                <td class="px-4 py-3 text-sm text-gray-700">3</td>
-                <td class="px-4 py-3 text-sm text-gray-700">29&nbsp;€ + 10&nbsp;€/mes</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-3 text-sm text-gray-700 font-medium">Enterprise</td>
-                <td class="px-4 py-3 text-sm text-gray-700 font-medium">5</td>
-                <td class="px-4 py-3 text-sm text-gray-700">29&nbsp;€ + 10&nbsp;€/mes</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <h2>¿Cuántas agencias puedo conectar?</h2>
+        <p>
+          Tu plan incluye de {{ MIN_OTAS }} a {{ MAX_OTAS }}, según las unidades de tu alojamiento, y puedes añadir más por
+          {{ CUOTA_OTA_EXTRA }}&nbsp;€ al mes cada una, más un alta única. El detalle, en
+          <NuxtLink to="/precios">Precios</NuxtLink>.
+        </p>
 
         <div class="bg-primary/5 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4">Channel Manager de Hospedy</h3>
@@ -193,7 +163,13 @@
 </template>
 
 <script setup lang="ts">
+import { CUOTA_OTA_EXTRA, PLANES } from '~/utils/precios'
+
 const articulo = useArticulo('como-evitar-overbookings')
+
+// las agencias que incluyen los planes, de menos a más
+const MIN_OTAS = Math.min(...PLANES.map(plan => plan.otasIncluidas))
+const MAX_OTAS = Math.max(...PLANES.map(plan => plan.otasIncluidas))
 </script>
 
 <style scoped>

@@ -7,8 +7,8 @@
           Reservas directas vs OTAs: qué es más rentable
         </h1>
         <p class="text-xl text-gray-600 mb-6">
-          Análisis de costes y beneficios de cada canal. Calcula cuánto puedes
-          ahorrar con reservas directas.
+          Lo que se llevan las agencias de cada reserva y cuánto ganas con cada
+          reserva directa.
         </p>
         </ArticuloCabecera>
 
@@ -55,12 +55,12 @@
               <tr>
                 <td class="p-4 border-b border-gray-100">Airbnb</td>
                 <td class="p-4 border-b border-gray-100 text-center">
-                  3-5&nbsp;% (host) + 14&nbsp;% (guest)
+                  15,5&nbsp;%*
                 </td>
                 <td
                   class="p-4 border-b border-gray-100 text-center text-red-600 font-semibold"
                 >
-                  -15&nbsp;€ a -25&nbsp;€*
+                  -77,50&nbsp;€
                 </td>
               </tr>
               <tr>
@@ -99,8 +99,8 @@
             </tbody>
           </table>
           <p class="text-lg text-gray-500 mt-2">
-            *Airbnb cobra al huésped, lo que puede reducir tu precio neto
-            indirectamente.
+            *Comisión única que paga el anfitrión: Airbnb la aplica desde finales
+            de 2025 a quien trabaja con un channel manager.
           </p>
         </div>
 
@@ -248,7 +248,9 @@
           </li>
           <li>
             <strong>Incentivos:</strong> Ofrece un 5-10&nbsp;% de descuento por
-            reservar directo (aún ganas más que con OTAs)
+            reservar directo (aún ganas más que con OTAs). En Hospedy es un plan
+            de precios para tu motor con ese descuento, que sigue solo a tus
+            precios
           </li>
         </ul>
 
@@ -320,9 +322,8 @@
           significativamente tu rentabilidad.
         </p>
         <p>
-          <strong>Objetivo realista:</strong> pasar del 10&nbsp;% de reservas directas
-          al 40-50&nbsp;% en un año. El ahorro en comisiones puede suponer miles de
-          euros.
+          <strong>Cada reserva que pasa de Booking a tu web</strong> te ahorra entre
+          15 y 18&nbsp;€ de cada 100.
         </p>
       </div>
 

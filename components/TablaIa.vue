@@ -8,7 +8,7 @@
       <thead class="hidden md:table-header-group bg-gray-50">
         <tr>
           <th scope="col" class="p-4 font-semibold text-gray-900 w-[16%]">Programa</th>
-          <th v-for="columna in COLUMNAS_IA" :key="columna" scope="col" class="p-4 font-semibold text-gray-900">{{ columna }}</th>
+          <th v-for="clave in COLUMNAS" :key="clave" scope="col" class="p-4 font-semibold text-gray-900">{{ COLUMNAS_IA[clave] }}</th>
         </tr>
       </thead>
       <tbody>
@@ -35,6 +35,8 @@
 <script setup lang="ts">
 import { COLUMNAS_IA, FILAS_IA } from '~/utils/comparativa'
 
-// las columnas con marca; la última es solo texto
-const CLAVES_IA = ['huespedes', 'datos', 'cambios'] as const
+// las columnas con marca, primero lo que hace Hugo; la última, el coste, es solo texto. La cabecera sigue la misma lista
+// que las celdas, para que no se descuadren si cambia el orden
+const CLAVES_IA = ['cambios', 'datos', 'huespedes'] as const
+const COLUMNAS = [...CLAVES_IA, 'coste'] as const
 </script>

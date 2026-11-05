@@ -155,7 +155,7 @@ const PREGUNTAS: PreguntaFaq[] = [
   },
   {
     pregunta: '¿Qué no hace Hugo?',
-    respuesta: 'No cobra ni devuelve dinero con tarjeta, no envía enlaces de pago, no borra huéspedes, reservas ni facturas de forma definitiva, no emite facturas y no toca la conexión con tus agencias. Tampoco envía nada a tus huéspedes: ni el pre-check-in, ni la respuesta a un mensaje, ni el resumen de la reserva.\n\nPara todo eso tienes sus pantallas en Hospedy, y Hugo te dice cuál es. Y los precios no los pone por su cuenta: los cambios los decides tú.',
+    respuesta: 'No cobra ni devuelve dinero con tarjeta, no envía enlaces de pago, no borra huéspedes, reservas ni facturas de forma definitiva, no emite facturas y no toca la conexión con tus agencias. Y con tus huéspedes no habla: preferimos que el trato con ellos siga siendo tuyo.\n\nPara todo eso tienes sus pantallas en Hospedy, y Hugo te dice cuál es. Y los precios no los pone por su cuenta: los cambios los decides tú.',
   },
   {
     pregunta: '¿Y si alguien cambia la reserva mientras tanto?',

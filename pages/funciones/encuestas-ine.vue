@@ -13,7 +13,7 @@
                     Encuestas INE enviadas con un clic
                 </h1>
                 <p class="text-xl text-gray-600 mb-8">
-                    Otros sistemas solo generan un archivo XML que tú debes subir manualmente. Hospedy envía la encuesta directamente al INE con un solo clic.
+                    Sin descargar archivos ni entrar en el portal del INE: Hospedy envía la encuesta de ocupación al INE con un clic.
                 </p>
                 <BotonesPrueba centrados />
             </div>
@@ -26,12 +26,12 @@
                         <div class="bg-red-50 p-6 rounded-xl border border-red-100">
                             <p class="font-bold text-red-800 mb-4 flex items-center gap-2">
                                 <IconoMarca tipo="no" class="text-lg" />
-                                Otros PMS
+                                Con un archivo
                             </p>
                             <ol class="text-red-700 space-y-2">
                                 <li class="flex items-start gap-2">
                                     <span class="bg-red-200 text-red-800 rounded-full w-5 h-5 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">1</span>
-                                    <span>Generan archivo XML</span>
+                                    <span>Generas el archivo XML</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="bg-red-200 text-red-800 rounded-full w-5 h-5 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">2</span>
@@ -96,7 +96,7 @@
                             <IconoFuncion nombre="encuesta-rural" :retraso="200" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Encuesta de Turismo Rural</h3>
-                        <p class="text-gray-600">Para casas rurales, albergues y establecimientos de turismo rural. Hospedy te la deja rellena con los datos del mes para que la descargues y la presentes tú.</p>
+                        <p class="text-gray-600">Para casas rurales, albergues y establecimientos de turismo rural. Hospedy te la deja rellena con los datos del mes, lista para presentar.</p>
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
             <div class="bg-gray-50 py-16 mt-20">
                 <div class="max-w-5xl mx-auto px-6">
                     <h2 class="text-3xl font-bold text-center mb-8">También documentos autonómicos</h2>
-                    <p class="text-center text-gray-600 text-lg mb-12">Algunas comunidades autónomas exigen documentos propios. Hospedy los genera rellenos con tus datos; presentarlos sigue siendo cosa tuya.</p>
+                    <p class="text-center text-gray-600 text-lg mb-12">Algunas comunidades autónomas exigen documentos propios. Hospedy los genera rellenos con tus datos, listos para presentar.</p>
                     <div class="grid lg:grid-cols-2 gap-8">
                         <div class="bg-white p-6 rounded-xl">
                             <h3 class="font-semibold text-lg mb-2">Castilla y León</h3>
