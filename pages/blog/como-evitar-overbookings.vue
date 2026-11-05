@@ -131,28 +131,20 @@
             Hospedy se conecta con más de 150 OTAs incluyendo:
           </p>
           <ul class="space-y-2">
-            <li class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
+            <li class="flex items-center gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0" />
               <span>Booking.com, Airbnb, Expedia, Vrbo...</span>
             </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
+            <li class="flex items-center gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0" />
               <span>Precios y disponibilidad salen de Hospedy; las reservas entran solas</span>
             </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
+            <li class="flex items-center gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0" />
               <span>Gestión de precios centralizada</span>
             </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
+            <li class="flex items-center gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0" />
               <span>30 días de prueba gratis</span>
             </li>
           </ul>

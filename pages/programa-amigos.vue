@@ -115,16 +115,12 @@
                         <div class="bg-white rounded-xl p-6 shadow-sm">
                             <h3 class="font-semibold text-lg mb-4">Beneficios de Embajador:</h3>
                             <ul class="space-y-3">
-                                <li class="flex items-center gap-3">
-                                    <svg class="w-5 h-5 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
+                                <li class="flex items-center gap-3 group">
+                                    <MarcaLista class="w-5 h-5 flex-shrink-0" />
                                     <span><strong>10&nbsp;% de descuento</strong> en tu renovación</span>
                                 </li>
-                                <li class="flex items-center gap-3">
-                                    <svg class="w-5 h-5 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
+                                <li class="flex items-center gap-3 group">
+                                    <MarcaLista class="w-5 h-5 flex-shrink-0" />
                                     <span><strong>Sigue ganando</strong> meses gratis por cada referido</span>
                                 </li>
                             </ul>

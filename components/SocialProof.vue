@@ -8,8 +8,10 @@
         <p class="text-center text-[#7F5917] text-lg mb-6" data-aos="fade-up">
           Alojamientos turísticos de toda España confían en Hospedy
         </p>
+        <!-- en el móvil, una tira que se desliza con los logos a su tamaño (hm-tira); en el escritorio, centrados y,
+             si no caben, un poco más pequeños -->
         <div
-          class="flex flex-nowrap justify-center items-center gap-4 lg:gap-12 overflow-x-auto"
+          class="hm-tira flex flex-nowrap lg:justify-center items-center gap-7 lg:gap-12 overflow-x-auto -mx-6 px-6 py-1"
           data-aos="fade-up"
           data-aos-delay="100"
         >
@@ -17,7 +19,7 @@
             href="https://www.solardequintano.es"
             target="_blank"
             rel="noopener"
-            class="flex items-center justify-center h-16 px-4 hover:opacity-80 transition-opacity"
+            class="flex items-center justify-center h-16 lg:px-4 hover:opacity-80 transition-opacity"
           >
             <img
               src="/logos/solar-de-quintano.webp"
@@ -25,14 +27,14 @@
               height="174"
               loading="lazy"
               alt="Solar de Quintano"
-              class="h-16 w-auto object-contain"
+              class="h-14 lg:h-16 w-auto object-contain"
             />
           </a>
           <a
             href="https://pradomayor.es"
             target="_blank"
             rel="noopener"
-            class="flex items-center justify-center h-16 px-4 hover:opacity-80 transition-opacity"
+            class="flex items-center justify-center h-16 lg:px-4 hover:opacity-80 transition-opacity"
           >
             <img
               src="/logos/posada-prado-mayor.webp"
@@ -40,14 +42,14 @@
               height="117"
               loading="lazy"
               alt="Posada El Prado Mayor"
-              class="h-12 w-auto object-contain"
+              class="h-10 lg:h-12 w-auto object-contain"
             />
           </a>
           <a
             href="https://www.hostaljoseluis.com"
             target="_blank"
             rel="noopener"
-            class="flex items-center justify-center h-16 px-4 hover:opacity-80 transition-opacity"
+            class="flex items-center justify-center h-16 lg:px-4 hover:opacity-80 transition-opacity"
           >
             <img
               src="/logos/hostal-jose-luis.webp"
@@ -55,14 +57,14 @@
               height="58"
               loading="lazy"
               alt="Hostal José Luis"
-              class="h-12 w-auto object-contain"
+              class="h-10 lg:h-12 w-auto object-contain"
             />
           </a>
           <a
             href="https://booking.hospedy.app/TJQLCgP1HIa7-09lomFVt02w"
             target="_blank"
             rel="noopener"
-            class="flex items-center justify-center h-16 px-4 hover:opacity-80 transition-opacity"
+            class="flex items-center justify-center h-16 lg:px-4 hover:opacity-80 transition-opacity"
           >
             <img
               src="/logos/hotel-los-nogales.webp"
@@ -70,14 +72,14 @@
               height="463"
               loading="lazy"
               alt="Hotel Los Nogales"
-              class="h-12 w-auto object-contain"
+              class="h-10 lg:h-12 w-auto object-contain"
             />
           </a>
           <a
             href="https://www.casazalama.es"
             target="_blank"
             rel="noopener"
-            class="flex items-center justify-center h-16 px-4 hover:opacity-80 transition-opacity"
+            class="flex items-center justify-center h-16 lg:px-4 hover:opacity-80 transition-opacity"
           >
             <img
               src="/logos/casa-zalama.webp"
@@ -85,7 +87,7 @@
               height="280"
               loading="lazy"
               alt="Casa Zalama"
-              class="h-12 w-auto object-contain"
+              class="h-10 lg:h-12 w-auto object-contain"
             />
           </a>
         </div>
@@ -94,109 +96,57 @@
         </p>
       </div>
 
-      <!-- Lo esencial: cada píldora lleva a su función o a su pregunta -->
+      <!-- Lo esencial: cada chip lleva a su función o a su pregunta. En el móvil, una tira que se desliza (hm-tira); en el
+           escritorio, centrados y, si no caben en una línea, en dos -->
       <div class="border-t border-[#7f591736] pt-8 mt-8">
         <div
-          class="flex flex-nowrap justify-center items-center gap-4 lg:gap-6 overflow-x-auto"
+          class="hm-tira flex flex-nowrap lg:flex-wrap lg:justify-center items-center gap-3 lg:gap-5 overflow-x-auto lg:overflow-visible -mx-6 px-6 pt-1 pb-2"
+          data-aos="fade-up"
+          data-aos-delay="200"
         >
-          <!-- Reservas directas -->
           <NuxtLink
             to="/funciones/motor-reservas"
-            class="flex items-center gap-2 bg-white/45 px-4 py-2 rounded-lg shadow-sm whitespace-nowrap shrink-0 hover:bg-white/80 transition-colors"
+            class="group flex items-center gap-2.5 bg-white/55 pl-1.5 pr-3.5 py-1.5 rounded-[10px] shadow-sm whitespace-nowrap shrink-0 hover:bg-white/80 transition-colors"
           >
-            <svg
-              class="w-6 h-6 text-green-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
+            <span class="flex w-8 h-8 rounded-lg bg-tertiary items-center justify-center shrink-0">
+              <IconoChip nombre="motor" :retraso="200" class="block w-[26px] h-[26px]" />
+            </span>
             <span class="text-lg font-medium text-gray-700">Reservas directas</span>
           </NuxtLink>
-          <!-- Facturación con un clic -->
           <NuxtLink
             to="/funciones/facturacion"
-            class="flex items-center gap-2 bg-white/45 px-4 py-2 rounded-lg shadow-sm whitespace-nowrap shrink-0 hover:bg-white/80 transition-colors"
+            class="group flex items-center gap-2.5 bg-white/55 pl-1.5 pr-3.5 py-1.5 rounded-[10px] shadow-sm whitespace-nowrap shrink-0 hover:bg-white/80 transition-colors"
           >
-            <svg
-              class="w-6 h-6 text-orange-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              ></path>
-            </svg>
+            <span class="flex w-8 h-8 rounded-lg bg-tertiary items-center justify-center shrink-0">
+              <IconoChip nombre="factura" :retraso="200" class="block w-[26px] h-[26px]" />
+            </span>
             <span class="text-lg font-medium text-gray-700">Facturación con un clic</span>
           </NuxtLink>
-          <!-- Varios alojamientos -->
           <NuxtLink
             to="/faq#varios-alojamientos"
-            class="flex items-center gap-2 bg-white/45 px-4 py-2 rounded-lg shadow-sm whitespace-nowrap shrink-0 hover:bg-white/80 transition-colors"
+            class="group flex items-center gap-2.5 bg-white/55 pl-1.5 pr-3.5 py-1.5 rounded-[10px] shadow-sm whitespace-nowrap shrink-0 hover:bg-white/80 transition-colors"
           >
-            <svg
-              class="w-6 h-6 text-blue-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-              ></path>
-            </svg>
+            <span class="flex w-8 h-8 rounded-lg bg-tertiary items-center justify-center shrink-0">
+              <IconoChip nombre="varios" :retraso="200" class="block w-[26px] h-[26px]" />
+            </span>
             <span class="text-lg font-medium text-gray-700">Varios alojamientos</span>
           </NuxtLink>
-          <!-- Sin instalación -->
           <NuxtLink
             to="/faq#instalar"
-            class="flex items-center gap-2 bg-white/45 px-4 py-2 rounded-lg shadow-sm whitespace-nowrap shrink-0 hover:bg-white/80 transition-colors"
+            class="group flex items-center gap-2.5 bg-white/55 pl-1.5 pr-3.5 py-1.5 rounded-[10px] shadow-sm whitespace-nowrap shrink-0 hover:bg-white/80 transition-colors"
           >
-            <svg
-              class="w-6 h-6 text-purple-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
+            <span class="flex w-8 h-8 rounded-lg bg-tertiary items-center justify-center shrink-0">
+              <IconoChip nombre="nube" :retraso="200" class="block w-[26px] h-[26px]" />
+            </span>
             <span class="text-lg font-medium text-gray-700">Sin instalación</span>
           </NuxtLink>
-          <!-- Cobros online -->
           <NuxtLink
             to="/funciones/cobros"
-            class="flex items-center gap-2 bg-white/45 px-4 py-2 rounded-lg shadow-sm whitespace-nowrap shrink-0 hover:bg-white/80 transition-colors"
+            class="group flex items-center gap-2.5 bg-white/55 pl-1.5 pr-3.5 py-1.5 rounded-[10px] shadow-sm whitespace-nowrap shrink-0 hover:bg-white/80 transition-colors"
           >
-            <svg
-              class="w-6 h-6 text-yellow-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
-              ></path>
-            </svg>
+            <span class="flex w-8 h-8 rounded-lg bg-tertiary items-center justify-center shrink-0">
+              <IconoChip nombre="cobros" :retraso="200" class="block w-[26px] h-[26px]" />
+            </span>
             <span class="text-lg font-medium text-gray-700">Cobros online</span>
           </NuxtLink>
         </div>

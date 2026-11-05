@@ -18,48 +18,32 @@
                     <div class="space-y-6">
                         <h2 class="text-2xl font-semibold text-gray-900 mb-6">En la demo verás:</h2>
 
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
+                        <div class="flex gap-4 group">
+                            <MarcaLista class="flex-shrink-0 w-10 h-10" />
                             <div>
                                 <h3 class="font-semibold text-gray-900">Partes de viajeros automáticos</h3>
                                 <p class="text-gray-600">Cómo se envían solos a SES Hospedajes sin que tengas que hacer nada.</p>
                             </div>
                         </div>
 
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
+                        <div class="flex gap-4 group">
+                            <MarcaLista class="flex-shrink-0 w-10 h-10" />
                             <div>
                                 <h3 class="font-semibold text-gray-900">Encuestas INE generadas solas</h3>
                                 <p class="text-gray-600">Olvídate del papeleo mensual, Hospedy lo hace por ti.</p>
                             </div>
                         </div>
 
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
+                        <div class="flex gap-4 group">
+                            <MarcaLista class="flex-shrink-0 w-10 h-10" />
                             <div>
                                 <h3 class="font-semibold text-gray-900">Gestión de reservas simplificada</h3>
                                 <p class="text-gray-600">Un calendario visual donde todo está bajo control.</p>
                             </div>
                         </div>
 
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
+                        <div class="flex gap-4 group">
+                            <MarcaLista class="flex-shrink-0 w-10 h-10" />
                             <div>
                                 <h3 class="font-semibold text-gray-900">Facturación con un clic</h3>
                                 <p class="text-gray-600">La factura de cada reserva sale con un clic, con todos los datos.</p>
@@ -70,22 +54,16 @@
                         <div class="pt-6 border-t border-gray-200 mt-8">
                             <p class="text-lg text-gray-500 mb-3">Sin compromiso. Sin tarjeta de crédito.</p>
                             <div class="flex items-center gap-4">
-                                <div class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
+                                <div class="flex items-center gap-2 group">
+                                    <MarcaLista class="w-5 h-5 flex-shrink-0" />
                                     <span class="text-lg text-gray-600">20 min</span>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
+                                <div class="flex items-center gap-2 group">
+                                    <MarcaLista class="w-5 h-5 flex-shrink-0" />
                                     <span class="text-lg text-gray-600">Personalizada</span>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
+                                <div class="flex items-center gap-2 group">
+                                    <MarcaLista class="w-5 h-5 flex-shrink-0" />
                                     <span class="text-lg text-gray-600">En español</span>
                                 </div>
                             </div>

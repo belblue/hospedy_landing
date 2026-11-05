@@ -41,10 +41,8 @@
             </p>
           </div>
           <ul class="space-y-3 mb-5 flex-1">
-            <li v-for="punto in puntosDelPlan(plan)" :key="punto" class="flex items-start gap-2">
-              <svg class="w-5 h-5 shrink-0 mt-0.5" :class="plan.recomendado ? 'text-white' : 'text-green-600'" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
+            <li v-for="punto in puntosDelPlan(plan)" :key="punto" class="flex items-start gap-2 group">
+              <MarcaLista :clara="plan.recomendado" class="w-5 h-5 shrink-0 mt-0.5" />
               <span>{{ punto }}</span>
             </li>
           </ul>
@@ -97,10 +95,8 @@
         <h2 id="titulo-incluye" class="text-3xl font-bold text-center text-gray-900 mb-3">Qué incluyen todos los planes</h2>
         <p class="text-lg text-gray-600 text-center mb-10">Todo esto, en el plan Esencial igual que en el Enterprise.</p>
         <ul class="grid md:grid-cols-2 gap-x-8 gap-y-5">
-          <li v-for="funcion in TODAS_LAS_FUNCIONES" :key="funcion.ruta" class="flex items-start gap-3">
-            <svg class="w-6 h-6 text-green-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-            </svg>
+          <li v-for="funcion in TODAS_LAS_FUNCIONES" :key="funcion.ruta" class="flex items-start gap-3 group">
+            <MarcaLista class="w-6 h-6 shrink-0 mt-0.5" />
             <span>
               <NuxtLink :to="funcion.ruta" class="font-semibold text-gray-900 hover:text-secondary underline decoration-gray-300 underline-offset-4">{{ funcion.nombre }}</NuxtLink>
               <span class="block text-gray-600">{{ funcion.descripcion }}</span>
@@ -109,10 +105,8 @@
               </span>
             </span>
           </li>
-          <li v-for="extra in EXTRAS" :key="extra.nombre" class="flex items-start gap-3">
-            <svg class="w-6 h-6 text-green-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-            </svg>
+          <li v-for="extra in EXTRAS" :key="extra.nombre" class="flex items-start gap-3 group">
+            <MarcaLista class="w-6 h-6 shrink-0 mt-0.5" />
             <span>
               <span class="font-semibold text-gray-900">{{ extra.nombre }}</span>
               <span class="block text-gray-600">{{ extra.descripcion }}</span>

@@ -25,9 +25,7 @@
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="bg-red-50 p-6 rounded-xl border border-red-100">
                             <p class="font-bold text-red-800 mb-4 flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                </svg>
+                                <IconoMarca tipo="no" class="text-lg" />
                                 Otros PMS
                             </p>
                             <ol class="text-red-700 space-y-2">
@@ -55,9 +53,7 @@
                         </div>
                         <div class="bg-green-50 p-6 rounded-xl border border-green-200">
                             <p class="font-bold text-green-800 mb-4 flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
+                                <IconoMarca tipo="si" class="text-lg" />
                                 Hospedy
                             </p>
                             <ol class="text-green-700 space-y-2">
@@ -81,29 +77,23 @@
                 <h2 class="text-3xl font-bold text-center mb-4">Las tres encuestas del INE</h2>
                 <p class="text-center text-gray-600 mb-12">La de ocupación hotelera y la de apartamentos se envían al INE desde Hospedy; la de turismo rural se descarga rellena, lista para presentar.</p>
                 <div class="grid lg:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                            </svg>
+                    <div class="group bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center mb-4">
+                            <IconoFuncion nombre="encuesta-hotel" :retraso="0" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Encuesta de Ocupación Hotelera</h3>
                         <p class="text-gray-600">Para hoteles y establecimientos similares. Datos de ocupación, pernoctaciones y procedencia. Se envía al INE con un clic.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                            </svg>
+                    <div class="group bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center mb-4">
+                            <IconoFuncion nombre="encuesta-apartamento" :retraso="100" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Encuesta de Apartamentos Turísticos</h3>
                         <p class="text-gray-600">Para apartamentos, villas y alojamientos de alquiler completo. Se envía al INE con un clic.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                            </svg>
+                    <div class="group bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center mb-4">
+                            <IconoFuncion nombre="encuesta-rural" :retraso="200" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Encuesta de Turismo Rural</h3>
                         <p class="text-gray-600">Para casas rurales, albergues y establecimientos de turismo rural. Hospedy te la deja rellena con los datos del mes para que la descargues y la presentes tú.</p>
@@ -134,26 +124,22 @@
             <div class="max-w-4xl mx-auto px-6 mt-20">
                 <h2 class="text-3xl font-bold text-center mb-12">Así de fácil</h2>
                 <div class="space-y-8">
-                    <div class="flex gap-6 items-start">
+                    <div class="flex gap-6 items-start" data-aos="fade-up">
                         <div class="flex-shrink-0 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold">1</div>
                         <div>
                             <h3 class="text-xl font-semibold mb-2">Gestiona tus reservas como siempre</h3>
                             <p class="text-gray-600">Hospedy va recopilando los datos de ocupación automáticamente mientras trabajas.</p>
                         </div>
                     </div>
-                    <div class="flex gap-6 items-start">
+                    <div class="flex gap-6 items-start" data-aos="fade-up">
                         <div class="flex-shrink-0 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold">2</div>
                         <div>
                             <h3 class="text-xl font-semibold mb-2">Al final del mes, haz clic en "Enviar"</h3>
                             <p class="text-gray-600">Un clic y Hospedy envía la encuesta de ocupación al INE por su servicio web. Sin entrar en el portal del INE ni subir archivos.</p>
                         </div>
                     </div>
-                    <div class="flex gap-6 items-start">
-                        <div class="flex-shrink-0 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                        </div>
+                    <div class="flex gap-6 items-start group" data-aos="fade-up">
+                        <MarcaLista class="flex-shrink-0 w-10 h-10" />
                         <div>
                             <h3 class="text-xl font-semibold mb-2">¡Listo! Nosotros nos encargamos</h3>
                             <p class="text-gray-600">El INE responde en el momento y Hospedy guarda la fecha y el resultado de cada envío.</p>

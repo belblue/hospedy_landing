@@ -47,68 +47,44 @@
             <div class="max-w-5xl mx-auto px-6 mt-20">
                 <h2 class="text-3xl font-bold text-center mb-12">Qué incluye el motor de reservas</h2>
                 <div class="grid lg:grid-cols-2 gap-8">
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
+                    <div class="flex gap-4 group">
+                        <MarcaLista class="flex-shrink-0 w-10 h-10" />
                         <div>
                             <h3 class="font-semibold text-lg mb-2">Calendario de disponibilidad</h3>
                             <p class="text-gray-600">Tus huéspedes ven qué noches tienes libres y a qué precio.</p>
                         </div>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
+                    <div class="flex gap-4 group">
+                        <MarcaLista class="flex-shrink-0 w-10 h-10" />
                         <div>
                             <h3 class="font-semibold text-lg mb-2">Precios por día desde tu calendario</h3>
                             <p class="text-gray-600">Precios por temporada, para los fines de semana o para fechas especiales, día a día en tu calendario de precios.</p>
                         </div>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
+                    <div class="flex gap-4 group">
+                        <MarcaLista class="flex-shrink-0 w-10 h-10" />
                         <div>
                             <h3 class="font-semibold text-lg mb-2">Cobros con tarjeta</h3>
                             <p class="text-gray-600">Cobra un depósito o el total al reservar, con la pasarela de Stripe.</p>
                             <NuxtLink to="/funciones/cobros" class="text-secondary font-semibold hover:underline underline-offset-4 inline-block mt-1">Saber más →</NuxtLink>
                         </div>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
+                    <div class="flex gap-4 group">
+                        <MarcaLista class="flex-shrink-0 w-10 h-10" />
                         <div>
                             <h3 class="font-semibold text-lg mb-2">Confirmación automática</h3>
                             <p class="text-gray-600">El huésped recibe un email de confirmación con todos los detalles y, si tú lo permites, un enlace para cancelar él mismo con la antelación que decidas.</p>
                         </div>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
+                    <div class="flex gap-4 group">
+                        <MarcaLista class="flex-shrink-0 w-10 h-10" />
                         <div>
                             <h3 class="font-semibold text-lg mb-2">Sincronizado con tu calendario</h3>
                             <p class="text-gray-600">Las reservas aparecen automáticamente en tu planning de Hospedy.</p>
                         </div>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
+                    <div class="flex gap-4 group">
+                        <MarcaLista class="flex-shrink-0 w-10 h-10" />
                         <div>
                             <h3 class="font-semibold text-lg mb-2">Fácil de enlazar</h3>
                             <p class="text-gray-600">Un enlace que pones en tu web o en tus redes.</p>

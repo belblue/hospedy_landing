@@ -94,6 +94,38 @@ html.sin-entradas [data-aos] * {
     overflow: hidden;
   }
 
+  /* Una fila que no cabe en el móvil, como los logos y los chips de los clientes: se desliza con el dedo, empieza en el
+     margen y llega hasta el borde de la pantalla, sin barra y con el último elemento desvaneciéndose a la derecha; si
+     cabe, sale centrada. La fila lleva además overflow-x-auto y -mx-6 px-6, para salirse del margen de la página. Desde
+     lg no hace nada: cada fila dice cómo va en el escritorio. */
+  @media (max-width: 1023.98px) {
+    .hm-tira {
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: 1.5rem;
+      scrollbar-width: none;
+      -webkit-mask-image: linear-gradient(to right, transparent 0, #000 1rem, #000 calc(100% - 2.5rem), transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0, #000 1rem, #000 calc(100% - 2.5rem), transparent 100%);
+    }
+
+    .hm-tira::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hm-tira > * {
+      flex-shrink: 0;
+      scroll-snap-align: start;
+    }
+
+    /* centrada con márgenes automáticos y no con justify-content: center, que la cortaría por la izquierda */
+    .hm-tira > :first-child {
+      margin-left: auto;
+    }
+
+    .hm-tira > :last-child {
+      margin-right: auto;
+    }
+  }
+
   .btn {
     flex: 1 1 auto;
     text-align: center;

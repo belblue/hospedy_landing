@@ -121,28 +121,20 @@
         <div class="bg-secondary/5 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4">Hospedy te prepara:</h3>
           <ul class="space-y-2">
-            <li class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
+            <li class="flex items-center gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0" />
               <span>Encuesta de Ocupación Hotelera (EOH)</span>
             </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
+            <li class="flex items-center gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0" />
               <span>Encuesta de Apartamentos Turísticos (EOAT)</span>
             </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
+            <li class="flex items-center gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0" />
               <span>Encuesta de Turismo Rural (EOTR)</span>
             </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
+            <li class="flex items-center gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0" />
               <span>Encuesta de Castilla y León (se descarga rellena)</span>
             </li>
           </ul>

@@ -49,10 +49,8 @@
           <h2 class="text-2xl font-bold text-gray-900 mb-3">{{ seccion.titulo }}</h2>
           <p class="text-lg text-gray-600">{{ seccion.texto }}</p>
           <ul v-if="seccion.puntos?.length" class="mt-4 space-y-2">
-            <li v-for="punto in seccion.puntos" :key="punto" class="flex items-start gap-2 text-lg text-gray-700">
-              <svg class="w-5 h-5 text-primary shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
+            <li v-for="punto in seccion.puntos" :key="punto" class="flex items-start gap-2 text-lg text-gray-700 group">
+              <MarcaLista class="w-5 h-5 shrink-0 mt-1" />
               <span>{{ punto }}</span>
             </li>
           </ul>
