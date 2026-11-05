@@ -13,7 +13,7 @@
     @keydown.esc="cerrarConEscape"
   >
     <div class="max-w-7xl mx-auto h-16 px-4 lg:px-6 flex items-center gap-2">
-      <NuxtLink to="/" class="shrink-0 mr-2 xl:mr-4" title="Hospedy, ir a la portada">
+      <NuxtLink to="/" class="shrink-0 mr-2 xl:mr-4" title="Hospedy, ir a la portada" @click="subirSiEnPortada">
         <img src="/logo.svg" width="130" height="35" alt="Hospedy" class="hidden lg:block w-[130px] h-auto" />
         <img src="/logor.svg" width="32" height="36" alt="Hospedy" class="lg:hidden w-8 h-auto" />
       </NuxtLink>
@@ -231,6 +231,16 @@ const route = useRoute()
 
 const abierto = ref<Menu | null>(null)
 const movilAbierto = ref(false)
+
+// El logo lleva siempre a la portada. Si ya estás en ella, el enlace no navega: sube arriba del todo (sin deslizar con el
+// movimiento reducido) y cierra los menús
+function subirSiEnPortada() {
+  if (route.path !== '/') return
+  abierto.value = null
+  movilAbierto.value = false
+  const reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  window.scrollTo({ top: 0, behavior: reducido ? 'auto' : 'smooth' })
+}
 const oculta = ref(false)
 const navEscritorio = ref<HTMLElement | null>(null)
 
