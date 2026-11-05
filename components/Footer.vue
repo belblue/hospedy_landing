@@ -52,17 +52,6 @@
             <img src="/whatsapp.svg" width="22" height="22" alt="" />
             WhatsApp
           </a>
-          <span class="flex items-center gap-3">
-            <a href="https://www.facebook.com/Ridid-122157706306005/" target="_blank" rel="noopener" title="Facebook de Hospedy" class="block">
-              <img class="bg-white rounded-md" width="30" height="30" src="/facebook.svg" alt="Facebook de Hospedy" />
-            </a>
-            <a href="https://www.instagram.com/ridid.me/" target="_blank" rel="noopener" title="Instagram de Hospedy" class="block">
-              <img class="bg-white rounded-md" width="30" height="30" src="/instagram.svg" alt="Instagram de Hospedy" />
-            </a>
-            <a href="https://www.youtube.com/@ridid-gestionhostelera8053" target="_blank" rel="noopener" title="YouTube de Hospedy" class="block">
-              <img width="52" height="30" src="/youtube.svg" alt="YouTube de Hospedy" />
-            </a>
-          </span>
         </div>
         <p class="text-white/90 text-center">© {{ anio }} Hospedy es una marca de Silatek, S.L.U.</p>
       </div>

@@ -7,34 +7,6 @@
       </div>
       <div class="flex justify-center mt-4">
         <a
-          class="mx-4 p-2.5"
-          href="https://www.facebook.com/Ridid-122157706306005/?modal=admin_todo_tour"
-          title="cuenta de Facebook de Hospedy"
-          target="_blank"
-          aria-label="Facebook"
-        >
-          <img
-            class="bg-white rounded-md"
-            width="50px"
-            src="/facebook.svg"
-            alt="cuenta de Facebook de Hospedy"
-          />
-        </a>
-        <a
-          href="https://www.instagram.com/ridid.me/"
-          class="mx-4 p-2.5"
-          title="cuenta de Instagram de Hospedy"
-          aria-label="Instagram"
-          target="_blank"
-        >
-          <img
-            class="bg-white rounded-sm"
-            width="50px"
-            src="/instagram.svg"
-            alt="cuenta de Instagram de Hospedy"
-          />
-        </a>
-        <a
           title="Envíanos un mensaje por WhatsApp"
           target="_blank"
           href="https://wa.me/376619224"
