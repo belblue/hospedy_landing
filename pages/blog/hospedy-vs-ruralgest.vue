@@ -70,8 +70,8 @@
         <h3>1. Hugo te prepara el trabajo</h3>
         <p>
           Le pides las cosas como a una persona, escribiendo o con la voz: «baja la Doble a 90&nbsp;€ del 1 al 7 de julio»,
-          «pasa la reserva de los Wilson a la 102» o «el registro ha rechazado el parte de Luis Gómez, su segundo apellido
-          es Martín: corrígelo y reenvíalo». Hugo mira tus datos, te enseña lo que va a hacer y <strong>no cambia nada hasta que
+          «pasa la reserva de los Wilson a la 102» o «¿por qué ha fallado el parte de Luis Gómez?». Hugo mira tus datos, te
+          pide lo que falte, te enseña lo que va a hacer y <strong>no cambia nada hasta que
           pulsas «Sí, aplicar»</strong>. También te dice qué tienes pendiente: reservas sin habitación, partes rechazados,
           cobros de las salidas o mensajes sin contestar.
         </p>

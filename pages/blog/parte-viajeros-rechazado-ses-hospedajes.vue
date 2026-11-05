@@ -58,22 +58,21 @@
 
         <h2>Cómo te lo prepara Hugo</h2>
         <p>
-          Se lo cuentas con tus palabras: «el registro ha rechazado el parte de Luis Gómez, su segundo apellido es Martín,
-          corrígelo y reenvíalo». Hugo mira la ficha y el motivo del rechazo y te prepara dos pasos,
-          corregir el dato y volver a enviar el parte, con el valor de antes y el nuevo. Se aplican los dos juntos cuando
-          pulsas «Sí, aplicar».
+          Basta con preguntarle: «¿por qué ha fallado el parte de Luis Gómez?». Hugo mira la ficha y el motivo del rechazo y
+          te dice qué falta; si es un dato que solo tienes tú, como el segundo apellido, te lo pide. Después te prepara dos
+          pasos, corregir el dato y volver a enviar el parte, con el valor de antes y el nuevo, y se aplican los dos juntos
+          cuando pulsas «Sí, aplicar».
         </p>
         <p>
-          Si le falta un dato que solo tienes tú, como el número de documento correcto, te lo pide antes de preparar nada.
           Y si el motivo no es un dato, como una persona repetida, te lo explica y te dice qué hacer.
         </p>
       </div>
 
       <div class="max-w-3xl mx-auto px-6 my-8 flex justify-center">
-        <!-- alto fijo (588 + 76 del botón): el hueco reservado mide lo mismo que la maqueta a cualquier ancho, y la
-             petición, que da sentido al ejemplo, cabe entera hasta en un móvil de 320 px -->
-        <MontarAlVerse class="w-full max-w-[380px] h-[664px]" :descripcion="HUGO_PARTE_RECHAZADO.descripcion">
-          <MockChatHugo v-bind="HUGO_PARTE_RECHAZADO" :saludo="false" :alto="588" />
+        <!-- alto fijo (620 + 76 del botón): el hueco reservado mide lo mismo que la maqueta a cualquier ancho, y la
+             conversación, desde la pregunta que le da sentido, cabe entera hasta en un móvil de 320 px -->
+        <MontarAlVerse class="w-full max-w-[380px] h-[696px]" :descripcion="HUGO_PARTE_RECHAZADO.descripcion">
+          <MockChatHugo v-bind="HUGO_PARTE_RECHAZADO" :saludo="false" :alto="620" />
         </MontarAlVerse>
       </div>
 

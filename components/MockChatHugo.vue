@@ -41,6 +41,10 @@
         <div v-if="saludo" class="hm-hugo-msg hm-hugo-de-hugo">
           <div class="hm-hugo-burbuja">Hola, soy <b>Hugo</b>. Pídeme cambios como si hablaras con una persona. Antes de aplicar nada, te lo mostraré para que lo confirmes.</div>
         </div>
+        <!-- los mensajes de antes de la petición, cuando el ejemplo es una conversación: tú preguntas y Hugo te pide un dato -->
+        <div v-for="(mensaje, i) in antes" :key="i" class="hm-hugo-msg" :class="mensaje.hugo ? 'hm-hugo-de-hugo' : 'hm-hugo-tuyo'">
+          <div class="hm-hugo-burbuja">{{ mensaje.texto }}</div>
+        </div>
         <div class="hm-hugo-msg hm-hugo-tuyo">
           <div class="hm-hugo-burbuja">{{ peticion }}</div>
         </div>
@@ -92,6 +96,7 @@
 
 <script setup lang="ts">
 withDefaults(defineProps<{
+  antes?: { hugo?: boolean, texto: string }[]
   peticion?: string
   respuesta?: string
   cambios?: { habitacion: string, fechas: string, antes: number, despues: number }[]
@@ -101,6 +106,7 @@ withDefaults(defineProps<{
   alto?: number
   movil?: boolean
 }>(), {
+  antes: () => [],
   peticion: 'Baja la Doble a 90 € del 1 al 7 de julio',
   respuesta: 'Te preparo el cambio en la Doble. Revísalo y dime si lo aplico.',
   cambios: () => [{ habitacion: 'Doble', fechas: '1 jul – 7 jul', antes: 110, despues: 90 }],

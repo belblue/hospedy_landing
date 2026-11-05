@@ -3,6 +3,8 @@
 // ejemplo. Sin clases de Tailwind: utils/ no está en el content de Tailwind.
 
 export interface EjemploHugo {
+  // lo que se dijeron antes de la petición, si el ejemplo es una conversación
+  antes?: { hugo?: boolean, texto: string }[]
   peticion: string
   respuesta: string
   // los pasos de la propuesta, en orden; sin pasos, la respuesta va sin tarjeta
@@ -10,16 +12,21 @@ export interface EjemploHugo {
   descripcion: string
 }
 
-// La IA junto a la normativa: el móvil de la primera pantalla de la portada. El fallo es de los que pasan de verdad: un
-// huésped con DNI dado de alta a mano sin su segundo apellido, que con DNI es obligatorio
+// La IA junto a la normativa: el móvil de la primera pantalla de la portada. El hotelero solo pregunta por qué ha fallado;
+// Hugo da con el motivo, de los que pasan de verdad (un huésped con DNI dado de alta a mano sin su segundo apellido,
+// obligatorio con DNI), le pide el dato que falta y prepara el resto
 export const HUGO_PARTE_RECHAZADO: EjemploHugo = {
-  peticion: 'El registro ha rechazado el parte de Luis Gómez. Su segundo apellido es Martín: corrígelo y reenvíalo',
-  respuesta: 'Falta el segundo apellido, obligatorio con DNI: en su ficha solo pone Gómez. Te preparo los dos pasos; revísalos y dime si los aplico.',
+  antes: [
+    { texto: '¿Por qué ha fallado el parte de Luis Gómez?' },
+    { hugo: true, texto: 'Le falta el segundo apellido, obligatorio con DNI: en su ficha solo pone Gómez. ¿Cuál es?' },
+  ],
+  peticion: 'Martín',
+  respuesta: 'Te preparo los dos pasos; revísalos y dime si los aplico.',
   pasos: [
     '1. Corregir en el huésped Luis Gómez (reserva 4385): segundo apellido - → Martín',
     '2. Volver a enviar al registro de viajeros el parte de Luis Gómez Martín (el sistema lo reenvía en unos minutos)',
   ],
-  descripcion: 'Ejemplo del chat de Hugo: le cuentas que el registro ha rechazado el parte de Luis Gómez y que su segundo apellido es Martín, y Hugo te prepara dos pasos, añadir el apellido que faltaba y volver a enviar el parte, para que los confirmes con «Sí, aplicar».',
+  descripcion: 'Ejemplo del chat de Hugo: le preguntas por qué ha fallado el parte de Luis Gómez, ve que le falta el segundo apellido, obligatorio con DNI, y te lo pide; se lo dices y te prepara dos pasos, añadirlo y volver a enviar el parte, para que los confirmes con «Sí, aplicar».',
 }
 
 export const HUGO_MOVER_RESERVA: EjemploHugo = {
