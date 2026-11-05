@@ -111,9 +111,9 @@
             nada hasta que tú lo confirmas.
           </p>
           <ul class="space-y-6 mb-8">
-            <li v-for="(bloque, i) in BLOQUES_HUGO" :key="bloque.titulo" class="flex items-start gap-4 group">
+            <li v-for="(bloque, i) in BLOQUES_HUGO" :key="bloque.titulo" class="flex items-start gap-4 group" data-aos="fade-up" :data-aos-delay="i * 100">
               <span class="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-xl bg-tertiary flex items-center justify-center">
-                <IconoHugo :nombre="bloque.icono" :retraso="i * 150" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
+                <IconoHugo :nombre="bloque.icono" :retraso="i * 100" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
               </span>
               <div>
                 <h3 class="text-xl font-semibold text-gray-900">{{ bloque.titulo }}</h3>

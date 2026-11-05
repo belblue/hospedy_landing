@@ -77,21 +77,21 @@
                 <h2 class="text-3xl font-bold text-center mb-4">Las tres encuestas del INE</h2>
                 <p class="text-center text-gray-600 mb-12">La de ocupación hotelera y la de apartamentos se envían al INE desde Hospedy; la de turismo rural se descarga rellena, lista para presentar.</p>
                 <div class="grid lg:grid-cols-3 gap-8">
-                    <div class="group bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="0">
+                    <div class="group bg-white p-6 rounded-xl shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="0">
                         <div class="w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center mb-4">
                             <IconoFuncion nombre="encuesta-hotel" :retraso="0" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Encuesta de Ocupación Hotelera</h3>
                         <p class="text-gray-600">Para hoteles y establecimientos similares. Datos de ocupación, pernoctaciones y procedencia. Se envía al INE con un clic.</p>
                     </div>
-                    <div class="group bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                    <div class="group bg-white p-6 rounded-xl shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="100">
                         <div class="w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center mb-4">
                             <IconoFuncion nombre="encuesta-apartamento" :retraso="100" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Encuesta de Apartamentos Turísticos</h3>
                         <p class="text-gray-600">Para apartamentos, villas y alojamientos de alquiler completo. Se envía al INE con un clic.</p>
                     </div>
-                    <div class="group bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="200">
+                    <div class="group bg-white p-6 rounded-xl shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="200">
                         <div class="w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center mb-4">
                             <IconoFuncion nombre="encuesta-rural" :retraso="200" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                         </div>

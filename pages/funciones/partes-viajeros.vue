@@ -62,7 +62,7 @@
                 <div class="max-w-5xl mx-auto px-6">
                     <h2 class="text-3xl font-bold text-center mb-12">Por qué automatizar los partes</h2>
                     <div class="grid lg:grid-cols-2 gap-8">
-                        <div class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="0">
+                        <div class="group bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="0">
                             <div class="flex gap-4">
                                 <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
                                     <IconoPartes nombre="cronometro" :retraso="0" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
@@ -73,7 +73,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                        <div class="group bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
                             <div class="flex gap-4">
                                 <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
                                     <IconoPartes nombre="formulario" :retraso="100" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
@@ -84,7 +84,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="200">
+                        <div class="group bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
                             <div class="flex gap-4">
                                 <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
                                     <IconoPartes nombre="multa" :retraso="200" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
@@ -95,7 +95,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="300">
+                        <div class="group bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="300">
                             <div class="flex gap-4">
                                 <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center">
                                     <IconoPartes nombre="envio" :retraso="300" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
@@ -118,21 +118,21 @@
                         <p class="text-gray-600 text-lg max-w-2xl mx-auto">Configuramos contigo, una sola vez, el envío a los cuerpos que te corresponden, con las credenciales que te da cada organismo. Desde entonces, cada parte sale solo.</p>
                     </div>
                     <div class="grid lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                        <div class="group bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="0">
+                        <div class="group bg-white rounded-xl p-6 text-center shadow-sm" data-aos="fade-up" data-aos-delay="0">
                             <div class="w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center mx-auto mb-3">
                                 <IconoPartes nombre="registro" :retraso="0" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                             </div>
                             <h3 class="font-semibold mb-1">SES Hospedajes</h3>
                             <p class="text-lg text-gray-500">Policía Nacional y Guardia Civil</p>
                         </div>
-                        <div class="group bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                        <div class="group bg-white rounded-xl p-6 text-center shadow-sm" data-aos="fade-up" data-aos-delay="100">
                             <div class="w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center mx-auto mb-3">
                                 <IconoPartes nombre="registro" :retraso="100" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                             </div>
                             <h3 class="font-semibold mb-1">Ertzaintza</h3>
                             <p class="text-lg text-gray-500">País Vasco</p>
                         </div>
-                        <div class="group bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="200">
+                        <div class="group bg-white rounded-xl p-6 text-center shadow-sm" data-aos="fade-up" data-aos-delay="200">
                             <div class="w-12 h-12 md:w-14 md:h-14 bg-tertiary rounded-xl flex items-center justify-center mx-auto mb-3">
                                 <IconoPartes nombre="registro" :retraso="200" class="block w-[34px] h-[34px] md:w-10 md:h-10" />
                             </div>
