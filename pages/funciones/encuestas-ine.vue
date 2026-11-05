@@ -139,7 +139,8 @@
                         </div>
                     </div>
                     <div class="flex gap-6 items-start group" data-aos="fade-up">
-                        <MarcaLista class="flex-shrink-0 w-10 h-10" />
+                        <!-- a 48 px y con -m-1, para que su disco mida 40 como los de los otros pasos sin mover el texto -->
+                        <MarcaLista class="flex-shrink-0 w-12 h-12 -m-1" />
                         <div>
                             <h3 class="text-xl font-semibold mb-2">¡Listo! Nosotros nos encargamos</h3>
                             <p class="text-gray-600">El INE responde en el momento y Hospedy guarda la fecha y el resultado de cada envío.</p>

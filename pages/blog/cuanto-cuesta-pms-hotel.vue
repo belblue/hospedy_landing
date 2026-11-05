@@ -108,44 +108,44 @@
 
         <div class="bg-green-50 p-6 rounded-xl my-8 not-prose">
           <ul class="space-y-2">
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>PMS completo con calendario y gestión de reservas</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Hugo, el asistente con IA</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Channel manager (1 OTA incluida)</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Motor de reservas sin comisión por reserva</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Partes de viajeros automáticos a SES Hospedajes</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Encuesta del INE rellena (con envío en un clic en hoteles y apartamentos)</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Escaneo del documento con el móvil</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Pre check-in</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Facturas y Zenfisk, el programa de facturación con Verifactu</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Soporte en español</span>
             </li>
           </ul>

@@ -53,18 +53,18 @@
                         <!-- Trust indicators -->
                         <div class="pt-6 border-t border-gray-200 mt-8">
                             <p class="text-lg text-gray-500 mb-3">Sin compromiso. Sin tarjeta de crédito.</p>
-                            <div class="flex items-center gap-4">
+                            <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
                                 <div class="flex items-center gap-2 group">
                                     <MarcaLista class="w-5 h-5 flex-shrink-0" />
-                                    <span class="text-lg text-gray-600">20 min</span>
+                                    <span class="text-lg text-gray-600 whitespace-nowrap">20 min</span>
                                 </div>
                                 <div class="flex items-center gap-2 group">
                                     <MarcaLista class="w-5 h-5 flex-shrink-0" />
-                                    <span class="text-lg text-gray-600">Personalizada</span>
+                                    <span class="text-lg text-gray-600 whitespace-nowrap">Personalizada</span>
                                 </div>
                                 <div class="flex items-center gap-2 group">
                                     <MarcaLista class="w-5 h-5 flex-shrink-0" />
-                                    <span class="text-lg text-gray-600">En español</span>
+                                    <span class="text-lg text-gray-600 whitespace-nowrap">En español</span>
                                 </div>
                             </div>
                         </div>

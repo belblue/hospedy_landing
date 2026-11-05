@@ -293,20 +293,20 @@
             puedes enlazar desde tu web o tus redes:
           </p>
           <ul class="space-y-2">
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>0&nbsp;% de comisión por reserva</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Cobro del total o de un depósito con tarjeta: {{ comision }} por cobro, IVA incluido, más las tarifas de Stripe, solo si lo usas</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Sincronizado con tu calendario</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Incluido en la suscripción</span>
             </li>
           </ul>

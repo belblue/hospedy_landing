@@ -131,20 +131,20 @@
             Hospedy se conecta con más de 150 OTAs incluyendo:
           </p>
           <ul class="space-y-2">
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Booking.com, Airbnb, Expedia, Vrbo...</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Precios y disponibilidad salen de Hospedy; las reservas entran solas</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Gestión de precios centralizada</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>30 días de prueba gratis</span>
             </li>
           </ul>

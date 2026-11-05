@@ -121,20 +121,20 @@
         <div class="bg-secondary/5 p-6 rounded-xl my-8 not-prose">
           <h3 class="text-xl font-bold mb-4">Hospedy te prepara:</h3>
           <ul class="space-y-2">
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Encuesta de Ocupación Hotelera (EOH)</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Encuesta de Apartamentos Turísticos (EOAT)</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Encuesta de Turismo Rural (EOTR)</span>
             </li>
-            <li class="flex items-center gap-2 group">
-              <MarcaLista class="w-5 h-5 flex-shrink-0" />
+            <li class="flex items-start gap-2 group">
+              <MarcaLista class="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>Encuesta de Castilla y León (se descarga rellena)</span>
             </li>
           </ul>
